@@ -1,0 +1,8 @@
+{
+	"name": "VonkProgramming Portofolio site",
+	"short_name": "vonkprogramming",
+	"icons": [],
+	"theme_color": "#333333",
+	"background_color": "#333333",
+	"display": "standalone"
+}

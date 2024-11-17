@@ -1,0 +1,51 @@
+<IfModule mod_mime.c>
+      AddType text/plain .txt
+      AddType text/html .html .htm
+      AddType application/javascript .js
+      AddType text/css .css
+      AddType image/jpeg .jpg .jpeg
+      AddType image/png .png
+      AddType image/gif .gif
+      AddType image/svg+xml .svg
+      AddType image/svg+xml .svgz
+</IfModule>
+
+<IfModule mod_headers.c>
+      Header add Content-Security-Policy "default-src 'self' 'unsafe-inline'; img-src 'self' data: www.googletagmanager.com; style-src 'self' 'unsafe-inline'; script-src-elem 'self' 'unsafe-inline' www.googletagmanager.com; connect-src 'self' https://api.ipify.org;"
+
+      # Rewrite www to non-www
+      RewriteEngine On
+      RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+      RewriteRule ^ http://%1%{REQUEST_URI} [L,R=301]
+
+      # Serve gzip compressed CSS, JS, HTML and SVG files if they exist
+      # and the client accepts gzip.
+      RewriteCond "%{HTTP:Accept-encoding}" "gzip"
+      RewriteCond "%{REQUEST_FILENAME}\.gz" -s
+      RewriteRule "^(.*)\.(css|js|html|svg)"         "$1\.$2\.gz" [QSA]
+
+      # Serve correct content types, and prevent mod_deflate double gzip.
+      RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-gzip:1]
+      RewriteRule "\.js\.gz$"  "-" [T=text/javascript,E=no-gzip:1]
+      RewriteRule "\.html\.gz$"  "-" [T=text/html,E=no-gzip:1]
+      RewriteRule "\.svg\.gz$"  "-" [T=image/svg+xml,E=no-gzip:1]
+
+      <FilesMatch "\.(js|css|html|svg)\.gz$">
+            # Serve correct encoding type.
+            Header append Content-Encoding gzip
+
+            # Force proxies to cache gzipped &
+            # non-gzipped css/js files separately.
+            Header append Vary Accept-Encoding
+      </FilesMatch>
+
+      <FilesMatch "\.(jpg|jpeg|png|webp|ttf|svg|svg\.gz|js|js\.gz|css|css\.gz|html|html\.gz)$">
+            Header append Cache-Control "public, max-age=31536000, immutable"
+      </FilesMatch>
+
+      # Serve correct encoding type.
+      AddEncoding gzip .gz
+</IfModule>
+
+# Redirect to index.html
+ErrorDocument 404 /index.html
