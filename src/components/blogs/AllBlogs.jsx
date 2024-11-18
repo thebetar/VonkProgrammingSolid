@@ -35,7 +35,7 @@ export default function AllBlogs() {
 										<span
 											class={[
 												'text-xs',
-												'dark:text-gray',
+												'text-light',
 												'capitalize',
 												'px-2',
 												'py-1',

@@ -64,25 +64,19 @@ a {
 }
 
 [data-theme='dark'] p,
-li,
-button,
-a {
+[data-theme='dark'] li,
+[data-theme='dark'] button,
+[data-theme='dark'] a {
 	color: #f5f5f5; /* light */
 }
 
 .footer-icons {
-	color: #f5f5f5; /* light */
 	display: flex;
 	align-items: center;
 	border: 1px solid #4a4a4a; /* dark */
 	padding: 1rem;
 	border-radius: 0.5rem;
 	justify-content: center;
-}
-
-.footer-icons.dark {
-	color: #f5f5f5; /* light */
-	border-color: #f5f5f5; /* light */
 }
 
 .blog-header {

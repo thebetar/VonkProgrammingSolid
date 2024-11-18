@@ -27,13 +27,13 @@ export default function Blog() {
 											<span
 												class={[
 													'text-xs',
-													'dark:text-dark',
 													'text-light',
 													'capitalize',
 													'px-2',
 													'py-1',
 													'rounded-md',
 													'font-semibold',
+													'bg-opacity-70',
 													`bg-${getTagColor(tag)}-700`,
 												].join(' ')}
 											>
@@ -42,12 +42,9 @@ export default function Blog() {
 										)}
 									</For>
 								</div>
-								<p class="text-base md:text-sm dark:text-gray mb-1">{blog.description}</p>
+								<p class="text-base md:text-sm mb-1">{blog.description}</p>
 
-								<a
-									href={blog.link}
-									class="text-sm dark:text-gray underline hover:opacity-70 transition-opacity"
-								>
+								<a href={blog.link} class="text-sm underline hover:opacity-70 transition-opacity">
 									Read more about {getReadmoreLink(blog.link)}
 								</a>
 							</div>
