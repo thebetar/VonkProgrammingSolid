@@ -3,7 +3,7 @@ import { info } from '../../data/info';
 export default function Footer() {
 	return (
 		<footer class="container flex sm:flex-row flex-col justify-between items-center mb-8 sm:mb-4">
-			<p class="dark:text-light text-right my-8">
+			<p class="text-right my-8">
 				Developed by <strong>VonkProgramming</strong>
 			</p>
 			<div class="grid grid-cols-4 gap-4">

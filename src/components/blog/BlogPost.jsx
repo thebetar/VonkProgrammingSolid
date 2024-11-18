@@ -38,7 +38,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 		const titleElement = document.querySelector('title');
 		titleElement.textContent = `VonkProgramming - ${title}`;
 
-		const metaKeywords = document.createElement('meta[name="keywords"]');
+		const metaKeywords = document.querySelector('meta[name="keywords"]');
 		metaKeywords.content = keywords.join(', ');
 	});
 
@@ -122,7 +122,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 			<div class="flex max-w-[720px] mx-auto md:gap-x-4 gap-2 justify-center items-center md:text-base text-sm mb-10 md:flex-row flex-col">
 				<button
 					id="subscribe-popup-button"
-					class="h-10 w-full px-4 py-2 bg-zinc-800 hover:bg-zinc-700 transition-colors rounded-md block cursor-pointer text-light text-center"
+					class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
 					onClick={openSubscribe}
 				>
 					📚 Subscribe to my blog
@@ -130,14 +130,14 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 
 				<button
 					id="share-button"
-					class="h-10 w-full px-4 py-2 bg-zinc-800 hover:bg-zinc-700 transition-colors rounded-md block cursor-pointer text-light text-center"
+					class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
 					onClick={() => setShowShare(true)}
 				>
 					🧠 Share this knowledge
 				</button>
 
 				<a
-					class="h-10 w-full px-4 py-2 bg-zinc-800 hover:bg-zinc-700 transition-colors rounded-md block cursor-pointer text-light text-center"
+					class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
 					href={`mailto:info@vonkprogramming.nl&subject=Question about ${title}&body=Hi VonkProgramming team,%0D%0A%0D%0AI have a question about ${title}.%0D%0A%0D%0AKind regards,%0D%0A%0D%0A[Your name]`}
 				>
 					❓ Ask me a question

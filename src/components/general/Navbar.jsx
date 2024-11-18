@@ -48,7 +48,7 @@ export default function Navbar() {
 					<li>
 						<a
 							aria-label="github-button"
-							class="block dark:text-light rounded-lg p-4 ml-2 bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition"
+							class="block rounded-lg p-4 ml-2 bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition"
 							href={info.socialMedia.github}
 							target="_blank"
 							rel="noopener noreferrer"
