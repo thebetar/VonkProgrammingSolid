@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
+import gzipPlugin from 'rollup-plugin-gzip'
 // import devtools from 'solid-devtools/vite';
 
 export default defineConfig({
@@ -16,5 +17,9 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
+    minify: 'terser',
+    rollupOptions: {
+      plugins: [gzipPlugin()]
+    }
   },
 });

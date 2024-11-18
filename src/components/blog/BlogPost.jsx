@@ -107,7 +107,6 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 									'py-1',
 									'rounded-md',
 									'font-semibold',
-
 									`bg-${getTagColor(tag)}-700`,
 								].join(' ')}
 							>
