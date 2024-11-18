@@ -22,7 +22,7 @@ export default function Homepage() {
 			<SkillsPreview />
 			<ExperiencesPreview title="Experience" details={info.experience.filter(e => e.featured)} />
 			<ExperiencesPreview title="Education" details={info.education.filter(e => e.featured)} />
-			{/* <ProjectsPreview /> */}
+			<ProjectsPreview />
 		</>
 	);
 
