@@ -4,6 +4,7 @@ import Share from './Share';
 import { getTagColor } from '../../data/blogs';
 
 export default function BlogPost({ id, title, description, link, date, tags, keywords, content }) {
+	const [viewCount, setViewCount] = createSignal(1);
 	const [showShare, setShowShare] = createSignal(false);
 
 	const parseTitle = title => {
@@ -34,12 +35,25 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 		document.querySelector('body').dispatchEvent(new Event('open-subscribe'));
 	};
 
-	createEffect(() => {
+	createEffect(async () => {
 		const titleElement = document.querySelector('title');
 		titleElement.textContent = `VonkProgramming - ${title}`;
 
 		const metaKeywords = document.querySelector('meta[name="keywords"]');
 		metaKeywords.content = keywords.join(', ');
+
+		try {
+			const response = await fetch(`/view.php?blog_id=${id}`);
+			const data = await response.text();
+
+			if (isNaN(data)) {
+				return;
+			}
+
+			setViewCount(data);
+		} catch (error) {
+			console.error(error);
+		}
 	});
 
 	return (
@@ -91,7 +105,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 				</div>
 
 				<p class="text-sm dark:text-gray mb-2">
-					{date} | <span id="view-count">1</span> views
+					{date} | {viewCount()} views
 				</p>
 
 				<div class="flex gap-x-2 mb-8">

@@ -778,7 +778,7 @@ export const info = {
 		},
 		{
 			title: 'ESlint custom rules',
-			featured: false,
+			featured: true,
 			thumbnail: '/assets/images/eslint.webp',
 			githubUrl: 'https://github.com/thebetar/EslintCustomRules',
 		},
