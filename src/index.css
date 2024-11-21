@@ -156,3 +156,12 @@ a {
 [data-theme='light'] .blog-post code {
 	color: #ffffff !important;
 }
+
+.background-glow {
+	z-index: -1;
+}
+
+[data-theme='dark'] .background-glow {
+	background: radial-gradient(circle, rgb(27 27 27) 0%, rgb(17 17 17) 30%, rgb(17 17 17) 100%);
+	background-size: cover;
+}
