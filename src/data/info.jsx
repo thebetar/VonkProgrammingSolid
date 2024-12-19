@@ -194,6 +194,15 @@ export const info = {
 			type: SkillType.FRAMEWORK,
 		},
 		{
+			title: 'Flask',
+			years: 3,
+			level: 4,
+			logo: '/assets/svg/flask.svg',
+			link: 'https://flask.palletsprojects.com/',
+			featured: false,
+			type: SkillType.FRAMEWORK,
+		},
+		{
 			title: 'Angular',
 			years: 4,
 			level: 4,
@@ -209,6 +218,15 @@ export const info = {
 			logo: '/assets/svg/ionic.svg',
 			link: 'https://ionicframework.com/',
 			featured: true,
+			type: SkillType.FRAMEWORK,
+		},
+		{
+			title: 'Django',
+			years: 3,
+			level: 3,
+			logo: '/assets/svg/django.svg',
+			link: 'https://www.djangoproject.com/',
+			featured: false,
 			type: SkillType.FRAMEWORK,
 		},
 		{
@@ -343,6 +361,15 @@ export const info = {
 			level: 4,
 			logo: '/assets/svg/puppeteer.svg',
 			link: 'https://pptr.dev/',
+			featured: false,
+			type: SkillType.TOOL,
+		},
+		{
+			title: 'PySpark',
+			years: 1,
+			level: 3,
+			logo: '/assets/svg/pyspark.svg',
+			link: 'https://spark.apache.org/docs/latest/api/python/index.html',
 			featured: false,
 			type: SkillType.TOOL,
 		},
@@ -522,14 +549,14 @@ export const info = {
 
 	experience: [
 		{
-			name: 'SPAR',
-			location: 'Waalwijk, Noord-Brabant, Nederland',
-			startDate: 'Jun 2024',
+			name: 'WebshopImporter',
+			location: 'Remote - Enschede, Overijssel, Nederland',
+			startDate: 'Sep 2024',
 			endDate: 'Now',
 			description: [
-				'At SPAR Nederland I work as a data engineer solving data related questions and problems. I am mostly using my SQL, Azure and python skills to solve complex problems related to big data. Within this role I have gotten the opportunity to try a different stack than I did in my previous roles. I hope this experience will help me broaden my skillset and become a more flexible developer.',
+				'At WebshopImporter, I am currently working as a full-stack developer, filling any role they need. My current responsiblities lie mostly in the connecting of different APIs together so that they can be used in the WebshopImporter platform. I am also working on the front-end of the platform, using NiceGUI to create a user-friendly interface for the users of the platform.',
 			],
-			link: 'https://www.spar.nl/',
+			link: 'https://www.webshopimporter.com/',
 			featured: true,
 		},
 		{
@@ -539,6 +566,17 @@ export const info = {
 			endDate: 'Now',
 			description: [
 				"At Chary Solutions, I served as the Senior Developer, leading the technical development for integrating marketing software, Klaviyo, with various content management systems that were not supported by default integrations. Additionally, I developed automations to enhance the company's operational efficiency.",
+			],
+			link: 'https://www.spar.nl/',
+			featured: true,
+		},
+		{
+			name: 'SPAR',
+			location: 'Remote - Waalwijk, Noord-Brabant, Nederland',
+			startDate: 'Jun 2024',
+			endDate: 'Dec 2024',
+			description: [
+				'At SPAR Nederland I work as a data engineer solving data related questions and problems. I am mostly using my SQL, Azure and python skills to solve complex problems related to big data. Within this role I have gotten the opportunity to try a different stack than I did in my previous roles. I hope this experience will help me broaden my skillset and become a more flexible developer.',
 			],
 			link: 'https://www.spar.nl/',
 			featured: true,
