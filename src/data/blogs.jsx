@@ -55,30 +55,30 @@ export const blogs = [
 		content: (
 			<>
 				<p>
-					The development world has changed significantly over the last few decades. Popular tech stacks have
-					shifted from the early days of C, through the rise of Java in the 80s and 90s, to Python becoming a
-					favorite in the 2020s. As the number of developers has grown, so has the trend of specialization.
-					Many developers now focus narrowly on one framework or tool. While businesses benefit from hiring
-					specialists who can contribute immediately, is this always the best choice for developers
-					themselves?
+					The development world has changed significantly over the last few decades. The most popular tech
+					stack has changed from the early days of C, through the rise of Java in the 80s and 90s, to Python
+					becoming the most used language in the 2020s. As the number of developers has grown, so has the
+					trend of specialization. Many developers now focus narrowly on one framework or tool. While
+					businesses benefit from hiring specialists who can contribute immediately, is this always the best
+					choice for developers themselves?
 				</p>
 				<h2 id="over-specialization">Over-Specialization</h2>
 				<p>
-					Specialization can feel like a strength. It allows you to master a skill, develop expertise, and
-					create clear value. But skills in one framework or tool often translate well to others. A React
-					developer can easily learn Vue or Angular! A backend developer familiar with Spring can pick up
-					Django or Flask in no time at all! Mobile developers who focus on Flutter can adapt to platforms
-					like React Native or Ionic with ease!
+					Specialisation is a strength. It allows you to get full control of a certain tool or framework,
+					allowing you to create value more efficiently. But there's also a downside, over-specialization can
+					limit your growth and opportunities. A React developer can easily learn Vue or Angular! A backend
+					developer familiar with Spring can pick up Django or Flask in no time at all! Mobile developers who
+					focus on Flutter can adapt to platforms like React Native or Ionic with ease!
 				</p>
 				<p>
-					Broadening your focus can help you understand your field better, make you more adaptable, and create
-					new opportunities.
+					Broadening your focus can help you understand your field better, make you able to tackle more
+					challenges and you can take advantage of more diverse opportunities.
 				</p>
 				<p>
 					Even though specialization makes it easier to land specific roles, it can also limit your
 					flexibility. Imagine your specialized framework or tool becoming less popular or being replaced
-					altogether. If your entire career revolves around one niche skill, you might find it difficult to
-					adapt when the market changes. By focusing only on what you know, you could miss out on roles or
+					altogether. If your entire career revolves around one skill, you might find it difficult to adapt
+					when the market changes. By focusing only on what you know, you could miss out on roles or
 					opportunities where your broader skills are just as applicable.
 				</p>
 				<p>
@@ -88,7 +88,6 @@ export const blogs = [
 					components, while a backend developer learning Flask could find new methods to streamline APIs.
 				</p>
 				<p>
-					{' '}
 					It’s better to see yourself as a web developer, mobile developer, or backend developer, rather than
 					as a specialist in one tool. This mindset opens doors and makes transitions between roles or
 					technologies easier.
@@ -98,37 +97,34 @@ export const blogs = [
 				<ul>
 					<li>
 						<p>
-							<strong>Personal Projects</strong>\ I aim to create two to four personal projects every
-							year. The main rule? Each project must use a framework or tool I’m unfamiliar with. These
-							projects are not only fun but also push me to step out of my comfort zone and experiment
-							with something new.
+							<strong>Personal Projects</strong> I aim to create two to four personal projects every year.
+							Every project must use a framework or tool I haven't used yet. These projects are not only
+							fun but also push me to step out of my comfort zone and experiment with something new.
 						</p>
 					</li>
 					<li>
 						<p>
-							<strong>Coding Challenges</strong>\ I love tackling coding challenges in programming
-							languages I haven’t learned yet. For example, I challenge myself to complete{' '}
-							<em>Advent of Code</em> each year in a different language. This year, I’m working through
-							2023 in Go, and I’m planning to take on 2024 in Lua. It’s a fun way to stay motivated while
-							building foundational skills in new languages.
+							<strong>Coding Challenges</strong> I love tackling coding challenges in programming
+							languages I am unfamiliar with. For example, I am currently trying to complete the{' '}
+							<em>Advent of Code</em> using a different programming language for each year. This year I
+							will try Lua for the first time.
 						</p>
 					</li>
 					<li>
 						<p>
-							<strong>Tutorials and Online Courses</strong>\ Tutorials and courses are excellent for
-							getting a feel for new frameworks with minimal time commitment. Platforms like Udemy make it
-							easy to learn at your own pace, even in short, manageable chunks—just 30 minutes a week can
-							go a long way toward mastering something new.
+							<strong>Tutorials and Online Courses</strong> Tutorials and courses are great for getting a
+							feel for new frameworks with minimal time commitment. Platforms like Udemy make it easy to
+							learn at your own pace. Even a short 30 minute session every week adds up!
 						</p>
 					</li>
 				</ul>
 				<h2 id="conclusion">Conclusion</h2>
 				<p>
-					Specialization has clear benefits. It allows you to work efficiently and contribute value. But
-					over-specialization can limit your growth and opportunities. By exploring new tools, trying
-					different challenges, and occasionally stepping outside your comfort zone, you can stay adaptable
-					and future-proof your career. Whether you’re a frontend developer, backend developer, or mobile
-					developer, broadening your focus can lead to more fulfilling and rewarding work.
+					Specialization has clear benefits. It allows you to work efficiently and create more stuff faster!
+					But it can also trap you in a specific job market which only contains this one framework. What if
+					this framework gets dropped? It is better to start seeing yourself as a frontend developer, backend
+					developer, or mobile developer, rather than as a specialist in one tool. This mindset opens doors
+					and makes transitions between roles or technologies easier.
 				</p>
 			</>
 		),
