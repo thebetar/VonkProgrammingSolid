@@ -3,75 +3,73 @@
     $dbname = "DB4052629";
     $username = "U4052629";
     $password = "YG!siAY3hgjg8AC";
+    
+    function add_view($blog_id, $ip_address) {
+        global $conn;
+        
+        // Check if blog already exists
+        $checkStmt = $conn->prepare("SELECT * FROM Blogs WHERE id = :blog_id");
+        $checkStmt->bindParam(':blog_id', $blog_id);
+        $checkStmt->execute();
+        $blog = $checkStmt->fetch();
+
+        $stmt = null;
+
+        if (!$blog) {
+            // Add blog with one view
+            $stmt = $conn->prepare("INSERT INTO Blogs (id, views, ip_addresses) VALUES (:blog_id, 1, :ip_address)");
+            $stmt->bindParam(':blog_id', $blog_id);
+            $stmt->bindParam(':ip_address', $ip_address);
+            $stmt->execute();
+            return;
+        }
+
+        // Check if IP address already exists
+        if($blog['ip_addresses'] && strpos($blog['ip_addresses'], $ip_address) !== false) {
+            return;
+        }    
+        // Increment views and add IP address
+        $stmt = $conn->prepare("UPDATE Blogs SET views = views + 1, ip_addresses = CONCAT(ip_addresses, ', ', :ip_address) WHERE id = :blog_id");
+        $stmt->bindParam(":blog_id", $blog_id);
+        $stmt->bindParam(":ip_address", $ip_address);
+        $stmt->execute();
+    }
+
+    function get_view_count($blog_id) {
+        global $conn;
+        $stmt = $conn->prepare("SELECT views FROM Blogs WHERE id = :blog_id");
+        $stmt->bindParam(':blog_id', $blog_id);
+        $stmt->execute();
+        $blog = $stmt->fetch();
+        return $blog ? $blog['views'] : 0;
+    }
 
     try {
         // Create connection
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         // Set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-        if($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Get the raw POST data
-            $rawData = file_get_contents("php://input");
-            $data = json_decode($rawData, true);
-    
-            if(!isset($data['blog_id']) || !isset($data['ip_address'])) {
-                echo "Invalid request";
-                return;
-            }
-    
-            $blog_id = $data['blog_id'];
-            $ip_address = $data['ip_address'];
-    
-            // Check if blog already exists
-            $checkStmt = $conn->prepare("SELECT * FROM Blogs WHERE id = :blog_id");
-            $checkStmt->bindParam(':blog_id', $blog_id);
-            $checkStmt->execute();
-            $blog = $checkStmt->fetch();
-    
-            $stmt = null;
-    
-            if (!$blog) {
-                // Add blog with one view
-                $stmt = $conn->prepare("INSERT INTO Blogs (id, views, ip_addresses) VALUES (:blog_id, 1, :ip_address)");
-                $stmt->bindParam(':blog_id', $blog_id);
-            } else {
-                // Check if IP address already exists
-                if($blog['ip_addresses'] && strpos($blog['ip_addresses'], $ip_address) !== false) {
-                    echo "exists";
-                    return;
-                }
-    
-                // Increment views and add IP address
-                $stmt = $conn->prepare("UPDATE Blogs SET views = views + 1, ip_addresses = CONCAT(ip_addresses, ', ', :ip_address) WHERE id = :blog_id");
-                $stmt->bindParam(":blog_id", $blog_id);
-                $stmt->bindParam(":ip_address", $ip_address);
-            }
-    
-            // Execute the statement
-            if ($stmt->execute()) {
-                echo "success";
-            } else {
-                echo "failed";
-            }
-        } elseif($_SERVER["REQUEST_METHOD"] == "GET") {
+
+        if($_SERVER["REQUEST_METHOD"] == "GET") {
+            // Get the blog ID
             $blog_id = isset($_GET["blog_id"]) ? intval($_GET["blog_id"]) : 0;
 
+            // Check if blog ID is valid
             if ($blog_id == 0) {
                 echo "Invalid request";
                 return;
             }
 
-            // Get views of the blog
-            $stmt = $conn->prepare("SELECT views FROM Blogs WHERE id = :blog_id");
-            $stmt->bindParam(":blog_id", $blog_id);
-            
-            if($stmt->execute()) {
-                $views = $stmt->fetchColumn();
-                echo $views;
-            } else {
-                echo "failed";
-            }
+            // Get IP address
+            $ip_address = $_SERVER['REMOTE_ADDR'];
+
+            // Add view
+            add_view($blog_id, $ip_address);
+
+            // Get view count
+            $view_count = get_view_count($blog_id);
+
+            echo $view_count;
         } else {
             echo "Invalid request";
         }
