@@ -549,6 +549,17 @@ export const info = {
 
 	experience: [
 		{
+			name: 'Wisepim',
+			location: 'Remote - Enschede, Overijssel, Nederland',
+			startDate: 'Sep 2024',
+			endDate: 'Now',
+			description: [
+				'At Wisepim, I am currently working as a full-stack developer, filling any role they need. My current responsiblities lie mostly in the connecting of different APIs together so that they can be used in the Wisepim platform, which is a PIM system that integrates AI to improve data. I am also working on the front-end of the platform, using NiceGUI to create a user-friendly interface for the users of the platform.',
+			],
+			link: 'https://www.wisepim.com/',
+			featured: true,
+		},
+		{
 			name: 'WebshopImporter',
 			location: 'Remote - Enschede, Overijssel, Nederland',
 			startDate: 'Sep 2024',
