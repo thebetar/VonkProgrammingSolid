@@ -1,6 +1,6 @@
 export default function ExperiencesPreview({ title, details }) {
 	return (
-		<section class="flex items-start justify-between flex-col sm:flex-row">
+		<section id={title.toLowerCase()} class="flex items-start justify-between flex-col sm:flex-row">
 			<h2 class="w-[15rem] mt-16 uppercase">{title}</h2>
 			<div class="w-full">
 				<For each={details}>

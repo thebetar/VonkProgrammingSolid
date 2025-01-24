@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}', 'index.html'],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './src/components/**/*.{js,jsx,ts,tsx}',
+    'index.html'
+  ],
   darkMode: ["class", '[data-theme="dark"]'],
   safelist: [
     'bg-green-700',
@@ -8,7 +12,7 @@ module.exports = {
     'bg-purple-700',
     'bg-red-700',
     'bg-orange-700',
-    'bg-cyan-700',
+    'bg-cyan-700'
   ],
   theme: {
     extend: {

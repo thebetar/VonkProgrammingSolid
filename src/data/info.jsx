@@ -15,10 +15,10 @@ export const info = {
 	jobDescription1: 'Software enthusiast',
 	jobDescription2: 'Code quality advocate',
 	description: `
-		I am an experienced developer with experience in Javascript and Python. I value code quality and continuous learning as can be read in my blogs.
+		I am an experienced developer skilled in C++, Go, JavaScript and Python. I value code quality and continuous learning, as shared in my blogs. Check out my GitHub for exciting projects and insights.
 	`,
 	about: `
-		I am an experienced developer with experience in javascript and python. I value code quality and continuous learning as can be read in my blogs. In my free time I like to work on side projects and learn new technologies. I am currently studying for a master's degree in computer systems and networks at the Warsaw University of Technology.
+		I am an experienced developer with a strong background in JavaScript and Python, and hobby experience with C++ and Go. I value code quality and continuous learning, which I often share through my blogs. In my free time, I work on side projects, explore new technologies, and focus on exciting AI projects through my freelance work. I am also in the process of getting a master's degree in computer systems and networks at the Warsaw University of Technology, where I continue to deepen my knowledge and skills.
 	`,
 	keywords: 'developer, javascript, python, code quality, blogs',
 	blogs,
@@ -682,6 +682,7 @@ export const info = {
 			featured: false,
 		},
 	],
+
 	education: [
 		{
 			name: "Master's degree, Computer systems and networks",
@@ -765,34 +766,81 @@ export const info = {
 
 	projects: [
 		{
+			title: 'VonkEcrypt',
+			featured: false,
+			thumbnail: '/assets/images/github-project.webp',
+			githubUrl: 'https://github.com/thebetar/VonkEncrypt',
+			language: 'C++',
+		},
+		{
+			title: 'VonkListTree',
+			featured: false,
+			thumbnail: '/assets/images/github-project.webp',
+			githubUrl: 'https://github.com/thebetar/VonkListTree',
+			language: 'C++',
+		},
+		{
+			title: 'VonkDB',
+			featured: false,
+			thumbnail: '/assets/images/github-project.webp',
+			githubUrl: 'https://github.com/thebetar/VonkDB',
+			language: 'C++',
+		},
+		{
+			title: 'VonkHash',
+			featured: false,
+			thumbnail: '/assets/images/github-project.webp',
+			githubUrl: 'https://github.com/thebetar/VonkHash',
+			language: 'C',
+		},
+		{
+			title: 'ArduinoChristmas',
+			featured: false,
+			thumbnail: '/assets/images/arduino-christmas.webp',
+			githubUrl: 'https://github.com/thebetar/ArduinoChristmas',
+			language: 'C',
+		},
+		{
+			title: 'AssistAI',
+			featured: true,
+			thumbnail: '/assets/images/assistai.png',
+			githubUrl: 'https://github.com/thebetar/AssistAI',
+			language: 'python',
+		},
+		{
 			title: 'Portfolio website (Solid)',
 			featured: false,
 			thumbnail: '/assets/images/vonkprogramming-solid.webp',
 			githubUrl: 'https://github.com/thebetar/VonkProgrammingSolid',
+			language: 'javascript',
 		},
 		{
 			title: 'Portfolio website (Astro)',
 			featured: false,
 			thumbnail: '/assets/images/vonkprogramming-astro.webp',
 			githubUrl: 'https://github.com/thebetar/VonkProgrammingAstro',
+			language: 'javascript',
 		},
 		{
-			title: 'Encrypted message exchange service with replication',
+			title: 'Encrypted replicated messaging',
 			featured: true,
 			thumbnail: '/assets/images/encrypted-message-exchange.webp',
 			githubUrl: 'https://github.com/thebetar/EncryptedMessageExchange',
+			language: 'javascript',
 		},
 		{
 			title: 'x86 assembly',
 			featured: true,
 			thumbnail: '/assets/images/x86-assembly.png',
 			githubUrl: 'https://github.com/thebetar/x86-assembly',
+			language: 'assembly',
 		},
 		{
 			title: 'Risc-V assembly',
 			featured: false,
 			thumbnail: '/assets/images/risc-v-assembly.webp',
 			githubUrl: 'https://github.com/thebetar/RISC-V-assembly',
+			language: 'assembly',
 		},
 		// {
 		// 	title: 'AssistAI',
@@ -805,12 +853,14 @@ export const info = {
 			featured: false,
 			thumbnail: '/assets/images/speechcalculator.png',
 			githubUrl: 'https://github.com/thebetar/IASRProject',
+			language: 'javascript',
 		},
 		{
 			title: 'Resilient hosting',
 			featured: false,
 			thumbnail: '/assets/images/resilienthosting.webp',
 			githubUrl: 'https://github.com/thebetar/ResillientHosting',
+			language: 'docker',
 		},
 		{
 			title: 'Advent of code',
@@ -818,42 +868,49 @@ export const info = {
 			thumbnail: '/assets/images/adventofcode.webp',
 			githubUrl: 'https://github.com/thebetar/AdventOfCode',
 			liveUrl: 'https://adventofcode.com/',
+			language: 'go',
 		},
 		{
 			title: 'Voice calculator',
 			featured: false,
 			thumbnail: '/assets/images/voicecalculator.webp',
 			githubUrl: 'https://github.com/thebetar/IASRProject',
+			language: 'python',
 		},
 		{
 			title: 'ESlint custom rules',
-			featured: true,
+			featured: false,
 			thumbnail: '/assets/images/eslint.webp',
 			githubUrl: 'https://github.com/thebetar/EslintCustomRules',
+			language: 'javascript',
 		},
 		{
 			title: 'Bun vs Node',
 			featured: false,
 			thumbnail: '/assets/images/bunvsnode.webp',
 			githubUrl: 'https://github.com/thebetar/BunVsNode',
+			language: 'javascript',
 		},
 		{
 			title: 'FietsTracker',
 			featured: false,
 			thumbnail: '/assets/images/fietstrekker.webp',
 			githubUrl: 'https://github.com/thebetar/fietsTracker',
+			language: 'javascript',
 		},
 		{
 			title: 'Klets',
 			featured: false,
 			thumbnail: '/assets/images/klets.webp',
 			liveUrl: 'https://vonkprogramming.nl',
+			language: 'javascript',
 		},
 		{
 			title: 'Deet',
 			featured: false,
 			thumbnail: '/assets/images/deet.webp',
 			liveUrl: 'https://play.google.com/store/apps/details?id=nl.vonkprogramming.deetcalendar',
+			language: 'javascript',
 		},
 		{
 			title: 'Fyndyr',
@@ -861,6 +918,7 @@ export const info = {
 			thumbnail: '/assets/images/fyndyr.webp',
 			githubUrl: 'https://github.com/thebetar/Fyndyr',
 			liveUrl: 'https://play.google.com/store/apps/details?id=nl.vonkprogramming.fyndyr',
+			language: 'javascript',
 		},
 	],
 };
