@@ -1,6 +1,6 @@
 import { createEffect, createSignal, onCleanup } from 'solid-js';
 
-const iconStyle = 'w-5 h-5';
+const iconStyle = 'md:w-5 md:h-5 w-7 h-7';
 
 export default function Navigation() {
 	const [scrollListener, setScrollListener] = createSignal(null);
@@ -51,7 +51,7 @@ export default function Navigation() {
 		{
 			id: 'experience',
 			title: 'Experience',
-			mobile: false,
+			mobile: true,
 			icon: (
 				<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class={iconStyle}>
 					<path
@@ -65,7 +65,7 @@ export default function Navigation() {
 		{
 			id: 'education',
 			title: 'Education',
-			mobile: false,
+			mobile: true,
 			icon: (
 				<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class={iconStyle}>
 					<path
@@ -110,7 +110,7 @@ export default function Navigation() {
 
 			sections.forEach(section => {
 				const element = document.getElementById(section.id);
-				const elementTop = element.offsetTop - 100;
+				const elementTop = element.offsetTop - 60;
 				const elementBottom = elementTop + element.clientHeight;
 
 				if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
@@ -132,21 +132,21 @@ export default function Navigation() {
 	});
 
 	return (
-		<div class="fixed md:left-3 md:top-1/2 left-0 bottom-0 md:translate-y-[-50%] md:w-[12rem] w-screen md:bg-none bg-light dark:bg-dark md:border-0 border-t z-[9999]">
+		<div class="fixed md:left-3 md:top-1/2 left-0 bottom-0 md:translate-y-[-50%] md:w-[12rem] w-screen md:bg-none bg-light dark:bg-dark md:border-0 border-t z-[9999] h-fit ">
 			<h2 class="md:block hidden uppercase md:text-2xl md:text-left text-center">Navigation</h2>
 
-			<nav class="w-full grid md:grid-cols-1 grid-cols-3 md:gap-2 md:mt-2">
+			<nav class="w-full grid md:grid-cols-1 grid-cols-5 md:gap-2 md:mt-2">
 				{sections.map(section => (
 					<a
 						class={
-							'md:text-lg text-base dark:text-light hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-3 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 ' +
+							'md:text-lg text-base dark:text-light hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 ' +
 							(section.mobile ? 'flex' : 'hidden')
 						}
 						name={`navigation-${section.id}`}
 						onClick={() => scrollToSection(section.id)}
 					>
 						{section.icon}
-						{section.title}
+						<span class="md:inline hidden">{section.title}</span>
 					</a>
 				))}
 			</nav>
