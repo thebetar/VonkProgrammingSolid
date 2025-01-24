@@ -6,7 +6,7 @@ const skills = info.skills.filter(s => s.featured);
 
 export default function SkillsPreview() {
 	return (
-		<section class="flex items-start justify-between flex-col sm:flex-row dark:text-light">
+		<section id="skills" class="flex items-start justify-between flex-col sm:flex-row dark:text-light">
 			<h2 class="w-[15rem] mt-16 uppercase">Skills</h2>
 			<div class="w-full mt-6 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-4 md:gap-x-8 gap-x-2">
 				<For each={skills}>

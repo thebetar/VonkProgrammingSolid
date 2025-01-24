@@ -1,11 +1,21 @@
-export default function ProjectCard({ githubUrl, liveUrl, thumbnail, title }) {
+export default function ProjectCard({ language, githubUrl, liveUrl, thumbnail, title }) {
 	return (
 		<article class="w-full max-h-[25rem] overflow-hidden relative group rounded-lg flex items-center justify-center">
-			<div class="flex items-center absolute right-4 top-4 z-10">
+			{language && (
+				<div class="absolute left-4 top-4 md:left-2 md:top-2 z-10">
+					<img
+						src={`/assets/svg/${language.toLowerCase()}.svg`}
+						class="md:h-10 h-8 md:w-10 w-8 md:p-2 p-1 bg-black/50 rounded-full backdrop-blur-md"
+						alt={language}
+						title={`Created using ${language}`}
+					/>
+				</div>
+			)}
+			<div class="flex items-center absolute right-4 top-4 md:right-2 md:top-2 z-10">
 				{githubUrl && (
 					<a
 						href={githubUrl}
-						class="text-white p-3 bg-black/50 rounded-full backdrop-blur-md"
+						class="text-white md:p-3 p-2 bg-black/50 rounded-full backdrop-blur-md"
 						aria-label="Social Media"
 						target="_blank"
 						rel="noopener noreferrer"
@@ -30,7 +40,7 @@ export default function ProjectCard({ githubUrl, liveUrl, thumbnail, title }) {
 				{liveUrl && (
 					<a
 						href={liveUrl}
-						class="text-white p-3 bg-black/50 rounded-full backdrop-blur-md ml-1"
+						class="text-white md:p-3 p-2 bg-black/50 rounded-full backdrop-blur-md ml-1"
 						aria-label="Social Media"
 						target="_blank"
 						rel="noopener noreferrer"
@@ -64,8 +74,8 @@ export default function ProjectCard({ githubUrl, liveUrl, thumbnail, title }) {
 					title={title}
 				/>
 			</a>
-			<div class="absolute w-full bottom-0 left-0 backdrop-blur-md dark:text-white text-white bg-black/50 p-4 md:tranzinc-y-[100%] group-hover:tranzinc-y-0 transition duration-700">
-				<h3 class="mr-2 text-xl">{title}</h3>
+			<div class="absolute w-full bottom-0 left-0 backdrop-blur-md dark:text-white text-white bg-black/50 md:p-4 p-2 md:tranzinc-y-[100%] group-hover:tranzinc-y-0 transition duration-700">
+				<h3 class="mr-2 md:text-xl text-base">{title}</h3>
 			</div>
 		</article>
 	);

@@ -4,7 +4,7 @@ const { name, jobDescription1, jobDescription2, about } = info;
 
 export default function Hero({ short = false }) {
 	return (
-		<section>
+		<section id="hero">
 			<p class="dark:text-light md:mt-[117px] mt-20">Hey, I’m</p>
 
 			<h1 class="main-heading" aria-label={name}>
@@ -53,7 +53,7 @@ export default function Hero({ short = false }) {
 			</div>
 
 			{!short ? (
-				<p class="dark:text-light text-md mt-8 mb-16">{about}</p>
+				<p class="dark:text-light text-md mt-8 mb-12">{about}</p>
 			) : (
 				<div class="w-full border-b border-zinc-600 dark:border-zinc-300/25 my-8"></div>
 			)}
