@@ -2,12 +2,16 @@ import { For } from 'solid-js';
 
 import { info } from '../data/info';
 import Layout from '../layouts/Layout';
+
+import PageNavigation from '../components/general/PageNavigation';
 import Hero from '../components/homepage/Hero';
 import ProjectCard from '../components/homepage/ProjectCard';
 
 export default function ProjectsPage() {
 	const template = (
 		<>
+			<PageNavigation curPage={'projects'} />
+
 			<Hero short />
 
 			<h2 class="w-full text-4xl text-center md:my-4 my-2">Projects</h2>
