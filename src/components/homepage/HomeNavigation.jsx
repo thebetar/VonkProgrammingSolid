@@ -4,6 +4,7 @@ const iconStyle = 'md:w-5 md:h-5 w-7 h-7';
 
 export default function Navigation() {
 	const [scrollListener, setScrollListener] = createSignal(null);
+	const [navToggle, setNavToggle] = createSignal(false);
 
 	const sections = [
 		{
@@ -137,24 +138,41 @@ export default function Navigation() {
 	});
 
 	return (
-		<div class="fixed md:left-3 md:top-1/2 left-0 bottom-0 md:translate-y-[-50%] md:w-[12rem] w-screen md:bg-none bg-light dark:bg-dark md:border-0 border-t z-[9999] h-fit ">
-			<h2 class="md:block hidden uppercase md:text-2xl md:text-left text-center">Navigation</h2>
+		<div class="fixed left-0 bottom-0 md:w-[12rem] w-screen md:bg-none bg-light dark:bg-dark md:border-0 border-t-2 z-[9999] md:h-screen h-fit md:flex md:flex-col md:justify-center md:pl-2">
+			<div
+				class="md:block hidden absolute top-2 hover:opacity-80 transition-opacity cursor-pointer"
+				onClick={() => setNavToggle(!navToggle())}
+			>
+				<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+					<path
+						d="M4 6H20M4 12H14M4 18H9"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					/>
+				</svg>
+			</div>
 
-			<nav class="w-full grid md:grid-cols-1 grid-cols-5 md:gap-2 md:mt-2">
-				{sections.map(section => (
-					<a
-						class={
-							'md:text-lg text-base dark:text-light hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 ' +
-							(section.mobile ? 'flex' : 'hidden')
-						}
-						name={`navigation-${section.id}`}
-						onClick={() => scrollToSection(section.id)}
-					>
-						{section.icon}
-						<span class="md:inline hidden">{section.title}</span>
-					</a>
-				))}
-			</nav>
+			<div class={`block transition ${navToggle() ? 'md:opacity-100' : 'md:opacity-0 md:pointer-events-none'}`}>
+				<h2 class="md:block hidden uppercase md:text-2xl md:text-left text-center">Navigation</h2>
+
+				<nav class="w-full grid md:grid-cols-1 grid-cols-5 md:gap-2 md:mt-2">
+					{sections.map(section => (
+						<a
+							class={
+								'md:text-lg text-base dark:text-light hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 ' +
+								(section.mobile ? 'flex' : 'hidden')
+							}
+							name={`navigation-${section.id}`}
+							onClick={() => scrollToSection(section.id)}
+						>
+							{section.icon}
+							<span class="md:inline hidden">{section.title}</span>
+						</a>
+					))}
+				</nav>
+			</div>
 		</div>
 	);
 }

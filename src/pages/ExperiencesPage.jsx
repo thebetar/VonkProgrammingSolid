@@ -9,8 +9,10 @@ export default function ExperiencesPage() {
 	const template = (
 		<>
 			<PageNavigation curPage={'experience'} />
-			<Hero short />
-			<AllExperience title="Experiences" details={info.experience} />
+
+			<div className="md:mt-4 mt-6">
+				<AllExperience title="Experiences" details={info.experience} />
+			</div>
 		</>
 	);
 

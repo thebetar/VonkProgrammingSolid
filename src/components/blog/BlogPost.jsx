@@ -71,10 +71,10 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 
 			<div class="flex justify-center mb-8">
 				<div>
-					<a href="/" class="underline">
-						Go back
+					<a href="/blogs" class="underline">
+						See all blogs
 					</a>{' '}
-					in time ⏰
+					📖
 				</div>
 			</div>
 
