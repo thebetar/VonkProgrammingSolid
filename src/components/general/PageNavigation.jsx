@@ -1,10 +1,9 @@
-import { createSignal, createEffect } from 'solid-js';
-import { S } from '../../../dist/assets/Layout-CyuQ3jYO';
+import { createSignal } from 'solid-js';
 
 const iconStyle = 'md:w-5 md:h-5 w-7 h-7';
 
 export default function Navigation({ curPage }) {
-	const [curSection, setCurSection] = createSignal(curPage);
+	const [navToggle, setNavToggle] = createSignal(true);
 
 	const sections = [
 		{
@@ -87,38 +86,53 @@ export default function Navigation({ curPage }) {
 	];
 
 	return (
-		<div class="fixed md:left-3 md:top-1/2 left-0 bottom-0 md:translate-y-[-50%] md:w-[12rem] w-screen md:bg-none bg-light dark:bg-dark md:border-0 border-t z-[9999] h-fit ">
-			<h2 class="md:block hidden uppercase md:text-2xl md:text-left text-center">Navigation</h2>
+		<div class="fixed left-0 bottom-0 md:w-[12rem] w-screen md:bg-none bg-light dark:bg-dark md:border-0 border-t-2 z-[9999] md:h-screen h-fit md:flex md:flex-col md:justify-center md:pl-2">
+			<div
+				class="md:block hidden absolute top-2 hover:opacity-80 transition-opacity cursor-pointer"
+				onClick={() => setNavToggle(!navToggle())}
+			>
+				<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+					<path
+						d="M4 6H20M4 12H14M4 18H9"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					/>
+				</svg>
+			</div>
 
-			<nav class="w-full grid md:grid-cols-1 grid-cols-5 md:gap-2 md:mt-2">
-				<a
-					class="md:text-lg text-base dark:text-light hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 flex"
-					href="/"
-				>
-					<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class={iconStyle}>
-						<path
-							fill="currentColor"
-							fill-rule="evenodd"
-							d="M11.3248,7.22461 C11.7513,6.58854 12,5.82332 12,5 C12,2.79086 10.2091,1 8,1 C5.79086,1 4,2.79086 4,5 C4,5.82332 4.24874,6.58854 4.67518,7.22461 C3.11714,7.77132 2,9.2552 2,11 L2,15 L14,15 L14,11 C14,9.2552 12.8829,7.77132 11.3248,7.22461 Z M10,5 C10,6.10457 9.10457,7 8,7 C6.89543,7 6,6.10457 6,5 C6,3.89543 6.89543,3 8,3 C9.10457,3 10,3.89543 10,5 Z M6,9 C4.89543,9 4,9.89543 4,11 L4,13 L12,13 L12,11 C12,9.89543 11.1046,9 10,9 L6,9 Z"
-						/>
-					</svg>
-					<span class="md:inline hidden">Home</span>
-				</a>
+			<div class={`block transition ${navToggle() ? 'md:opacity-100' : 'md:opacity-0 md:pointer-events-none'}`}>
+				<h2 class="md:block hidden uppercase text-lg">Navigation</h2>
 
-				{sections
-					.filter(s => s.id !== curPage)
-					.map(section => (
+				<nav class="w-full grid md:grid-cols-1 grid-cols-5 md:gap-2 md:mt-2">
+					<a
+						class="text-base hover:opacity-70 transition-opacity cursor-pointer md:px-0 md:py-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 flex"
+						href="/"
+					>
+						<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class={iconStyle}>
+							<path
+								fill="currentColor"
+								fill-rule="evenodd"
+								d="M11.3248,7.22461 C11.7513,6.58854 12,5.82332 12,5 C12,2.79086 10.2091,1 8,1 C5.79086,1 4,2.79086 4,5 C4,5.82332 4.24874,6.58854 4.67518,7.22461 C3.11714,7.77132 2,9.2552 2,11 L2,15 L14,15 L14,11 C14,9.2552 12.8829,7.77132 11.3248,7.22461 Z M10,5 C10,6.10457 9.10457,7 8,7 C6.89543,7 6,6.10457 6,5 C6,3.89543 6.89543,3 8,3 C9.10457,3 10,3.89543 10,5 Z M6,9 C4.89543,9 4,9.89543 4,11 L4,13 L12,13 L12,11 C12,9.89543 11.1046,9 10,9 L6,9 Z"
+							/>
+						</svg>
+						<span class="md:inline hidden">Home</span>
+					</a>
+
+					{sections.map(section => (
 						<a
-							class={`md:text-lg text-base dark:text-light hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 flex ${
-								section.id === curPage ? 'underline' : ''
+							class={`md:block text-base hover:opacity-70 transition-opacity cursor-pointer md:px-1 md:py-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 flex ${
+								section.id === curPage ? 'underline hidden' : 'block'
 							}`}
-							href={`/${section.id}`}
+							href={section.id !== curPage ? `/${section.id}` : '#'}
 						>
 							{section.icon}
 							<span class="md:inline hidden">{section.title}</span>
 						</a>
 					))}
-			</nav>
+				</nav>
+			</div>
 		</div>
 	);
 }

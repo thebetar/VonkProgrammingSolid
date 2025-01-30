@@ -8,15 +8,6 @@ export default function AllSkills() {
 		<section class="flex items-center justify-start flex-col dark:text-light">
 			<h2 class="w-full text-4xl text-center md:my-4 my-2 uppercase">Skills</h2>
 
-			<div class="flex justify-center dark:text-white text-zinc-900 w-full">
-				<div>
-					<a href="/" class="dark:text-white text-zinc-900 underline">
-						Go back
-					</a>{' '}
-					in time ⏰
-				</div>
-			</div>
-
 			<div class="w-full">
 				<For each={skillTypes}>
 					{skillType => (

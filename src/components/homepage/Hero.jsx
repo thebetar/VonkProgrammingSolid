@@ -4,7 +4,7 @@ const { name, jobDescription1, jobDescription2, about } = info;
 
 export default function Hero({ short = false }) {
 	return (
-		<section id="hero">
+		<section id="hero" class={short ? 'md:block hidden' : ''}>
 			<p class="dark:text-light md:mt-[117px] mt-20">Hey, I’m</p>
 
 			<h1 class="main-heading" aria-label={name}>
@@ -15,7 +15,7 @@ export default function Hero({ short = false }) {
 				aria-label={jobDescription1 + ' | ' + jobDescription2}
 				class="md:text-xl text-lg flex md:flex-row flex-col items-start gap-x-4"
 			>
-				<div class="dark:text-light flex gap-x-2 items-center">
+				<div class="flex gap-x-2 items-center">
 					<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="M14.1809 4.2755C14.581 4.3827 14.8185 4.79396 14.7113 5.19406L10.7377 20.0238C10.6304 20.4239 10.2192 20.6613 9.81909 20.5541C9.41899 20.4469 9.18156 20.0356 9.28876 19.6355L13.2624 4.80583C13.3696 4.40573 13.7808 4.16829 14.1809 4.2755Z"
@@ -33,7 +33,7 @@ export default function Hero({ short = false }) {
 					<span>{jobDescription1}</span>
 				</div>
 
-				<div class="dark:text-light flex gap-x-2 items-center">
+				<div class="flex gap-x-2 items-center">
 					<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
@@ -53,7 +53,7 @@ export default function Hero({ short = false }) {
 			</div>
 
 			{!short ? (
-				<p class="dark:text-light text-md mt-8 mb-12">{about}</p>
+				<p class="text-md mt-8 mb-12">{about}</p>
 			) : (
 				<div class="w-full border-b border-zinc-600 dark:border-zinc-300/25 my-8"></div>
 			)}

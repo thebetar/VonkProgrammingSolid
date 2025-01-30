@@ -9,8 +9,10 @@ export default function EducationPage() {
 	const template = (
 		<>
 			<PageNavigation curPage={'education'} />
-			<Hero short />
-			<AllExperience title="Education" details={info.education} />
+
+			<div className="md:mt-4 mt-6">
+				<AllExperience title="Education" details={info.education} />
+			</div>
 		</>
 	);
 

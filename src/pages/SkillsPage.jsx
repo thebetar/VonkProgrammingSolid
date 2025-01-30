@@ -16,8 +16,10 @@ export default function BlogsPage() {
 	const template = (
 		<>
 			<PageNavigation curPage={'skills'} />
-			<Hero short />
-			<AllSkills />
+
+			<div className="md:mt-4 mt-6">
+				<AllSkills />
+			</div>
 		</>
 	);
 

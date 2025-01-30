@@ -3,15 +3,6 @@ export default function AllExperience({ title, details }) {
 		<section class="flex items-center justify-start flex-col dark:text-light">
 			<h2 class="w-full text-4xl text-center md:my-4 my-2">{title}</h2>
 
-			<div class="flex justify-center dark:text-white text-zinc-900">
-				<div>
-					<a href="/" class="underline dark:text-white text-zinc-900">
-						Go back
-					</a>{' '}
-					in time ⏰
-				</div>
-			</div>
-
 			<div class="xl:w-[960px] md:w-[720px] w-full">
 				<For each={details}>
 					{item => (

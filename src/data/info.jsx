@@ -793,6 +793,20 @@ export const info = {
 
 	projects: [
 		{
+			title: 'VonkCountGame',
+			featured: false,
+			thumbnail: '/assets/images/vonk-count-game.webp',
+			githubUrl: 'https://github.com/thebetar/VonkCountGame',
+			language: 'C++',
+		},
+		{
+			title: 'VonkMaze',
+			featured: false,
+			thumbnail: '/assets/images/vonk-maze.webp',
+			githubUrl: 'https://github.com/thebetar/VonkMaze',
+			language: 'C++',
+		},
+		{
 			title: 'VonkEcrypt',
 			featured: false,
 			thumbnail: '/assets/images/vonk-hash.webp',

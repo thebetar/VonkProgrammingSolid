@@ -116,7 +116,6 @@ export const blogs = [
 					Taking a break to work between your bachelor&#39;s and master&#39;s can transform your attitude
 					towards learning and help you get the most out of your studies. It’s a leap worth considering.
 				</p>
-				<p>\</p>
 			</>
 		),
 	},
