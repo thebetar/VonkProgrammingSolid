@@ -86,7 +86,7 @@ export default function Navigation({ curPage }) {
 	];
 
 	return (
-		<div class="fixed left-0 bottom-0 md:w-[12rem] w-screen md:bg-none bg-light dark:bg-dark md:border-0 border-t-2 z-[9999] md:h-screen h-fit md:flex md:flex-col md:justify-center md:pl-2">
+		<div class="fixed left-0 bottom-0 md:w-[12rem] w-screen md:bg-none bg-light dark:bg-dark md:border-0 border-t-2 z-50 md:h-screen h-fit md:flex md:flex-col md:justify-center md:pl-2">
 			<div
 				class="md:block hidden absolute top-2 hover:opacity-80 transition-opacity cursor-pointer"
 				onClick={() => setNavToggle(!navToggle())}
