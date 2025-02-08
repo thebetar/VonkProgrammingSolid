@@ -36,7 +36,7 @@ export default function Subscribe({ handleClose }) {
 	return (
 		<div
 			id="subscribe-component"
-			class="w-screen h-screen px-4 fixed top-0 left-0 bg-zinc-800 bg-opacity-80 flex justify-center items-center z-40"
+			class="w-screen h-screen px-4 fixed top-0 left-0 bg-zinc-800 bg-opacity-80 flex justify-center items-center z-50"
 		>
 			<div class="bg-light text-dark bg-opacity-95 backdrop-blur md:max-w-[420px] w-full p-4 text-center rounded-sm flex flex-col gap-y-2 relative">
 				<svg
