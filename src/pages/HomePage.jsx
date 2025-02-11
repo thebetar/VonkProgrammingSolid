@@ -3,7 +3,6 @@ import { createEffect, onCleanup } from 'solid-js';
 
 import Layout from '../layouts/Layout';
 import Hero from '../components/homepage/Hero';
-import HomeNavigation from '../components/homepage/HomeNavigation';
 import BlogsPreview from '../components/homepage/BlogsPreview';
 import SkillsPreview from '../components/homepage/SkillsPreview';
 import ExperiencesPreview from '../components/homepage/ExperiencesPreview';
@@ -32,7 +31,6 @@ export default function Homepage() {
 	const template = (
 		<>
 			<Hero />
-			<HomeNavigation />
 			<BlogsPreview />
 			<SkillsPreview />
 			<ExperiencesPreview title="Experience" details={info.experience.filter(e => e.featured)} />

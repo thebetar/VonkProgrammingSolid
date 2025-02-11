@@ -69,15 +69,6 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 				{id}
 			</div>
 
-			<div class="flex justify-center mb-8">
-				<div>
-					<a href="/blogs" class="underline">
-						See all blogs
-					</a>{' '}
-					📖
-				</div>
-			</div>
-
 			<div class="blog-header">
 				<div class="flex justify-between">
 					<div>
