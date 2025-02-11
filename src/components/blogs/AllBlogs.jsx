@@ -12,6 +12,15 @@ export default function AllBlogs() {
 		<section class="flex items-center justify-start flex-col dark:text-light">
 			<h2 class="w-full text-4xl text-center md:my-4 my-2 uppercase">Blog</h2>
 
+			<div class="flex justify-center mb-8">
+				<div>
+					<a href="/" class="underline">
+						Go to homepage
+					</a>{' '}
+					🏚️
+				</div>
+			</div>
+
 			<div class="xl:w-[960px] md:w-[720px] w-full">
 				{blogs.map(blog => (
 					<div class="md:my-16 my-8">

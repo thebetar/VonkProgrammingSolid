@@ -43,6 +43,10 @@ const routes = [
 		path: '/projects',
 		component: lazy(() => import('./pages/ProjectsPage')),
 	},
+	{
+		path: '*',
+		component: lazy(() => import('./pages/NotFoundPage')),
+	},
 ];
 
 render(() => <Router>{routes}</Router>, root);
