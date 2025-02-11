@@ -51,7 +51,7 @@ export const blogs = [
 			'In this blog post, I will try to summarize how a packet is sent and received and highlight some interesting facts about networking.',
 		tags: [BlogTags.Development, BlogTags.Innovation],
 		keywords: ['networking', 'internet', 'packet', 'routing', 'ip address'],
-		date: '2025-02-1',
+		date: '2025-02-11',
 		link: '/blogs/how-the-internet-works',
 		content: (
 			<>
