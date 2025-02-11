@@ -231,8 +231,7 @@ export const blogs = [
 				<h2 id="conclusion">Conclusion</h2>
 				<p>
 					I hope this short summary describes in a simple and understandable way what I have learned in the
-					past year and gives you a better understanding of how data is sent over the internet. If you have
-					any questions or want to dive deeper into a specific topic, feel free to reach out!
+					past year and gives you a better understanding of how data is sent over the internet.
 				</p>
 			</>
 		),
