@@ -65,12 +65,19 @@ export const blogs = [
 				</p>
 				<h3 id="the-first-neural-network">The First Neural Network</h3>
 				<p>
-					The first neural network in IT was theorized by Frank Rosenblatt. In 1957, he even conducted
-					experiments and managed to achieve basic shape detection in images.
+					The first neural network in IT was theorized by Frank Rosenblatt. He wrote a book about the
+					perceptron functions which describes a simple neural network with a single layer of neurons that
+					could learn to recognize basic shapes. It works as will be explain more in the next chapter by
+					feeding in some input values and adjusting the weights of these inputs based on the errors it makes.
+					In 1957, he even conducted experiments and managed to achieve basic shape detection in images. This
+					was done by implementing the same kind of base logic that modern neural networks use. But with only
+					a few neurons and a few layers, due to the limited computational power available at the time.
 				</p>
 				<p>
-					The big challenge back then was the immense computational power required to train such a model. But
-					look at where we are today processors have evolved from a few transistors to billions of them.
+					This was the big challenge back then. Immense computational power for that time period was required
+					to train such a model. But look at where we are today processors have evolved from a few transistors
+					to billions of them. A budget phone today has more computational power than the computers that sent
+					people to the moon.
 				</p>
 				<h3 id="how-does-a-neural-network-work-">How Does a Neural Network Work?</h3>
 				<p>
