@@ -45,6 +45,145 @@ export function getTagColor(tag) {
 
 export const blogs = [
 	{
+		id: 23,
+		title: 'Neural Networks: A Beginner’s Guide 🧠',
+		description:
+			'Neural networks have become more and more important as of recent times. But how do they work? In this blog post I will try to explain it in a way that technical and non-technical people will understand',
+		tags: [BlogTags.Development, BlogTags.Innovation],
+		keywords: ['neural networks', 'machine learning', 'deep learning', 'ai', 'artificial intelligence'],
+		date: '2025-02-28',
+		link: '/blogs/neural-networks',
+		content: (
+			<>
+				<p>
+					With the rise of AI, the concept of neural networks in computer science has grown significantly. But
+					how do they actually work?
+				</p>
+				<p>
+					Well, they’re quite simple at their core. However, when you put a lot of simple things together,
+					they can start to seem overwhelming.
+				</p>
+				<h3 id="the-first-neural-network">The First Neural Network</h3>
+				<p>
+					The first neural network in IT was theorized by Frank Rosenblatt. In 1957, he even conducted
+					experiments and managed to achieve basic shape detection in images.
+				</p>
+				<p>
+					The big challenge back then was the immense computational power required to train such a model. But
+					look at where we are today—processors have evolved from a few transistors to billions of them.
+				</p>
+				<h3 id="how-does-a-neural-network-work-">How Does a Neural Network Work?</h3>
+				<p>
+					As mentioned before, a neural network is fundamentally simple. It takes in input values—let’s say we
+					want to differentiate between a dog and a cat. The input features in this case could be observable
+					characteristics like the number of legs, size, and weight.
+				</p>
+				<p>
+					The neural network is trained with many examples of cats and dogs, each described by their features
+					(e.g., 4 legs, 5kg, 45cm long). Initially, the network assigns random weights to these features and
+					makes predictions. At first, the predictions will be wrong, but the network learns by adjusting
+					these weights based on its errors.
+				</p>
+				<p>
+					This process continues across all training examples until the network starts to recognize patterns.
+					Some features, like the number of legs, may turn out to be less useful (since both cats and dogs
+					have four), while others, like the weight-to-size ratio, could be more important. The network
+					automatically assigns more importance to relevant features.
+				</p>
+				<p>
+					This is a simplified explanation, but it illustrates the core concept. There’s a lot more math
+					behind how the network updates its weights—this process is called backpropagation. If you’re
+					interested in the details, search for &quot;backpropagation&quot; to learn more.
+				</p>
+				<h3 id="nerdy-ai-terms">Nerdy AI Terms</h3>
+				<p>Now that we’ve covered the basics, let’s go over some key terms used in neural networks:</p>
+				<ul>
+					<li>
+						<p>
+							<strong>Input:</strong>
+						</p>
+						<ul>
+							<li>
+								<p>
+									<strong>Input layer</strong>: This is the first layer of the network, where raw data
+									is fed into the model. In our example, this includes the characteristics of an
+									animal. In image classification, each pixel could be an input feature.
+								</p>
+							</li>
+							<li>
+								<p>
+									<strong>Input feature</strong>: A piece of information used to make predictions or
+									classifications.
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>
+							<strong>Hidden:</strong>
+						</p>
+						<ul>
+							<li>
+								<p>
+									<strong>Hidden layer</strong>: This is the intermediate layer where input values
+									undergo transformations. The network applies mathematical operations to extract
+									patterns and insights from the raw data.
+								</p>
+							</li>
+							<li>
+								<p>
+									<strong>Weights</strong>: The values used to multiply input features, determining
+									their importance. Weights are adjusted during training to improve accuracy.
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>
+							<strong>Output:</strong>
+						</p>
+						<ul>
+							<li>
+								<p>
+									<strong>Output layer</strong>: This is the final layer that produces the network’s
+									prediction or classification. Based on the transformed data from the hidden layers,
+									it delivers the final result.
+								</p>
+							</li>
+							<li>
+								<p>
+									<strong>Activation function</strong>: A function applied to outputs to help shape
+									predictions, such as scaling values between 0 and 1.
+								</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p>
+					<img
+						src="https://pyimagesearch.com/wp-content/uploads/2016/08/simple_neural_network_header.jpg"
+						alt="Neural network"
+					/>
+				</p>
+				<h3 id="what-can-be-done-">What Can Be Done?</h3>
+				<p>
+					With this knowledge, you can already build a basic neural network that classifies data based on
+					features. Using a programming language like Python and a dataset from sources like Kaggle, you can
+					start experimenting and learning how to train a neural network.
+				</p>
+				<h3 id="conclusion">Conclusion</h3>
+				<p>
+					I hope this blog has made neural networks easier to understand and has sparked your interest in
+					training one yourself. This technology is set to revolutionize industries in the coming years, and
+					understanding the fundamentals will help you grasp what is and isn’t possible.
+				</p>
+				<p>
+					Now go out there and impress people with your new nerdy vocabulary—hidden layers, weights, and all!
+				</p>
+			</>
+		),
+	},
+	{
 		id: 22,
 		title: 'How the internet works 🌐',
 		description:
