@@ -70,11 +70,11 @@ export const blogs = [
 				</p>
 				<p>
 					The big challenge back then was the immense computational power required to train such a model. But
-					look at where we are today—processors have evolved from a few transistors to billions of them.
+					look at where we are today processors have evolved from a few transistors to billions of them.
 				</p>
 				<h3 id="how-does-a-neural-network-work-">How Does a Neural Network Work?</h3>
 				<p>
-					As mentioned before, a neural network is fundamentally simple. It takes in input values—let’s say we
+					As mentioned before, a neural network is fundamentally simple. It takes in input values let’s say we
 					want to differentiate between a dog and a cat. The input features in this case could be observable
 					characteristics like the number of legs, size, and weight.
 				</p>
@@ -92,7 +92,7 @@ export const blogs = [
 				</p>
 				<p>
 					This is a simplified explanation, but it illustrates the core concept. There’s a lot more math
-					behind how the network updates its weights—this process is called backpropagation. If you’re
+					behind how the network updates its weights this process is called backpropagation. If you’re
 					interested in the details, search for &quot;backpropagation&quot; to learn more.
 				</p>
 				<h3 id="nerdy-ai-terms">Nerdy AI Terms</h3>
@@ -178,7 +178,7 @@ export const blogs = [
 					understanding the fundamentals will help you grasp what is and isn’t possible.
 				</p>
 				<p>
-					Now go out there and impress people with your new nerdy vocabulary—hidden layers, weights, and all!
+					Now go out there and impress people with your new nerdy vocabulary hidden layers, weights, and all!
 				</p>
 			</>
 		),
