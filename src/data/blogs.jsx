@@ -63,7 +63,9 @@ export const blogs = [
 					Well, they’re quite simple at their core. However, when you put a lot of simple things together,
 					they can start to seem overwhelming.
 				</p>
-				<h3 id="the-first-neural-network">The First Neural Network</h3>
+				<h3 id="-the-first-neural-network-">
+					<strong>The First Neural Network</strong>
+				</h3>
 				<p>
 					The first neural network in IT was theorized by Frank Rosenblatt. He wrote a book about the
 					perceptron functions which describes a simple neural network with a single layer of neurons that
@@ -79,17 +81,22 @@ export const blogs = [
 					to billions of them. A budget phone today has more computational power than the computers that sent
 					people to the moon.
 				</p>
-				<h3 id="how-does-a-neural-network-work-">How Does a Neural Network Work?</h3>
+				<h3 id="-how-does-a-neural-network-work-">
+					<strong>How Does a Neural Network Work?</strong>
+				</h3>
 				<p>
-					As mentioned before, a neural network is fundamentally simple. It takes in input values let’s say we
-					want to differentiate between a dog and a cat. The input features in this case could be observable
+					As mentioned before, a neural network is fundamentally simple. It takes in input values performs
+					some multiplication on these input values and gets an output value. For example let’s say we want to
+					differentiate between a dog and a cat. The input features in this case could be observable
 					characteristics like the number of legs, size, and weight.
 				</p>
 				<p>
-					The neural network is trained with many examples of cats and dogs, each described by their features
-					(e.g., 4 legs, 5kg, 45cm long). Initially, the network assigns random weights to these features and
-					makes predictions. At first, the predictions will be wrong, but the network learns by adjusting
-					these weights based on its errors.
+					The neural network receives a lot of data about what is has to predict or classify; in this instance
+					it is trained with many examples of cats and dogs, each described by their features (e.g., 4 legs,
+					5kg, 45cm long). Initially, the network assigns random values to the weights, which describe how
+					strong these features are taken into account for the output of the neural network. At first, the
+					predictions will be wrong, but the network learns by adjusting these weights based on its errors and
+					using some loss function to calculate a value to add or subtract from the weights.
 				</p>
 				<p>
 					This process continues across all training examples until the network starts to recognize patterns.
@@ -98,11 +105,21 @@ export const blogs = [
 					automatically assigns more importance to relevant features.
 				</p>
 				<p>
+					Finally the network will output a value lets say in our example a value between 0 and 1 where 0 is a
+					cat and 1 is a dog. The network will output a value based on the weights it has learned during
+					training. This output value is the most important for calculating the adjustment value of the
+					weights by the loss function. This is done by comparing the output value of the model to the
+					expected value for instance when you give data about a dog and the model predicts it is a cat, you
+					can adjust the weights that next time it gets similar features it will predict it is a dog.
+				</p>
+				<p>
 					This is a simplified explanation, but it illustrates the core concept. There’s a lot more math
 					behind how the network updates its weights this process is called backpropagation. If you’re
 					interested in the details, search for &quot;backpropagation&quot; to learn more.
 				</p>
-				<h3 id="nerdy-ai-terms">Nerdy AI Terms</h3>
+				<h3 id="-ai-terms-">
+					<strong>AI Terms</strong>
+				</h3>
 				<p>Now that we’ve covered the basics, let’s go over some key terms used in neural networks:</p>
 				<ul>
 					<li>
@@ -121,6 +138,19 @@ export const blogs = [
 								<p>
 									<strong>Input feature</strong>: A piece of information used to make predictions or
 									classifications.
+								</p>
+							</li>
+							<li>
+								<p>
+									<strong>Training data:</strong> data that is used to define what features mean what
+									class
+								</p>
+							</li>
+							<li>
+								<p>
+									<strong>Test data:</strong> data to verify that the model makes accurate predictions
+									after training, this is a separate dataset to prevent the model becoming to
+									specialised on the training data
 								</p>
 							</li>
 						</ul>
@@ -163,29 +193,51 @@ export const blogs = [
 									predictions, such as scaling values between 0 and 1.
 								</p>
 							</li>
+							<li>
+								<p>
+									<strong>Class:</strong> Which value is the final output and what does it mean, in
+									the example given the classes would be cat and dog
+								</p>
+							</li>
+							<li>
+								<p>
+									<strong>Loss function:</strong> A function that calculates the difference between
+									the predicted output and the actual output. This difference is used to adjust the
+									weights.
+								</p>
+							</li>
 						</ul>
 					</li>
 				</ul>
 				<p>
-					<img
-						src="https://pyimagesearch.com/wp-content/uploads/2016/08/simple_neural_network_header.jpg"
-						alt="Neural network"
-					/>
+					<img src="/assets/images/simple_neural_network.jpg" alt="" />
 				</p>
-				<h3 id="what-can-be-done-">What Can Be Done?</h3>
+				<h3 id="-what-can-be-done-">
+					<strong>What Can Be Done?</strong>
+				</h3>
 				<p>
-					With this knowledge, you can already build a basic neural network that classifies data based on
-					features. Using a programming language like Python and a dataset from sources like Kaggle, you can
-					start experimenting and learning how to train a neural network.
+					After reading this blog, you hopefully have a better understanding of neural networks and how they
+					classify data. Even if you’re not a programmer, you might now feel more comfortable discussing the
+					basics with others who work with AI.
 				</p>
-				<h3 id="conclusion">Conclusion</h3>
+				<p>
+					For those who do want to experiment, Python is a great starting point. With libraries like
+					TensorFlow or PyTorch, you can build simple models and train them on datasets from platforms like
+					Kaggle. Many beginner-friendly tutorials are available to guide you through the process step by
+					step.
+				</p>
+				<p>
+					Whether you just want to understand neural networks better or start experimenting with code, this
+					knowledge gives you a solid foundation to explore further.
+				</p>
+				<h3 id="-conclusion-">
+					<strong>Conclusion</strong>
+				</h3>
 				<p>
 					I hope this blog has made neural networks easier to understand and has sparked your interest in
 					training one yourself. This technology is set to revolutionize industries in the coming years, and
-					understanding the fundamentals will help you grasp what is and isn’t possible.
-				</p>
-				<p>
-					Now go out there and impress people with your new nerdy vocabulary hidden layers, weights, and all!
+					understanding the fundamentals will help you grasp what is and isn’t possible. Now go out there and
+					impress people with your new techy vocabulary!
 				</p>
 			</>
 		),
