@@ -8,6 +8,7 @@ export const SkillType = {
 	FRAMEWORK: 'Framework',
 	TOOL: 'Tool',
 	INFRASTRUCTURE: 'Infrastructure',
+	ECOMMERCE: 'E-commerce',
 	OTHER: 'Other',
 };
 
@@ -71,7 +72,16 @@ export const info = {
 			type: SkillType.LANGUAGE,
 		},
 		{
-			title: 'php',
+			title: 'SQL',
+			years: 9,
+			level: 4,
+			logo: '/assets/svg/php.svg',
+			link: 'https://www.php.net/',
+			featured: false,
+			type: SkillType.LANGUAGE,
+		},
+		{
+			title: 'PHP',
 			years: 5,
 			level: 4,
 			logo: '/assets/svg/php.svg',
@@ -169,7 +179,7 @@ export const info = {
 			type: SkillType.DATABASE,
 		},
 		{
-			title: 'Vue',
+			title: 'Vue.js',
 			years: 7,
 			level: 5,
 			logo: '/assets/svg/vue.svg',
@@ -322,6 +332,15 @@ export const info = {
 			type: SkillType.TOOL,
 		},
 		{
+			title: 'Klaviyo',
+			years: 2,
+			level: 4,
+			logo: '/assets/svg/klaviyo.svg',
+			link: 'https://klaviyo.com/',
+			featured: false,
+			type: SkillType.TOOL,
+		},
+		{
 			title: 'Jest',
 			years: 4,
 			level: 5,
@@ -381,6 +400,15 @@ export const info = {
 			level: 4,
 			logo: '/assets/svg/puppeteer.svg',
 			link: 'https://pptr.dev/',
+			featured: false,
+			type: SkillType.TOOL,
+		},
+		{
+			title: 'Playwright',
+			years: 1,
+			level: 3,
+			logo: '/assets/svg/playwright.svg',
+			link: 'https://playwright.dev/',
 			featured: false,
 			type: SkillType.TOOL,
 		},
@@ -530,6 +558,33 @@ export const info = {
 			type: SkillType.INFRASTRUCTURE,
 		},
 		{
+			title: 'Lightspeed',
+			years: 1,
+			level: 3,
+			logo: '/assets/svg/lightspeed.svg',
+			link: 'https://www.lightspeedhq.com/',
+			featured: false,
+			type: SkillType.ECOMMERCE,
+		},
+		{
+			title: 'CCVShop',
+			years: 1,
+			level: 2,
+			logo: '/assets/svg/ccvshop.svg',
+			link: 'https://www.ccvshop.nl/',
+			featured: false,
+			type: SkillType.ECOMMERCE,
+		},
+		{
+			title: 'Magento',
+			years: 1,
+			level: 2,
+			logo: '/assets/svg/magento.svg',
+			link: 'https://magento.com/',
+			featured: false,
+			type: SkillType.ECOMMERCE,
+		},
+		{
 			title: 'node.js',
 			years: 5,
 			level: 5,
@@ -579,28 +634,31 @@ export const info = {
 	experience: [
 		{
 			name: 'Wisepim',
+			skills: ['Django', 'Python', 'React'],
 			location: 'Remote - Enschede, Overijssel, Nederland',
 			startDate: 'Sep 2024',
 			endDate: 'Now',
 			description: [
-				'At Wisepim, I am currently working as a full-stack developer, filling any role they need. My current responsiblities lie mostly in the connecting of different APIs together so that they can be used in the Wisepim platform, which is a PIM system that integrates AI to improve data. I am also working on the front-end of the platform, using NiceGUI to create a user-friendly interface for the users of the platform.',
+				'At Wisepim, I am currently working as a full-stack developer, filling any role they need. My current responsiblities lie mostly in the connecting of different APIs together so that they can be used in the Wisepim platform, which is a PIM system that integrates AI to improve data. I am also working on the front-end of the platform, using RemixJS to create a user-friendly interface for the users of the platform.',
 			],
 			link: 'https://www.wisepim.com/',
 			featured: true,
 		},
 		{
 			name: 'WebshopImporter',
+			skills: ['Django', 'NiceGUI', 'Puppeteer'],
 			location: 'Remote - Enschede, Overijssel, Nederland',
 			startDate: 'Sep 2024',
 			endDate: 'Now',
 			description: [
-				'At WebshopImporter, I am currently working as a full-stack developer, filling any role they need. My current responsiblities lie mostly in the connecting of different APIs together so that they can be used in the WebshopImporter platform. I am also working on the front-end of the platform, using NiceGUI to create a user-friendly interface for the users of the platform.',
+				'At WebshopImporter, I am currently working as a full-stack developer, filling any role they need. My current responsiblities are connecting APIs, creating web scraping tools and working on frontends. I use Django, NiceGUI and React to create the tools that are needed for the platform.',
 			],
 			link: 'https://www.webshopimporter.com/',
 			featured: true,
 		},
 		{
 			name: 'Chary Solutions',
+			skills: ['Javascript', 'Klaviyo', 'Playwright'],
 			location: 'Amsterdam, Noord-Holland, Nederland',
 			startDate: 'Jul 2024',
 			endDate: 'Now',
@@ -612,6 +670,7 @@ export const info = {
 		},
 		{
 			name: 'SPAR',
+			skills: ['Python', 'Pandas', 'SQL'],
 			location: 'Remote - Waalwijk, Noord-Brabant, Nederland',
 			startDate: 'Jun 2024',
 			endDate: 'Dec 2024',
@@ -623,6 +682,7 @@ export const info = {
 		},
 		{
 			name: 'ING',
+			skills: ['Lit', 'Javascript', 'Azure DevOps'],
 			location: 'Amsterdam, Noord-Holland, Nederland',
 			startDate: 'Apr 2022',
 			endDate: 'Sep 2023',
@@ -634,6 +694,7 @@ export const info = {
 		},
 		{
 			name: 'Quintor',
+			skills: ['Javascript', 'Java', 'Angular', 'Lit'],
 			location: 'Amersfoort, Utrecht, Nederland',
 			startDate: 'Oct 2020',
 			endDate: 'Oct 2023',
@@ -646,6 +707,7 @@ export const info = {
 
 		{
 			name: 'SVB',
+			skills: ['Javascript', 'Angular', 'Jenkins'],
 			location: 'Amstelveen, Noord-Holland, Nederland',
 			startDate: 'Apr 2021',
 			endDate: 'Apr 2022',
@@ -657,6 +719,7 @@ export const info = {
 		},
 		{
 			name: 'J-Tax Automotive',
+			skills: ['Vue.js', 'Express.js', 'MongoDB'],
 			location: 'Almere, Flevoland, Nederland',
 			startDate: 'Jun 2021',
 			endDate: 'Present',
@@ -668,6 +731,7 @@ export const info = {
 		},
 		{
 			name: 'MedWeb',
+			skills: ['Vue.js'],
 			location: 'Hilversum, Noord-Holland, Nederland',
 			startDate: 'Sep 2019',
 			endDate: 'Aug 2020',
