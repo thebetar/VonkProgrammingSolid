@@ -1,6 +1,6 @@
 export default function ProjectCard({ language, githubUrl, liveUrl, thumbnail, title }) {
 	return (
-		<article class="w-full max-h-[25rem] overflow-hidden relative group rounded-lg flex items-center justify-center">
+		<article class="w-full max-h-[25rem] overflow-hidden relative group rounded-lg flex items-center justify-center border-4 dark:border-zinc-800 dark:hover:border-cyan-800 border-zinc-200 hover:border-cyan-300 transition duration-500">
 			{language && (
 				<div class="absolute left-4 top-4 md:left-2 md:top-2 z-10">
 					<img
