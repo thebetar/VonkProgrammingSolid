@@ -17,9 +17,9 @@ export default function Layout({ slot }) {
 	createEffect(() => {
 		const subscribePopup = localStorage.getItem('subscribe-popup');
 
-		const oneWeekAgo = new Date().getTime() - 7 * 24 * 60 * 60 * 1000;
+		const oneYearAgo = new Date().getTime() - 365 * 24 * 60 * 60 * 1000;
 
-		if (!subscribePopup || Number(subscribePopup) < oneWeekAgo) {
+		if (!subscribePopup || Number(subscribePopup) < oneYearAgo) {
 			setTimeout(() => {
 				if (showSubscribe()) {
 					return;
