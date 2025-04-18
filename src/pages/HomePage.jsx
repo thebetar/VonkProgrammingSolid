@@ -7,6 +7,7 @@ import BlogsPreview from '../components/homepage/BlogsPreview';
 import SkillsPreview from '../components/homepage/SkillsPreview';
 import ExperiencesPreview from '../components/homepage/ExperiencesPreview';
 import ProjectsPreview from '../components/homepage/ProjectsPreview';
+import ProductsPreview from '../components/homepage/ProductsPreview';
 
 let scrollListener;
 
@@ -31,6 +32,7 @@ export default function Homepage() {
 	const template = (
 		<>
 			<Hero />
+			<ProductsPreview />
 			<BlogsPreview />
 			<SkillsPreview />
 			<ExperiencesPreview title="Experience" details={info.experience.filter(e => e.featured)} />
