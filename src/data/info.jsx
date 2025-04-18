@@ -24,6 +24,22 @@ export const info = {
 		I am an experienced developer with a strong background in JavaScript and Python, and hobby experience with C++ and Go. I value code quality and continuous learning, which I often share through my blogs. In my free time, I work on side projects, explore new technologies, and focus on exciting AI projects through my freelance work. I am also in the process of getting a master's degree in computer systems and networks at the Warsaw University of Technology, where I continue to deepen my knowledge and skills.
 	`,
 	keywords: 'developer, javascript, python, code quality, blogs',
+	products: [
+		{
+			title: 'ZenuNet',
+			description:
+				'ZenuNet is an application to learn all about neural networks. It uses algorithms written in Javascript by me to train simple neural networks models. If you are experienced in AI or a complete beginner, this application is for you! Be sure to check it out!',
+			link: 'https://zenunet.nl',
+			logo: '/assets/images/zenunet-logo.png',
+		},
+		{
+			title: 'Fyndyr',
+			description:
+				'A mobile application that helps locate your friends during a dance festival! Write simple messages, select some colors and hold up your screen and within seconds your friends can find you!',
+			link: 'https://play.google.com/store/apps/details?id=nl.vonkprogramming.fyndyr',
+			logo: '/assets/images/fyndyr-logo.png',
+		},
+	],
 	blogs,
 	skills: [
 		{
@@ -859,12 +875,19 @@ export const info = {
 
 	projects: [
 		{
-			title: 'ContactScraper',
-			featured: false,
-			thumbnail: '/assets/images/contact-scraper.webp',
-			githubUrl: 'https://github.com/thebetar/ContactScraper',
-			language: 'Python',
+			title: 'ZenuNet',
+			featured: true,
+			thumbnail: '/assets/images/zenunet.webp',
+			liveUrl: 'https://zenunet.nl/',
+			language: 'javascript',
 		},
+		// {
+		// 	title: 'ContactScraper',
+		// 	featured: false,
+		// 	thumbnail: '/assets/images/contact-scraper.webp',
+		// 	githubUrl: 'https://github.com/thebetar/ContactScraper',
+		// 	language: 'Python',
+		// },
 		{
 			title: 'VonkCountGame',
 			featured: false,
@@ -944,7 +967,7 @@ export const info = {
 		},
 		{
 			title: 'x86 assembly',
-			featured: true,
+			featured: false,
 			thumbnail: '/assets/images/x86-assembly.png',
 			githubUrl: 'https://github.com/thebetar/x86-assembly',
 			language: 'assembly',
