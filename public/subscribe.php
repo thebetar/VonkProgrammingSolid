@@ -1,12 +1,10 @@
 <?php
-    require_once __DIR__ . '/../vendor/autoload.php';
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-    $dotenv->load();
+    include __DIR__ . '/config.php';
 
-    $servername = getenv('DB_SERVER');
-    $dbname = getenv('DB_NAME');
-    $username = getenv('DB_USERNAME');
-    $password = getenv('DB_PASSWORD');
+    $servername = $DB_SERVER;
+    $dbname = $DB_NAME;
+    $username = $DB_USERNAME;
+    $password = $DB_PASSWORD;
 
     try {
         // Create connection
