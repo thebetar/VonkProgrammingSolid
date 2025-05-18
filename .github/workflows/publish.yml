@@ -23,7 +23,7 @@ jobs:
               run: npm run build --production
             - name: 📝 Create .env file
               run: |
-                  echo "DB_SERVER=${{ secrets.DB_SERVER }}" > ./dist/.env
+                  echo "SERVER_NAME=${{ secrets.SERVER_NAME }}" > ./dist/.env
                   echo "DB_NAME=${{ secrets.DB_NAME }}" >> ./dist/.env
                   echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> ./dist/.env
                   echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> ./dist/.env
