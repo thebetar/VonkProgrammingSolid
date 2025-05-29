@@ -731,7 +731,7 @@ export const info = {
 				"At 'SVB', based in Amstelveen, North Holland, Netherlands, the role took place from April 2021 to April 2022. The primary responsibility involved programming in JavaScript, utilizing the Angular framework. An important part of the job was managing a significant transition, migrating an existing system from AngularJS to Angular. This migration required deep understanding of both frameworks, and extensive planning to ensure a seamless transition with minimal disruption. In addition to development work, the role also entailed working on pipelines, which required careful oversight and management to ensure a smooth, efficient workflow and continuous delivery.",
 			],
 			link: 'https://www.svb.nl/',
-			featured: true,
+			featured: false,
 		},
 		{
 			name: 'J-Tax Automotive',

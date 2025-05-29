@@ -12,7 +12,8 @@ module.exports = {
     'bg-purple-700',
     'bg-red-700',
     'bg-orange-700',
-    'bg-cyan-700'
+    'bg-cyan-700',
+    'bg-pink-700',
   ],
   theme: {
     extend: {

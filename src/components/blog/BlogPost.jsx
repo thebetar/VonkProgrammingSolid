@@ -143,7 +143,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 
 				<a
 					class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
-					href={`mailto:info@vonkprogramming.nl&subject=Question about ${title}&body=Hi VonkProgramming team,%0D%0A%0D%0AI have a question about ${title}.%0D%0A%0D%0AKind regards,%0D%0A%0D%0A[Your name]`}
+					href={`mailto:info@vonkprogramming.nl?subject=Question about ${title}&body=Hi VonkProgramming team,%0D%0A%0D%0AI have a question about ${title}.%0D%0A%0D%0AKind regards,%0D%0A%0D%0A[Your name]`}
 				>
 					❓ Ask me a question
 				</a>

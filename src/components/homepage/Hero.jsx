@@ -1,6 +1,7 @@
 import { info } from '../../data/info';
+import { LinkedInSvg, MailSvg } from '../Icons';
 
-const { name, jobDescription1, jobDescription2, about } = info;
+const { name, jobDescription1, jobDescription2, about, socialMedia } = info;
 
 export default function Hero({ short = false }) {
 	return (
@@ -53,7 +54,31 @@ export default function Hero({ short = false }) {
 			</div>
 
 			{!short ? (
-				<p class="text-md mt-8 mb-12">{about}</p>
+				<div class="mt-4">
+					<p class="text-md mt-8">{about}</p>
+
+					<p class="mt-4">Interested in my services?</p>
+
+					<div className="mt-2 flex gap-x-2">
+						<a
+							href={socialMedia.email}
+							class="block px-3 py-2 w-fit rounded-md transition-colors flex items-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+						>
+							<MailSvg width={16} height={16} />
+							<span class="text-sm">Get in touch</span>
+						</a>
+
+						<a
+							href={socialMedia.linkedin}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="block px-3 py-2 w-fit rounded-md transition-colors flex items-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+						>
+							<LinkedInSvg width={16} height={16} />
+							<span class="text-sm">Connect on LinkedIn</span>
+						</a>
+					</div>
+				</div>
 			) : (
 				<div class="w-full border-b border-zinc-600 dark:border-zinc-300/25 my-8"></div>
 			)}

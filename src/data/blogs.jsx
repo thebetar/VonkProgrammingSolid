@@ -5,6 +5,8 @@ const BlogTags = {
 	Innovation: 'innovation',
 	Business: 'business',
 	Career: 'career',
+	Guide: 'guide',
+	Product: 'product',
 };
 
 export const blogTags = [
@@ -32,6 +34,14 @@ export const blogTags = [
 		name: BlogTags.Career,
 		color: 'cyan',
 	},
+	{
+		name: BlogTags.Guide,
+		color: 'yellow',
+	},
+	{
+		name: BlogTags.Product,
+		color: 'pink',
+	},
 ];
 
 export function getTagColor(tag) {
@@ -49,7 +59,7 @@ export const blogs = [
 		title: 'ZenuNet: An easy way to create your own neural network',
 		description:
 			'ZenuNet is an application to learn all about neural networks. It uses algorithms written in Javascript by me to train simple neural networks models. If you are experienced in AI or a complete beginner, this application is for you! Be sure to check it out!',
-		tags: [BlogTags.Development, BlogTags.Innovation],
+		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Product],
 		keywords: ['neural network', 'machine learning', 'deep learning', 'ai', 'artificial intelligence'],
 		date: '2025-04-18',
 		link: '/blogs/zenunet',
