@@ -2,10 +2,14 @@ import { createEffect, createSignal } from 'solid-js';
 
 import Share from './Share';
 import { getTagColor } from '../../data/blogs';
+import Comment from './Comment';
 
 export default function BlogPost({ id, title, description, link, date, tags, keywords, content }) {
 	const [viewCount, setViewCount] = createSignal(1);
+	const [comments, setComments] = createSignal([]);
+
 	const [showShare, setShowShare] = createSignal(false);
+	const [showComment, setShowComment] = createSignal(false);
 
 	const parseTitle = title => {
 		const chars = title.split('');
@@ -44,9 +48,11 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 
 		try {
 			const response = await fetch(`/view.php?blog_id=${id}`);
-			const data = await response.text();
+			const data = await response.json();
 
-			if (isNaN(data)) {
+			if (!data.view_count || !data.comments) {
+				console.error('Invalid response from view.php:', data);
+				setViewCount(1);
 				return;
 			}
 
@@ -96,7 +102,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 				</div>
 
 				<p class="text-sm dark:text-gray mb-2">
-					{date} | {viewCount()} views
+					{date} | {viewCount()} views | {comments.length} comments
 				</p>
 
 				<div class="flex gap-x-2 mb-8">
@@ -124,30 +130,55 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 
 			<div class="blog-post">{content}</div>
 
-			<div class="flex max-w-[720px] mx-auto md:gap-x-4 gap-2 justify-center items-center md:text-base text-sm mb-10 md:flex-row flex-col">
-				<button
-					id="subscribe-popup-button"
-					class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
-					onClick={openSubscribe}
-				>
-					📚 Subscribe to my blog
-				</button>
+			{showComment() ? (
+				<Comment handleClose={() => setShowComment(false)} />
+			) : (
+				<>
+					<div class="flex max-w-[720px] mx-auto md:gap-x-4 gap-2 justify-center items-center md:text-base text-sm mb-10 md:flex-row flex-col">
+						<button
+							id="subscribe-popup-button"
+							class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
+							onClick={openSubscribe}
+						>
+							📚 Subscribe
+						</button>
 
-				<button
-					id="share-button"
-					class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
-					onClick={() => setShowShare(true)}
-				>
-					🧠 Share this knowledge
-				</button>
+						<button
+							id="share-button"
+							class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
+							onClick={() => setShowShare(true)}
+						>
+							🧠 Share
+						</button>
 
-				<a
-					class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
-					href={`mailto:info@vonkprogramming.nl?subject=Question about ${title}&body=Hi VonkProgramming team,%0D%0A%0D%0AI have a question about ${title}.%0D%0A%0D%0AKind regards,%0D%0A%0D%0A[Your name]`}
-				>
-					❓ Ask me a question
-				</a>
-			</div>
+						<button
+							class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
+							onClick={() => setShowComment(true)}
+						>
+							🗨️ Comment
+						</button>
+					</div>
+
+					<div class="flex justify-center items-center mb-10">
+						{comments().length > 0 ? (
+							<div class="text-center">
+								<h2 class="text-2xl mb-4">Comments</h2>
+								<ul class="list-disc list-inside">
+									<For each={comments()}>
+										{comment => (
+											<li class="mb-2">
+												<strong>{comment.author}:</strong> {comment.text}
+											</li>
+										)}
+									</For>
+								</ul>
+							</div>
+						) : (
+							<p class="text-gray-500">No comments yet. Be the first to comment!</p>
+						)}
+					</div>
+				</>
+			)}
 		</>
 	);
 }

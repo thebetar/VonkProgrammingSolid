@@ -32,8 +32,8 @@ export default function Homepage() {
 	const template = (
 		<>
 			<Hero />
-			<ProductsPreview />
 			<BlogsPreview />
+			<ProductsPreview />
 			<SkillsPreview />
 			<ExperiencesPreview title="Experience" details={info.experience.filter(e => e.featured)} />
 			<ExperiencesPreview title="Education" details={info.education.filter(e => e.featured)} />
