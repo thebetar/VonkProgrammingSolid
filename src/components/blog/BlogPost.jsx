@@ -101,9 +101,31 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 					</div>
 				</div>
 
-				<p class="text-sm dark:text-gray mb-2">
-					{date} | {viewCount()} views | {comments.length} comments
-				</p>
+				<div class="flex justify-start items-center my-4 gap-x-2">
+					<div class="flex items-center gap-2">
+						<span class="text-sm">📅 {date}</span>
+					</div>
+
+					<div>|</div>
+
+					<div class="flex items-center gap-2">
+						<span class="text-sm">👁️ {viewCount()} views</span>
+					</div>
+
+					<div>|</div>
+
+					<div
+						class="flex items-center gap-2 cursor-pointer hover:opacity-70 transition"
+						onClick={() =>
+							document.querySelector('div#comments').scrollIntoView({
+								behavior: 'smooth',
+								block: 'start',
+							})
+						}
+					>
+						<span class="text-sm">🗨️ {comments().length} comments</span>
+					</div>
+				</div>
 
 				<div class="flex gap-x-2 mb-8">
 					<For each={tags.sort((a, b) => a.localeCompare(b))}>
@@ -159,7 +181,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 						</button>
 					</div>
 
-					<div class="flex justify-center items-center mb-10">
+					<div id="comments" class="flex justify-center items-center mb-10">
 						{comments().length > 0 ? (
 							<div class="text-center">
 								<h2 class="text-2xl mb-4">Comments</h2>
