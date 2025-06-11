@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onCleanup } from 'solid-js';
+import { createEffect, createSignal, For, onCleanup } from 'solid-js';
 
 const iconStyle = 'md:w-5 md:h-5 w-7 h-7';
 
@@ -158,19 +158,21 @@ export default function Navigation() {
 				<h2 class="md:block hidden uppercase md:text-2xl md:text-left text-center">Navigation</h2>
 
 				<nav class="w-full grid md:grid-cols-1 grid-cols-5 md:gap-2 md:mt-2">
-					{sections.map(section => (
-						<a
-							class={
-								'md:text-lg text-base dark:text-light hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 ' +
-								(section.mobile ? 'flex' : 'hidden')
-							}
-							name={`navigation-${section.id}`}
-							onClick={() => scrollToSection(section.id)}
-						>
-							{section.icon}
-							<span class="md:inline hidden">{section.title}</span>
-						</a>
-					))}
+					<For each={sections}>
+						{section => (
+							<a
+								class={
+									'md:text-lg text-base dark:text-light hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 ' +
+									(section.mobile ? 'flex' : 'hidden')
+								}
+								name={`navigation-${section.id}`}
+								onClick={() => scrollToSection(section.id)}
+							>
+								{section.icon}
+								<span class="md:inline hidden">{section.title}</span>
+							</a>
+						)}
+					</For>
 				</nav>
 			</div>
 		</div>

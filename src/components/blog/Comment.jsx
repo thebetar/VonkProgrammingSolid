@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 
-export default function Comment({ handleClose }) {
+export default function Comment({ blogId, handleClose }) {
 	const [name, setName] = createSignal(localStorage.getItem('comment-name') || '');
 	const [comment, setComment] = createSignal('');
 
@@ -17,12 +17,13 @@ export default function Comment({ handleClose }) {
 		}
 
 		// Here you would typically send the comment to a server
-		await fetch('/api/blog.php', {
+		await fetch('/blog.php', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
+				blogId: blogId,
 				name: name(),
 				comment: comment(),
 			}),

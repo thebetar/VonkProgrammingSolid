@@ -90,19 +90,25 @@ try {
             'comments' => $comments
         ]);
     } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Parse JSON input
+        $input = file_get_contents("php://input");
+        $data = json_decode($input, true);
+
         // Handle comment submission
-        $blog_id = isset($_POST["blog_id"]) ? intval($_POST["blog_id"]) : 0;
-        $comment = isset($_POST["comment"]) ? trim($_POST["comment"]) : '';
+        $blog_id = isset($data["blogId"]) ? intval($data["blogId"]) : 0;
+        $name = isset($data["name"]) ? trim($data["name"]) : '';
+        $comment = isset($data["comment"]) ? trim($data["comment"]) : '';
 
         // Validate input
-        if ($blog_id == 0 || empty($comment)) {
+        if ($blog_id == 0 || empty($name) || empty($comment)) {
             echo "Invalid request";
             return;
         }
 
         // Insert comment into database
-        $stmt = $conn->prepare("INSERT INTO Comments (blog_id, comment) VALUES (:blog_id, :comment)");
+        $stmt = $conn->prepare("INSERT INTO Comments (blog_id, name, comment) VALUES (:blog_id, :name, :comment)");
         $stmt->bindParam(':blog_id', $blog_id);
+        $stmt->bindParam(':name', $name);
         $stmt->bindParam(':comment', $comment);
         $stmt->execute();
 
@@ -117,5 +123,4 @@ try {
     // Close the connection
     $conn = null;
 }
-
 ?>

@@ -1,4 +1,4 @@
-import { createSignal, createEffect } from 'solid-js';
+import { createSignal, createEffect, For } from 'solid-js';
 
 import { info } from '../../data/info';
 import PageNavigation from './PageNavigation';
@@ -150,15 +150,17 @@ export default function Navbar() {
 						{navToggle() && (
 							<nav class="absolute top-16 right-0 dark:text-light rounded-lg ml-2 bg-zinc-100 dark:bg-[#202020] w-[200px] px-3 py-1">
 								<nav class="grid md:grid-cols-1 grid-cols-5 gap-2">
-									{info.routes.map(item => (
-										<a
-											class="text-base hover:opacity-70 transition-opacity cursor-pointer px-0 py-2 p-4 flex h-auto items-center justify-start gap-x-2"
-											href={item.url}
-										>
-											{item.icon}
-											{item.title}
-										</a>
-									))}
+									<For each={info.routes}>
+										{route => (
+											<a
+												class="text-base hover:opacity-70 transition-opacity cursor-pointer px-0 py-2 p-4 flex h-auto items-center justify-start gap-x-2"
+												href={route.url}
+											>
+												{route.icon}
+												{route.title}
+											</a>
+										)}
+									</For>
 								</nav>
 							</nav>
 						)}

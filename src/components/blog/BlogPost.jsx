@@ -51,6 +51,12 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 			}
 
 			setViewCount(data);
+
+			const comments = data.comments || [];
+
+			// Sort by created_at in descending order
+			comments.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+			setComments(comments);
 		} catch (error) {
 			console.error(error);
 		}
@@ -154,10 +160,11 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 				</div>
 			</div>
 
-			<div class="blog-post">{content}</div>
+			<div class="blog-post max-w-3xl mx-auto mt-1 mb-10">{content}</div>
 
 			{showComment() ? (
 				<Comment
+					blogId={id}
 					handleClose={async () => {
 						await fetchBlogStats();
 						setShowComment(false);
@@ -190,19 +197,22 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 						</button>
 					</div>
 
-					<div id="comments" class="flex justify-center items-center mb-10">
+					<div id="comments" class="max-w-3xl mx-auto mt-2 mb-10">
 						{comments().length > 0 ? (
-							<div class="text-center">
+							<div>
 								<h2 class="text-2xl mb-4">Comments</h2>
-								<ul class="list-disc list-inside">
-									<For each={comments()}>
-										{comment => (
-											<li class="mb-2">
-												<strong>{comment.author}:</strong> {comment.text}
-											</li>
-										)}
-									</For>
-								</ul>
+								<For each={comments()}>
+									{comment => (
+										<div class="flex flex-col gap-y-2 border-t border-zinc-200 dark:border-zinc-700 py-2 px-4">
+											<div className="flex justify-between items-center">
+												<div class="font-semibold">{comment.name}</div>
+												<div className="text-xs italic">{comment.created_at}</div>
+											</div>
+
+											<div class="text-sm">{comment.comment}</div>
+										</div>
+									)}
+								</For>
 							</div>
 						) : (
 							<p class="text-gray-500">No comments yet. Be the first to comment!</p>

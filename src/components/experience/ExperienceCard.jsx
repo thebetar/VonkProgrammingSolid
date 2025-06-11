@@ -1,3 +1,4 @@
+import { For } from 'solid-js';
 import { info } from '../../data/info';
 
 export default function ExperienceCard({ small, item }) {
@@ -26,12 +27,13 @@ export default function ExperienceCard({ small, item }) {
 					{item.startDate} - {item.endDate}
 				</p>
 			</div>
+
 			<p class="text-sm mt-3 dark:text-blue text-cyan-800">{item.location}</p>
+
 			<ul class="mt-3 mb-1" classList={{ 'md:text-sm': small }}>
-				{item.description.map(item => (
-					<li>{item}</li>
-				))}
+				<For each={item.description}>{item => <li>{item}</li>}</For>
 			</ul>
+
 			{item.link ? (
 				<a href={item.link} class="text-sm underline mt-4" target="_blank" rel="noopener noreferrer">
 					Go to website of {item.name}

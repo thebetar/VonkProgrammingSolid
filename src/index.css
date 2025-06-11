@@ -71,11 +71,7 @@ h2 {
 }
 
 .blog-post {
-	max-width: 720px;
-	margin-top: 4px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 40px;
+	/* General styles for blog posts */
 }
 
 .blog-post h2 {
