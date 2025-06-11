@@ -50,7 +50,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 				return;
 			}
 
-			setViewCount(data);
+			setViewCount(data.view_count);
 
 			const comments = data.comments || [];
 
