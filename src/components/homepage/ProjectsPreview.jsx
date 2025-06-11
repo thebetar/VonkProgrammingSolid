@@ -8,7 +8,7 @@ const { projects } = info;
 export default function ProjectsPreview() {
 	return (
 		<section id="projects">
-			<h2 class="w-[15rem] mt-16 uppercase">Featured projects</h2>
+			<h2 class="text-center mt-16 uppercase sm:text-2xl text-3xl font-semibold">Featured projects</h2>
 
 			<div class="w-full grid md:grid-cols-2 grid-cols-1 gap-4 my-8">
 				<For each={projects.filter(p => p.featured)}>{project => <ProjectCard {...project} />}</For>
