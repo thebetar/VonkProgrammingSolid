@@ -39,19 +39,13 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 		document.querySelector('body').dispatchEvent(new Event('open-subscribe'));
 	};
 
-	createEffect(async () => {
-		const titleElement = document.querySelector('title');
-		titleElement.textContent = `VonkProgramming - ${title}`;
-
-		const metaKeywords = document.querySelector('meta[name="keywords"]');
-		metaKeywords.content = keywords.join(', ');
-
+	async function fetchBlogStats() {
 		try {
-			const response = await fetch(`/view.php?blog_id=${id}`);
+			const response = await fetch(`/blog.php?id=${id}`);
 			const data = await response.json();
 
 			if (!data.view_count || !data.comments) {
-				console.error('Invalid response from view.php:', data);
+				console.error('Invalid response from blog.php:', data);
 				setViewCount(1);
 				return;
 			}
@@ -60,6 +54,16 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 		} catch (error) {
 			console.error(error);
 		}
+	}
+
+	createEffect(() => {
+		const titleElement = document.querySelector('title');
+		titleElement.textContent = `VonkProgramming - ${title}`;
+
+		const metaKeywords = document.querySelector('meta[name="keywords"]');
+		metaKeywords.content = keywords.join(', ');
+
+		fetchBlogStats();
 	});
 
 	return (
@@ -153,7 +157,12 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 			<div class="blog-post">{content}</div>
 
 			{showComment() ? (
-				<Comment handleClose={() => setShowComment(false)} />
+				<Comment
+					handleClose={async () => {
+						await fetchBlogStats();
+						setShowComment(false);
+					}}
+				/>
 			) : (
 				<>
 					<div class="flex max-w-[720px] mx-auto md:gap-x-4 gap-2 justify-center items-center md:text-base text-sm mb-10 md:flex-row flex-col">

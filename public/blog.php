@@ -65,7 +65,7 @@ try {
 
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Get the blog ID
-        $blog_id = isset($_GET["blog_id"]) ? intval($_GET["blog_id"]) : 0;
+        $blog_id = isset($_GET["id"]) ? intval($_GET["id"]) : 0;
 
         // Check if blog ID is valid
         if ($blog_id == 0) {
@@ -89,6 +89,24 @@ try {
             'view_count' => $view_count,
             'comments' => $comments
         ]);
+    } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Handle comment submission
+        $blog_id = isset($_POST["blog_id"]) ? intval($_POST["blog_id"]) : 0;
+        $comment = isset($_POST["comment"]) ? trim($_POST["comment"]) : '';
+
+        // Validate input
+        if ($blog_id == 0 || empty($comment)) {
+            echo "Invalid request";
+            return;
+        }
+
+        // Insert comment into database
+        $stmt = $conn->prepare("INSERT INTO Comments (blog_id, comment) VALUES (:blog_id, :comment)");
+        $stmt->bindParam(':blog_id', $blog_id);
+        $stmt->bindParam(':comment', $comment);
+        $stmt->execute();
+
+        echo json_encode(['status' => 'success']);
     } else {
         echo "Invalid request";
     }

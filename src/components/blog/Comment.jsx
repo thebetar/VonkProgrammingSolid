@@ -1,17 +1,35 @@
 import { createSignal } from 'solid-js';
 
 export default function Comment({ handleClose }) {
-	const [name, setName] = createSignal('');
+	const [name, setName] = createSignal(localStorage.getItem('comment-name') || '');
 	const [comment, setComment] = createSignal('');
 
-	function sendComment() {
-		if (name() && comment()) {
-			// Here you would typically send the comment to a server
-			console.log('Comment submitted:', { name: name(), comment: comment() });
-			handleClose();
-		} else {
-			alert('Please fill in both fields.');
+	const [commentError, setCommentError] = createSignal('');
+
+	async function sendComment() {
+		if (!name() || !comment()) {
+			setCommentError('Please fill in both name and comment fields.');
+
+			setTimeout(() => {
+				setCommentError('');
+			}, 3000);
+			return;
 		}
+
+		// Here you would typically send the comment to a server
+		await fetch('/api/blog.php', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				name: name(),
+				comment: comment(),
+			}),
+		});
+
+		localStorage.setItem('comment-name', name());
+		handleClose();
 	}
 
 	return (
@@ -45,6 +63,8 @@ export default function Comment({ handleClose }) {
 							onInput={e => setComment(e.target.value)}
 						/>
 					</div>
+
+					{commentError() && <div class="text-red-600 dark:text-red-400 text-sm">{commentError()}</div>}
 
 					<div class="flex gap-3 pt-2">
 						<button
