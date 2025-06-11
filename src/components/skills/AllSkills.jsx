@@ -5,7 +5,7 @@ const skillTypes = Object.values(SkillType);
 
 export default function AllSkills() {
 	return (
-		<section class="flex items-center justify-start flex-col dark:text-light">
+		<section class="flex items-center justify-start flex-col dark:text-white">
 			<h2 class="w-full text-4xl text-center md:my-4 my-2 uppercase">Skills</h2>
 
 			<div class="flex justify-center mb-8">
@@ -27,7 +27,7 @@ export default function AllSkills() {
 									{item => (
 										<a
 											href={item.link}
-											class="md:my-4 my-1 flex md:flex-row flex-col gap-1 justify-between items-center dark:border-zinc-300 border-zinc-600 border md:p-4 px-2 py-3 dark:text-light text-black no-underline md:rounded rounded-lg dark:hover:bg-zinc-900 hover:bg-zinc-200 transition"
+											class="md:my-4 my-1 flex md:flex-row flex-col gap-1 justify-between items-center dark:border-zinc-300 border-zinc-600 border md:p-4 px-2 py-3 dark:text-white text-black no-underline md:rounded rounded-lg dark:hover:bg-zinc-900 hover:bg-zinc-200 transition"
 										>
 											<div class="flex md:gap-2 gap-1 md:flex-row flex-col items-center">
 												<div class="md:w-10 md:h-10 w-6 h-6 rounded-full bg-zinc-300 dark:bg-zinc-100 flex justify-center items-center">

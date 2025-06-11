@@ -39,13 +39,13 @@ export default function Navbar() {
 	}
 
 	const buttonClass =
-		'flex justify-center items-center h-[52px] w-[52px] dark:text-light rounded-lg ml-2 bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition';
+		'flex justify-center items-center h-[52px] w-[52px] dark:text-white rounded-lg ml-2 bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition';
 
 	createEffect(themeHandler);
 
 	return (
 		<header class="container flex items-center justify-between h-[80px] sm:h-[123px]">
-			<a class="text-2xl dark:text-light font-semibold dark:font-semibold font-outfit" href="/">
+			<a class="text-2xl dark:text-white font-semibold dark:font-semibold font-outfit" href="/">
 				<img src="/assets/images/logo.webp" alt="logo" title="logo" class="md:h-10 h-8" />
 			</a>
 			<nav>
@@ -148,7 +148,7 @@ export default function Navbar() {
 						</button>
 
 						{navToggle() && (
-							<nav class="absolute top-16 right-0 dark:text-light rounded-lg ml-2 bg-zinc-100 dark:bg-[#202020] w-[200px] px-3 py-1">
+							<nav class="absolute top-16 right-0 dark:text-white rounded-lg ml-2 bg-zinc-100 dark:bg-[#202020] w-[200px] px-3 py-1">
 								<nav class="grid md:grid-cols-1 grid-cols-5 gap-2">
 									<For each={info.routes}>
 										{route => (

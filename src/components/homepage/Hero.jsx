@@ -6,9 +6,9 @@ const { name, jobDescription1, jobDescription2, about, socialMedia } = info;
 export default function Hero({ short = false }) {
 	return (
 		<section id="hero" class={short ? 'md:block hidden' : ''}>
-			<p class="dark:text-light md:mt-[117px] mt-20">Hey, I’m</p>
+			<p class="dark:text-white md:mt-[117px] mt-20">Hey, I’m</p>
 
-			<h1 class="main-heading" aria-label={name}>
+			<h1 class="lg:text-6xl text-4xl main-heading" aria-label={name}>
 				{name}
 			</h1>
 
@@ -59,10 +59,10 @@ export default function Hero({ short = false }) {
 
 					<p class="mt-4">Interested in my services?</p>
 
-					<div className="mt-2 flex gap-x-2">
+					<div className="mt-2 flex gap-2 lg:flex-row flex-col">
 						<a
 							href={socialMedia.email}
-							class="block px-3 py-2 w-fit rounded-md transition-colors flex items-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+							class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
 						>
 							<MailSvg width={16} height={16} />
 							<span class="text-sm">Get in touch</span>
@@ -72,7 +72,7 @@ export default function Hero({ short = false }) {
 							href={socialMedia.linkedin}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="block px-3 py-2 w-fit rounded-md transition-colors flex items-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+							class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
 						>
 							<LinkedInSvg width={16} height={16} />
 							<span class="text-sm">Connect on LinkedIn</span>

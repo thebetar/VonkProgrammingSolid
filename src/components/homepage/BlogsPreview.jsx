@@ -10,7 +10,7 @@ export default function Blog() {
 	};
 
 	return (
-		<section id="blogs" class="flex items-start justify-between flex-col sm:flex-row dark:text-light">
+		<section id="blogs" class="flex items-start justify-between flex-col sm:flex-row dark:text-white">
 			<h2 class="w-[15rem] mt-16 uppercase">Blog</h2>
 
 			<div class="w-full">
@@ -28,7 +28,7 @@ export default function Blog() {
 											<span
 												class={[
 													'text-xs',
-													'text-light',
+													'text-white',
 													'capitalize',
 													'px-2',
 													'py-1',

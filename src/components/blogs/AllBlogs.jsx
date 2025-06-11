@@ -10,7 +10,7 @@ export default function AllBlogs() {
 	}
 
 	return (
-		<section class="flex items-center justify-start flex-col dark:text-light">
+		<section class="flex items-center justify-start flex-col dark:text-white">
 			<h2 class="w-full text-4xl text-center md:my-4 my-2 uppercase">Blog</h2>
 
 			<div class="flex justify-center mb-8">
@@ -37,7 +37,7 @@ export default function AllBlogs() {
 											<span
 												class={[
 													'text-xs',
-													'text-light',
+													'text-white',
 													'capitalize',
 													'px-2',
 													'py-1',

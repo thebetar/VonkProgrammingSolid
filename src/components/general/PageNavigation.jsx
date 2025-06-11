@@ -16,7 +16,7 @@ export default function Navigation({ curPage }) {
 	});
 
 	return (
-		<div class="md:hidden fixed left-0 bottom-0 w-screen bg-light dark:bg-dark border-t-2 z-50 h-fit">
+		<div class="md:hidden fixed left-0 bottom-0 w-screen bg-light dark:bg-zinc-900 border-t-2 z-50 h-fit">
 			<nav class="w-full grid grid-cols-5">
 				<For each={navRoutes()}>
 					{route => (

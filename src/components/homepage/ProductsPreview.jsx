@@ -5,7 +5,7 @@ const { products } = info;
 
 export default function ProductsPreview() {
 	return (
-		<section id="products" class="flex items-start justify-between flex-col sm:flex-row dark:text-light">
+		<section id="products" class="flex items-start justify-between flex-col sm:flex-row dark:text-white">
 			<h2 class="w-[15rem] mt-16 uppercase">Products</h2>
 
 			<div class="w-full">

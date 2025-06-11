@@ -3,7 +3,7 @@ import ExperienceCard from './ExperienceCard';
 
 export default function AllExperience({ title, details }) {
 	return (
-		<section class="flex items-center justify-start flex-col dark:text-light">
+		<section class="flex items-center justify-start flex-col dark:text-white">
 			<h2 class="w-full text-4xl text-center md:my-4 my-2">{title}</h2>
 
 			<div class="flex justify-center mb-8">

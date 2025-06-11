@@ -28,7 +28,7 @@ export default function ExperienceCard({ small, item }) {
 				</p>
 			</div>
 
-			<p class="text-sm mt-3 dark:text-blue text-cyan-800">{item.location}</p>
+			<p class="text-sm mt-3 dark:text-cyan-400 text-cyan-800">{item.location}</p>
 
 			<ul class="mt-3 mb-1" classList={{ 'md:text-sm': small }}>
 				<For each={item.description}>{item => <li>{item}</li>}</For>

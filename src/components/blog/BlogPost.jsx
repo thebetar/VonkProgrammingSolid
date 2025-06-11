@@ -92,7 +92,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 						<div class="text-4xl text-white inline">{parseTitle(title).emoji}</div>
 					</div>
 
-					<div class="dark:text-light text-dark hover:opacity-70 transition cursor-pointer">
+					<div class="dark:text-white text-dark hover:opacity-70 transition cursor-pointer">
 						<svg
 							id="share-icon"
 							viewBox="0 0 24 24"
@@ -144,7 +144,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 								class={[
 									'text-xs',
 									'dark:text-dark',
-									'text-light',
+									'text-white',
 									'capitalize',
 									'px-2',
 									'py-1',
@@ -215,7 +215,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 								</For>
 							</div>
 						) : (
-							<p class="text-gray-500">No comments yet. Be the first to comment!</p>
+							<p class="text-gray-500 italic">No comments yet. Be the first to comment!</p>
 						)}
 					</div>
 				</>

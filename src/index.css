@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 /* ========== tailwind custom styles ========== */
 .container {
@@ -34,25 +32,6 @@ h4,
 h5,
 h6 {
 	font-family: 'Outfit', sans-serif;
-}
-
-h1 {
-	font-size: 4rem; /* 6xl */
-}
-
-@media (min-width: 640px) {
-	h1 {
-		font-size: 6rem; /* 8xl */
-	}
-}
-
-h1.main-heading {
-	/* Add any additional styles for main-heading here */
-}
-
-h2 {
-	font-size: 1.25rem; /* xl */
-	font-weight: 600; /* semibold */
 }
 
 .footer-icons {

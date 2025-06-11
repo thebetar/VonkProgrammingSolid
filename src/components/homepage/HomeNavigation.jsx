@@ -138,7 +138,7 @@ export default function Navigation() {
 	});
 
 	return (
-		<div class="fixed left-0 bottom-0 md:w-[12rem] w-screen md:bg-none bg-light dark:bg-dark md:border-0 border-t-2 z-50 md:h-screen h-fit md:flex md:flex-col md:justify-center md:pl-2">
+		<div class="fixed left-0 bottom-0 md:w-[12rem] w-screen md:bg-none bg-light dark:bg-zinc-900 md:border-0 border-t-2 z-50 md:h-screen h-fit md:flex md:flex-col md:justify-center md:pl-2">
 			<div
 				class="md:block hidden absolute top-2 hover:opacity-80 transition-opacity cursor-pointer"
 				onClick={() => setNavToggle(!navToggle())}
@@ -162,7 +162,7 @@ export default function Navigation() {
 						{section => (
 							<a
 								class={
-									'md:text-lg text-base dark:text-light hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 ' +
+									'md:text-lg text-base dark:text-white hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 ' +
 									(section.mobile ? 'flex' : 'hidden')
 								}
 								name={`navigation-${section.id}`}
