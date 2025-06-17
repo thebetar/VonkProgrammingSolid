@@ -428,19 +428,29 @@ export const blogs = [
 					<strong>The First Neural Network</strong>
 				</h3>
 				<p>
-					The first neural network in IT was theorized by Frank Rosenblatt. He wrote a book about the
-					perceptron functions which describes a simple neural network with a single layer of neurons that
-					could learn to recognize basic shapes. It works as will be explain more in the next chapter by
-					feeding in some input values and adjusting the weights of these inputs based on the errors it makes.
-					In 1957, he even conducted experiments and managed to achieve basic shape detection in images. This
-					was done by implementing the same kind of base logic that modern neural networks use. But with only
-					a few neurons and a few layers, due to the limited computational power available at the time.
+					The first neural network in IT was theorized by{' '}
+					<a href="https://en.wikipedia.org/wiki/Frank_Rosenblatt" target="_blank">
+						Frank Rosenblatt
+					</a>
+					. He wrote a book about the{' '}
+					<a href="https://en.wikipedia.org/wiki/Perceptron" target="_blank">
+						perceptron
+					</a>{' '}
+					functions which describes a simple neural network with a single layer of neurons that could learn to
+					recognize basic shapes. It works as will be explain more in the next chapter by feeding in some
+					input values and adjusting the weights of these inputs based on the errors it makes. In 1957, he
+					even conducted experiments and managed to achieve basic shape detection in images. This was done by
+					implementing the same kind of base logic that modern neural networks use. But with only a few
+					neurons and a few layers, due to the limited computational power available at the time.
 				</p>
 				<p>
 					This was the big challenge back then. Immense computational power for that time period was required
 					to train such a model. But look at where we are today processors have evolved from a few transistors
-					to billions of them. A budget phone today has more computational power than the computers that sent
-					people to the moon.
+					to{' '}
+					<a href="https://en.wikipedia.org/wiki/Blackwell_(microarchitecture)" target="_blank">
+						billions of them
+					</a>
+					. A budget phone today has more computational power than the computers that sent people to the moon.
 				</p>
 				<h3 id="-how-does-a-neural-network-work-">
 					<strong>How Does a Neural Network Work?</strong>
@@ -476,7 +486,11 @@ export const blogs = [
 				<p>
 					This is a simplified explanation, but it illustrates the core concept. There’s a lot more math
 					behind how the network updates its weights this process is called backpropagation. If you’re
-					interested in the details, search for &quot;backpropagation&quot; to learn more.
+					interested in the details, search for{' '}
+					<a href="https://en.wikipedia.org/wiki/Backpropagation" target="_blank">
+						&quot;backpropagation&quot;
+					</a>{' '}
+					to learn more.
 				</p>
 				<h3 id="-ai-terms-">
 					<strong>AI Terms</strong>
@@ -622,8 +636,15 @@ export const blogs = [
 				</p>
 				<h2 id="osi-model">OSI Model</h2>
 				<p>
-					The OSI model describes the different layers involved in communication. The TCP/IP model also
-					explains this but in a more simplified manner. For this blog post, I will focus on:
+					The{' '}
+					<a href="https://en.wikipedia.org/wiki/OSI_model" target="_blank">
+						OSI model
+					</a>{' '}
+					describes the different layers involved in communication. The{' '}
+					<a href="https://en.wikipedia.org/wiki/Internet_protocol_suite" target="_blank">
+						TCP/IP model
+					</a>{' '}
+					also explains this but in a more simplified manner. For this blog post, I will focus on:
 				</p>
 				<ul>
 					<li>
@@ -642,16 +663,22 @@ export const blogs = [
 				<h2 id="initial-sending">Initial Sending</h2>
 				<p>
 					When you try to visit a website, your device first needs to determine its IP address. This is done
-					using a <strong>Domain Name System (DNS)</strong> server. A DNS server is a system that holds a
-					large database of human-readable domain names like <code>google.com</code> and{' '}
-					<code>amazon.com</code> and maps them to their respective IP addresses.
+					using a{' '}
+					<a href="https://en.wikipedia.org/wiki/Domain_Name_System" target="_blank">
+						Domain Name System (DNS)
+					</a>{' '}
+					server. A DNS server is a system that holds a large database of human-readable domain names like{' '}
+					<code>google.com</code> and <code>amazon.com</code> and maps them to their respective IP addresses.
 				</p>
 				<h3 id="how-is-the-dns-server-found-">How Is the DNS Server Found?</h3>
 				<p>
 					Your device is typically configured with a default DNS server. Common examples include{' '}
-					<strong>1.1.1.1</strong> for Cloudflare&#39;s DNS server and <strong>8.8.8.8</strong> for
-					Google&#39;s DNS server. If a device does not have a DNS server manually set, it often receives one
-					automatically from the network’s DHCP server.
+					<strong>1.1.1.1</strong> for{' '}
+					<a href="https://en.wikipedia.org/wiki/Cloudflare" target="_blank">
+						Cloudflare&#39;s
+					</a>{' '}
+					DNS server and <strong>8.8.8.8</strong> for Google&#39;s DNS server. If a device does not have a DNS
+					server manually set, it often receives one automatically from the network’s DHCP server.
 				</p>
 				<h3 id="how-does-the-request-reach-the-dns-server-">How Does the Request Reach the DNS Server?</h3>
 				<p>
@@ -660,25 +687,34 @@ export const blogs = [
 				<ol>
 					<li>
 						<p>
-							<strong>Application Layer:</strong> Your browser generates the request.
+							<a href="https://en.wikipedia.org/wiki/Application_layer" target="_blank">
+								Application Layer:
+							</a>{' '}
+							Your browser generates the request.
 						</p>
 					</li>
 					<li>
 						<p>
-							<strong>Transport Layer:</strong> The request is wrapped in a protocol, typically UDP or
-							TCP.
+							<a href="https://en.wikipedia.org/wiki/Transport_layer" target="_blank">
+								Transport Layer:
+							</a>{' '}
+							The request is wrapped in a protocol, typically UDP or TCP.
 						</p>
 					</li>
 					<li>
 						<p>
-							<strong>Network Layer:</strong> The request is assigned an IP header with source and
-							destination addresses.
+							<a href="https://en.wikipedia.org/wiki/Network_layer" target="_blank">
+								Network Layer:
+							</a>{' '}
+							The request is assigned an IP header with source and destination addresses.
 						</p>
 					</li>
 					<li>
 						<p>
-							<strong>Data Link &amp; Physical Layers:</strong> The request is encoded into bits and
-							transmitted over a physical medium (wired or wireless).
+							<a href="https://en.wikipedia.org/wiki/Data_link_layer" target="_blank">
+								Data Link &amp; Physical Layers:
+							</a>{' '}
+							The request is encoded into bits and transmitted over a physical medium (wired or wireless).
 						</p>
 					</li>
 				</ol>
@@ -714,18 +750,24 @@ export const blogs = [
 				<ul>
 					<li>
 						<p>
-							<strong>UDP (User Datagram Protocol):</strong> Sends data in a continuous stream without
-							waiting for acknowledgment. This makes it fast but unreliable since packets may be lost in
-							transit. It is ideal for applications like video streaming or voice calls, where occasional
-							packet loss (milliseconds of missing data) is negligible.
+							<a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol" target="_blank">
+								UDP (User Datagram Protocol):
+							</a>{' '}
+							Sends data in a continuous stream without waiting for acknowledgment. This makes it fast but
+							unreliable since packets may be lost in transit. It is ideal for applications like video
+							streaming or voice calls, where occasional packet loss (milliseconds of missing data) is
+							negligible.
 						</p>
 					</li>
 					<li>
 						<p>
-							<strong>TCP (Transmission Control Protocol):</strong> Ensures reliable data delivery by
-							sending packets one at a time and waiting for acknowledgment from the receiver before
-							sending the next packet. If a packet is lost, it is retransmitted. This is useful for web
-							browsing, file transfers, and applications where data integrity is crucial.
+							<a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank">
+								TCP (Transmission Control Protocol):
+							</a>{' '}
+							Ensures reliable data delivery by sending packets one at a time and waiting for
+							acknowledgment from the receiver before sending the next packet. If a packet is lost, it is
+							retransmitted. This is useful for web browsing, file transfers, and applications where data
+							integrity is crucial.
 						</p>
 					</li>
 				</ul>
@@ -742,8 +784,10 @@ export const blogs = [
 				<ul>
 					<li>
 						<p>
-							<strong>Local IP addresses</strong> are used within private networks, such as your home or
-							office (LAN – Local Area Network).
+							<a href="https://en.wikipedia.org/wiki/Private_network" target="_blank">
+								Local IP addresses
+							</a>{' '}
+							are used within private networks, such as your home or office (LAN – Local Area Network).
 						</p>
 					</li>
 					<li>
@@ -770,20 +814,26 @@ export const blogs = [
 				<ul>
 					<li>
 						<p>
-							<strong>Session Layer:</strong> Maintains user sessions over multiple requests, ensuring
-							continuous communication.
+							<a href="https://en.wikipedia.org/wiki/Session_layer" target="_blank">
+								Session Layer:
+							</a>{' '}
+							Maintains user sessions over multiple requests, ensuring continuous communication.
 						</p>
 					</li>
 					<li>
 						<p>
-							<strong>Presentation Layer:</strong> Handles data formatting, compression, and encryption
-							for safe and efficient transmission.
+							<a href="https://en.wikipedia.org/wiki/Presentation_layer" target="_blank">
+								Presentation Layer:
+							</a>{' '}
+							Handles data formatting, compression, and encryption for safe and efficient transmission.
 						</p>
 					</li>
 					<li>
 						<p>
-							<strong>Application Layer:</strong> Defines standards and protocols that applications use to
-							interact with networks.
+							<a href="https://en.wikipedia.org/wiki/Application_layer" target="_blank">
+								Application Layer:
+							</a>{' '}
+							Defines standards and protocols that applications use to interact with networks.
 						</p>
 					</li>
 				</ul>
