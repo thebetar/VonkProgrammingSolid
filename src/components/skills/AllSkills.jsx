@@ -1,12 +1,13 @@
-import Rating from '../general/Rating';
 import { info, SkillType } from '../../data/info';
+import Rating from '../styling/Rating';
+import PageHeader from './PageHeader';
 
 const skillTypes = Object.values(SkillType);
 
 export default function AllSkills() {
 	return (
 		<section class="flex items-center justify-start flex-col dark:text-white">
-			<h2 class="w-full text-4xl text-center md:my-4 my-2 uppercase">Skills</h2>
+			<PageHeader>Skills</PageHeader>
 
 			<div class="flex justify-center mb-8">
 				<div>

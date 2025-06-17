@@ -66,20 +66,49 @@ export const blogs = [
 			<>
 				<p>
 					I&#39;ve used many different operating systems over the years. In the good old days, I started with
-					the beloved <strong>Windows XP</strong>. Windows XP was known for its stability and was ahead of its
-					time in user-friendliness and features; there was truly no competitor. In those days, operating
-					systems like Linux were primarily used by diehard programmers who preferred a simple interface over
-					a more verbose experience. Things have changed, however.
+					the beloved{' '}
+					<a href="https://en.wikipedia.org/wiki/Windows_XP" target="_blank">
+						Windows XP
+					</a>
+					. Windows XP was known for its stability and was ahead of its time in user-friendliness and
+					features; there was truly no competitor. In those days, operating systems like{' '}
+					<a href="https://en.wikipedia.org/wiki/Linux" target="_blank">
+						Linux
+					</a>{' '}
+					were primarily used by diehard programmers who preferred a simple interface over a more verbose
+					experience. Things have changed, however.
 				</p>
 				<h2 id="current-state-of-operating-systems">Current state of operating systems</h2>
 				<p>
-					As Windows has progressed from Windows XP to Vista, to Windows 7, to Windows 10, and now finally
-					Windows 11, other operating systems have also made significant improvements. The user interface of
-					the desktop environment Gnome, which determines the interface you actually see on the, shas become
-					very user friendly,.I would even like to argue that it can be used by everyone nowadays, regardless
-					of their technical savviness. Aside from this, macOS has also evolved into an amazing operating
-					system, even bridging the performance gap between MacBooks and other devices by introducing the M1
-					processors.
+					As Windows has progressed from Windows XP to{' '}
+					<a href="https://en.wikipedia.org/wiki/Windows_Vista" target="_blank">
+						Vista
+					</a>
+					, to{' '}
+					<a href="https://en.wikipedia.org/wiki/Windows_7" target="_blank">
+						Windows 7
+					</a>
+					, to{' '}
+					<a href="https://en.wikipedia.org/wiki/Windows_10" target="_blank">
+						Windows 10
+					</a>
+					, and now finally{' '}
+					<a href="https://en.wikipedia.org/wiki/Windows_11" target="_blank">
+						Windows 11
+					</a>
+					, other operating systems have also made significant improvements. The user interface of the desktop
+					environment{' '}
+					<a href="https://www.gnome.org/" target="_blank">
+						Gnome
+					</a>
+					, which determines the interface you actually see on the, shas become very user friendly.I would
+					even like to argue that it can be used by everyone nowadays, regardless of their technical
+					savviness. Aside from this,{' '}
+					<a href="https://en.wikipedia.org/wiki/MacOS" target="_blank">
+						MacOS
+					</a>{' '}
+					has also evolved into an amazing operating system, even bridging the performance gap between
+					MacBooks and other devices by introducing the M1 processors.
 				</p>
 				<p>
 					<img
@@ -93,13 +122,21 @@ export const blogs = [
 				<h2 id="my-journey">My journey</h2>
 				<p>
 					I&#39;ve stuck with Windows for a long time, even throughout getting my bachelor&#39;s degree. While
-					I did briefly experiment with Linux Mint in 2018, the real shift began when I received my first work
-					laptop from my employer, Quintor. It came with Ubuntu (Linux) by default! I decided to do some
-					experiment with it and what I found is that the developer experience on Ubuntu is a lot better.
-					Linux offers a lot more freedom in how you want to configure your environment. If you want to use
-					Ubuntu but dont like how Gnome looks you can install a completely new desktop environment. Although
-					I think gnome would fit most people&#39;s idea of what a desktop environment should provide. In the
-					image below an example of how Ubuntu with Gnome looks like.
+					I did briefly experiment with{' '}
+					<a href="https://linuxmint.com/" target="_blank">
+						Linux Mint
+					</a>{' '}
+					in 2018, the real shift began when I received my first work laptop from my employer, Quintor. It
+					came with{' '}
+					<a href="https://ubuntu.com/" target="_blank">
+						Ubuntu
+					</a>{' '}
+					(Linux) by default! I decided to do some experiment with it and what I found is that the developer
+					experience on Ubuntu is a lot better. Linux offers a lot more freedom in how you want to configure
+					your environment. If you want to use Ubuntu but dont like how Gnome looks you can install a
+					completely new desktop environment. Although I think gnome would fit most people&#39;s idea of what
+					a desktop environment should provide. In the image below an example of how Ubuntu with Gnome looks
+					like.
 				</p>
 				<p>
 					<img
@@ -117,21 +154,39 @@ export const blogs = [
 					operating system when starting your laptop and allowed me to choose between Debian and Ubuntu.
 				</p>
 				<p>
-					Debian is the underlying distribution that Ubuntu is built upon, which is why Ubuntu is referred to
-					as a Debian-based distribution. This means that the original, open-source code of Debian was copied
-					and then expanded upon to create Ubuntu. Beyond Debian, there are also distributions based on Arch,
-					Fedora, and Red Hat. In this diverse landscape, Debian is known for its stability and reliability,
-					while Arch, for example, is known for its rapid development cycle and superior performance.
-					Personally, I wanted a dependable distribution but wanted to explore one level deeper.
+					<a href="https://www.debian.org/" target="_blank">
+						Debian
+					</a>{' '}
+					is the underlying distribution that Ubuntu is built upon, which is why Ubuntu is referred to as a
+					Debian-based distribution. This means that the original, open-source code of Debian was copied and
+					then expanded upon to create Ubuntu. Beyond Debian, there are also distributions based on{' '}
+					<a href="https://archlinux.org/" target="_blank">
+						Arch
+					</a>
+					,{' '}
+					<a href="https://www.fedoraproject.org/" target="_blank">
+						Fedora
+					</a>
+					, and{' '}
+					<a href="https://www.redhat.com/en" target="_blank">
+						Red Hat
+					</a>
+					. In this diverse landscape, Debian is known for its stability and reliability, while Arch, for
+					example, is known for its rapid development cycle and superior performance. Personally, I wanted a
+					dependable distribution but wanted to explore one level deeper.
 				</p>
 				<p>
 					When I switched to Debian, I also decided to experiment with a different desktop environment, aiming
-					to fully commit to being productive. After some time with the I3 window manager, I settled on
-					Regolith Desktop. Regolith is a window manager that can be installed on either Ubuntu or Debian. It
-					facilitates efficient window management primarily through keyboard shortcuts, minimizing the need
-					for a mouse. What makes Regolith particularly appealing is that while it utilizes I3 under the hood,
-					it comes with a wealth of pre-configured settings. This is a significant advantage, as configuring
-					I3 from scratch can often be a time-consuming process. Below is an image what Regolith looks like
+					to fully commit to being productive. After some time with the{' '}
+					<a href="https://i3wm.org/" target="_blank">
+						I3 window manager
+					</a>
+					, I settled on <a href="https://regolith-desktop.com/">Regolith Desktop</a>. Regolith is a window
+					manager that can be installed on either Ubuntu or Debian. It facilitates efficient window management
+					primarily through keyboard shortcuts, minimizing the need for a mouse. What makes Regolith
+					particularly appealing is that while it utilizes I3 under the hood, it comes with a wealth of
+					pre-configured settings. This is a significant advantage, as configuring I3 from scratch can often
+					be a time-consuming process. Below is an image what Regolith looks like
 				</p>
 				<p>
 					<img

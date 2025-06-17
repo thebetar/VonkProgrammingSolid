@@ -1,10 +1,10 @@
-import { info } from '../../data/info';
+import PageHeader from '../skills/PageHeader';
 import ExperienceCard from './ExperienceCard';
 
 export default function AllExperience({ title, details }) {
 	return (
 		<section class="flex items-center justify-start flex-col dark:text-white">
-			<h2 class="w-full text-4xl text-center md:my-4 my-2">{title}</h2>
+			<PageHeader>{title}</PageHeader>
 
 			<div class="flex justify-center mb-8">
 				<div>

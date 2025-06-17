@@ -1,6 +1,6 @@
 import { info } from '../../data/info';
 
-import Rating from '../general/Rating';
+import Rating from '../styling/Rating';
 
 const skills = info.skills.filter(s => s.featured);
 

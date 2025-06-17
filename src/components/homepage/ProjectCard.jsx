@@ -1,4 +1,4 @@
-export default function ProjectCard({ language, githubUrl, liveUrl, thumbnail, title }) {
+export default function ProjectCard({ language, githubUrl, liveUrl, thumbnail, title, description, small }) {
 	return (
 		<article class="w-full max-h-[25rem] overflow-hidden relative group rounded-lg flex items-center justify-center border-4 dark:border-zinc-800 dark:hover:border-cyan-800 border-zinc-200 hover:border-cyan-300 transition duration-500">
 			{language && (
@@ -74,8 +74,14 @@ export default function ProjectCard({ language, githubUrl, liveUrl, thumbnail, t
 					title={title}
 				/>
 			</a>
-			<div class="absolute w-full bottom-0 left-0 backdrop-blur-md dark:text-white text-white bg-black/50 md:p-4 p-2 md:tranzinc-y-[100%] group-hover:tranzinc-y-0 transition duration-700">
+			<div class="absolute w-full bottom-0 left-0 backdrop-blur-md dark:text-white text-white bg-black/50 md:p-4 p-2 transition duration-700">
 				<h3 class="mr-2 md:text-xl text-base">{title}</h3>
+
+				{!small && description && (
+					<p class="sm:max-h-0 max-h-56 overflow-y-hidden group-hover:max-h-56 transition-all duratio-300 md:text-sm text-xs mt-1">
+						{description}
+					</p>
+				)}
 			</div>
 		</article>
 	);

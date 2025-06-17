@@ -17,12 +17,48 @@ export const info = {
 	name: 'Lars Vonk',
 	jobDescription1: 'Software enthusiast',
 	jobDescription2: 'Code quality advocate',
-	description: `
-		I am an experienced developer skilled in C++, Go, JavaScript and Python. I value code quality and continuous learning, as shared in my blogs. Check out my GitHub for exciting projects and insights.
-	`,
-	about: `
-		I am an experienced developer with a strong background in JavaScript and Python, and hobby experience with C++ and Go. I value code quality and continuous learning, which I often share through my blogs. In my free time, I work on side projects, explore new technologies, and focus on exciting AI projects through my freelance work. I am also in the process of getting a master's degree in computer systems and networks at the Warsaw University of Technology, where I continue to deepen my knowledge and skills.
-	`,
+	about: (
+		<div>
+			With nearly a decade of professional experience, I am a developer specializing in PHP, JavaScript, and
+			Python, with a passion for C++ and Go. As a freelancer, I am dedicated to delivering high-quality software
+			and continuously expanding my skills, a journey I often document in my{' '}
+			<a
+				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
+				href="https://vonkprogramming.nl/blogs"
+			>
+				blogs
+			</a>
+			. You can review my professional work in the{' '}
+			<a
+				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
+				href="https://vonkprogramming.nl/experience"
+			>
+				experience
+			</a>{' '}
+			section.
+			<br />
+			<br />
+			Currently, I am deepening my expertise by pursuing a Master's degree in Computer Systems and Networks at the
+			Warsaw University of Technology. In my free time, I enjoy building C++ tools to understand how software is
+			made and developing IoT solutions to automate my home, I also share these projects on my{' '}
+			<a
+				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
+				href="https://github.com/thebetar"
+				target="_blank"
+			>
+				Github
+			</a>{' '}
+			or in the{' '}
+			<a
+				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
+				href="https://vonkprogramming.nl/projects"
+			>
+				projects
+			</a>{' '}
+			section. I am actively seeking new freelance opportunities in web development, AI, data science, and IoT.
+			Let's build something great together!
+		</div>
+	),
 	keywords: 'developer, javascript, python, code quality, blogs',
 	products: [
 		{
@@ -875,7 +911,20 @@ export const info = {
 
 	projects: [
 		{
+			title: 'VonkServer (home automation)',
+			description: `
+				With the VonkServer project I attempted to write my own simple web server using only C. I succeeded in this fairly quickly so I decided to find a good use case for it which became running it as the central hub for my home automation system. The web server runs on my raspberry pi while the sensors are read by an ESP32 which sends the data every 20 minutes to the web server.
+			`,
+			featured: true,
+			thumbnail: '/assets/images/vonkserver-home-automation.webp',
+			githubUrl: 'https://github.com/thebetar/Vonkserver',
+			language: 'c',
+		},
+		{
 			title: 'ZenuNet',
+			description: `
+				ZenuNet is a project I started to create an easy way to create and configure neural networks making it accessible to everyone. It is a web application that was written using React.js and PHP.
+			`,
 			featured: true,
 			thumbnail: '/assets/images/zenunet.webp',
 			liveUrl: 'https://zenunet.nl/',
@@ -890,6 +939,9 @@ export const info = {
 		// },
 		{
 			title: 'VonkCountGame',
+			description: `
+				VonkCountGame is a simple game I made to practice my C++ skills. The game is a simple counting game where you have to count the number of objects on the screen. It is a simple game but it was a good exercise to practice my C++ skills.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/vonk-count-game.webp',
 			githubUrl: 'https://github.com/thebetar/VonkCountGame',
@@ -897,6 +949,9 @@ export const info = {
 		},
 		{
 			title: 'VonkMaze',
+			description: `
+				VonkMaze is a simple game I made to practice my C++ skills. The game is a simple maze game where you have to find your way through the maze. It is a simple game but it was a good exercise to practice my C++ skills.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/vonk-maze.webp',
 			githubUrl: 'https://github.com/thebetar/VonkMaze',
@@ -904,6 +959,9 @@ export const info = {
 		},
 		{
 			title: 'VonkEcrypt',
+			description: `
+				VonkEncrypt is a simple tool I created to practise both my skills in C++ and cryptography. The tool is a simple command line tool that can encrypt and decrypt files using a simple key. It is a simple tool but it was a good exercise to practice my C++ skills and learn more about cryptography.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/vonk-hash.webp',
 			githubUrl: 'https://github.com/thebetar/VonkEncrypt',
@@ -911,6 +969,9 @@ export const info = {
 		},
 		{
 			title: 'VonkListTree',
+			description: `
+				VonkListTree is a simple tool I created to practise both my skills in C++ and data structures. The tool is a simple command line tool that can create a tree structure from the current directory, it's subdirectories and files. It is a simple tool but it was a good exercise to practice my C++ skills and learn more about data structures.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/vonk-list-tree.webp',
 			githubUrl: 'https://github.com/thebetar/VonkListTree',
@@ -918,6 +979,9 @@ export const info = {
 		},
 		{
 			title: 'VonkDB',
+			description: `
+				VonkDB is a simple database I created to practise both my skills in C++ and databases. The database contains a simple table structure using CSV to store every table.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/vonk-db.webp',
 			githubUrl: 'https://github.com/thebetar/VonkDB',
@@ -925,6 +989,9 @@ export const info = {
 		},
 		{
 			title: 'VonkHash',
+			description: `
+				VonkHash is a simple hash function I created to practise both my skills in C and cryptography. The hash function is a simple command line tool that can hash it's input and be used for checksums. It does not support a way to decrypt the hash.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/vonk-hash.webp',
 			githubUrl: 'https://github.com/thebetar/VonkHash',
@@ -932,6 +999,9 @@ export const info = {
 		},
 		{
 			title: 'ArduinoChristmas',
+			description: `
+				ArduinoChristmas was a project I created to practise my electrical engineering skills. I ordered a simple christmas tree that I had to solder myself and I added some extra addons like a small speaker and extra lights that would turn on based on a timer or button input.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/arduino-christmas.webp',
 			githubUrl: 'https://github.com/thebetar/ArduinoChristmas',
@@ -939,6 +1009,9 @@ export const info = {
 		},
 		{
 			title: 'AssistAI',
+			description: `
+				AssistAI is a tool that I created that uses RAG to take context from the notes that exist in one's application. This will be the base of a note-taking app that I am working on that will integrate AI to quickly search your notes or create new notes based on quick scribbles from the user.
+			`,
 			featured: true,
 			thumbnail: '/assets/images/assistai.png',
 			githubUrl: 'https://github.com/thebetar/AssistAI',
@@ -946,6 +1019,9 @@ export const info = {
 		},
 		{
 			title: 'Portfolio website (Solid)',
+			description: `
+				This is my portfolio website that I created using SolidJS. It is a simple website that showcases my skills and projects. It is a simple website but it was a good exercise to practice my SolidJS skills and learn more about web development.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/vonkprogramming-solid.webp',
 			githubUrl: 'https://github.com/thebetar/VonkProgrammingSolid',
@@ -953,6 +1029,9 @@ export const info = {
 		},
 		{
 			title: 'Portfolio website (Astro)',
+			description: `
+				This is my previous portfolio website that I created using Astro. It is a simple website that showcases my skills and projects. It is a simple website but it was a good exercise to practice my Astro skills and learn more about web development.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/vonkprogramming-astro.webp',
 			githubUrl: 'https://github.com/thebetar/VonkProgrammingAstro',
@@ -960,6 +1039,9 @@ export const info = {
 		},
 		{
 			title: 'Encrypted replicated messaging',
+			description: `
+				Encrypted replicated messaging is a project I created to practise my skills in distributed systems and cryptography. The project is a simple command line tool that can send and receive messages between multiple nodes in a distributed system. The messages are encrypted using a simple key and can be decrypted by the recipient.
+			`,
 			featured: true,
 			thumbnail: '/assets/images/encrypted-message-exchange.webp',
 			githubUrl: 'https://github.com/thebetar/EncryptedMessageExchange',
@@ -967,6 +1049,9 @@ export const info = {
 		},
 		{
 			title: 'x86 assembly',
+			description: `
+				During my master's studies at Politechnika Warszawska, I had multiple exercises, a project and a test about x86 assembly. For this purpose I have grouped the exercises I made, the project and multiple exercises I made to practise my x86 assembly skills for the final test.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/x86-assembly.png',
 			githubUrl: 'https://github.com/thebetar/x86-assembly',
@@ -974,6 +1059,9 @@ export const info = {
 		},
 		{
 			title: 'Risc-V assembly',
+			description: `
+				During my master's studies at Politechnika Warszawska, I had multiple exercises, a project and a test about Risc-V assembly. For this purpose I have grouped the exercises I made, the project and multiple exercises I made to practise my Risc-V assembly skills for the final test.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/risc-v-assembly.webp',
 			githubUrl: 'https://github.com/thebetar/RISC-V-assembly',
@@ -986,14 +1074,10 @@ export const info = {
 		// 	githubUrl: 'https://github.com/thebetar/AssistAI',
 		// },
 		{
-			title: 'Voice calculator',
-			featured: false,
-			thumbnail: '/assets/images/speechcalculator.png',
-			githubUrl: 'https://github.com/thebetar/IASRProject',
-			language: 'javascript',
-		},
-		{
 			title: 'Resilient hosting',
+			description: `
+				A simple docker compose setup which show cases the methodology to setup docker compose with replication and fail-safes for when a single container crashes.
+			`,
 			featured: false,
 			thumbnail: '/assets/images/resilienthosting.webp',
 			githubUrl: 'https://github.com/thebetar/ResillientHosting',
@@ -1001,7 +1085,10 @@ export const info = {
 		},
 		{
 			title: 'Advent of code',
-			featured: true,
+			description: `
+				Advent of code is a yearly coding challenge that I participate in. I have created a repository where I store my solutions to the challenges. The challenges are in Go and Python, but I also have some solutions in JavaScript.
+			`,
+			featured: false,
 			thumbnail: '/assets/images/adventofcode.webp',
 			githubUrl: 'https://github.com/thebetar/AdventOfCode',
 			liveUrl: 'https://adventofcode.com/',

@@ -1,6 +1,7 @@
 import { info } from '../../data/info';
 import { getTagColor } from '../../data/blogs';
 import { For } from 'solid-js';
+import PageHeader from '../skills/PageHeader';
 
 const { blogs } = info;
 
@@ -11,9 +12,9 @@ export default function AllBlogs() {
 
 	return (
 		<section class="flex items-center justify-start flex-col dark:text-white">
-			<h2 class="w-full text-4xl text-center md:my-4 my-2 uppercase">Blog</h2>
+			<PageHeader>Blog</PageHeader>
 
-			<div class="flex justify-center mb-8">
+			<div class="flex justify-center md:mb-8 mb-2">
 				<div>
 					<a href="/" class="underline">
 						Go to homepage

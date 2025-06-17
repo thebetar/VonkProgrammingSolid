@@ -6,9 +6,9 @@ const { name, jobDescription1, jobDescription2, about, socialMedia } = info;
 export default function Hero({ short = false }) {
 	return (
 		<section id="hero" class={short ? 'md:block hidden' : ''}>
-			<p class="dark:text-white md:mt-[117px] mt-20">Hey, I’m</p>
+			<p class="dark:text-white md:mt-[117px] mt-16">Hey, I’m</p>
 
-			<h1 class="lg:text-6xl text-4xl main-heading" aria-label={name}>
+			<h1 class="lg:text-6xl lg:my-8 my-4 text-4xl main-heading font-semibold" aria-label={name}>
 				{name}
 			</h1>
 
@@ -49,39 +49,36 @@ export default function Hero({ short = false }) {
 							stroke-linejoin="round"
 						></path>
 					</svg>
-					<span>{jobDescription2}</span>
+
+					{jobDescription2}
 				</div>
 			</div>
 
-			{!short ? (
-				<div class="mt-4">
-					<p class="text-md mt-8">{about}</p>
+			<div class="mt-4">
+				<p class="text-md mt-8">{about}</p>
 
-					<p class="mt-4">Interested in my services?</p>
+				<p class="mt-4">Interested in my services?</p>
 
-					<div className="mt-2 flex gap-2 lg:flex-row flex-col">
-						<a
-							href={socialMedia.email}
-							class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
-						>
-							<MailSvg width={16} height={16} />
-							<span class="text-sm">Get in touch</span>
-						</a>
+				<div className="mt-2 flex gap-2 lg:flex-row flex-col">
+					<a
+						href={socialMedia.email}
+						class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+					>
+						<MailSvg width={16} height={16} />
+						<span class="text-sm">Get in touch</span>
+					</a>
 
-						<a
-							href={socialMedia.linkedin}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
-						>
-							<LinkedInSvg width={16} height={16} />
-							<span class="text-sm">Connect on LinkedIn</span>
-						</a>
-					</div>
+					<a
+						href={socialMedia.linkedin}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+					>
+						<LinkedInSvg width={16} height={16} />
+						<span class="text-sm">Connect on LinkedIn</span>
+					</a>
 				</div>
-			) : (
-				<div class="w-full border-b border-zinc-600 dark:border-zinc-300/25 my-8"></div>
-			)}
+			</div>
 		</section>
 	);
 }
