@@ -34,7 +34,7 @@ export default function Layout({ slot }) {
 			<Navbar />
 
 			<main class="container">
-				<div class="fixed top-0 left-0 w-screen h-screen background-glow"></div>
+				<div class="fixed top-0 left-0 w-screen h-screen background-glow -z-5"></div>
 				{showCookie && <Cookie />}
 				{showSubscribe() && <Subscribe handleClose={() => setShowSubscribe(false)} />}
 

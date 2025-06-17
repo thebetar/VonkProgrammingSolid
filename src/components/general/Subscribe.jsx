@@ -36,9 +36,9 @@ export default function Subscribe({ handleClose }) {
 	return (
 		<div
 			id="subscribe-component"
-			class="w-screen h-screen px-4 fixed top-0 left-0 bg-zinc-800 bg-opacity-80 flex justify-center items-center z-50"
+			class="w-screen h-screen px-4 fixed top-0 left-0 bg-zinc-800/70 flex justify-center items-center z-50 backdrop-blur"
 		>
-			<div class="bg-light text-dark bg-opacity-95 backdrop-blur md:max-w-[420px] w-full p-4 text-center rounded-sm flex flex-col gap-y-2 relative">
+			<div class="bg-white text-black md:max-w-[420px] w-full p-4 text-center rounded-sm flex flex-col gap-y-2 relative">
 				<svg
 					id="subscribe-decline-button"
 					class="absolute top-2 right-2 cursor-pointer hover:opacity-70 transition"
@@ -88,6 +88,7 @@ export default function Subscribe({ handleClose }) {
 					Want to be the first to know when I drop a new blog post? Fill out your email below and hit
 					subscribe and you will be notified!
 				</div>
+
 				<div class="text-base">
 					<input
 						id="subscribe-email"

@@ -12,9 +12,9 @@ export default function () {
 	return (
 		<div
 			id="cookie-component"
-			class="w-screen h-screen px-4 fixed top-0 left-0 bg-zinc-800 bg-opacity-80 flex justify-center items-center z-50"
+			class="w-screen h-screen px-4 fixed top-0 left-0 bg-zinc-800/70 flex justify-center items-center z-50 backdrop-blur"
 		>
-			<div class="bg-white bg-opacity-95 backdrop-blur md:max-w-[460px] w-full p-4 text-center rounded-sm relative flex flex-col gap-y-2 text-zinc-900">
+			<div class="bg-white text-black md:max-w-[420px] w-full p-4 text-center rounded-sm flex flex-col gap-y-2 relative">
 				<svg
 					id="cookie-decline"
 					class="absolute top-2 right-2 cursor-pointer hover:opacity-70 transition"
@@ -51,11 +51,9 @@ export default function () {
 				<div class="font-semibold text-xl">Cookie statement</div>
 
 				<div class="text-sm px-6">
-					Our website sprinkles digital cookies to see what you love. It's like peeking into your preferences,
-					minus the awkward "caught ya" vibe. Don't worry, these cookies play nice – no personal info nabbing.
-					Your privacy is our priority – like a squirrel guarding its acorns. So, when you see the cookie
-					pop-up, know it's an invite to a party of better content. You explore, we optimize – like finding
-					bonus fries in your takeout! Here's to cookies and content! 🍪🎉
+					Our website sprinkles <span class="rainbow-text">digital cookies</span> to see what you love. Don't
+					worry, these cookies play nice, no personal info nabbing. Your privacy is our priority like a
+					squirrel guarding its acorns 🌰🐿️
 				</div>
 
 				<div class="text-sm font-semibold">Do you want to accept our cookies?</div>
