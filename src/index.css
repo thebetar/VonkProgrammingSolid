@@ -43,16 +43,6 @@ h6 {
 	justify-content: center;
 }
 
-.blog-header {
-	max-width: 720px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.blog-post {
-	/* General styles for blog posts */
-}
-
 .blog-post h2 {
 	margin-top: 24px;
 	margin-bottom: 8px;

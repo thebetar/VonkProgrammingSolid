@@ -85,7 +85,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 				{id}
 			</div>
 
-			<div class="blog-header">
+			<div class="max-w-3xl mx-auto">
 				<div class="flex justify-between">
 					<div>
 						<h1 class="text-4xl my-0 w-fit inline">{parseTitle(title).title}</h1>
