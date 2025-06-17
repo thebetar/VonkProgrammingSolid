@@ -35,7 +35,13 @@ export default function ExperienceCard({ small, item }) {
 			</ul>
 
 			{item.link ? (
-				<a href={item.link} class="text-sm underline mt-4" target="_blank" rel="noopener noreferrer">
+				<a
+					href={item.link}
+					class="text-sm underline mt-4"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Go to website"
+				>
 					Go to website of {item.name}
 				</a>
 			) : null}

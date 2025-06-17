@@ -33,6 +33,7 @@ export default function ProductsPreview() {
 									href={product.link}
 									class="text-sm underline hover:opacity-70 transition-opacity"
 									target="_blank"
+									aria-label={`Go to ${product.title}`}
 								>
 									Go to {product.title}
 								</a>

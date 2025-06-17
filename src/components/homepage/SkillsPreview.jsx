@@ -33,6 +33,7 @@ export default function SkillsPreview() {
 					<a
 						class="dark:text-white text-zinc-900 underline hover:opacity-70 transition-opacity"
 						href="/skills"
+						aria-label="Check all of my skills"
 					>
 						Check all of my skills
 					</a>

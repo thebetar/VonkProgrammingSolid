@@ -45,14 +45,18 @@ export default function Navbar() {
 
 	return (
 		<header class="container flex items-center justify-between h-[80px] sm:h-[123px]">
-			<a class="text-2xl dark:text-white font-semibold dark:font-semibold font-outfit" href="/">
+			<a
+				class="text-2xl dark:text-white font-semibold dark:font-semibold font-outfit"
+				href="/"
+				aria-label="Logo home link"
+			>
 				<img src="/assets/images/logo.webp" alt="logo" title="logo" class="md:h-10 h-8" />
 			</a>
 			<nav>
 				<ul class="flex items-center">
 					<li>
 						<a
-							aria-label="github-button"
+							aria-label="Github button"
 							class={buttonClass}
 							href={info.socialMedia.github}
 							target="_blank"
@@ -77,7 +81,7 @@ export default function Navbar() {
 
 					<li>
 						<a
-							aria-label="linkedin-button"
+							aria-label="LinkedIn button"
 							class={buttonClass}
 							href={info.socialMedia.linkedin}
 							target="_blank"
@@ -153,6 +157,7 @@ export default function Navbar() {
 									<For each={info.routes}>
 										{route => (
 											<a
+												aria-label={route.title}
 												class="text-base hover:opacity-70 transition-opacity cursor-pointer px-0 py-2 p-4 flex h-auto items-center justify-start gap-x-2"
 												href={route.url}
 											>

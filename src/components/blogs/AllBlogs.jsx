@@ -16,7 +16,7 @@ export default function AllBlogs() {
 
 			<div class="flex justify-center md:mb-8 mb-2">
 				<div>
-					<a href="/" class="underline">
+					<a href="/" class="underline" aria-label="Go to homepage">
 						Go to homepage
 					</a>{' '}
 					🏚️
@@ -55,6 +55,7 @@ export default function AllBlogs() {
 								</div>
 								<p class="text-base md:text-sm dark:text-gray mb-1">{blog.description}</p>
 								<a
+									aria-label={`Read more about ${getReadmoreLink(blog.link)}`}
 									href={blog.link}
 									class="text-sm dark:text-gray underline hover:opacity-70 transition-opacity"
 								>

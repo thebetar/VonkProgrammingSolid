@@ -20,7 +20,7 @@ export default function Navigation({ curPage }) {
 			<nav class="w-full grid grid-cols-5">
 				<For each={navRoutes()}>
 					{route => (
-						<a class="p-3 flex items-center justify-center" href={route.url}>
+						<a class="p-3 flex items-center justify-center" href={route.url} aria-label={route.title}>
 							{route.icon}
 						</a>
 					)}

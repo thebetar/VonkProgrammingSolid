@@ -165,8 +165,8 @@ export default function Navigation() {
 									'md:text-lg text-base dark:text-white hover:opacity-70 transition-opacity cursor-pointer md:p-2 p-4 md:flex md:h-auto items-center md:justify-start justify-center gap-x-2 ' +
 									(section.mobile ? 'flex' : 'hidden')
 								}
-								name={`navigation-${section.id}`}
 								onClick={() => scrollToSection(section.id)}
+								aria-label={`Go to ${section.title}`}
 							>
 								{section.icon}
 								<span class="md:inline hidden">{section.title}</span>

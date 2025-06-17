@@ -8,7 +8,7 @@ export default function AllExperience({ title, details }) {
 
 			<div class="flex justify-center mb-8">
 				<div>
-					<a href="/" class="underline">
+					<a href="/" class="underline" aria-label="Go to homepage">
 						Go to homepage
 					</a>{' '}
 					🏚️

@@ -63,6 +63,7 @@ export default function Hero({ short = false }) {
 					<a
 						href={socialMedia.email}
 						class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+						aria-label="Send an email"
 					>
 						<MailSvg width={16} height={16} />
 						<span class="text-sm">Get in touch</span>
@@ -73,6 +74,7 @@ export default function Hero({ short = false }) {
 						target="_blank"
 						rel="noopener noreferrer"
 						class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+						aria-label="Connect on LinkedIn"
 					>
 						<LinkedInSvg width={16} height={16} />
 						<span class="text-sm">Connect on LinkedIn</span>

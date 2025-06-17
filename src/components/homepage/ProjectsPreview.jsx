@@ -15,7 +15,11 @@ export default function ProjectsPreview() {
 			</div>
 
 			<div class="lg:col-span-3 col-span-2 text-center mt-4 md:text-base text-sm">
-				<a class="dark:text-white text-zinc-900 underline hover:opacity-70 transition-opacity" href="/projects">
+				<a
+					class="dark:text-white text-zinc-900 underline hover:opacity-70 transition-opacity"
+					href="/projects"
+					aria-label={`See all ${projects.length} projects`}
+				>
 					See all {projects.length} projects
 				</a>
 			</div>

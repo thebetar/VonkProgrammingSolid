@@ -25,6 +25,7 @@ export const info = {
 			<a
 				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
 				href="https://vonkprogramming.nl/blogs"
+				aria-label="View my blogs"
 			>
 				blogs
 			</a>
@@ -32,6 +33,7 @@ export const info = {
 			<a
 				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
 				href="https://vonkprogramming.nl/experience"
+				aria-label="View my experience"
 			>
 				experience
 			</a>{' '}
@@ -45,6 +47,7 @@ export const info = {
 				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
 				href="https://github.com/thebetar"
 				target="_blank"
+				aria-label="View my projects on Github"
 			>
 				Github
 			</a>{' '}
@@ -52,6 +55,7 @@ export const info = {
 			<a
 				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
 				href="https://vonkprogramming.nl/projects"
+				aria-label="View my projects"
 			>
 				projects
 			</a>{' '}

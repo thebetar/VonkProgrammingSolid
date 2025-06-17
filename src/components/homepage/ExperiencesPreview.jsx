@@ -8,7 +8,11 @@ export default function ExperiencesPreview({ title, details }) {
 			<div class="w-full">
 				<For each={details}>{item => <ExperienceCard small={true} item={item} />}</For>
 				<div class="lg:col-span-3 col-span-2 text-center mt-4 text-base">
-					<a class="underline hover:opacity-70 transition-opacity" href={`/${title.toLowerCase()}`}>
+					<a
+						class="underline hover:opacity-70 transition-opacity"
+						href={`/${title.toLowerCase()}`}
+						aria-label={`View all my ${title.toLowerCase()}`}
+					>
 						View all my {title.toLowerCase()}
 					</a>
 				</div>

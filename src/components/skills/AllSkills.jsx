@@ -11,7 +11,7 @@ export default function AllSkills() {
 
 			<div class="flex justify-center mb-8">
 				<div>
-					<a href="/" class="underline">
+					<a href="/" class="underline" aria-label="Go to homepage">
 						Go to homepage
 					</a>{' '}
 					🏚️
@@ -29,6 +29,7 @@ export default function AllSkills() {
 										<a
 											href={item.link}
 											class="md:my-4 my-1 flex md:flex-row flex-col gap-1 justify-between items-center dark:border-zinc-300 border-zinc-600 border md:p-4 px-2 py-3 dark:text-white text-black no-underline md:rounded rounded-lg dark:hover:bg-zinc-900 hover:bg-zinc-200 transition"
+											aria-label={`Go to ${item.title} skill page`}
 										>
 											<div class="flex md:gap-2 gap-1 md:flex-row flex-col items-center">
 												<div class="md:w-10 md:h-10 w-6 h-6 rounded-full bg-zinc-300 dark:bg-zinc-100 flex justify-center items-center">
