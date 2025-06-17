@@ -271,6 +271,15 @@ export const info = {
 			type: SkillType.FRAMEWORK,
 		},
 		{
+			title: 'Solid.js',
+			years: 3,
+			level: 4,
+			logo: '/assets/svg/solidjs.svg',
+			link: 'https://solidjs.com/',
+			featured: true,
+			type: SkillType.FRAMEWORK,
+		},
+		{
 			title: 'Flask',
 			years: 3,
 			level: 4,
@@ -461,8 +470,8 @@ export const info = {
 		},
 		{
 			title: 'Playwright',
-			years: 1,
-			level: 3,
+			years: 2,
+			level: 4,
 			logo: '/assets/svg/playwright.svg',
 			link: 'https://playwright.dev/',
 			featured: false,
@@ -565,7 +574,7 @@ export const info = {
 			level: 5,
 			logo: '/assets/svg/nginx.svg',
 			link: 'https://www.nginx.com/',
-			featured: true,
+			featured: false,
 			type: SkillType.INFRASTRUCTURE,
 		},
 		{
