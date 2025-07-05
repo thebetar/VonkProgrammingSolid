@@ -56,7 +56,7 @@ export function getTagColor(tag) {
 export const blogs = [
 	{
 		id: 26,
-		title: 'The wonderful world of IoT: The perfect hobby for tech enthusiasts',
+		title: 'The wonderful world of IoT: The perfect hobby for tech enthusiasts 👨‍💻',
 		description: `
 			Over the last months I have been getting more and more interested in creating all kinds of IoT projects. It started with a christmas decoration last christmas but has turned into a full hobby. Home automations are already being built which will hopefully make life easier and more fun!
 		`,
