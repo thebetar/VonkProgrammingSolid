@@ -232,6 +232,12 @@ export const blogs = [
 					can write a small loop with a one second delay that turns the light on and off, this project would
 					need the following code
 				</p>
+
+				<p>
+					<img src="/assets/images/blogs/iot-hobby/led-code.png" alt="LED code" aria-label="LED code" />
+				</p>
+				<blockquote>Figure 3: LED code</blockquote>
+
 				<p>
 					This code is quite simple but it is a good start to test if the LED works, the <code>setup</code>{' '}
 					function is run when the microcontroller starts while the <code>loop</code> function is run on a
@@ -256,7 +262,7 @@ export const blogs = [
 						aria-label="Full circuit with LED and DHT sensor"
 					/>
 				</p>
-				<blockquote>Figure 3: Full circuit with LED and DHT sensor</blockquote>
+				<blockquote>Figure 4: Full circuit with LED and DHT sensor</blockquote>
 
 				<h3 id="step-7-write-more-code-for-the-dht-sensor">Step 7: Write more code for the DHT sensor</h3>
 				<p>
@@ -265,6 +271,7 @@ export const blogs = [
 					since the real world isn’t digital. Temperature, for example, isn’t just hot or cold. It can take on
 					many different values.
 				</p>
+
 				<p>
 					For analog sensors, you need something called an{' '}
 					<a href="https://en.wikipedia.org/wiki/Analog-to-digital_converter" target="_blank">
@@ -274,12 +281,14 @@ export const blogs = [
 					support. It takes a single analog value and converts it into a digital value by breaking it down
 					into multiple bits. But that’s a bit of a side note.
 				</p>
+
 				<p>
 					Since we&#39;re using a digital DHT sensor, we don’t need to worry about ADCs. Now that the sensor
 					is connected, we need to tell the ESP32 which pin will be used to read the data. Once that’s set up,
 					we can use the values it receives to trigger actions. For example, we could turn on the LED when the
 					temperature reaches 25 degrees Celsius.
 				</p>
+
 				<p>
 					For the DHT sensor, the pin doesn’t need to be set to input or output manually. Instead, you just
 					call <code>dht.begin()</code>. To make this work, you’ll need to install the{' '}
@@ -289,7 +298,18 @@ export const blogs = [
 					DHT library. You can do this by opening the Library Manager in the Arduino IDE, searching for “DHT
 					sensor library” by Adafruit, and clicking Install.
 				</p>
+
 				<p>Here’s an example of how to initialize the sensor and control the LED based on the temperature:</p>
+
+				<p>
+					<img
+						src="/assets/images/blogs/iot-hobby/full-code.png"
+						alt="Full code with DHT sensor and LED"
+						aria-label="Full code with DHT sensor and LED"
+					/>
+				</p>
+				<blockquote>Figure 5: Full code with DHT sensor and LED</blockquote>
+
 				<h3 id="step-6-test-the-implementation">Step 6: Test the implementation</h3>
 				<p>
 					After uploading and running the code, the project should be complete. It’s always a good idea to
@@ -309,7 +329,7 @@ export const blogs = [
 						aria-label="Final project with LED and DHT sensor"
 					/>
 				</p>
-				<blockquote>Figure 4: Final project with LED and DHT sensor</blockquote>
+				<blockquote>Figure 6: Final project with LED and DHT sensor</blockquote>
 
 				<p>
 					This project is just a small introduction into the wonderful world of IoT but it shows that with a
@@ -326,7 +346,7 @@ export const blogs = [
 						aria-label="Dashboard with all kinds of sensors"
 					/>
 				</p>
-				<blockquote>Figure 5: Dashboard with all kinds of sensors</blockquote>
+				<blockquote>Figure 7: Dashboard with all kinds of sensors</blockquote>
 
 				<h2 id="conclusion">Conclusion</h2>
 				<p>
