@@ -24,9 +24,9 @@ export default function Share({ handleClose }) {
 	return (
 		<div
 			id="share-component"
-			class="w-screen h-screen px-4 fixed top-0 left-0 bg-zinc-800 bg-opacity-80 flex justify-center items-center"
+			class="w-screen h-screen px-4 fixed top-0 left-0 bg-zinc-800/70 flex justify-center items-center"
 		>
-			<div class="bg-light text-dark bg-opacity-95 backdrop-blur md:max-w-[460px] w-full md:px-6 px-4 py-4 text-center rounded-sm relative">
+			<div class="bg-white text-black md:max-w-[460px] w-full md:px-6 px-4 py-4 text-center rounded-sm relative">
 				<svg
 					id="share-close-button"
 					class="absolute top-2 right-2 cursor-pointer hover:opacity-70 transition"
@@ -69,7 +69,7 @@ export default function Share({ handleClose }) {
 				<div class="flex gap-x-2 justify-center mt-2 md:flex-row flex-col gap-y-2">
 					<button
 						id="share-linkedin-button"
-						class="px-3 py-2 rounded-sm bg-zinc-800 hover:bg-zinc-600 transition text-white md:w-42 w-full justify-center flex items-center gap-x-2"
+						class="px-2 py-2 rounded-sm bg-zinc-800 hover:bg-zinc-600 transition text-white md:w-42 w-full justify-center flex items-center gap-x-2 cursor-pointer"
 						onClick={shareLinkedin}
 					>
 						<svg
@@ -103,7 +103,7 @@ export default function Share({ handleClose }) {
 
 					<button
 						id="share-facebook-button"
-						class="px-4 py-2 rounded-sm bg-zinc-800 hover:bg-zinc-600 transition text-white md:w-42 w-full justify-center flex items-center gap-x-2"
+						class="px-2 py-2 rounded-sm bg-zinc-800 hover:bg-zinc-600 transition text-white md:w-42 w-full justify-center flex items-center gap-x-2 cursor-pointer"
 						onClick={shareFacebook}
 					>
 						<svg
@@ -125,7 +125,7 @@ export default function Share({ handleClose }) {
 
 					<button
 						id="share-url-button"
-						class="px-4 py-2 rounded-sm bg-zinc-800 hover:bg-zinc-600 transition text-white md:w-42 w-full justify-center flex items-center gap-x-2"
+						class="px-2 py-2 rounded-sm bg-zinc-800 hover:bg-zinc-600 transition text-white md:w-42 w-full justify-center flex items-center gap-x-2 cursor-pointer"
 						onClick={shareUrl}
 					>
 						<svg
