@@ -115,6 +115,9 @@ h6 {
 	font-style: italic !important;
 	opacity: 0.8 !important;
 }
+.blog-post img {
+	margin-top: 16px !important;
+}
 
 [data-theme='dark'] .blog-post a {
 	color: #00d4f4 !important;
