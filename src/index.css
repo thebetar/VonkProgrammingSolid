@@ -111,6 +111,10 @@ h6 {
 	padding: 8px !important;
 	border: 1px solid #e2e8f0 !important;
 }
+.blog-post blockquote {
+	font-style: italic !important;
+	opacity: 0.8 !important;
+}
 
 [data-theme='dark'] .blog-post a {
 	color: #00d4f4 !important;
