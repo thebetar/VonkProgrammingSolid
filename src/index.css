@@ -114,9 +114,12 @@ h6 {
 .blog-post blockquote {
 	font-style: italic !important;
 	opacity: 0.8 !important;
+	text-align: center !important;
 }
 .blog-post img {
 	margin-top: 16px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
 
 [data-theme='dark'] .blog-post a {
