@@ -19,7 +19,10 @@
                 $accessToken = $_GET['access_token'] ?? '';
 
                 if ($accessToken != $ACCESS_TOKEN) {
-                    echo "Invalid access token";
+                    echo json_encode([
+                        'status' => 'error',
+                        'message' => 'Invalid access token'
+                    ]);
                     return;
                 }
 
