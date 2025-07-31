@@ -29,6 +29,7 @@
                 $subscribers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 echo json_encode($subscribers);
+                return;
             }
 
             echo json_encode([
