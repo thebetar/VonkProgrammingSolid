@@ -6,6 +6,8 @@
     $username = $DB_USERNAME;
     $password = $DB_PASSWORD;
 
+    header('Content-Type: application/json');
+
     try {
         // Create connection
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -29,7 +31,10 @@
                 echo json_encode($subscribers);
             }
 
-            echo "Invalid request";
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Invalid request'
+            ]);
             return;
         }
 
@@ -60,12 +65,22 @@
 
         // Execute the statement
         if ($stmt->execute()) {
-            echo "success";
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Subscription successful',
+                'email' => $email
+            ]);
         } else {
-            echo "failed";
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Subscription failed'
+            ]);
         }
     } catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+        echo json_encode([
+            'status' => 'error',
+            'message' => "Connection failed: " . $e->getMessage()
+        ]);
     } finally {
         // Close the connection
         $conn = null;
