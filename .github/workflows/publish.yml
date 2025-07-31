@@ -28,6 +28,7 @@ jobs:
                   echo "\$DB_NAME='${{ secrets.DB_NAME }}';" >> ./dist/config.php
                   echo "\$DB_USERNAME='${{ secrets.DB_USERNAME }}';" >> ./dist/config.php
                   echo "\$DB_PASSWORD='${{ secrets.DB_PASSWORD }}';" >> ./dist/config.php
+                  echo "\$ACCESS_TOKEN='${{ secrets.ACCESS_TOKEN }}';" >> ./dist/config.php
             - name: 📁 Publish
               uses: Creepios/sftp-action@v1.0.5
               with:
