@@ -44,13 +44,13 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 			const response = await fetch(`/blog.php?id=${id}`);
 			const data = await response.json();
 
-			if (!data.view_count || !data.comments) {
+			if (!data.blog || !data.comments) {
 				console.error('Invalid response from blog.php:', data);
 				setViewCount(1);
 				return;
 			}
 
-			setViewCount(data.view_count);
+			setViewCount(data.blog.views);
 
 			const comments = data.comments || [];
 
