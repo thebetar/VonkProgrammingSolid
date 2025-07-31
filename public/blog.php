@@ -6,49 +6,54 @@ $dbname = $DB_NAME;
 $username = $DB_USERNAME;
 $password = $DB_PASSWORD;
 
-function add_view($blog_id, $ip_address)
-{
+function get_blog_by_id(
+    $blog_id,
+) {
+    
     global $conn;
 
     // Check if blog already exists
     $checkStmt = $conn->prepare("SELECT * FROM Blogs WHERE id = :blog_id");
     $checkStmt->bindParam(':blog_id', $blog_id);
     $checkStmt->execute();
-    $blog = $checkStmt->fetch();
+    $blog = $checkStmt->fetch(PDO::FETCH_ASSOC);
 
-    $stmt = null;
+    return $blog;
+}
+
+function add_view_and_get_blog_by_id(
+    $blog_id,
+    $ip_address
+) {
+    global $conn;
+
+    $blog = get_blog_by_id($blog_id);
 
     if (!$blog) {
-        // Add blog with one view
-        $stmt = $conn->prepare("INSERT INTO Blogs (id, views, ip_addresses) VALUES (:blog_id, 1, :ip_address)");
-        $stmt->bindParam(':blog_id', $blog_id);
-        $stmt->bindParam(':ip_address', $ip_address);
-        $stmt->execute();
-        return;
+        return null; // Blog not found
     }
 
     // Check if IP address already exists
     if ($blog['ip_addresses'] && strpos($blog['ip_addresses'], $ip_address) !== false) {
-        return;
+        // Remove ip_addresses from return value
+        unset($blog['ip_addresses']);
+
+        return $blog;
     }
+
     // Increment views and add IP address
     $stmt = $conn->prepare("UPDATE Blogs SET views = views + 1, ip_addresses = CONCAT(ip_addresses, ', ', :ip_address) WHERE id = :blog_id");
     $stmt->bindParam(":blog_id", $blog_id);
     $stmt->bindParam(":ip_address", $ip_address);
     $stmt->execute();
+
+    // Remove ip_addresses from return value
+    unset($blog['ip_addresses']);
+
+    return $blog;
 }
 
-function get_view_count($blog_id)
-{
-    global $conn;
-    $stmt = $conn->prepare("SELECT views FROM Blogs WHERE id = :blog_id");
-    $stmt->bindParam(':blog_id', $blog_id);
-    $stmt->execute();
-    $blog = $stmt->fetch();
-    return $blog ? $blog['views'] : 0;
-}
-
-function get_comments($blog_id)
+function get_comments_by_blog_id($blog_id)
 {
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM Comments WHERE blog_id = :blog_id");
@@ -68,8 +73,18 @@ try {
         $blog_id = isset($_GET["id"]) ? intval($_GET["id"]) : 0;
 
         // Check if blog ID is valid
-        if ($blog_id == 0) {
-            echo "Invalid request";
+        if (
+            $blog_id == 0
+        ) {
+            // Return all blogs (id, views and created_at)
+            $stmt = $conn->prepare("SELECT id, title, short_description, link, views, created_at FROM Blogs");
+            $stmt->execute();
+            $blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Set response header to JSON
+            header('Content-Type: application/json');
+            // Return all blogs
+            echo json_encode($blogs);
             return;
         }
 
@@ -77,16 +92,26 @@ try {
         $ip_address = $_SERVER['REMOTE_ADDR'];
 
         // Add view
-        add_view($blog_id, $ip_address);
+        $blog = add_view_and_get_blog_by_id(
+            $blog_id, 
+            $ip_address
+        );
 
-        // Get view count
-        $view_count = get_view_count($blog_id);
+        if (!$blog) {
+            header('Content-Type: plain/text');
+            echo "Blog not found";
+            return;
+        }
 
         // Get comments
-        $comments = get_comments($blog_id);
+        $comments = get_comments_by_blog_id($blog_id);
 
+        // Set response header to JSON
+        header('Content-Type: application/json');
+
+        // Return blog and comments
         echo json_encode([
-            'view_count' => $view_count,
+            'blog' => $blog,
             'comments' => $comments
         ]);
     } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -101,6 +126,7 @@ try {
 
         // Validate input
         if ($blog_id == 0 || empty($name) || empty($comment)) {
+            header('Content-Type: plain/text');
             echo "Invalid request";
             return;
         }
@@ -112,11 +138,21 @@ try {
         $stmt->bindParam(':comment', $comment);
         $stmt->execute();
 
-        echo json_encode(['status' => 'success']);
+        $comment = [
+            'id' => $conn->lastInsertId(),
+            'blog_id' => $blog_id,
+            'name' => $name,
+            'comment' => $comment
+        ];
+
+        // Set response header to JSON
+        header('Content-Type: application/json');
+        // Return success response
+        echo json_encode(['status' => 'success', 'comment' => $comment]);
     } else {
+        header('Content-Type: plain/text');
         echo "Invalid request";
     }
-
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 } finally {
