@@ -12,7 +12,23 @@
         // Set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-        if($_SERVER["REQUEST_METHOD"] != "POST") {
+        if ($_SERVER["REQUEST_METHOD"] != "POST") {
+            if ($_SERVER["REQUEST_METHOD"] == "GET") {
+                $accessToken = $_GET['access_token'] ?? '';
+
+                if ($accessToken != $ACCESS_TOKEN) {
+                    echo "Invalid access token";
+                    return;
+                }
+
+                // Handle GET request logic here
+                $stmt = $conn->prepare("SELECT email FROM Subscribers");
+                $stmt->execute();
+                $subscribers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                echo json_encode($subscribers);
+            }
+
             echo "Invalid request";
             return;
         }
