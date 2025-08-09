@@ -61,7 +61,7 @@ h6 {
 .blog-post h2 {
 	margin-top: 24px;
 	margin-bottom: 8px;
-	font-size: 1.5rem !important;
+	font-size: 1.6rem !important;
 	font-weight: 600 !important;
 }
 
@@ -87,7 +87,8 @@ h6 {
 	margin-bottom: 8px !important;
 }
 
-.blog-post ul {
+.blog-post ul,
+.blog-post ol {
 	margin-top: 8px !important;
 	margin-bottom: 8px !important;
 	margin-left: 16px !important;
@@ -96,11 +97,24 @@ h6 {
 .blog-post li {
 	list-style-type: disc !important;
 }
+.blog-post ol.list-decimal > li {
+	list-style-type: decimal !important;
+}
 
 .blog-post code {
 	background-color: #1a202c !important;
-	padding: 4px !important;
+	padding: 4px 8px;
 	border-radius: 4px !important;
+}
+
+.blog-post code.example {
+	display: block;
+	padding: 0.75rem 1rem !important;
+	border-radius: 8px !important;
+	width: 100% !important;
+	white-space: pre-wrap;
+	word-break: break-word;
+	font-family: monospace;
 }
 
 .blog-post table {
@@ -117,6 +131,7 @@ h6 {
 	text-align: center !important;
 }
 .blog-post img {
+	max-width: 100%;
 	margin-top: 16px !important;
 	margin-left: auto !important;
 	margin-right: auto !important;
