@@ -1,4 +1,5 @@
 import Note from '../components/blog/Note';
+import Code from '../components/blog/Code';
 
 const BlogTags = {
 	Productivity: 'productivity',
@@ -102,6 +103,37 @@ export const blogs = [
 					can do it.
 				</p>
 
+				<h2 id="dependency">Reducing Dependency on Big Tech</h2>
+
+				<p>
+					The tools we use every day, such as Word, Excel, email, cloud storage, and many others, have made
+					reading, writing, storing, and sharing information easier than ever before. But while we used to buy
+					software once and keep it safely on our own devices, those days are long gone. Subscriptions have
+					taken over, and while they make perfect business sense by providing companies with a steady stream
+					of income, they also leave us dependent on their goodwill. At any moment, your access could be
+					revoked, not because you have done anything wrong, but simply because you do not own the service.
+					You are renting it.
+				</p>
+
+				<p>
+					Now, I am not saying we should all expect to wake up one day locked out of our Google Drive (I hope
+					that never happens), but knowing it could happen is reason enough to prepare. That is where
+					self-hosting comes in. By running free, open-source software on your own hardware, you keep control
+					of your tools and your data. And with something as small, cheap, and energy-efficient as a Raspberry
+					Pi Zero 2W, there has never been a better time to start. Even a simple setup can give you a safe
+					backup of your important files and reduce your reliance on big tech companies.
+				</p>
+
+				<p>
+					<img src="https://cdn.nos.nl/image/2023/02/03/939664/1024x576a.jpg" alt="Big Tech" />
+				</p>
+
+				<blockquote>
+					<p>
+						Big Tech CEOs, picture taken from <a href="https://nos.nl">NOS</a>
+					</p>
+				</blockquote>
+
 				<h2 id="outline">Outline</h2>
 
 				<p>
@@ -133,6 +165,19 @@ export const blogs = [
 					. You’ll still need a microSD card, but even a 16GB or 32GB card will be more than enough for this
 					setup. These can often be found at discounter stores or just general stores for less than €10.
 				</p>
+
+				<p>
+					<img src="/assets/images/blogs/taking-control/raspberry-pi-zero.webp" />
+				</p>
+
+				<blockquote>
+					<p>
+						The Raspberry Pi Zero 2W as displayed on the website of{' '}
+						<a href="https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/" target="_blank">
+							Raspberry Pi
+						</a>
+					</p>
+				</blockquote>
 
 				<p>
 					A Raspberry Pi is essentially a tiny computer that runs quietly in the background while consuming
@@ -373,6 +418,12 @@ export const blogs = [
 					different LLM to figure out how to complete this step, you can see it as a little challenge from me.
 				</p>
 
+				<img src="/assets/images/blogs/taking-control/terminal.png" alt="Terminal" />
+
+				<blockquote>
+					<p>An image in the terminal how to open the SSH connection</p>
+				</blockquote>
+
 				<h2 id="installing-docker">
 					<u>Step 3:</u> Installing Docker
 				</h2>
@@ -392,36 +443,35 @@ export const blogs = [
 				</p>
 
 				<p>Docker can be installed by running the following commands:</p>
-				<pre>
-					<code class="example">
-						# Add Docker's official GPG key:
-						<br />
-						sudo apt update
-						<br />
-						sudo apt install ca-certificates curl sudo install - m 0755 -d /etc/apt/keyrings
-						<br />
-						sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-						<br />
-						sudo chmod a+r /etc/apt/keyrings/docker.asc <br />
-						<br />
-						# Add the repository to Apt sources: <br />
-						echo \ <br />
-						{'  '}"deb [arch=$(dpkg --print-architecture) \ <br />
-						{'  '}signed-by=/etc/apt/keyrings/docker.asc] \ <br />
-						{'  '}https://download.docker.com/linux/debian \ <br />
-						$(./etc/os-release &amp;&amp; echo "$VERSION_CODENAME") stable" | \ <br />
-						sudo tee /etc/apt/sources.list.d/docker.list
-						<span class="hljs-keyword">d</span>/docker.<span class="hljs-keyword">list</span> &gt; /dev/null
-						sudo apt <span class="hljs-keyword">update</span>
-						<br />
-						<br />
-						# Install all the Docker dependencies <br />
-						sudo apt install docker-ce docker-ce-<span class="hljs-keyword">cli</span> containerd.io \{' '}
-						<br />
-						docker-buildx-<span class="hljs-keyword">plugin</span> docker-compose-
-						<span class="hljs-keyword">plugin</span>
-					</code>
-				</pre>
+				<Code>
+					# Add Docker's official GPG key:
+					<br />
+					sudo apt update
+					<br />
+					sudo apt install ca-certificates curl
+					<br />
+					sudo install - m 0755 -d /etc/apt/keyrings
+					<br />
+					sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+					<br />
+					sudo chmod a+r /etc/apt/keyrings/docker.asc <br />
+					<br />
+					# Add the repository to Apt sources: <br />
+					echo \ <br />
+					{'  '}"deb [arch=$(dpkg --print-architecture) \ <br />
+					{'  '}signed-by=/etc/apt/keyrings/docker.asc] \ <br />
+					{'  '}https://download.docker.com/linux/debian \ <br />
+					$(./etc/os-release &amp;&amp; echo "$VERSION_CODENAME") stable" | \ <br />
+					sudo tee /etc/apt/sources.list.d/docker.list
+					<span class="hljs-keyword">d</span>/docker.<span class="hljs-keyword">list</span> &gt; /dev/null
+					sudo apt <span class="hljs-keyword">update</span>
+					<br />
+					<br />
+					# Install all the Docker dependencies <br />
+					sudo apt install docker-ce docker-ce-<span class="hljs-keyword">cli</span> containerd.io \ <br />
+					docker-buildx-<span class="hljs-keyword">plugin</span> docker-compose-
+					<span class="hljs-keyword">plugin</span>
+				</Code>
 
 				<Note>
 					<p>
@@ -445,41 +495,40 @@ export const blogs = [
 					folder create a file named <code>docker-compose.yml</code>. This file will be used to store the
 					configuration. After this open the file and paste the following code inside of it.
 				</p>
-				<pre>
-					<code class="example">
-						services:
-						<br />
-						{'  '}image: docker.n8n.io/n8nio/n8n
-						<br />
-						{'  '}environment:
-						<br />
-						{'    '}- N8N_SECURE_COOKIE=false
-						<br />
-						{'  '}ports;
-						<br />
-						{'    '}- "5678:5678"
-						<br />
-						{'  '}volumes:
-						<br />
-						{'    '}- n8n_data:/home/node/.n8n
-						<br />
-						{'  '}restart: always
-						<br />
-						<br />
-						volumes:
-						<br />
-						{'  '}n8n_data:
-						<br />
-						{'    '}external: false
-					</code>
-				</pre>
+				<Code>
+					services:
+					<br />
+					{'  '}image: docker.n8n.io/n8nio/n8n
+					<br />
+					{'  '}environment:
+					<br />
+					{'    '}- N8N_SECURE_COOKIE=false
+					<br />
+					{'  '}ports:
+					<br />
+					{'    '}- "5678:5678"
+					<br />
+					{'  '}volumes:
+					<br />
+					{'    '}- n8n_data:/home/node/.n8n
+					<br />
+					{'  '}restart: always
+					<br />
+					<br />
+					volumes:
+					<br />
+					{'  '}n8n_data:
+					<br />
+					{'    '}external: false
+				</Code>
+
 				<p>
 					After creating this configuration file open the folder that you put this configuration file in using
 					the terminal and run <code>docker compose up -d</code> which will then spin up the N8N instance
 					making it accessible on the port 5678.
 				</p>
 				<h2>
-					<u>Step 5:</u> setting up first workflow automation
+					<u>Step 5:</u> Setting up first workflow automation
 				</h2>
 				<p>
 					Now everything is ready for use! So we can close the connection with the Raspberry Pi and open the
@@ -488,6 +537,15 @@ export const blogs = [
 					<code>raspberrypi.local</code> you should enter
 					<code>raspberrypi.local:5678</code> to open your N8N environment.
 				</p>
+
+				<p>
+					<img src="/assets/images/blogs/taking-control/n8n-website.png" alt="n8n website" />
+				</p>
+
+				<blockquote>
+					<p>The interface you will see after creating your account</p>
+				</blockquote>
+
 				<p>
 					Once it opens create an account for your local N8N environment. After this you will immediately be
 					guided to N8N and can start creating your first workflow by pressing the{' '}
@@ -529,7 +587,7 @@ export const blogs = [
 					means that you can use it for all kinds of other tasks. Tasks like making backups of your Cloud
 					storage, because what if Google gets hacked and loses all yours pictures!? Or an e-mail backup
 					service for if you suddenly lose access to all your e-mails. These all seem like low probability
-					events but they do happen every now and then, and with just a few steps you can be insured against
+					events but they do happen every now and then, and with just a few steps you can be protected against
 					this and it will only cost you a slight increase in electricity bill.
 				</p>
 				<p>

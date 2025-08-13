@@ -108,3 +108,36 @@ export const LightBulbSvg = ({ width, height, color }) => (
 		/>
 	</svg>
 );
+
+export const CopySvg = ({ width, height, color }) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width={width || '18'}
+		height={height || '18'}
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke={color || 'currentColor'}
+		stroke-width="1.8"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+	>
+		<rect x="9" y="9" width="13" height="13" rx="2"></rect>
+		<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+	</svg>
+);
+
+export const CheckSvg = ({ width, height, color }) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width={width || '18'}
+		height={height || '18'}
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke={color || 'currentColor'}
+		stroke-width="2"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+	>
+		<path d="M20 6L9 17l-5-5"></path>
+	</svg>
+);
