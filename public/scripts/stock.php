@@ -12,11 +12,59 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Only accept POST requests
-    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    $requestMethod = $_SERVER["REQUEST_METHOD"];
+
+    // Handle GET requests - retrieve stock data
+    if ($requestMethod === "GET") {
+        // Validate ticker from query parameter
+        if (!isset($_GET['ticker']) || empty($_GET['ticker'])) {
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Missing or empty ticker query parameter'
+            ]);
+            http_response_code(400);
+            exit;
+        }
+
+        $ticker = trim($_GET['ticker']);
+
+        // Fetch stock data from database
+        $stmt = $conn->prepare("SELECT ticker, timestamp, value FROM Stocks WHERE ticker = :ticker ORDER BY timestamp ASC");
+        $stmt->bindParam(':ticker', $ticker);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (empty($results)) {
+            echo json_encode([
+                'status' => 'success',
+                $ticker => []
+            ]);
+            http_response_code(200);
+            exit;
+        }
+
+        // Format results with ticker as key and array of {timestamp, value} as value
+        $formattedData = [];
+        foreach ($results as $row) {
+            $formattedData[] = [
+                'timestamp' => $row['timestamp'],
+                'value' => $row['value']
+            ];
+        }
+
+        echo json_encode([
+            'status' => 'success',
+            $ticker => $formattedData
+        ]);
+        http_response_code(200);
+        exit;
+    }
+
+    // Handle POST requests - update stock data
+    if ($requestMethod !== "POST") {
         echo json_encode([
             'status' => 'error',
-            'message' => 'Invalid request method. Only POST is allowed.'
+            'message' => 'Invalid request method. Only GET and POST are allowed.'
         ]);
         http_response_code(405);
         exit;
@@ -45,6 +93,18 @@ try {
         exit;
     }
 
+    // Validate ticker from query parameter
+    if (!isset($_GET['ticker']) || empty($_GET['ticker'])) {
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'Missing or empty ticker query parameter'
+        ]);
+        http_response_code(400);
+        exit;
+    }
+
+    $ticker = trim($_GET['ticker']);
+
     // Parse JSON input
     $input = file_get_contents("php://input");
     $data = json_decode($input, true);
@@ -53,16 +113,6 @@ try {
         echo json_encode([
             'status' => 'error',
             'message' => 'Invalid JSON input'
-        ]);
-        http_response_code(400);
-        exit;
-    }
-
-    // Validate ticker
-    if (!isset($data['ticker']) || empty($data['ticker'])) {
-        echo json_encode([
-            'status' => 'error',
-            'message' => 'Missing or empty ticker'
         ]);
         http_response_code(400);
         exit;
@@ -78,7 +128,6 @@ try {
         exit;
     }
 
-    $ticker = trim($data['ticker']);
     $stock_data = $data['stock_data'];
 
     // Validate stock_data array structure
@@ -98,13 +147,13 @@ try {
 
     try {
         // Delete all rows with the same ticker
-        $deleteStmt = $conn->prepare("DELETE FROM Stock WHERE ticker = :ticker");
+        $deleteStmt = $conn->prepare("DELETE FROM Stocks WHERE ticker = :ticker");
         $deleteStmt->bindParam(':ticker', $ticker);
         $deleteStmt->execute();
         $deletedRows = $deleteStmt->rowCount();
 
         // Insert new stock data
-        $insertStmt = $conn->prepare("INSERT INTO Stock (ticker, timestamp, value) VALUES (:ticker, :timestamp, :value)");
+        $insertStmt = $conn->prepare("INSERT INTO Stocks (ticker, timestamp, value) VALUES (:ticker, :timestamp, :value)");
         $insertedRows = 0;
 
         foreach ($stock_data as $item) {
