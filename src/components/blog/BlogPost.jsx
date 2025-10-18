@@ -12,26 +12,30 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 	const [showComment, setShowComment] = createSignal(false);
 
 	const parseTitle = title => {
-		const chars = title.split('');
+		try {
+			const chars = title.split('');
 
-		return {
-			title: chars.reduce((acc, char) => {
-				// If char is emoji
-				if (char.charCodeAt(0) > 127) {
-					return acc;
-				}
+			return {
+				title: chars.reduce((acc, char) => {
+					// If char is emoji
+					if (char.charCodeAt(0) > 127) {
+						return acc;
+					}
 
-				return acc + char;
-			}, ''),
-			emoji: chars.reduce((acc, char) => {
-				// If char is emoji
-				if (char.charCodeAt(0) > 127) {
 					return acc + char;
-				}
+				}, ''),
+				emoji: chars.reduce((acc, char) => {
+					// If char is emoji
+					if (char.charCodeAt(0) > 127) {
+						return acc + char;
+					}
 
-				return acc;
-			}, ''),
-		};
+					return acc;
+				}, ''),
+			};
+		} catch (error) {
+			window.location.replace('/blogs');
+		}
 	};
 
 	const openSubscribe = () => {

@@ -130,8 +130,11 @@ h6 {
 	opacity: 0.8 !important;
 	text-align: center !important;
 }
-.blog-post img {
+
+.blog-post img :not([class=^='max-w-']) {
 	max-width: 100%;
+}
+.blog-post img {
 	margin-top: 16px !important;
 	margin-left: auto !important;
 	margin-right: auto !important;
