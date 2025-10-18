@@ -39,7 +39,7 @@ export default function Navbar() {
 	}
 
 	const buttonClass =
-		'flex justify-center items-center h-[52px] w-[52px] dark:text-white rounded-lg ml-2 bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition';
+		'flex justify-center items-center h-[52px] w-[52px] dark:text-white rounded-lg ml-2 bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition cursor-pointer';
 
 	createEffect(themeHandler);
 
