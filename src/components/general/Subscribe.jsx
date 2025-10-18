@@ -13,7 +13,7 @@ export default function Subscribe({ handleClose }) {
 			return;
 		}
 
-		const response = await fetch('/subscribe.php', {
+		const response = await fetch('/scripts/subscribe.php', {
 			method: 'POST',
 			body: JSON.stringify({ email: emailInput.value }),
 		});
