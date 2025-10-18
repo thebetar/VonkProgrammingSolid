@@ -17,7 +17,7 @@ export default function Comment({ blogId, handleClose }) {
 		}
 
 		// Here you would typically send the comment to a server
-		await fetch('/blog.php', {
+		await fetch('/scripts/blog.php', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

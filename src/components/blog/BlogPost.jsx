@@ -45,7 +45,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 
 	async function fetchBlogStats() {
 		try {
-			const response = await fetch(`/blog.php?id=${id}`);
+			const response = await fetch(`/scripts/blog.php?id=${id}`);
 			const data = await response.json();
 
 			if (!data.blog || !data.comments) {
