@@ -5,5 +5,5 @@ $DB_NAME = 'test_db';
 $DB_USERNAME = 'admin';
 $DB_PASSWORD = 'admin';
 
-$ACCESS_TOKEN = 'your_access';
+$ACCESS_TOKEN = 'a78029f7e0c8a2d251c41ae536114cc2';
 ?>
