@@ -70,8 +70,25 @@ try {
         exit;
     }
 
-    // Get hash from request header
-    $hash = isset($_SERVER['HTTP_X_API_KEY']) ? $_SERVER['HTTP_X_API_KEY'] : null;
+    // Get hash from request header - check multiple possible header formats
+    $hash = null;
+
+    // Check standard HTTP header format
+    if (isset($_SERVER['HTTP_X_API_KEY'])) {
+        $hash = $_SERVER['HTTP_X_API_KEY'];
+    }
+    // Check if running behind a proxy or with different header format
+    elseif (isset($_SERVER['X_API_KEY'])) {
+        $hash = $_SERVER['X_API_KEY'];
+    }
+    // Check Authorization header as fallback
+    elseif (isset($_SERVER['HTTP_AUTHORIZATION'])) {
+        // If Authorization header is used, extract the token
+        $auth_header = $_SERVER['HTTP_AUTHORIZATION'];
+        if (preg_match('/Bearer\s+(.+)/i', $auth_header, $matches)) {
+            $hash = $matches[1];
+        }
+    }
 
     // Validate hash
     if (!$hash || empty($hash)) {
@@ -84,10 +101,12 @@ try {
     }
 
     // Validate hash against ACCESS_TOKEN
-    if ($hash !== $ACCESS_TOKEN) {
+    if (trim($hash) !== $ACCESS_TOKEN) {
         echo json_encode([
             'status' => 'error',
-            'message' => 'Invalid hash/access token'
+            'message' => 'Invalid hash/access token',
+            'received' => trim($hash),
+            'expected' => $ACCESS_TOKEN
         ]);
         http_response_code(403);
         exit;
