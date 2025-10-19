@@ -44,6 +44,10 @@ const routes = [
 		component: lazy(() => import('./pages/ProjectsPage')),
 	},
 	{
+		path: '/stock',
+		component: lazy(() => import('./pages/StockPage')),
+	},
+	{
 		path: '*',
 		component: lazy(() => import('./pages/NotFoundPage')),
 	},
