@@ -149,7 +149,7 @@ try {
 
     $stock_data = $data['stock_data'];
 
-    // Validate stock_data array structure
+    // Validate and convert stock_data array structure
     foreach ($stock_data as $index => $item) {
         if (!isset($item['timestamp']) || !isset($item['value'])) {
             echo json_encode([
@@ -158,6 +158,11 @@ try {
             ]);
             http_response_code(400);
             exit;
+        }
+
+        // Convert Unix timestamp (seconds) to MySQL datetime format
+        if (is_numeric($item['timestamp'])) {
+            $stock_data[$index]['timestamp'] = date('Y-m-d H:i:s', intval($item['timestamp']));
         }
     }
 
