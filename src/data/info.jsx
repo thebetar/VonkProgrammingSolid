@@ -1240,13 +1240,7 @@ export const info = {
 			title: 'Projects',
 			mobile: true,
 			icon: (
-				<svg
-					width="800px"
-					height="800px"
-					viewBox="0 0 16 16"
-					xmlns="http://www.w3.org/2000/svg"
-					class={iconStyle}
-				>
+				<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class={iconStyle}>
 					<path d="M6 7a1 1 0 000 2h4a1 1 0 100-2H6z" fill="currentColor" />
 					<path
 						fill-rule="evenodd"
@@ -1254,6 +1248,17 @@ export const info = {
 						d="M0 5a1 1 0 001 1v8a1 1 0 001 1h12a1 1 0 001-1V6a1 1 0 001-1V2a1 1 0 00-1-1H1a1 1 0 00-1 1v3zm2-2v1h12V3H2zm1 10V6h10v7H3z"
 						fill="currentColor"
 					/>
+				</svg>
+			),
+		},
+		{
+			id: 'stock',
+			url: '/stock',
+			title: 'Stock Predictor',
+			mobile: true,
+			icon: (
+				<svg fill="currentColor" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class={iconStyle}>
+					<path d="M888 792H200V168c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h752c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM305.8 637.7c3.1 3.1 8.1 3.1 11.3 0l138.3-137.6L583 628.5c3.1 3.1 8.2 3.1 11.3 0l275.4-275.3c3.1-3.1 3.1-8.2 0-11.3l-39.6-39.6a8.03 8.03 0 0 0-11.3 0l-230 229.9L461.4 404a8.03 8.03 0 0 0-11.3 0L266.3 586.7a8.03 8.03 0 0 0 0 11.3l39.5 39.7z" />
 				</svg>
 			),
 		},
