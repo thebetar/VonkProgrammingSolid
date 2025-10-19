@@ -149,7 +149,7 @@ try {
 
     $stock_data = $data['stock_data'];
 
-    // Validate and convert stock_data array structure
+    // Validate stock_data array structure
     foreach ($stock_data as $index => $item) {
         if (!isset($item['timestamp']) || !isset($item['value'])) {
             echo json_encode([
@@ -160,9 +160,14 @@ try {
             exit;
         }
 
-        // Convert Unix timestamp (seconds) to MySQL datetime format
-        if (is_numeric($item['timestamp'])) {
-            $stock_data[$index]['timestamp'] = date('Y-m-d H:i:s', intval($item['timestamp']));
+        // Validate timestamp format (YYYY-MM-DD HH:MM:SS)
+        if (!preg_match('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $item['timestamp'])) {
+            echo json_encode([
+                'status' => 'error',
+                'message' => "Invalid timestamp format at index $index. Expected format: 'YYYY-MM-DD HH:MM:SS', received: '{$item['timestamp']}'"
+            ]);
+            http_response_code(400);
+            exit;
         }
     }
 
