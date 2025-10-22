@@ -100,8 +100,10 @@ export const blogs = [
 					saying these things often have a direct benefit in the enthousiasm it creates around these tools.
 				</p>
 
-				<img src="/assets/images/blogs/ai-thoughts/intro.webp" alt="AI growth" class="max-w-md" />
-
+				<div class="max-w-full">
+	                <img src="/assets/images/blogs/ai-thoughts/intro.webp" alt="AI growth" class="max-w-md" />
+				</div>
+					
 				<h2 id="the-pros">The pros</h2>
 				<p>
 					Large language models are amazing at ingesting a large amount of information and providing knowledge
@@ -4248,3 +4250,4 @@ export const blogs = [
 ];
 
 export default blogs;
+
