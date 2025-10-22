@@ -131,9 +131,15 @@ h6 {
 	text-align: center !important;
 }
 
-.blog-post img :not([class=^='max-w-']) {
+.blog-post img :not([class^='max-w-']) {
 	max-width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+	.blog-post img {
+       max-width: 100%;
+	}
+
 .blog-post img {
 	margin-top: 16px !important;
 	margin-left: auto !important;
