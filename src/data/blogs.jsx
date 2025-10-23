@@ -101,9 +101,9 @@ export const blogs = [
 				</p>
 
 				<div class="max-w-full">
-	                <img src="/assets/images/blogs/ai-thoughts/intro.webp" alt="AI growth" class="max-w-md" />
+					<img src="/assets/images/blogs/ai-thoughts/intro.webp" alt="AI growth" class="max-w-md" />
 				</div>
-					
+
 				<h2 id="the-pros">The pros</h2>
 				<p>
 					Large language models are amazing at ingesting a large amount of information and providing knowledge
@@ -181,7 +181,7 @@ export const blogs = [
 					</a>{' '}
 					current large language models can get access to external tools providing answers based on your own
 					data allowing it to answer questions about your own business for instance improving things like
-					Wiki&#39;s. It can access an excel sheet hosting within
+					Wiki&#39;s. It can access an excel sheet hosting within{' '}
 					<a href="https://docs.google.com/spreadsheets" target="_blank">
 						google sheets
 					</a>{' '}
@@ -4250,4 +4250,3 @@ export const blogs = [
 ];
 
 export default blogs;
-

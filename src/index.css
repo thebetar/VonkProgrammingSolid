@@ -137,8 +137,9 @@ h6 {
 
 @media screen and (max-width: 768px) {
 	.blog-post img {
-       max-width: 100%;
+		max-width: 100%;
 	}
+}
 
 .blog-post img {
 	margin-top: 16px !important;
