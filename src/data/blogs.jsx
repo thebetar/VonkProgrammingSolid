@@ -91,13 +91,14 @@ export const blogs = [
 					the technology itself is also improving.
 				</p>
 				<p>
-					WIth this improvement there has been a lot of talk about artificial general intelligence or
-					artificial super intelligence which will replace not only improve efficiency but actually replace
-					jobs. Artifical general intelligence describes a state of AI where it will be able to perform at the
-					same level as a human export, while artificial super intelligence describes AI that has surpassed
-					human expert in their fields. When or if these moment will be reached in the coming years or even
-					ever is still up for debate. One thing has to be taken into account however is that the people
-					saying these things often have a direct benefit in the enthousiasm it creates around these tools.
+					With this improvement there has been a lot of talk about artificial general intelligence or
+					artificial super intelligence which will not only improve efficiency but actually replace jobs.
+					Artificial general intelligence describes a state of AI where it will be able to perform at the same
+					level as a human expert, while artificial super intelligence describes AI that has surpassed human
+					experts in their fields. When or if these moments will be reached in the coming years or even ever
+					is still up for debate. One thing has to be taken into account however is that the people saying
+					super AI will arrive tomorrow often have a direct benefit in the enthousiasm it creates around these
+					tools.
 				</p>
 
 				<div class="max-w-full">
@@ -109,16 +110,17 @@ export const blogs = [
 					Large language models are amazing at ingesting a large amount of information and providing knowledge
 					about this in a well structured way. It can provide the exact information you need at the exact
 					level you understand it at. This is another step up from the internet which already changed the way
-					information is found and ingested. The internet changed the world from a situation where the
-					challenge was finding the correct information by going to a library or asking around within your
-					field to now filtering information from the thousands of articles you can find about nearly every
-					topic. This filtering can be quite a challenge since finding the article that talks about what you
-					want to know, at the level of knowledge that you have about the topic can be tricky. Especially if
-					you factor in that some articles can also contain faulty information. Large language models
-					completely change this. While faulty information is still a big issue because ensuring that all the
-					data used during training is correct is a near impossible task, and who depends what is the correct
-					and what isn&#39;t. But what is sure is that large language models are amazing at finding the right
-					topic you are looking for and format in a way that represents your level of understanding.
+					information is found and ingested. The internet changed the world from a world where the challenge
+					was finding the correct information by going to a library or asking around within your network to
+					now filtering information from the thousands of articles you can find about nearly every topic. This
+					is a big shift from finding information to filtering information. This filtering can be quite a
+					challenge since finding the article that talks about what you want to know, at the level of
+					knowledge that you have about the topic can be tricky. Especially if you factor in that some
+					articles can also contain faulty information. Large language models completely change this. While
+					faulty information is still a big issue because ensuring that all the data used during training is
+					correct is a near impossible task, and who decides what is the correct and what isn&#39;t. But what
+					is sure is that large language models are amazing at finding the right topic you are looking for and
+					format in a way that represents your level of understanding.
 				</p>
 				<p>
 					Another great use case is rewriting text. Since large language models have analysed a lot of
@@ -131,13 +133,13 @@ export const blogs = [
 				</p>
 				<p>
 					Finally large language models are also great at translating text. Since it does not only know the
-					vocabulary translation of a word but understands the actual meaning of a text it can accurately
+					vocabulary translation of a word but understands the actual meaning of a text. It can accurately
 					translate into a large number of languages making it better at this task than other tools like
 					Google Translate. This is especially useful in languages that are structured quite differently to
 					other languages. In my current pursue of learning Polish I have noticed this many times already that
-					the translation tools like google translate provide can be quite off. Especially if they don&#39;t
-					provide a direct translation but first translate the langauge internally to English and then from
-					English to Polish.
+					the translation that tools like google translate provide can be quite off. Especially if they
+					don&#39;t provide a direct translation but first translate the language internally to English and
+					then from English to Polish (which Google Translate is known to do for Polish).
 				</p>
 
 				<img src="/assets/images/blogs/ai-thoughts/ai-translate.webp" alt="AI translation" />
@@ -157,9 +159,10 @@ export const blogs = [
 					is real intelligence or is it just mimicing having it&#39;s own thoughts by combining previous texts
 					into a response that the user finds acceptable.
 				</p>
+
 				<h2 id="the-future">The future</h2>
 				<p>
-					While I do think the idea that AI will surpass human intelligence is far away into the future. I do
+					While I do think the idea that the future where AI will surpass human intelligence is far away, I do
 					think that there are many use cases where it could still be adopted and add massive value.{' '}
 				</p>
 				<p>
