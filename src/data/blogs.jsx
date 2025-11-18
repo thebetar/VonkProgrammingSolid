@@ -63,6 +63,7 @@ export const blogs = [
 		description: `
 			Radio signal congestion in Wi-Fi networks is becoming a critical issue as current channel selection methods struggle to keep up with demand. A novel solution utilizes neural networks to "listen" to the frequency spectrum and intelligently identify the best available channels for data transmission. This approach, particularly when using a Convolutional Support Vector Machine, has demonstrated over 90% accuracy in optimizing wireless connectivity and reducing interference.
 		`,
+		keywords: ['radio signal', 'cognitive radio', 'spectrum sensing', 'neural networks'],
 		tags: [BlogTags.Development, BlogTags.Innovation],
 		date: '2025-11-15',
 		link: '/blogs/spectrum-sensing-cognitive-radio',
