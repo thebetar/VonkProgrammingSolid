@@ -194,7 +194,7 @@ export const blogs = [
 				<p>
 					In the end, I proposed multiple models that all achieved high accuracy in finding the right channel
 					for Wi-Fi transmission. These models could eventually be implemented in Wi-Fi access points to
-					improve channel selection.
+					improve channel selection. My research got graded with a 5.0 out of 5.0, the highest possible grade.
 				</p>
 				<p>
 					Maybe I will decide to return to university in the future to pursue this topic further, but for now,
