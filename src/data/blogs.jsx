@@ -136,7 +136,7 @@ export const blogs = [
 				<p>
 					<img
 						src="/assets/images/blogs/spectrum-sensing/spectrum-example.webp"
-						alt="Diagram showing transmission over Wi-Fi channel 7, 8 and 9 centering around 8"
+						alt="Diagram showing transmission over Wi-Fi channel 7, 8, 9 and 10 centering around 8"
 					/>
 				</p>
 				<blockquote>
@@ -202,6 +202,13 @@ export const blogs = [
 					I am done with university. I hope you enjoyed reading about my thesis topic, and I hope I have
 					described it in a way that was understandable to most, if not all, readers. If you have any comments
 					or questions, please leave them in the comments below; I would love to read them!
+				</p>
+				<p>
+					Special thanks to{' '}
+					<a href="https://www.linkedin.com/in/grzegorz-bogdan/" target="_blank">
+						dr. inz. Gregorz Bogdan
+					</a>{' '}
+					for supervising my master's thesis.
 				</p>
 			</>
 		),
