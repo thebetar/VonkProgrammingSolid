@@ -170,15 +170,20 @@ export default function ContactPage() {
 					<button
 						type="submit"
 						disabled={loading()}
-						class="bg-zinc-800 hover:bg-zinc-700 focus:bg-zinc-700 text-white font-semibold py-2 rounded-lg shadow transition-colors disabled:opacity-60 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+						class={
+							'bg-zinc-800 hover:bg-zinc-700 focus:bg-zinc-700 text-white font-semibold py-2 rounded-lg shadow transition-colors disabled:opacity-60 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-400' +
+							(loading() ? ' cursor-not-allowed' : ' cursor-pointer')
+						}
 					>
 						{loading() ? 'Sending...' : 'Send Message'}
 					</button>
 					{status() === 'success' && (
-						<p class="text-green-500 dark:text-green-400 mt-2">Message sent successfully!</p>
+						<p class="text-green-500 dark:text-green-400 mt-2 text-center">Message sent successfully!</p>
 					)}
 					{status() === 'error' && (
-						<p class="text-red-500 dark:text-red-400 mt-2">Something went wrong. Please try again.</p>
+						<p class="text-red-500 dark:text-red-400 mt-2 text-center">
+							Something went wrong. Please try again.
+						</p>
 					)}
 				</form>
 			</div>
