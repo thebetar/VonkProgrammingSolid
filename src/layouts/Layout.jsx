@@ -4,6 +4,7 @@ import Cookie from '../components/general/Cookie';
 import Subscribe from '../components/general/Subscribe';
 import Navbar from '../components/general/Navbar';
 import Footer from '../components/general/Footer';
+import { PhoneSvg } from '../components/Icons';
 
 export default function Layout({ slot }) {
 	const showCookie = !localStorage.getItem('cookie-accept');
@@ -29,6 +30,10 @@ export default function Layout({ slot }) {
 		}
 	});
 
+	function handleFabClick() {
+		window.open(window.location.origin + '/contact', '_blank');
+	}
+
 	return (
 		<div class="md:pb-0 pb-12">
 			<Navbar />
@@ -42,6 +47,14 @@ export default function Layout({ slot }) {
 			</main>
 
 			<Footer />
+
+			<button
+				class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 shadow-lg rounded-full w-16 h-16 flex items-center justify-center transition-colors cursor-pointer"
+				aria-label="Call us"
+				onClick={handleFabClick}
+			>
+				<PhoneSvg width={32} height={32} color="#fff" />
+			</button>
 		</div>
 	);
 }
