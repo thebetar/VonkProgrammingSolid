@@ -1,5 +1,7 @@
 import { For } from 'solid-js';
+
 import { info } from '../../data/info';
+import ProductCard from './ProductCard.jsx';
 
 const { products } = info;
 
@@ -9,31 +11,7 @@ export default function ProductsPreview() {
 			<h2 class="w-[15rem] sm:mt-16 mt-24 uppercase sm:text-2xl text-3xl font-semibold">Our services</h2>
 
 			<div class="w-full">
-				<For each={products}>
-					{product => (
-						<div class="md:my-16 my-8">
-							<div>
-								<div class="flex justify-between md:flex-row flex-col md:items-center mb-2">
-									<div class="flex items-center gap-2">
-										{product.logo}
-										<h3 class="text-xl font-semibold">{product.title}</h3>
-									</div>
-									<p class="text-sm dark:text-gray">{product.date}</p>
-								</div>
-								<p class="text-base md:text-sm mb-1">{product.description}</p>
-
-								<a
-									href={product.link}
-									class="text-sm underline hover:opacity-70 transition-opacity"
-									target="_blank"
-									aria-label={`Go to ${product.title}`}
-								>
-									Contact us about {product.title}
-								</a>
-							</div>
-						</div>
-					)}
-				</For>
+				<For each={products}>{product => <ProductCard product={product} />}</For>
 			</div>
 		</section>
 	);
