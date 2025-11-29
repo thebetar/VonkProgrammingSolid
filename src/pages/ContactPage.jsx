@@ -10,7 +10,13 @@ export default function ContactPage() {
 		{ value: 'Blogs', label: 'Blogs (about articles, writing, etc.)' },
 	];
 
-	const [form, setForm] = createSignal({ name: '', email: '', message: '', questionType: questionTypes[0].value });
+	const [form, setForm] = createSignal({
+		name: '',
+		email: '',
+		message: '',
+		questionType: questionTypes[0].value,
+		website: '',
+	}); // 'website' is the honeypot field
 	const [status, setStatus] = createSignal('');
 	const [loading, setLoading] = createSignal(false);
 
@@ -39,6 +45,12 @@ export default function ContactPage() {
 	const handleSubmit = async e => {
 		e.preventDefault();
 
+		// Honeypot check: if the hidden field is filled, block submission
+		if (form().website && form().website.trim() !== '') {
+			setStatus('error');
+			return;
+		}
+
 		setLoading(true);
 		setStatus('');
 
@@ -52,7 +64,7 @@ export default function ContactPage() {
 
 			if (res.ok && text.includes('success')) {
 				setStatus('success');
-				setForm({ name: '', email: '', message: '', questionType: questionTypes[0].value });
+				setForm({ name: '', email: '', message: '', questionType: questionTypes[0].value, website: '' });
 			} else {
 				setStatus('error');
 			}
@@ -66,7 +78,6 @@ export default function ContactPage() {
 	const template = (
 		<section class="flex flex-col items-center justify-center min-h-[calc(100vh-240px)] py-16 px-4 dark:text-white">
 			<div class="w-full max-w-4xl bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden">
-				{/* Left column: business info */}
 				<div class="md:w-1/3 w-full bg-zinc-800 flex flex-col items-center justify-center md:p-8 p-6 gap-6 border-b md:border-b-0 md:border-r border-zinc-700">
 					<h2 class="text-2xl font-bold mb-2 text-white">Contact Info</h2>
 
@@ -115,8 +126,24 @@ export default function ContactPage() {
 						</div>
 					</div>
 				</div>
-				{/* Right column: form */}
-				<form class="md:w-2/3 w-full md:p-8 p-6 flex flex-col gap-4 justify-center" onSubmit={handleSubmit}>
+
+				<form
+					class="md:w-2/3 w-full md:p-8 p-6 flex flex-col gap-4 justify-center"
+					onSubmit={handleSubmit}
+					autoComplete="off"
+				>
+					<div style={{ position: 'absolute', top: '-9999px', left: '-9999px' }} aria-hidden="true">
+						<label>
+							Website
+							<input
+								name="website"
+								tabIndex="-1"
+								autoComplete="off"
+								value={form().website}
+								onInput={handleChange}
+							/>
+						</label>
+					</div>
 					<h1 class="text-2xl font-bold mb-2 text-white md:text-start text-center">Contact Us</h1>
 					<label class="font-semibold text-white">
 						Type of question
