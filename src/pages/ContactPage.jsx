@@ -1,10 +1,35 @@
-import { createSignal } from 'solid-js';
+import { createSignal, on, onMount } from 'solid-js';
 import Layout from '../layouts/Layout';
+import { MailSvg } from '../components/Icons';
+import { info } from '../data/info';
 
 export default function ContactPage() {
-	const [form, setForm] = createSignal({ name: '', email: '', message: '' });
+	const questionTypes = [
+		{ value: 'General question', label: 'General question' },
+		...info.products.map(p => ({ value: p.id, label: p.title })),
+		{ value: 'Blogs', label: 'Blogs (about articles, writing, etc.)' },
+	];
+
+	const [form, setForm] = createSignal({ name: '', email: '', message: '', questionType: questionTypes[0].value });
 	const [status, setStatus] = createSignal('');
 	const [loading, setLoading] = createSignal(false);
+
+	onMount(() => {
+		const params = new URLSearchParams(window.location.search);
+		const service = params.get('service');
+
+		if (!service) {
+			return;
+		}
+
+		const match = questionTypes.find(q => q.value.toLowerCase() === service.toLowerCase());
+
+		if (!match) {
+			return;
+		}
+
+		setForm(f => ({ ...f, questionType: match.value }));
+	});
 
 	const handleChange = e => {
 		const { name, value } = e.target;
@@ -13,78 +38,150 @@ export default function ContactPage() {
 
 	const handleSubmit = async e => {
 		e.preventDefault();
+
 		setLoading(true);
 		setStatus('');
+
 		try {
 			const res = await fetch('/scripts/contact.php', {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-				body: new URLSearchParams(form()).toString(),
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(form()),
 			});
 			const text = await res.text();
+
 			if (res.ok && text.includes('success')) {
 				setStatus('success');
-				setForm({ name: '', email: '', message: '' });
+				setForm({ name: '', email: '', message: '', questionType: questionTypes[0].value });
 			} else {
 				setStatus('error');
 			}
 		} catch {
 			setStatus('error');
 		}
+
 		setLoading(false);
 	};
 
 	const template = (
-		<section class="flex flex-col items-center justify-center min-h-[60vh] py-16 px-4 dark:text-white">
-			<h1 class="text-3xl font-bold mb-6">Contact Us</h1>
-			<form
-				class="w-full max-w-lg bg-white/80 dark:bg-zinc-900/80 rounded-xl shadow-lg border-2 border-blue-200/60 dark:border-purple-700/60 p-8 flex flex-col gap-4"
-				onSubmit={handleSubmit}
-			>
-				<label class="font-semibold">
-					Name
-					<input
-						required
-						name="name"
-						value={form().name}
-						onInput={handleChange}
-						class="mt-1 w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-zinc-800"
-					/>
-				</label>
-				<label class="font-semibold">
-					Email
-					<input
-						required
-						type="email"
-						name="email"
-						value={form().email}
-						onInput={handleChange}
-						class="mt-1 w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-zinc-800"
-					/>
-				</label>
-				<label class="font-semibold">
-					Message
-					<textarea
-						required
-						name="message"
-						value={form().message}
-						onInput={handleChange}
-						rows={5}
-						class="mt-1 w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-zinc-800"
-					/>
-				</label>
-				<button
-					type="submit"
-					disabled={loading()}
-					class="bg-zinc-900 dark:bg-zinc-700 text-white font-semibold py-2 rounded-md shadow hover:bg-zinc-800 dark:hover:bg-zinc-600 transition-colors disabled:opacity-60"
-				>
-					{loading() ? 'Sending...' : 'Send Message'}
-				</button>
-				{status() === 'success' && <p class="text-green-600 dark:text-green-400">Message sent successfully!</p>}
-				{status() === 'error' && (
-					<p class="text-red-600 dark:text-red-400">Something went wrong. Please try again.</p>
-				)}
-			</form>
+		<section class="flex flex-col items-center justify-center min-h-[calc(100vh-240px)] py-16 px-4 dark:text-white">
+			<div class="w-full max-w-4xl bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden">
+				{/* Left column: business info */}
+				<div class="md:w-1/3 w-full bg-zinc-800 flex flex-col items-center justify-center md:p-8 p-6 gap-6 border-b md:border-b-0 md:border-r border-zinc-700">
+					<h2 class="text-2xl font-bold mb-2 text-white">Contact Info</h2>
+
+					<div class="flex flex-col gap-4 w-full text-sm">
+						<div class="flex items-center gap-3">
+							<MailSvg width={22} height={22} color="#fff" />
+							<a
+								href="mailto:info@vonkprogramming.nl"
+								class="text-white underline break-all hover:text-blue-400 transition-colors"
+							>
+								info@vonkprogramming.nl
+							</a>
+						</div>
+						<div class="flex items-center gap-3">
+							<svg
+								width="22"
+								height="22"
+								fill="none"
+								stroke="#fff"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								viewBox="0 0 24 24"
+							>
+								<rect x="3" y="7" width="18" height="13" rx="2" />
+								<path d="M16 3.13V7" />
+								<path d="M8 3.13V7" />
+							</svg>
+							<span class="text-white">VonkProgramming</span>
+						</div>
+						<div class="flex items-center gap-3">
+							<svg
+								width="22"
+								height="22"
+								fill="none"
+								stroke="#fff"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								viewBox="0 0 24 24"
+							>
+								<path d="M17.657 16.657A8 8 0 1 0 7.05 7.05a8 8 0 0 0 10.607 9.607z" />
+								<path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+							</svg>
+							<span class="text-white">Netherlands</span>
+						</div>
+					</div>
+				</div>
+				{/* Right column: form */}
+				<form class="md:w-2/3 w-full md:p-8 p-6 flex flex-col gap-4 justify-center" onSubmit={handleSubmit}>
+					<h1 class="text-2xl font-bold mb-2 text-white md:text-start text-center">Contact Us</h1>
+					<label class="font-semibold text-white">
+						Type of question
+						<select
+							required
+							name="questionType"
+							value={form().questionType}
+							onInput={handleChange}
+							class="mt-1 w-full p-2 rounded-md border border-zinc-300 bg-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+						>
+							{questionTypes.map(opt => (
+								<option value={opt.value}>{opt.label}</option>
+							))}
+						</select>
+					</label>
+					<label class="font-semibold text-white">
+						Name
+						<input
+							required
+							name="name"
+							value={form().name}
+							onInput={handleChange}
+							class="mt-1 w-full p-2 rounded-md border border-zinc-300 bg-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-zinc-400"
+							placeholder="Your name"
+						/>
+					</label>
+					<label class="font-semibold text-white">
+						Email
+						<input
+							required
+							type="email"
+							name="email"
+							value={form().email}
+							onInput={handleChange}
+							class="mt-1 w-full p-2 rounded-md border border-zinc-300 bg-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-zinc-400"
+							placeholder="you@email.com"
+						/>
+					</label>
+					<label class="font-semibold text-white">
+						Message
+						<textarea
+							required
+							name="message"
+							value={form().message}
+							onInput={handleChange}
+							rows={5}
+							class="mt-1 w-full p-2 rounded-md border border-zinc-300 bg-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-zinc-400"
+							placeholder="Type your message..."
+						/>
+					</label>
+					<button
+						type="submit"
+						disabled={loading()}
+						class="bg-zinc-800 hover:bg-zinc-700 focus:bg-zinc-700 text-white font-semibold py-2 rounded-lg shadow transition-colors disabled:opacity-60 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+					>
+						{loading() ? 'Sending...' : 'Send Message'}
+					</button>
+					{status() === 'success' && (
+						<p class="text-green-500 dark:text-green-400 mt-2">Message sent successfully!</p>
+					)}
+					{status() === 'error' && (
+						<p class="text-red-500 dark:text-red-400 mt-2">Something went wrong. Please try again.</p>
+					)}
+				</form>
+			</div>
 		</section>
 	);
 

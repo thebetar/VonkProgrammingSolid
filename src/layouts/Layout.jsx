@@ -30,7 +30,7 @@ export default function Layout({ slot }) {
 	});
 
 	return (
-		<>
+		<div class="md:pb-0 pb-12">
 			<Navbar />
 
 			<main class="container">
@@ -42,6 +42,6 @@ export default function Layout({ slot }) {
 			</main>
 
 			<Footer />
-		</>
+		</div>
 	);
 }

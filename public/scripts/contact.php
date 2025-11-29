@@ -8,11 +8,13 @@ function sanitize($str)
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = isset($_POST['name']) ? sanitize($_POST['name']) : '';
-    $email = isset($_POST['email']) ? sanitize($_POST['email']) : '';
-    $message = isset($_POST['message']) ? sanitize($_POST['message']) : '';
+    $data = json_decode(file_get_contents('php://input'), true);
+    $name = isset($data['name']) ? sanitize($data['name']) : '';
+    $email = isset($data['email']) ? sanitize($data['email']) : '';
+    $message = isset($data['message']) ? sanitize($data['message']) : '';
+    $questionType = isset($data['questionType']) ? sanitize($data['questionType']) : '';
 
-    if (!$name || !$email || !$message || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (!$name || !$email || !$message || !$questionType || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         http_response_code(400);
         echo 'error: invalid input';
         exit;
@@ -20,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $to = 'info@vonkprogramming.nl';
     $subject = 'Contact Form Submission';
-    $body = "Name: $name\nEmail: $email\nMessage:\n$message";
+    $body = "Name: $name\nEmail: $email\nType of question: $questionType\nMessage:\n$message";
     $headers = "From: $email\r\nReply-To: $email\r\n";
 
     if (mail($to, $subject, $body, $headers)) {
