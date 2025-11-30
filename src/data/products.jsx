@@ -1,5 +1,7 @@
 import { CodeSvg, EyeSvg, GitServiceSvg, MonitorSvg, ServerSvg, LightBulbSvg } from '../components/Icons';
 
+import { ProductButton } from '../components/products/ProductButton';
+
 export default [
 	{
 		id: 'web-tracking',
@@ -41,12 +43,12 @@ export default [
 					business, while we handle the tracking and insights.
 				</p>
 
-				<div className="w-full border border-zinc-300 dark:border-zinc-700 my-4"></div>
+				<ProductButton contactLink="/contact/web-tracking" />
 
+				<div className="w-full border border-zinc-300 dark:border-zinc-700 my-4"></div>
 				<div className="text-xl">
 					<strong>Example AI-Generated Insights:</strong>
 				</div>
-
 				<img
 					src="/assets/images/products/tracking-report.webp"
 					alt="Web Tracking Report Example"
@@ -94,12 +96,12 @@ export default [
 					cost-effective managed service.
 				</p>
 
-				<div className="w-full border border-zinc-300 dark:border-zinc-700 my-4"></div>
+				<ProductButton contactLink="/contact/monitoring" />
 
+				<div className="w-full border border-zinc-300 dark:border-zinc-700 my-4"></div>
 				<div className="text-xl">
 					<strong>Monitoring service used:</strong>
 				</div>
-
 				<img
 					src="/assets/images/products/monitoring.webp"
 					alt="Monitoring Dashboard Example"
@@ -147,12 +149,12 @@ export default [
 					flexibility.
 				</p>
 
-				<div className="w-full border border-zinc-300 dark:border-zinc-700 my-4"></div>
+				<ProductButton contactLink="/contact/container-hosting" />
 
+				<div className="w-full border border-zinc-300 dark:border-zinc-700 my-4"></div>
 				<div className="text-xl">
 					<strong>Container hosting service used:</strong>
 				</div>
-
 				<img
 					src="/assets/images/products/portainer.webp"
 					alt="Container Hosting Dashboard Example"
@@ -201,12 +203,12 @@ export default [
 					over your own code.
 				</p>
 
-				<div className="w-full border border-zinc-300 dark:border-zinc-700 my-4"></div>
+				<ProductButton contactLink="/contact/git-backup" />
 
+				<div className="w-full border border-zinc-300 dark:border-zinc-700 my-4"></div>
 				<div className="text-xl">
 					<strong>Backup service powered by:</strong>
 				</div>
-
 				<img
 					src="/assets/images/products/gitea.webp"
 					alt="Git Backup Service Dashboard Example"
@@ -252,6 +254,8 @@ export default [
 					Transform your unique challenges into competitive advantages with custom software designed just for
 					you.
 				</p>
+
+				<ProductButton contactLink="/contact/custom-solutions" />
 			</>
 		),
 		contactLink: '/contact/custom-solutions',
@@ -288,13 +292,11 @@ export default [
 					</li>
 				</ul>
 				<p>Let technology handle the boring stuff so you can focus on growing your business.</p>
-
+				<ProductButton contactLink="/contact/workflow-automation" />
 				<div className="w-full border border-zinc-300 dark:border-zinc-700 my-4"></div>
-
 				<div className="text-xl">
 					<strong>Example Automation Tools Used:</strong>
 				</div>
-
 				<img
 					src="/assets/images/products/n8n.webp"
 					alt="Workflow Automation Tools Example"

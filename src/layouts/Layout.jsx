@@ -16,6 +16,12 @@ export default function Layout({ slot }) {
 	});
 
 	createEffect(() => {
+		const subscribedEmail = localStorage.getItem('subscribed-email');
+
+		if (subscribedEmail) {
+			return;
+		}
+
 		const lastClosed = localStorage.getItem('subscribe-popup');
 		const oneYearAgo = new Date().getTime() - 365 * 24 * 60 * 60 * 1000;
 
@@ -49,7 +55,7 @@ export default function Layout({ slot }) {
 			<Footer />
 
 			<button
-				class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 shadow-lg rounded-full w-16 h-16 flex items-center justify-center transition-colors cursor-pointer"
+				class="md:fixed hidden bottom-6 right-6 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 shadow-lg rounded-full w-16 h-16 md:flex items-center justify-center transition-colors cursor-pointer"
 				aria-label="Call us"
 				onClick={handleFabClick}
 			>

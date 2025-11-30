@@ -25,6 +25,7 @@ export default function Subscribe({ handleClose }) {
 		}
 
 		localStorage.setItem('subscribe-popup', new Date().getTime());
+		localStorage.setItem('subscribed-email', emailInput.value);
 		handleClose();
 	};
 
@@ -41,12 +42,10 @@ export default function Subscribe({ handleClose }) {
 			<div class="bg-white text-black md:max-w-[420px] w-full p-4 text-center rounded-sm flex flex-col gap-y-2 relative">
 				<svg
 					id="subscribe-decline-button"
-					class="absolute top-2 right-2 cursor-pointer hover:opacity-70 transition"
+					class="absolute top-2 right-2 cursor-pointer hover:opacity-70 transition md:w-4 md:h-4 w-5 h-5"
 					xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 					fill="#000000"
-					height="16px"
-					width="16px"
 					version="1.1"
 					viewBox="0 0 490 490"
 					xml:space="preserve"

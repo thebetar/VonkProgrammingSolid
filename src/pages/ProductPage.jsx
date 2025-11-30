@@ -9,7 +9,7 @@ export default function ProductPage() {
 	const product = info.products.find(product => product.id === productId);
 
 	const template = (
-		<div className="md:mt-4 mt-6">
+		<div className="md:mt-4 mt-6 min-h-[calc(100vh-314px)]">
 			<div class="flex justify-center mb-8">
 				<div>
 					<a href="/" class="underline">
