@@ -20,6 +20,10 @@ const routes = [
 		component: lazy(() => import('./pages/HomePage')),
 	},
 	{
+		path: '/products/:id',
+		component: lazy(() => import('./pages/ProductPage')),
+	},
+	{
 		path: '/blogs',
 		component: lazy(() => import('./pages/BlogsPage')),
 	},
@@ -45,6 +49,10 @@ const routes = [
 	},
 	{
 		path: '/contact',
+		component: lazy(() => import('./pages/ContactPage')),
+	},
+	{
+		path: '/contact/:service',
 		component: lazy(() => import('./pages/ContactPage')),
 	},
 	{

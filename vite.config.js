@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 import gzipPlugin from 'rollup-plugin-gzip'
-// import devtools from 'solid-devtools/vite';
+import { fileURLToPath, URL } from 'url';
 
 export default defineConfig({
   plugins: [
@@ -28,4 +28,9 @@ export default defineConfig({
       plugins: [gzipPlugin()]
     }
   },
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    }
+  }
 });

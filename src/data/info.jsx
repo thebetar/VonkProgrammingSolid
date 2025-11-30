@@ -1,5 +1,5 @@
-import { CodeSvg, EyeSvg, GitServiceSvg, MonitorSvg, ServerSvg, LightBulbSvg } from '../components/Icons';
 import blogs from './blogs';
+import products from './products';
 
 const iconStyle = 'md:w-5 md:h-5 w-7 h-7';
 
@@ -25,7 +25,7 @@ export const info = {
 			and continuously expanding my skills, a journey I often document in my{' '}
 			<a
 				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
-				href="https://vonkprogramming.nl/blogs"
+				href="/blogs"
 				aria-label="View my blogs"
 			>
 				blogs
@@ -33,7 +33,7 @@ export const info = {
 			. You can review my professional work in the{' '}
 			<a
 				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
-				href="https://vonkprogramming.nl/experience"
+				href="/experience"
 				aria-label="View my experience"
 			>
 				experience
@@ -55,7 +55,7 @@ export const info = {
 			or in the{' '}
 			<a
 				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
-				href="https://vonkprogramming.nl/projects"
+				href="/projects"
 				aria-label="View my projects"
 			>
 				projects
@@ -65,56 +65,7 @@ export const info = {
 		</div>
 	),
 	keywords: 'developer, javascript, python, code quality, blogs',
-	products: [
-		{
-			id: 'web-tracking',
-			title: 'Web Tracking with AI insights',
-			description:
-				'VonkProgramming provides a custom-made web tracking solution that tracks web activity anonymously and provides weekly AI-generated insights based on the collected data. This way you can improve your website based on real user data and AI suggestions!',
-			link: 'https://vonkprogramming.nl/contact?service=web-tracking',
-			logo: <EyeSvg width={48} height={48} />,
-		},
-		{
-			id: 'monitoring',
-			title: 'Monitoring',
-			description:
-				'VonkProgramming offers a simple monitoring solution. There are many complex monitoring solutions to choose from with costly pricing plans. Our solution is simple, effective and affordable. Contact us for more information!',
-			link: 'https://vonkprogramming.nl/contact?service=monitoring',
-			logo: <MonitorSvg width={48} height={48} />,
-		},
-		{
-			id: 'container-hosting',
-			title: 'Container Hosting',
-			description:
-				'VonkProgramming provides affordable and reliable container hosting solutions for your applications. Do not want to start a full year contract with a big hosting provider? Contact us for more information!',
-			link: 'https://vonkprogramming.nl/contact?service=container-hosting',
-			logo: <ServerSvg width={48} height={48} />,
-		},
-		{
-			id: 'git-backup',
-			title: 'Git Backup Service',
-			description:
-				'Want to be less dependent on big git hosting providers? VonkProgramming provides a simple git backup service that automatically creates backups of your git repositories so they are always safe and secure.',
-			link: 'https://vonkprogramming.nl/contact?service=git-backup',
-			logo: <GitServiceSvg width={48} height={48} />,
-		},
-		{
-			id: 'custom-solutions',
-			title: 'Custom solutions',
-			description:
-				"VonkProgramming offers tailored software solutions to meet your unique business needs. Whether it's web development, AI integration, data science, or IoT projects, we work closely with you to deliver effective and innovative results.",
-			link: 'https://vonkprogramming.nl/contact?service=custom-solutions',
-			logo: <CodeSvg width={48} height={48} />,
-		},
-		{
-			id: 'workflow-automation',
-			title: 'Workflow Automation',
-			description:
-				'VonkProgramming has helped clients become more efficient by automating repetitive tasks and streamlining business processes. Let us help you save time and reduce errors with custom workflow automation solutions tailored to your needs.',
-			link: 'https://vonkprogramming.nl/contact?service=workflow-automation',
-			logo: <LightBulbSvg width={48} height={48} />,
-		},
-	],
+	products,
 	blogs,
 	skills: [
 		{

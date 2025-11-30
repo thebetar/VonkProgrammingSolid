@@ -2,7 +2,7 @@ import { useParams } from '@solidjs/router';
 import { info } from '../data/info';
 
 import Layout from '../layouts/Layout';
-import BlogPost from '../components/blog/BlogPost';
+import BlogPost from '../components/blogs/BlogPost';
 
 export default function BlogPage() {
 	const blogId = useParams().id;
@@ -20,7 +20,11 @@ export default function BlogPage() {
 				</div>
 			</div>
 
-			<BlogPost {...blog()} />
+			{blog ? (
+				<BlogPost {...blog} />
+			) : (
+				<div class="min-h-[calc(100vh-314px)] flex justify-center text-4xl py-4">Blog Not Found</div>
+			)}
 		</div>
 	);
 

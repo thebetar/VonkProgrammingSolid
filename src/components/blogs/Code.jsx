@@ -1,5 +1,5 @@
 import { createSignal } from 'solid-js';
-import { CopySvg, CheckSvg } from '../../components/Icons';
+import { CopySvg, CheckSvg } from '../Icons';
 
 export default function Code({ children }) {
 	let preRef;

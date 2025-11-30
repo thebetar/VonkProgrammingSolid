@@ -1,13 +1,13 @@
 import { info } from '../data/info';
 import { createEffect, onCleanup } from 'solid-js';
 
-import Layout from '../layouts/Layout';
-import Hero from '../components/homepage/Hero';
-import BlogsPreview from '../components/homepage/BlogsPreview';
-import SkillsPreview from '../components/homepage/SkillsPreview';
-import ExperiencesPreview from '../components/homepage/ExperiencesPreview';
-import ProjectsPreview from '../components/homepage/ProjectsPreview';
-import ProductsPreview from '../components/homepage/ProductsPreview';
+import Layout from '@/layouts/Layout';
+import Hero from '@/components/homepage/Hero';
+import BlogsPreview from '@/components/homepage/BlogsPreview';
+import SkillsPreview from '@/components/homepage/SkillsPreview';
+import ExperiencesPreview from '@/components/homepage/ExperiencesPreview';
+import ProjectsPreview from '@/components/homepage/ProjectsPreview';
+import ProductsPreview from '@/components/products/ProductsPreview';
 
 let scrollListener;
 

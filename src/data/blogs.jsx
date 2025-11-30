@@ -1,5 +1,5 @@
-import Note from '../components/blog/Note';
-import Code from '../components/blog/Code';
+import Note from '../components/blogs/Note';
+import Code from '../components/blogs/Code';
 
 const BlogTags = {
 	Productivity: 'productivity',
