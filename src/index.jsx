@@ -1,5 +1,5 @@
 /* @refresh reload */
-import { lazy } from 'solid-js';
+import { lazy, onMount } from 'solid-js';
 import { render } from 'solid-js/web';
 import { Router } from '@solidjs/router';
 import { MetaProvider } from '@solidjs/meta';
@@ -59,11 +59,15 @@ const routes = [
 	},
 ];
 
-render(
-	() => (
+render(() => {
+	onMount(() => {
+		import('./fonts.css');
+		import('./index.css');
+	});
+
+	return (
 		<MetaProvider>
 			<Router>{routes}</Router>
 		</MetaProvider>
-	),
-	root,
-);
+	);
+}, root);

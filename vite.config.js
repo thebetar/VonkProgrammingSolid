@@ -24,6 +24,7 @@ export default defineConfig({
   build: {
     target: 'esnext',
     minify: 'terser',
+    assetsInlineLimit: 0,
     rollupOptions: {
       plugins: [gzipPlugin()]
     }

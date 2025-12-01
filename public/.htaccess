@@ -11,7 +11,7 @@
 </IfModule>
 
 <IfModule mod_headers.c>
-      Header add Content-Security-Policy "default-src 'self' 'unsafe-inline'; img-src * data:; style-src 'self' 'unsafe-inline' data:; script-src-elem 'self' 'unsafe-inline' www.googletagmanager.com cdn.jsdelivr.net; connect-src 'self' https://api.ipify.org qcginwkfkawkktlmdiwa.supabase.co;"
+      Header set Content-Security-Policy "default-src 'self' 'unsafe-inline'; img-src * data:; style-src 'self' 'unsafe-inline' data:; style-src-elem 'self' 'unsafe-inline' data:; font-src 'self' data:; script-src-elem 'self' 'unsafe-inline' www.googletagmanager.com cdn.jsdelivr.net; connect-src 'self' https://api.ipify.org qcginwkfkawkktlmdiwa.supabase.co;"
 
       # Rewrite www to non-www
       RewriteEngine On
