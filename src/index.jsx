@@ -1,5 +1,5 @@
 /* @refresh reload */
-import { lazy, onMount } from 'solid-js';
+import { lazy } from 'solid-js';
 import { render } from 'solid-js/web';
 import { Router } from '@solidjs/router';
 
@@ -58,10 +58,4 @@ const routes = [
 	},
 ];
 
-render(() => {
-	onMount(() => {
-		import('./fonts.css');
-		import('./index.css');
-	});
-	return <Router>{routes}</Router>;
-}, root);
+render(() => <Router>{routes}</Router>, root);
