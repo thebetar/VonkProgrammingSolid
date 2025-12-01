@@ -18,23 +18,25 @@ export default function ProductCard({ product }) {
 					{product.descriptionShort}
 				</p>
 
-				<div className="flex justify-center items-center gap-x-2 mt-4">
+				<div className="flex justify-center items-center gap-x-2 mt-4 w-full">
 					<a
-						href={product.contactLink}
-						class="text-sm font-semibold bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:bg-zinc-300 dark:focus:bg-zinc-700 text-zinc-900 dark:text-white rounded-lg px-5 py-2 shadow transition-all outline-none focus:ring-2 focus:ring-blue-400"
-						aria-label={`Go to ${product.title}`}
+						href={product.productLink}
+						class="flex-1 text-center text-sm font-semibold bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:bg-zinc-300 dark:focus:bg-zinc-700 text-zinc-900 dark:text-white rounded-lg px-4 py-2 shadow transition-all outline-none focus:ring-2 focus:ring-blue-400"
+						aria-label={`Read more about ${product.title}`}
+						title={`Read more about ${product.title}`}
 						tabIndex={0}
 					>
-						Contact
+						More about {product.titleShort}
 					</a>
 
 					<a
-						href={product.productLink}
-						class="text-sm font-semibold bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:bg-zinc-300 dark:focus:bg-zinc-700 text-zinc-900 dark:text-white rounded-lg px-5 py-2 shadow transition-all outline-none focus:ring-2 focus:ring-blue-400"
-						aria-label={`Go to ${product.title}`}
+						href={product.contactLink}
+						class="flex-1 text-center text-sm font-semibold bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:bg-zinc-300 dark:focus:bg-zinc-700 text-zinc-900 dark:text-white rounded-lg px-4 py-2 shadow transition-all outline-none focus:ring-2 focus:ring-blue-400"
+						aria-label={`Contact about ${product.title}`}
+						title={`Contact about ${product.title}`}
 						tabIndex={0}
 					>
-						Read More
+						Inquire now
 					</a>
 				</div>
 			</div>

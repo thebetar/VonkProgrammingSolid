@@ -6,6 +6,7 @@ export default [
 	{
 		id: 'web-tracking',
 		title: 'Web Tracking with AI insights',
+		titleShort: 'Tracking',
 		descriptionShort:
 			'Gain actionable insights with our privacy-first, AI-powered web tracking. Receive weekly summaries of anonymous user activity to improve your website without the need for expensive, complex analytics tools.',
 		description: (
@@ -63,6 +64,7 @@ export default [
 	{
 		id: 'monitoring',
 		title: 'Monitoring',
+		titleShort: 'Monitoring',
 		descriptionShort:
 			'Ensure your services stay online with our managed uptime monitoring. We provide a simple, affordable alternative to complex monitoring platforms, alerting you instantly to downtime or expired SSL certificates.',
 		description: (
@@ -116,6 +118,7 @@ export default [
 	{
 		id: 'container-hosting',
 		title: 'Container Hosting',
+		titleShort: 'Hosting',
 		descriptionShort:
 			'VonkProgramming provides affordable and reliable container hosting solutions without the lock-in. Forget long-term contracts—host your applications for as long as you need with our flexible, developer-friendly plans.',
 		description: (
@@ -169,6 +172,7 @@ export default [
 	{
 		id: 'git-backup',
 		title: 'Git Backup Service',
+		titleShort: 'Git Backup',
 		descriptionShort:
 			'Secure your code with an automated fail-safe. We provide a simple managed backup service that mirrors your repositories, ensuring your code remains safe even if you lose access to your main Git provider.',
 		description: (
@@ -223,6 +227,7 @@ export default [
 	{
 		id: 'custom-solutions',
 		title: 'Custom solutions',
+		titleShort: 'Solutions',
 		descriptionShort:
 			'Turn your unique ideas into reality with tailored software solutions. From web development and AI integration to IoT, we build custom applications designed specifically to meet your business goals.',
 		description: (
@@ -265,6 +270,7 @@ export default [
 	{
 		id: 'workflow-automation',
 		title: 'Workflow Automation',
+		titleShort: 'Automation',
 		descriptionShort:
 			'Stop wasting time on repetitive tasks. Our custom workflow automation solutions streamline your business processes, reducing errors and freeing up your team to focus on high-value work.',
 		description: (
