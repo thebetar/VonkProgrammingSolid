@@ -1,7 +1,7 @@
 import { Title, Meta } from '@solidjs/meta';
 import { ProductButton } from './ProductButton';
 
-export default function ProductInfo({ title, logo, description, descriptionShort, contactLink }) {
+export default function ProductInfo({ title, logo, description, descriptionShort, contactLink, productLink }) {
 	return (
 		<div className="max-w-3xl mx-auto flex flex-col items-center">
 			<Title>VonkProgramming - {title}</Title>
@@ -14,6 +14,21 @@ export default function ProductInfo({ title, logo, description, descriptionShort
 			/>
 			<Meta property="og:image" content="https://vonkprogramming.nl/assets/images/logo.webp" />
 			<Meta property="og:type" content="product" />
+
+			<script type="application/ld+json">
+				{JSON.stringify({
+					'@context': 'https://schema.org',
+					'@type': 'Product',
+					name: title,
+					description: descriptionShort,
+					image: 'https://vonkprogramming.nl/assets/images/logo.webp',
+					brand: {
+						'@type': 'Brand',
+						name: 'VonkProgramming',
+					},
+					url: `https://vonkprogramming.nl${productLink}`,
+				})}
+			</script>
 
 			{logo}
 			<h1 className="md:text-4xl text-2xl my-0 w-fit mx-auto">{title}</h1>

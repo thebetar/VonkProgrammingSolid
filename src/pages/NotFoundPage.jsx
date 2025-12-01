@@ -7,6 +7,7 @@ export default function ProjectsPage() {
 		<div class="h-[calc(100vh-254px)] flex flex-col items-center justify-center">
 			<Title>VonkProgramming - 404 Not Found</Title>
 			<Meta name="description" content="The page you are looking for does not exist." />
+			<Meta name="robots" content="noindex" />
 
 			<h2 class="w-full text-4xl text-center md:my-4 my-6">Not found</h2>
 			<p class="w-full text-center md:text-lg text-base md:mt-4 md:mb-8 my-6">

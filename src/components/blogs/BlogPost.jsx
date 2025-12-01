@@ -84,19 +84,34 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 			<Title>VonkProgramming - {title}</Title>
 			<Meta name="description" content={cleanDescription} />
 			<Meta name="keywords" content={keywords?.join(', ')} />
-
 			<Meta property="og:title" content={`VonkProgramming - ${title}`} />
 			<Meta property="og:description" content={cleanDescription} />
 			<Meta property="og:image" content="https://vonkprogramming.nl/assets/images/logo.webp" />
 			<Meta property="og:url" content={`https://vonkprogramming.nl${link}`} />
 			<Meta property="og:type" content="article" />
-
-			{showShare() && <Share handleClose={() => setShowShare(false)} />}
-
+			<Meta name="twitter:card" content="summary_large_image" />
+			<Meta name="twitter:title" content={`VonkProgramming - ${title}`} />
+			<Meta name="twitter:description" content={cleanDescription} />
+			<Meta name="twitter:image" content="https://vonkprogramming.nl/assets/images/logo.webp" />
+			<script type="application/ld+json">
+				{JSON.stringify({
+					'@context': 'https://schema.org',
+					'@type': 'BlogPosting',
+					headline: title,
+					description: cleanDescription,
+					image: 'https://vonkprogramming.nl/assets/images/logo.webp',
+					author: {
+						'@type': 'Person',
+						name: 'Lars Vonk',
+					},
+					datePublished: date,
+					url: `https://vonkprogramming.nl${link}`,
+				})}
+			</script>
+			{showShare() && <Share handleClose={() => setShowShare(false)} />}{' '}
 			<div id="blog_id" class="hidden">
 				{id}
 			</div>
-
 			<div class="max-w-3xl mx-auto">
 				<div class="flex justify-between">
 					<div>
@@ -171,9 +186,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 					</For>
 				</div>
 			</div>
-
 			<div class="blog-post max-w-3xl mx-auto mt-1 mb-10">{content}</div>
-
 			{showComment() ? (
 				<Comment
 					blogId={id}
