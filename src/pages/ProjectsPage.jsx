@@ -1,4 +1,5 @@
 import { For } from 'solid-js';
+import { Title, Meta } from '@solidjs/meta';
 
 import { info } from '../data/info';
 import Layout from '../layouts/Layout';
@@ -9,6 +10,12 @@ import PageHeader from '../components/skills/PageHeader';
 export default function ProjectsPage() {
 	const template = (
 		<>
+			<Title>VonkProgramming - Projects</Title>
+			<Meta name="description" content="Showcase of my personal and professional projects." />
+			<Meta property="og:title" content="VonkProgramming - Projects" />
+			<Meta property="og:description" content="Showcase of my personal and professional projects." />
+			<Meta property="og:type" content="website" />
+
 			<PageHeader>Projects</PageHeader>
 
 			<div class="flex justify-center mb-8">

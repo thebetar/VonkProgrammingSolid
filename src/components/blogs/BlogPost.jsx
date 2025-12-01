@@ -1,4 +1,5 @@
 import { createEffect, createSignal } from 'solid-js';
+import { Title, Meta } from '@solidjs/meta';
 
 import { getTagColor } from '../../data/blogs';
 import Share from '../blogs/Share';
@@ -10,6 +11,8 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 
 	const [showShare, setShowShare] = createSignal(false);
 	const [showComment, setShowComment] = createSignal(false);
+
+	const cleanDescription = description ? description.replace(/<[^>]*>?/gm, '').trim() : '';
 
 	const parseTitle = title => {
 		try {
@@ -78,10 +81,15 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 
 	return (
 		<>
-			<meta property="og:title" content={`VonkProgramming - ${title}`} />
-			<meta property="og:description" content={description} />
-			<meta property="og:image" content="//assets/images/logo.webp" />
-			<meta property="og:url" content={`//${link}`} />
+			<Title>VonkProgramming - {title}</Title>
+			<Meta name="description" content={cleanDescription} />
+			<Meta name="keywords" content={keywords?.join(', ')} />
+
+			<Meta property="og:title" content={`VonkProgramming - ${title}`} />
+			<Meta property="og:description" content={cleanDescription} />
+			<Meta property="og:image" content="https://vonkprogramming.nl/assets/images/logo.webp" />
+			<Meta property="og:url" content={`https://vonkprogramming.nl${link}`} />
+			<Meta property="og:type" content="article" />
 
 			{showShare() && <Share handleClose={() => setShowShare(false)} />}
 

@@ -1,5 +1,6 @@
 import { info } from '../data/info';
 import { createEffect, onCleanup } from 'solid-js';
+import { Title, Meta } from '@solidjs/meta';
 
 import Layout from '@/layouts/Layout';
 import Hero from '@/components/homepage/Hero';
@@ -13,10 +14,6 @@ let scrollListener;
 
 export default function Homepage() {
 	createEffect(() => {
-		const titleElement = document.querySelector('title');
-
-		titleElement.textContent = `VonkProgramming - Home`;
-
 		// On scroll remove # from URL
 		scrollListener = () => {
 			if (window.location.hash) {
@@ -31,6 +28,11 @@ export default function Homepage() {
 
 	const template = (
 		<>
+			<Title>VonkProgramming - Home</Title>
+			<Meta
+				name="description"
+				content="I am an experienced developer with experience in Javascript and Python. I value code quality and continuous learning as can be read in my blogs."
+			/>
 			<Hero />
 			<ProductsPreview />
 			<BlogsPreview />

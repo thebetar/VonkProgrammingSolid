@@ -2,6 +2,7 @@
 import { lazy } from 'solid-js';
 import { render } from 'solid-js/web';
 import { Router } from '@solidjs/router';
+import { MetaProvider } from '@solidjs/meta';
 
 const root = document.getElementById('app');
 
@@ -58,4 +59,11 @@ const routes = [
 	},
 ];
 
-render(() => <Router>{routes}</Router>, root);
+render(
+	() => (
+		<MetaProvider>
+			<Router>{routes}</Router>
+		</MetaProvider>
+	),
+	root,
+);
