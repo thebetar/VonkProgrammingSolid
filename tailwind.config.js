@@ -25,7 +25,7 @@ module.exports = {
         "dark-gray": "#1A1A1A",
       },
       fontFamily: {
-        outfit: ["Outfit", "sans-serif"],
+        outfit: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Helvetica Neue", "sans-serif"],
       },
     },
   },

@@ -114,7 +114,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 			</div>
 			<div class="max-w-3xl mx-auto">
 				<div class="flex justify-between">
-					<div>
+					<div class="pr-1">
 						<h1 class="md:text-4xl text-2xl my-0 w-fit inline">{parseTitle(title).title}</h1>
 						<div class="text-4xl text-white inline">{parseTitle(title).emoji}</div>
 					</div>

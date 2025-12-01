@@ -61,7 +61,6 @@ const routes = [
 
 render(() => {
 	onMount(() => {
-		import('./fonts.css');
 		import('./index.css');
 	});
 
