@@ -11,6 +11,7 @@ export default [
 			'postcss.config.js',
 			'public/googletagmanager.js',
 			'dist/**/*',
+			'scripts/*.js'
 		],
 	},
 ];
