@@ -6,36 +6,45 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PRODUCTS_PATH = path.join(__dirname, '../src/data/products.jsx');
-const INFO_PATH = path.join(__dirname, '../src/data/info.jsx');
+const SKILLS_PATH = path.join(__dirname, '../src/data/skills.jsx');
+const EXPERIENCE_PATH = path.join(__dirname, '../src/data/experience.jsx');
 const BLOGS_PATH = path.join(__dirname, '../src/data/blogs.jsx');
 const INDEX_HTML_PATH = path.join(__dirname, '../index.html');
 
-function extractData(filePath, regex) {
+function extractData(filePath, regex, groupIndex = 2) {
     const content = fs.readFileSync(filePath, 'utf8');
     const results = [];
     let match;
     while ((match = regex.exec(content)) !== null) {
-        results.push(match[2]); // match[2] is the content inside quotes
+        results.push(match[groupIndex]);
     }
     return results;
 }
 
 function generateStaticContent() {
     // Products
-    const productTitles = extractData(PRODUCTS_PATH, /title:\s*(['"])(.*?)\1/g);
-    const skillTitles = extractData(INFO_PATH, /title:\s*(['"])(.*?)\1/g);
-    const allNames = extractctData(INFO_PATH, /name:\s*(['"])(.*?)\1/g);
-    const experienceNames = allNames.filter(name => name !== 'Lars Vonk');
+    const productTitles = extractData(PRODUCTS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
+    const productIds = extractData(PRODUCTS_PATH, /id:\s*(['"])(.*?)\1/g, 2);
+    
+    // Skills
+    const skillTitles = extractData(SKILLS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
+    
+    // Experience
+    const experienceNames = extractData(EXPERIENCE_PATH, /name:\s*(['"])(.*?)\1/g, 2);
 
     // Blogs
-    const blogTitles = extractData(BLOGS_PATH, /title:\s*(['"])(.*?)\1/g);
+    const blogTitles = extractData(BLOGS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
+    const blogLinks = extractData(BLOGS_PATH, /link:\s*(['"])(.*?)\1/g, 2);
 
     let html = '\n<!-- STATIC_CONTENT_START -->\n';
-    html += '<div style="display: none;">\n';
+    html += '<div>\n';
 
     html += '<h2>Services</h2>\n';
     html += '<ul>\n';
-    productTitles.forEach(title => html += `\t<li>${title}</li>\n`);
+    productTitles.forEach((title, index) => {
+        const id = productIds[index];
+        html += `\t<li><a href="/products/${id}">${title}</a></li>\n`;
+    });
     html += '</ul>\n';
 
     html += '<h3>Skills</h3>\n';
@@ -48,9 +57,12 @@ function generateStaticContent() {
     experienceNames.forEach(name => html += `\t<li>${name}</li>\n`);
     html += '</ul>\n';
 
-    html += '<h5>Logs</h5>\n';
+    html += '<h5>Blogs</h5>\n';
     html += '<ul>\n';
-    blogTitles.forEach(title => html += `\t<li>${title}</li>\n`);
+    blogTitles.forEach((title, index) => {
+        const link = blogLinks[index];
+        html += `\t<li><a href="${link}">${title}</a></li>\n`;
+    });
     html += '</ul>\n';
 
     html += '</div>\n';
