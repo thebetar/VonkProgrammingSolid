@@ -8,7 +8,8 @@
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint .",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.mjs",
+    "generate-static-content": "node scripts/generate-static-content.mjs"
   },
   "license": "MIT",
   "devDependencies": {
