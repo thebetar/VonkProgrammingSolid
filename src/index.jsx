@@ -12,6 +12,9 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 	);
 }
 
+// Clear the root element to remove fallback content
+root.innerHTML = '';
+
 const routes = [
 	{
 		path: '/',
