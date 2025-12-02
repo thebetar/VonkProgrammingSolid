@@ -23,25 +23,8 @@ function extractData(filePath, regex) {
 function generateStaticContent() {
     // Products
     const productTitles = extractData(PRODUCTS_PATH, /title:\s*(['"])(.*?)\1/g);
-
-    // Info - Skills
-    // We extract all titles from info.jsx. 
-    // Note: This assumes 'title' is only used for skills in info.jsx.
     const skillTitles = extractData(INFO_PATH, /title:\s*(['"])(.*?)\1/g);
-
-    // Info - Experience
-    // We extract all names from info.jsx.
-    // Note: This assumes 'name' is used for experience and the main profile name.
-    const allNames = extractData(INFO_PATH, /name:\s*(['"])(.*?)\1/g);
-    // Filter out the main profile name if it's picked up (usually 'Lars Vonk')
-    // We can assume the first one might be the profile name, or just filter by known value if needed.
-    // But simpler is to just include them all, or filter 'Lars Vonk' specifically if we know it.
-    // Let's filter 'Lars Vonk' to be safe, or just accept it. 
-    // Actually, having 'Lars Vonk' in the static content is good for SEO too.
-    // But the user wanted "Experience" list.
-    // Let's try to be a bit smarter. Experience array is usually at the end.
-    // But regex is global.
-    // Let's just filter out 'Lars Vonk'.
+    const allNames = extractctData(INFO_PATH, /name:\s*(['"])(.*?)\1/g);
     const experienceNames = allNames.filter(name => name !== 'Lars Vonk');
 
     // Blogs
@@ -95,7 +78,6 @@ function generateStaticContent() {
     }
 
     fs.writeFileSync(INDEX_HTML_PATH, indexHtml, 'utf8');
-    console.log('Static content generated and injected into index.html');
 }
 
 generateStaticContent();

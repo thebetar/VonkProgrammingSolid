@@ -1,17 +1,11 @@
 import blogs from './blogs';
 import products from './products';
+import skills from './skills';
+import experience from './experience';
+
+export { SkillType } from './skills';
 
 const iconStyle = 'md:w-5 md:h-5 w-7 h-7';
-
-export const SkillType = {
-	LANGUAGE: 'Programming Language',
-	DATABASE: 'Database',
-	FRAMEWORK: 'Framework',
-	TOOL: 'Tool',
-	INFRASTRUCTURE: 'Infrastructure',
-	ECOMMERCE: 'E-commerce',
-	OTHER: 'Other',
-};
 
 export const info = {
 	baseUrl: 'https://vonkprogramming.nl',

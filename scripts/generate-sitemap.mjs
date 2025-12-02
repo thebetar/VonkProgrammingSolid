@@ -58,7 +58,6 @@ ${urls.map(url => `    <url>
 </urlset>`;
 
     fs.writeFileSync(SITEMAP_PATH, sitemapContent);
-    console.log(`Sitemap generated at ${SITEMAP_PATH} with ${urls.length} URLs.`);
 }
 
 generateSitemap();
