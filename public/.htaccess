@@ -30,6 +30,8 @@
       RewriteRule "\.html\.gz$"  "-" [T=text/html,E=no-gzip:1]
       RewriteRule "\.svg\.gz$"  "-" [T=image/svg+xml,E=no-gzip:1]
 
+      AddDefaultCharset UTF-8
+
       <FilesMatch "\.(js|css|html|svg)\.gz$">
             # Serve correct encoding type.
             Header append Content-Encoding gzip
@@ -41,6 +43,10 @@
 
       <FilesMatch "\.(jpg|jpeg|png|webp|ttf|svg|svg\.gz|js|js\.gz|css|css\.gz|html|html\.gz)$">
             Header append Cache-Control "public, max-age=31536000, immutable"
+      </FilesMatch>
+
+      <FilesMatch "\.(html|htm|css|js)$">
+            Header set Content-Type "text/html; charset=UTF-8" env=REDIRECT_STATUS
       </FilesMatch>
 
       # Serve correct encoding type.
