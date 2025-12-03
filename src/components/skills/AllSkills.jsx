@@ -1,4 +1,4 @@
-import { info, SkillType } from '../../data/info';
+import { skills, SkillType } from '@/data/skills';
 import Rating from '../styling/Rating';
 import PageHeader from './PageHeader';
 
@@ -24,7 +24,7 @@ export default function AllSkills() {
 						<div class="w-full mt-8">
 							<h3 class="w-full font-semibold text-2xl">{skillType}</h3>
 							<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-4 md:gap-x-8 gap-x-2">
-								<For each={info.skills.filter(skill => skill.type === skillType)}>
+								<For each={skills.filter(skill => skill.type === skillType)}>
 									{item => (
 										<a
 											href={item.link}

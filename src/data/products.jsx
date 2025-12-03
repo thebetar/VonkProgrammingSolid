@@ -2,7 +2,7 @@ import { CodeSvg, EyeSvg, GitServiceSvg, MonitorSvg, ServerSvg, LightBulbSvg } f
 
 import { ProductButton } from '../components/products/ProductButton';
 
-export default [
+export const products = [
 	{
 		id: 'web-tracking',
 		title: 'Web Tracking with AI insights',

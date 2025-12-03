@@ -1,5 +1,5 @@
-import { info } from '../../data/info';
-import { CodeSvg, LightBulbSvg, LinkedInSvg, MailSvg } from '../Icons';
+import { info } from '@/data/info';
+import { CodeSvg, LightBulbSvg, LinkedInSvg, MailSvg } from '@/components/Icons';
 
 const { name, jobDescription1, jobDescription2, about, socialMedia } = info;
 

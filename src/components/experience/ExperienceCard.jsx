@@ -1,5 +1,6 @@
 import { For } from 'solid-js';
-import { info } from '../../data/info';
+
+import { skills } from '@/data/skills';
 
 export default function ExperienceCard({ small, item }) {
 	return (
@@ -12,7 +13,7 @@ export default function ExperienceCard({ small, item }) {
 							{skill => (
 								<div class="w-6 h-6 rounded-full bg-zinc-300 dark:bg-zinc-100 flex justify-center items-center">
 									<img
-										src={info.skills?.find(s => s.title === skill)?.logo}
+										src={skills?.find(s => s.title === skill)?.logo}
 										alt={skill}
 										title={skill}
 										loading="lazy"

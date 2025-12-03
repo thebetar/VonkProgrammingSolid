@@ -1,9 +1,7 @@
 import { For } from 'solid-js';
 
-import { info } from '@/data/info';
+import { products } from '@/data/products';
 import ProductCard from '@/components/products/ProductCard.jsx';
-
-const { products } = info;
 
 export default function ProductsPreview() {
 	return (

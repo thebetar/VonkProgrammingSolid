@@ -1,8 +1,8 @@
 import { Title, Meta } from '@solidjs/meta';
-import { info } from '../data/info';
-import Layout from '../layouts/Layout';
 
-import AllExperience from '../components/experience/AllExperience';
+import { experience } from '@/data/experience';
+import Layout from '@/layouts/Layout';
+import AllExperience from '@/components/experience/AllExperience';
 
 export default function ExperiencesPage() {
 	const template = (
@@ -13,7 +13,7 @@ export default function ExperiencesPage() {
 			<Meta property="og:description" content="My professional experience and career journey." />
 			<Meta property="og:type" content="website" />
 
-			<AllExperience title="Experiences" details={info.experience} />
+			<AllExperience title="Experiences" details={experience} />
 		</div>
 	);
 

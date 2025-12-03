@@ -1,4 +1,4 @@
-export default [
+export const education = [
 	{
 		name: "Master's degree, Computer systems and networks",
 		location: 'Warsaw, Mazowieckie, Poland',

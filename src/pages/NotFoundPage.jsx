@@ -1,6 +1,6 @@
 import { Title, Meta } from '@solidjs/meta';
-import { info } from '../data/info';
-import Layout from '../layouts/Layout';
+
+import Layout from '@/layouts/Layout';
 
 export default function ProjectsPage() {
 	const template = (

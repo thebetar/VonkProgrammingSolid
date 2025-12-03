@@ -1,8 +1,6 @@
-import { info } from '../../data/info';
+import { featuredSkills as skills } from '@/data/skills';
 
 import Rating from '../styling/Rating';
-
-const skills = info.skills.filter(s => s.featured);
 
 export default function SkillsPreview() {
 	return (

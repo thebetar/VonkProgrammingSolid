@@ -1,11 +1,10 @@
 import { For } from 'solid-js';
 import { Title, Meta } from '@solidjs/meta';
 
-import { info } from '../data/info';
-import Layout from '../layouts/Layout';
-
-import ProjectCard from '../components/homepage/ProjectCard';
-import PageHeader from '../components/skills/PageHeader';
+import { projects } from '@/data/projects';
+import Layout from '@/layouts/Layout';
+import ProjectCard from '@/components/homepage/ProjectCard';
+import PageHeader from '@/components/skills/PageHeader';
 
 export default function ProjectsPage() {
 	const template = (
@@ -33,7 +32,7 @@ export default function ProjectsPage() {
 			</p>
 
 			<div class="w-full grid lg:grid-cols-2 grid-cols-1 md:gap-8 gap-2">
-				<For each={info.projects}>{project => <ProjectCard {...project} />}</For>
+				<For each={projects}>{project => <ProjectCard {...project} />}</For>
 			</div>
 		</>
 	);

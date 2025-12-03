@@ -8,7 +8,7 @@ export const SkillType = {
 	OTHER: 'Other',
 };
 
-export default [
+export const skills = [
 	{
 		title: 'Javascript',
 		years: 9,
@@ -622,3 +622,5 @@ export default [
 		type: SkillType.OTHER,
 	},
 ];
+
+export const featuredSkills = skills.filter(s => s.featured);

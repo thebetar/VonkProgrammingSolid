@@ -1,12 +1,13 @@
 import { useParams } from '@solidjs/router';
-import { info } from '../data/info';
+
+import { products } from '../data/products';
 import Layout from '../layouts/Layout';
 import ProductInfo from '../components/products/ProductInfo';
 
 export default function ProductPage() {
 	const productId = useParams().id;
 
-	const product = info.products.find(product => product.id === productId);
+	const product = products.find(product => product.id === productId);
 
 	const template = (
 		<div className="md:mt-4 mt-6 min-h-[calc(100vh-314px)]">

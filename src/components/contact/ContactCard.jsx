@@ -1,13 +1,14 @@
 import { createSignal, onMount } from 'solid-js';
-
-import { LinkedInSvg, MailSvg } from '../Icons';
-import { info } from '../../data/info';
 import { useParams } from '@solidjs/router';
+
+import { LinkedInSvg, MailSvg } from '@/components/Icons';
+import { info } from '@/data/info';
+import { products } from '@/data/products';
 
 export default function ContactCard() {
 	const questionTypes = [
 		{ value: 'General question', label: 'General question' },
-		...info.products.map(p => ({ value: p.id, label: p.title })),
+		...products.map(p => ({ value: p.id, label: p.title })),
 		{ value: 'Blogs', label: 'Blogs (about articles, writing, etc.)' },
 	];
 

@@ -1,5 +1,6 @@
 import { createEffect, createSignal, For } from 'solid-js';
-import { info } from '../../data/info';
+
+import { info } from '@/data/info';
 
 export default function Navigation({ curPage }) {
 	const [navRoutes, setNavRoutes] = createSignal([]);

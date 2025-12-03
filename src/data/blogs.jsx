@@ -4408,4 +4408,13 @@ export const blogs = [
 	},
 ];
 
+export const blogPreviews = blogs.map(blog => ({
+	id: blog.id,
+	title: blog.title,
+	description: blog.description,
+	date: blog.date,
+	link: blog.link,
+	tags: blog.tags,
+}));
+
 export default blogs;

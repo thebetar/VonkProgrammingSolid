@@ -1,9 +1,7 @@
 import { For } from 'solid-js';
 
 import ProjectCard from './ProjectCard';
-import { info } from '../../data/info';
-
-const { projects } = info;
+import { projects } from '../../data/projects';
 
 export default function ProjectsPreview() {
 	return (

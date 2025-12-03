@@ -1,4 +1,4 @@
-export default [
+export const experience = [
 	{
 		name: 'Mikrocloud',
 		skills: ['Laravel', 'Mikrotik RouterOS', 'Nuxt.js'],
