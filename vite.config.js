@@ -29,7 +29,6 @@ export default defineConfig({
     target: 'esnext',
 
     minify: 'terser',
-    cssMinify: 'lightningcss',
 
     assetsInlineLimit: 0,
     terserOptions: {
@@ -37,9 +36,6 @@ export default defineConfig({
         drop_console: true,
         drop_debugger: true,
       },
-      mangle: {
-        properties: true
-      }
     },
   },
   resolve: {
