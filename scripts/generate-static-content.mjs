@@ -32,6 +32,7 @@ function generateStaticContent() {
 
     // Experience
     const experienceNames = extractData(EXPERIENCE_PATH, /name:\s*(['"])(.*?)\1/g, 2);
+    const experienceLinks = extractData(EXPERIENCE_PATH, /link:\s*(['"])(.*?)\1/g, 2);
     const experienceDescriptions = extractData(EXPERIENCE_PATH, /description:\s*\[\s*(['"`])(.*?)\1/g, 2);
 
     // Blogs
@@ -51,6 +52,15 @@ function generateStaticContent() {
     });
     html += '</ul>\n';
 
+    html += '<h5>Blogs</h5>\n';
+    html += '<ul>\n';
+    blogTitles.forEach((title, index) => {
+        const link = blogLinks[index];
+        const description = blogDescriptions[index] ? blogDescriptions[index].trim() : '';
+        html += `\t<li><a href="${link}">${title}</a><p>${description}</p></li>\n`;
+    });
+    html += '</ul>\n';
+
     html += '<h3>Skills</h3>\n';
     html += '<ul>\n';
     skillTitles.forEach(title => html += `\t<li>${title}</li>\n`);
@@ -60,16 +70,8 @@ function generateStaticContent() {
     html += '<ul>\n';
     experienceNames.forEach((name, index) => {
         const description = experienceDescriptions[index];
-        html += `\t<li>${name}<p>${description}</p></li>\n`;
-    });
-    html += '</ul>\n';
-
-    html += '<h5>Blogs</h5>\n';
-    html += '<ul>\n';
-    blogTitles.forEach((title, index) => {
-        const link = blogLinks[index];
-        const description = blogDescriptions[index] ? blogDescriptions[index].trim() : '';
-        html += `\t<li><a href="${link}">${title}</a><p>${description}</p></li>\n`;
+        const link = experienceLinks[index];
+        html += `\t<li><a href="${link}">${name}</a><p>${description}</p></li>\n`;
     });
     html += '</ul>\n';
 
