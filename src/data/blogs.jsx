@@ -1268,7 +1268,7 @@ export const blogs = [
 				</p>
 				<p>
 					<img
-						src="/assets/images/blogs/iot-hobby/final-project.jpg"
+						src="/assets/images/blogs/iot-hobby/final-project.webp"
 						alt="Final project with LED and DHT sensor"
 						aria-label="Final project with LED and DHT sensor"
 					/>
@@ -1285,7 +1285,7 @@ export const blogs = [
 
 				<p>
 					<img
-						src="/assets/images/blogs/iot-hobby/dashboard.jpg"
+						src="/assets/images/blogs/iot-hobby/dashboard.webp"
 						alt="Dashboard with all kinds of sensors"
 						aria-label="Dashboard with all kinds of sensors"
 					/>
