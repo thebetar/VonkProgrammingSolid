@@ -1,4 +1,3 @@
-import { createEffect } from 'solid-js';
 import { Title, Meta } from '@solidjs/meta';
 
 import Layout from '@/layouts/Layout';

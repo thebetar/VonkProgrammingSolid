@@ -31,13 +31,6 @@ export const education = [
 		],
 	},
 	{
-		name: 'AWS cloud practitioner',
-		location: 'Online',
-		startDate: 'Feb 2021',
-		endDate: 'Feb 2021',
-		description: ['AWS cloud practitioner certification', 'Issued by Amazon Web Services.'],
-	},
-	{
 		name: 'Certified scrum master',
 		location: 'Online',
 		startDate: 'Dec 2022',
@@ -45,23 +38,6 @@ export const education = [
 		description: [
 			'Basic understanding of the scrum framework and how to work and/or lead in a scrum team.',
 			'Issued by ScrumFoundation.',
-		],
-	},
-	{
-		name: 'Graph Developer - Associate',
-		location: 'Online',
-		startDate: 'Apr 2022',
-		endDate: 'Apr 2022',
-		description: ['Basic online course learning GraphQL from the Apollo team.', 'Issued by Apollo.'],
-	},
-	{
-		name: 'Various Udemy courses',
-		location: 'Online',
-		startDate: 'Jul 2020',
-		endDate: 'Present',
-		description: [
-			'I like to keep my skills up to date by taking various courses on Udemy. I have completed courses on Vue.js, React, Node.js, MongoDB, Express.js, and many more.',
-			'Issued by Udemy.',
 		],
 	},
 ];

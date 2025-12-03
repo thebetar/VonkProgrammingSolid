@@ -1,7 +1,7 @@
 import { createEffect, createSignal } from 'solid-js';
 import { Title, Meta } from '@solidjs/meta';
 
-import { getTagColor } from '@/data/blog_previews';
+import { getTagColor } from '@/data/blogs';
 import Share from '@/components/blogs/Share';
 import Comment from '@/components/blogs/Comment';
 

@@ -1,7 +1,7 @@
 import Note from '@/components/blogs/Note';
 import Code from '@/components/blogs/Code';
 
-import { BlogTags, getTagColor } from '@/data/blog_previews';
+import { BlogTags, getTagColor } from '@/data/blog-previews';
 
 export { getTagColor };
 

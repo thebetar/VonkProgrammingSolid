@@ -1,7 +1,7 @@
 import { For } from 'solid-js';
 
 import PageHeader from '@/components/skills/PageHeader';
-import { blogs, getTagColor } from '@/data/blog_previews';
+import { blogs, getTagColor } from '@/data/blog-previews';
 
 export default function AllBlogs() {
 	function getReadmoreLink(link) {

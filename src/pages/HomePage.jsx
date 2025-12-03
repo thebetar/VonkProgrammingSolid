@@ -1,8 +1,8 @@
 import { createEffect, onCleanup, lazy } from 'solid-js';
 import { Title, Meta } from '@solidjs/meta';
 
-import { experience } from '@/data/experience';
-import { education } from '@/data/education';
+import { experience } from '@/data/featured-experience';
+import { education } from '@/data/featured-education';
 
 import Layout from '@/layouts/Layout';
 import Hero from '@/components/homepage/Hero';
@@ -38,8 +38,8 @@ export default function Homepage() {
 			<ProductsPreview />
 			<BlogsPreview />
 			<SkillsPreview />
-			<ExperiencesPreview title="Experience" details={experience.filter(e => e.featured)} />
-			<ExperiencesPreview title="Education" details={education.filter(e => e.featured)} />
+			<ExperiencesPreview title="Experience" details={experience} />
+			<ExperiencesPreview title="Education" details={education} />
 			<ProjectsPreview />
 		</>
 	);

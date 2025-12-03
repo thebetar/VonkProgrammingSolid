@@ -649,5 +649,3 @@ export const skills = [
 		type: SkillType.OTHER,
 	},
 ];
-
-export const featuredSkills = skills.filter(s => s.featured);

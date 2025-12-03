@@ -1,7 +1,7 @@
 import { For } from 'solid-js';
 
 import ProjectCard from './ProjectCard';
-import { projects } from '@/data/projects';
+import { projects } from '@/data/featured-projects';
 
 export default function ProjectsPreview() {
 	return (
@@ -9,7 +9,7 @@ export default function ProjectsPreview() {
 			<h2 class="text-center mt-16 uppercase sm:text-2xl text-3xl font-semibold">Featured projects</h2>
 
 			<div class="w-full grid md:grid-cols-2 grid-cols-1 gap-4 my-8">
-				<For each={projects.filter(p => p.featured)}>{project => <ProjectCard {...project} />}</For>
+				<For each={projects}>{project => <ProjectCard {...project} />}</For>
 			</div>
 
 			<div class="lg:col-span-3 col-span-2 text-center mt-4 md:text-base text-sm">

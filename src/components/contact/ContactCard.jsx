@@ -3,7 +3,7 @@ import { useParams } from '@solidjs/router';
 
 import { LinkedInSvg, MailSvg } from '@/components/Icons';
 import { info } from '@/data/info';
-import { products } from '@/data/products';
+import { products } from '@/data/product-previews';
 
 export default function ContactCard() {
 	const questionTypes = [

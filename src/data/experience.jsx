@@ -9,7 +9,6 @@ export const experience = [
 			'At Mikrocloud, I am currently working as a full-stack developer, filling any role they need. My current responsiblities lie mostly in the development of new features for the Mikrocloud platform, which is a platform that allows users to manage their Mikrotik RouterOS devices. I am also working on the front-end of the platform, using NuxtJS to create a user-friendly interface for the users of the platform.',
 		],
 		link: 'https://www.mikrocloud.com/',
-		featured: true,
 	},
 	{
 		name: 'Wisepim',
@@ -21,7 +20,6 @@ export const experience = [
 			'At Wisepim, I am currently working as a full-stack developer, filling any role they need. My current responsiblities lie mostly in the connecting of different APIs together so that they can be used in the Wisepim platform, which is a PIM system that integrates AI to improve data. I am also working on the front-end of the platform, using RemixJS to create a user-friendly interface for the users of the platform.',
 		],
 		link: 'https://www.wisepim.com/',
-		featured: true,
 	},
 	{
 		name: 'WebshopImporter',
@@ -33,7 +31,6 @@ export const experience = [
 			'At WebshopImporter, I am currently working as a full-stack developer, filling any role they need. My current responsiblities are connecting APIs, creating web scraping tools and working on frontends. I use Django, NiceGUI and React to create the tools that are needed for the platform.',
 		],
 		link: 'https://www.webshopimporter.com/',
-		featured: true,
 	},
 	{
 		name: 'Chary Solutions',
@@ -45,7 +42,6 @@ export const experience = [
 			"At Chary Solutions, I served as the Senior Developer, leading the technical development for integrating marketing software, Klaviyo, with various content management systems that were not supported by default integrations. Additionally, I developed automations to enhance the company's operational efficiency.",
 		],
 		link: 'https://www.spar.nl/',
-		featured: true,
 	},
 	{
 		name: 'SPAR',
@@ -57,7 +53,6 @@ export const experience = [
 			'At SPAR Nederland I work as a data engineer solving data related questions and problems. I am mostly using my SQL, Azure and python skills to solve complex problems related to big data. Within this role I have gotten the opportunity to try a different stack than I did in my previous roles. I hope this experience will help me broaden my skillset and become a more flexible developer.',
 		],
 		link: 'https://www.spar.nl/',
-		featured: true,
 	},
 	{
 		name: 'ING',
@@ -69,7 +64,6 @@ export const experience = [
 			"The role at 'ING', in Amsterdam, North Holland, Netherlands, began in April 2022 and ended in September 2023. It primarily involved serving as a full-stack developer, working on various interfaces that are utilized by ING, employing the Lit element framework. In addition to these duties, for a certain period, the role also encompassed serving as a product owner. This required overseeing project timelines, prioritizing features, collaborating with stakeholders, and making key decisions about product direction. This multi-faceted role demonstrates a blend of technical acumen and leadership ability.",
 		],
 		link: 'https://www.ing.nl/',
-		featured: true,
 	},
 	{
 		name: 'Quintor',
@@ -81,7 +75,6 @@ export const experience = [
 			"At 'Quintor' in Amersfoort, Utrecht, Netherlands, from October 2020 to October 2023, the role mainly involved working on various software development projects for large clients like ING and different government entities. As part of the experience at Quintor, a traineeship was also completed. This program emphasized learning and implementing best practices for code quality through testing and linting methodologies, which played a significant role in the coding projects.",
 		],
 		link: 'https://www.quintor.nl/',
-		featured: true,
 	},
 
 	{
@@ -94,7 +87,6 @@ export const experience = [
 			"At 'SVB', based in Amstelveen, North Holland, Netherlands, the role took place from April 2021 to April 2022. The primary responsibility involved programming in JavaScript, utilizing the Angular framework. An important part of the job was managing a significant transition, migrating an existing system from AngularJS to Angular. This migration required deep understanding of both frameworks, and extensive planning to ensure a seamless transition with minimal disruption. In addition to development work, the role also entailed working on pipelines, which required careful oversight and management to ensure a smooth, efficient workflow and continuous delivery.",
 		],
 		link: 'https://www.svb.nl/',
-		featured: false,
 	},
 	{
 		name: 'J-Tax Automotive',
@@ -106,7 +98,6 @@ export const experience = [
 			"Joining 'J-Tax Automotive' situated in Almere, Flevoland, Netherlands, from June 2021, I undertook the significant responsibility of crafting bespoke software tailored for valuation reports. This marked a pivotal milestone as my first major independent project as a freelancer. The project harnessed the power of Vue.js, ExpressJS, and MongoDB to seamlessly develop a comprehensive solution. The outcome of this endeavor was transformative, as the client now reaps the benefit of generating up to four times the number of reports, highlighting the substantial impact of streamlined and efficient software implementation.",
 		],
 		link: 'https://www.j-taxautomotive.nl/',
-		featured: false,
 	},
 	{
 		name: 'MedWeb',
@@ -118,7 +109,6 @@ export const experience = [
 			"At 'MedWeb' in Hilversum, North Holland, Netherlands, where I was engaged from September 2019 to August 2020, I played a key role in developing a roster application for medical professionals and updating the 'Medspace' application using VueJS/JavaScript, IBM Notes, IBM Domino Designer, CSS, and HTML. During this time, I also focused on enhancing data visualization capabilities by incorporating Chart.js, enabling clients to derive valuable insights from their data. Working closely with LotusScript, I contributed to the application's functionality, translating intricate data into meaningful charts that empowered medical specialists and doctors to make informed decisions based on clear, visualized information.",
 		],
 		link: 'https://www.medweb.nl/',
-		featured: false,
 	},
 	{
 		name: 'Floriade',
@@ -129,7 +119,6 @@ export const experience = [
 			"At 'Floriade', based in Almere, Flevoland, Netherlands, the role was from September 2018 to January 2019. The responsibilities included contributing to a specific segment of the Floriade project, utilizing skills in PHP, CSS, MySQL, and HTML to enhance its digital presence. The Floriade exposition, held in Almere, is a renowned international horticultural exhibition that showcases innovative landscaping and sustainable gardening practices. It serves as a platform for sharing ideas, technologies, and designs related to urban development, horticulture, and environmental sustainability. The exposition attracts visitors from around the world and offers a unique opportunity to explore cutting-edge concepts in urban greening and ecological urban planning",
 		],
 		link: 'https://www.floriade.com/',
-		featured: false,
 	},
 	{
 		name: 'Sanoma',
@@ -140,7 +129,6 @@ export const experience = [
 			"At 'Sanoma', based in Hoofddorp, North Holland, Netherlands, the role was performed from September 2017 to June 2018. The responsibilities included developing software for advertising in PHP, CSS, MySQL, and HTML. The primary focus of the project revolved around utilizing Chart.js to visualize and present data in a variety of advanced chart formats. These advanced charts added a dynamic dimension to the advertising platform, enabling the effective representation of complex data in an easily understandable manner.",
 		],
 		link: 'https://www.sanoma.com/',
-		featured: false,
 	},
 	{
 		name: 'Student Aan Huis',
@@ -151,6 +139,5 @@ export const experience = [
 			"At 'Student Aan Huis', based in Utrecht, North Holland, Netherlands, the role involved assisting individuals that were customer's of 'Student Aan Huis' with their computer issues, from printer setups to restoring entire Windows systems.",
 		],
 		link: 'https://www.studentaanhuis.nl/',
-		featured: false,
 	},
 ];
