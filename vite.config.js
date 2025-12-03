@@ -19,6 +19,11 @@ export default defineConfig({
   build: {
     target: 'esnext',
     minify: 'terser',
+    terserOptions: {
+      mangle: {
+        properties: true
+      }
+    },
     assetsInlineLimit: 0,
     rollupOptions: {
       plugins: [gzipPlugin()]
