@@ -7,6 +7,7 @@ import { education } from '@/data/education';
 import Layout from '@/layouts/Layout';
 import Hero from '@/components/homepage/Hero';
 import ProductsPreview from '@/components/products/ProductsPreview';
+import WhenVisible from '@/components/general/WhenVisible';
 
 const LazyBlogsPreview = lazy(() => import('@/components/homepage/BlogsPreview'));
 const LazySkillsPreview = lazy(() => import('@/components/homepage/SkillsPreview'));
@@ -39,11 +40,21 @@ export default function Homepage() {
 			<Hero />
 			<ProductsPreview />
 
-			<LazyBlogsPreview />
-			<LazySkillsPreview />
-			<LazyExperiencesPreview title="Experience" details={experience.filter(e => e.featured)} />
-			<LazyExperiencesPreview title="Education" details={education.filter(e => e.featured)} />
-			<LazyProjectsPreview />
+			<WhenVisible class="min-h-32">
+				<LazyBlogsPreview />
+			</WhenVisible>
+			<WhenVisible class="min-h-32">
+				<LazySkillsPreview />
+			</WhenVisible>
+			<WhenVisible class="min-h-32">
+				<LazyExperiencesPreview title="Experience" details={experience.filter(e => e.featured)} />
+			</WhenVisible>
+			<WhenVisible class="min-h-32">
+				<LazyExperiencesPreview title="Education" details={education.filter(e => e.featured)} />
+			</WhenVisible>
+			<WhenVisible class="min-h-32">
+				<LazyProjectsPreview />
+			</WhenVisible>
 		</>
 	);
 
