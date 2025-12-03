@@ -1,6 +1,6 @@
 import { Title, Meta } from '@solidjs/meta';
 
-export default function ProductInfo({ title, logo, description, descriptionShort }) {
+export default function ProductInfo({ title, logo, description, productLink, descriptionShort }) {
 	return (
 		<div className="max-w-3xl mx-auto flex flex-col items-center gap-4">
 			<Title>VonkProgramming - {title}</Title>
@@ -25,7 +25,7 @@ export default function ProductInfo({ title, logo, description, descriptionShort
 						'@type': 'Brand',
 						name: 'VonkProgramming',
 					},
-					url: `https://vonkprogramming.nl${producytLink}`,
+					url: `https://vonkprogramming.nl${productLink}`,
 				})}
 			</script>
 
