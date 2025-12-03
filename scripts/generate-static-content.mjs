@@ -25,16 +25,19 @@ function generateStaticContent() {
     // Products
     const productTitles = extractData(PRODUCTS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
     const productIds = extractData(PRODUCTS_PATH, /id:\s*(['"])(.*?)\1/g, 2);
+    const productDescriptions = extractData(PRODUCTS_PATH, /descriptionShort:\s*(['"])(.*?)\1/g, 2);
 
     // Skills
     const skillTitles = extractData(SKILLS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
 
     // Experience
     const experienceNames = extractData(EXPERIENCE_PATH, /name:\s*(['"])(.*?)\1/g, 2);
+    const experienceDescriptions = extractData(EXPERIENCE_PATH, /description:\s*\[\s*(['"`])(.*?)\1/g, 2);
 
     // Blogs
     const blogTitles = extractData(BLOGS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
     const blogLinks = extractData(BLOGS_PATH, /link:\s*(['"])(.*?)\1/g, 2);
+    const blogDescriptions = extractData(BLOGS_PATH, /description:\s*`([\s\S]*?)`/g, 1);
 
     let html = '\n<!-- STATIC_CONTENT_START -->\n';
     html += '<div>\n';
@@ -43,7 +46,8 @@ function generateStaticContent() {
     html += '<ul>\n';
     productTitles.forEach((title, index) => {
         const id = productIds[index];
-        html += `\t<li><a href="/products/${id}">${title}</a></li>\n`;
+        const description = productDescriptions[index];
+        html += `\t<li><a href="/products/${id}">${title}</a><p>${description}</p></li>\n`;
     });
     html += '</ul>\n';
 
@@ -54,14 +58,18 @@ function generateStaticContent() {
 
     html += '<h4>Experience</h4>\n';
     html += '<ul>\n';
-    experienceNames.forEach(name => html += `\t<li>${name}</li>\n`);
+    experienceNames.forEach((name, index) => {
+        const description = experienceDescriptions[index];
+        html += `\t<li>${name}<p>${description}</p></li>\n`;
+    });
     html += '</ul>\n';
 
     html += '<h5>Blogs</h5>\n';
     html += '<ul>\n';
     blogTitles.forEach((title, index) => {
         const link = blogLinks[index];
-        html += `\t<li><a href="${link}">${title}</a></li>\n`;
+        const description = blogDescriptions[index] ? blogDescriptions[index].trim() : '';
+        html += `\t<li><a href="${link}">${title}</a><p>${description}</p></li>\n`;
     });
     html += '</ul>\n';
 
