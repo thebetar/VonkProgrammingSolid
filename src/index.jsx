@@ -4,6 +4,8 @@ import { render } from 'solid-js/web';
 import { Router } from '@solidjs/router';
 import { MetaProvider } from '@solidjs/meta';
 
+import '@/index.css';
+
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 
@@ -66,10 +68,6 @@ const routes = [
 ];
 
 render(() => {
-	onMount(() => {
-		import('./index.css');
-	});
-
 	return (
 		<MetaProvider>
 			<Router>{routes}</Router>
