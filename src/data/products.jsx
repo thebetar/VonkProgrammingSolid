@@ -120,7 +120,7 @@ export default [
 		title: 'Container Hosting',
 		titleShort: 'Hosting',
 		descriptionShort:
-			'VonkProgramming provides affordable and reliable container hosting solutions without the lock-in. Forget long-term contracts—host your applications for as long as you need with our flexible, developer-friendly plans.',
+			'VonkProgramming provides affordable and reliable container hosting solutions without the lock-in. Perfect for side projects that need flexible, short-term deployments without long-term contracts.',
 		description: (
 			<>
 				<p className="mb-4">
@@ -139,8 +139,8 @@ export default [
 					</li>
 					<li>
 						<strong>Ideal for Internal Tools:</strong> Please note that no public IP is provided. This makes
-						the service an ideal, cost-effective choice for hosting internal dashboards, development
-						environments, or backend workers that do not require direct public access.
+						our solution more cost effective for hosting application that do not require public access such
+						as scrapers, monitoring agents, chat bots, or development environments.
 					</li>
 					<li>
 						<strong>Budget-Friendly:</strong> Stop overpaying for infrastructure you do not use. Get

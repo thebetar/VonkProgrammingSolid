@@ -11,8 +11,8 @@ const iconStyle = 'md:w-5 md:h-5 w-7 h-7';
 export const info = {
 	baseUrl: 'https://vonkprogramming.nl',
 	name: 'Lars Vonk',
-	jobDescription1: 'Software enthusiast',
-	jobDescription2: 'Code quality advocate',
+	jobDescription1: 'Full-Stack Engineer',
+	jobDescription2: 'Custom Software Solutions',
 	about: (
 		<div>
 			With nearly a decade of professional experience, I am a developer specializing in PHP, JavaScript, and
