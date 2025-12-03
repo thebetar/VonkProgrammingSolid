@@ -41,9 +41,6 @@ export default defineConfig({
         properties: true
       }
     },
-    // rollupOptions: {
-    //   plugins: [gzipPlugin()]
-    // }
   },
   resolve: {
     alias: {
