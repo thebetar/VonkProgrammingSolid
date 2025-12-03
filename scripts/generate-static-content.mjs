@@ -25,10 +25,10 @@ function generateStaticContent() {
     // Products
     const productTitles = extractData(PRODUCTS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
     const productIds = extractData(PRODUCTS_PATH, /id:\s*(['"])(.*?)\1/g, 2);
-    
+
     // Skills
     const skillTitles = extractData(SKILLS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
-    
+
     // Experience
     const experienceNames = extractData(EXPERIENCE_PATH, /name:\s*(['"])(.*?)\1/g, 2);
 

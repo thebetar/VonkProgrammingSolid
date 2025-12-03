@@ -2,6 +2,7 @@ import blogs from './blogs';
 import products from './products';
 import skills from './skills';
 import experience from './experience';
+import education from './education';
 
 export { SkillType } from './skills';
 
@@ -63,79 +64,7 @@ export const info = {
 	blogs,
 	skills,
 	experience,
-	education: [
-		{
-			name: "Master's degree, Computer systems and networks",
-			location: 'Warsaw, Mazowieckie, Poland',
-			startDate: '2023',
-			endDate: 'Now',
-			description: [
-				"Master's degree, Computer systems and networks",
-				'After working for 3 years I have decided to get back to studying to get more insight into computer science and get international experience. I am currently studying at the Warsaw University of Technology.',
-			],
-			featured: true,
-		},
-		{
-			name: 'HBO-ICT, Windesheim Flevoland',
-			location: 'Almere, Flevoland, Nederland',
-			startDate: '2016',
-			endDate: '2020',
-			description: [
-				"Bachelor's degree, Software Engineering",
-				'After my highschool I decided to study software engineering at Windesheim Flevoland. I have learned a lot about software engineering and have worked on various projects. I have also done a minor in entrepreneurship.',
-			],
-			featured: true,
-		},
-		{
-			name: 'Cambridge English: C1',
-			location: 'Online',
-			startDate: 'Aug 2016',
-			endDate: 'Aug 2016',
-			description: [
-				'A certificate proving my English proficiency at the highest level. I have taken the test to prove my English proficiency and to be able to study in English.',
-				'Issued by Cambridge English Language Assessment.',
-			],
-			featured: true,
-		},
-		{
-			name: 'AWS cloud practitioner',
-			location: 'Online',
-			startDate: 'Feb 2021',
-			endDate: 'Feb 2021',
-			description: ['AWS cloud practitioner certification', 'Issued by Amazon Web Services.'],
-			featured: false,
-		},
-		{
-			name: 'Certified scrum master',
-			location: 'Online',
-			startDate: 'Dec 2022',
-			endDate: 'Dec 2022',
-			description: [
-				'Basic understanding of the scrum framework and how to work and/or lead in a scrum team.',
-				'Issued by ScrumFoundation.',
-			],
-			featured: true,
-		},
-		{
-			name: 'Graph Developer - Associate',
-			location: 'Online',
-			startDate: 'Apr 2022',
-			endDate: 'Apr 2022',
-			description: ['Basic online course learning GraphQL from the Apollo team.', 'Issued by Apollo.'],
-			featured: false,
-		},
-		{
-			name: 'Various Udemy courses',
-			location: 'Online',
-			startDate: 'Jul 2020',
-			endDate: 'Present',
-			description: [
-				'I like to keep my skills up to date by taking various courses on Udemy. I have completed courses on Vue.js, React, Node.js, MongoDB, Express.js, and many more.',
-				'Issued by Udemy.',
-			],
-			featured: false,
-		},
-	],
+	education,
 
 	socialMedia: {
 		stackoverflow: 'https://stackoverflow.com/users/10104786/lars-vonk',

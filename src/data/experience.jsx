@@ -1,5 +1,17 @@
 export default [
 	{
+		name: 'Mikrocloud',
+		skills: ['Laravel', 'Mikrotik RouterOS', 'Nuxt.js'],
+		location: 'Remote - Naas, Kildare, Ireland',
+		startDate: 'July 2025',
+		endDate: 'Now',
+		description: [
+			'At Mikrocloud, I am currently working as a full-stack developer, filling any role they need. My current responsiblities lie mostly in the development of new features for the Mikrocloud platform, which is a platform that allows users to manage their Mikrotik RouterOS devices. I am also working on the front-end of the platform, using NuxtJS to create a user-friendly interface for the users of the platform.',
+		],
+		link: 'https://www.mikrocloud.com/',
+		featured: true,
+	},
+	{
 		name: 'Wisepim',
 		skills: ['Django', 'Python', 'React'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
@@ -13,7 +25,7 @@ export default [
 	},
 	{
 		name: 'WebshopImporter',
-		skills: ['Django', 'NiceGUI', 'Puppeteer'],
+		skills: ['Django', 'NiceGUI', 'Playwright'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
 		startDate: 'Sep 2024',
 		endDate: 'Now',
