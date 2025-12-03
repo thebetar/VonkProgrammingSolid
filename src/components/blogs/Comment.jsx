@@ -34,7 +34,7 @@ export default function Comment({ blogId, handleClose }) {
 	}
 
 	return (
-		<div className="max-w-[720px] mx-auto mb-10">
+		<div className="max-w-3xl mx-auto mb-10">
 			<div className="border-t border-zinc-200 dark:border-zinc-700 pt-8">
 				<h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-6">Leave a Comment</h3>
 

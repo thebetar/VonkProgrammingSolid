@@ -2,7 +2,6 @@
 module.exports = {
   content: [
     './src/**/*.{js,jsx,ts,tsx}',
-    './src/components/**/*.{js,jsx,ts,tsx}',
     'index.html'
   ],
   darkMode: ["class", '[data-theme="dark"]'],
@@ -25,7 +24,7 @@ module.exports = {
         "dark-gray": "#1A1A1A",
       },
       fontFamily: {
-        outfit: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Helvetica Neue", "sans-serif"],
+        sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Helvetica Neue", "sans-serif"],
       },
     },
   },

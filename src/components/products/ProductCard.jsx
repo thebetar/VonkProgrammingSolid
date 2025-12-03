@@ -1,7 +1,7 @@
 export default function ProductCard({ product }) {
 	return (
 		<div
-			class="block md:my-8 my-8 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-900 px-6 py-6 hover:scale-[1.025] transition-transform shadow-lg hover:shadow-2xl group focus-within:ring-2 focus-within:ring-blue-400 max-w-lg mx-auto"
+			class="block md:my-8 my-8 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-900 px-6 py-6 hover:scale-105 transition-transform shadow-lg hover:shadow-2xl group focus-within:ring-2 focus-within:ring-blue-400 max-w-lg mx-auto"
 			tabIndex={0}
 		>
 			<div class="flex flex-col items-center justify-between h-full">

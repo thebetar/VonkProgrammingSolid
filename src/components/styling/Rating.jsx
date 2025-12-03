@@ -6,7 +6,7 @@ export default function Rating({ rating }) {
 	}
 
 	return (
-		<div class="flex items-center md:gap-1 gap-[2px]">
+		<div class="flex items-center md:gap-1 gap-0.5">
 			<For each={generateArray(rating)}>
 				{() => (
 					<svg

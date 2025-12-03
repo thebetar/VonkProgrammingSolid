@@ -1,11 +1,20 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
-import gzipPlugin from 'rollup-plugin-gzip'
+import viteCompression from 'vite-plugin-compression';
 import { fileURLToPath, URL } from 'url';
 
 export default defineConfig({
   plugins: [
     solidPlugin(),
+
+    viteCompression({
+      algorithm: 'gzip',
+      ext: '.gz',
+    }),
+    viteCompression({
+      algorithm: 'brotliCompress',
+      ext: '.br',
+    }),
   ],
   server: {
     port: 3000,
@@ -18,16 +27,23 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
+
     minify: 'terser',
+    cssMinify: 'lightningcss',
+
+    assetsInlineLimit: 0,
     terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
       mangle: {
         properties: true
       }
     },
-    assetsInlineLimit: 0,
-    rollupOptions: {
-      plugins: [gzipPlugin()]
-    }
+    // rollupOptions: {
+    //   plugins: [gzipPlugin()]
+    // }
   },
   resolve: {
     alias: {

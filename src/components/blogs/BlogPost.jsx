@@ -197,7 +197,7 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 				/>
 			) : (
 				<>
-					<div class="flex max-w-[720px] mx-auto md:gap-x-4 gap-2 justify-center items-center md:text-base text-sm mb-10 md:flex-row flex-col">
+					<div class="flex max-w-3xl mx-auto md:gap-x-4 gap-2 justify-center items-center md:text-base text-sm mb-10 md:flex-row flex-col">
 						<button
 							id="subscribe-popup-button"
 							class="h-10 w-full px-4 py-2 rounded-md block cursor-pointer text-center bg-zinc-100 dark:bg-[#202020] dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-colors"
