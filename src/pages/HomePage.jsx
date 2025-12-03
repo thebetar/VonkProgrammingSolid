@@ -8,10 +8,10 @@ import Layout from '@/layouts/Layout';
 import Hero from '@/components/homepage/Hero';
 import ProductsPreview from '@/components/products/ProductsPreview';
 
-const BlogsPreview = lazy(() => import('@/components/homepage/BlogsPreview'));
-const SkillsPreview = lazy(() => import('@/components/homepage/SkillsPreview'));
-const ExperiencesPreview = lazy(() => import('@/components/homepage/ExperiencesPreview'));
-const ProjectsPreview = lazy(() => import('@/components/homepage/ProjectsPreview'));
+const LazyBlogsPreview = lazy(() => import('@/components/homepage/BlogsPreview'));
+const LazySkillsPreview = lazy(() => import('@/components/homepage/SkillsPreview'));
+const LazyExperiencesPreview = lazy(() => import('@/components/homepage/ExperiencesPreview'));
+const LazyProjectsPreview = lazy(() => import('@/components/homepage/ProjectsPreview'));
 
 let scrollListener;
 
@@ -39,11 +39,11 @@ export default function Homepage() {
 			<Hero />
 			<ProductsPreview />
 
-			<BlogsPreview />
-			<SkillsPreview />
-			<ExperiencesPreview title="Experience" details={experience.filter(e => e.featured)} />
-			<ExperiencesPreview title="Education" details={education.filter(e => e.featured)} />
-			<ProjectsPreview />
+			<LazyBlogsPreview />
+			<LazySkillsPreview />
+			<LazyExperiencesPreview title="Experience" details={experience.filter(e => e.featured)} />
+			<LazyExperiencesPreview title="Education" details={education.filter(e => e.featured)} />
+			<LazyProjectsPreview />
 		</>
 	);
 
