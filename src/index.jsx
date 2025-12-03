@@ -4,6 +4,9 @@ import { render } from 'solid-js/web';
 import { Router } from '@solidjs/router';
 import { MetaProvider } from '@solidjs/meta';
 
+import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPage';
+
 const root = document.getElementById('app');
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
@@ -18,7 +21,7 @@ root.innerHTML = '';
 const routes = [
 	{
 		path: '/',
-		component: lazy(() => import('./pages/HomePage')),
+		component: HomePage,
 	},
 	{
 		path: '/products/:id',
@@ -58,7 +61,7 @@ const routes = [
 	},
 	{
 		path: '*',
-		component: lazy(() => import('./pages/NotFoundPage')),
+		component: NotFoundPage,
 	},
 ];
 
