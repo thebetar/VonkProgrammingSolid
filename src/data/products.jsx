@@ -1,6 +1,6 @@
-import { CodeSvg, EyeSvg, GitServiceSvg, MonitorSvg, ServerSvg, LightBulbSvg } from '../components/Icons';
+import { CodeSvg, EyeSvg, GitServiceSvg, MonitorSvg, ServerSvg, LightBulbSvg } from '@/components/Icons';
 
-import { ProductButton } from '../components/products/ProductButton';
+import { ProductButton } from '@/components/products/ProductButton';
 
 export const products = [
 	{

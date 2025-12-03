@@ -1,6 +1,7 @@
 import { skills, SkillType } from '@/data/skills';
-import Rating from '../styling/Rating';
-import PageHeader from './PageHeader';
+
+import Rating from '@/components/styling/Rating';
+import PageHeader from '@/components/skills/PageHeader';
 
 const skillTypes = Object.values(SkillType);
 

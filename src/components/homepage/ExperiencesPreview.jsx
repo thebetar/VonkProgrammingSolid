@@ -1,4 +1,4 @@
-import ExperienceCard from '../experience/ExperienceCard.jsx';
+import ExperienceCard from '@/components/experience/ExperienceCard.jsx';
 
 export default function ExperiencesPreview({ title, details }) {
 	return (

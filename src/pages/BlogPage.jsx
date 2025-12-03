@@ -1,8 +1,8 @@
 import { useParams } from '@solidjs/router';
 
 import { blogs } from '@/data/blogs';
-import Layout from '../layouts/Layout';
-import BlogPost from '../components/blogs/BlogPost';
+import Layout from '@/layouts/Layout';
+import BlogPost from '@/components/blogs/BlogPost';
 
 export default function BlogPage() {
 	const blogId = useParams().id;

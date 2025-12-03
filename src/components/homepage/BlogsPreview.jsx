@@ -1,7 +1,6 @@
 import { For } from 'solid-js';
 
-import { getTagColor } from '@/data/blogs';
-import { blogPreviews as blogs } from '@/data/blogs';
+import { blogs, getTagColor } from '@/data/blog_previews';
 
 export default function Blog() {
 	const getReadmoreLink = link => {

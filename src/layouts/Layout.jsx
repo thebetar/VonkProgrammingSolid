@@ -1,11 +1,11 @@
 import { createSignal, createEffect } from 'solid-js';
 import { Link } from '@solidjs/meta';
 
-import Cookie from '../components/general/Cookie';
-import Subscribe from '../components/general/Subscribe';
-import Navbar from '../components/general/Navbar';
-import Footer from '../components/general/Footer';
-import { PhoneSvg } from '../components/Icons';
+import Cookie from '@/components/general/Cookie';
+import Subscribe from '@/components/general/Subscribe';
+import Navbar from '@/components/general/Navbar';
+import Footer from '@/components/general/Footer';
+import { PhoneSvg } from '@/components/Icons';
 
 export default function Layout({ slot }) {
 	const showCookie = !localStorage.getItem('cookie-accept');

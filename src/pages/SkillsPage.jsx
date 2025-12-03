@@ -1,9 +1,9 @@
 import { createEffect } from 'solid-js';
 import { Title, Meta } from '@solidjs/meta';
 
-import Layout from '../layouts/Layout';
+import Layout from '@/layouts/Layout';
 
-import AllSkills from '../components/skills/AllSkills';
+import AllSkills from '@/components/skills/AllSkills';
 
 export default function BlogsPage() {
 	const template = (

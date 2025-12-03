@@ -1,4 +1,4 @@
-import PageHeader from '../skills/PageHeader';
+import PageHeader from '@/components/skills/PageHeader';
 import ExperienceCard from './ExperienceCard';
 
 export default function AllExperience({ title, details }) {

@@ -1,7 +1,7 @@
 export const experience = [
 	{
 		name: 'Mikrocloud',
-		skills: ['Laravel', 'Mikrotik RouterOS', 'Nuxt.js'],
+		skills: ['Laravel', 'Nuxt.js', 'AWS'],
 		location: 'Remote - Naas, Kildare, Ireland',
 		startDate: 'July 2025',
 		endDate: 'Now',

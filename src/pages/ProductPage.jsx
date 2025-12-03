@@ -1,8 +1,8 @@
 import { useParams } from '@solidjs/router';
 
-import { products } from '../data/products';
-import Layout from '../layouts/Layout';
-import ProductInfo from '../components/products/ProductInfo';
+import { products } from '@/data/products';
+import Layout from '@/layouts/Layout';
+import ProductInfo from '@/components/products/ProductInfo';
 
 export default function ProductPage() {
 	const productId = useParams().id;

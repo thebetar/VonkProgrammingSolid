@@ -1,6 +1,6 @@
 import { featuredSkills as skills } from '@/data/skills';
 
-import Rating from '../styling/Rating';
+import Rating from '@/components/styling/Rating';
 
 export default function SkillsPreview() {
 	return (

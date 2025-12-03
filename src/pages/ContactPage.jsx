@@ -1,6 +1,6 @@
 import { Title, Meta } from '@solidjs/meta';
-import Layout from '../layouts/Layout';
-import ContactCard from '../components/contact/ContactCard';
+import Layout from '@/layouts/Layout';
+import ContactCard from '@/components/contact/ContactCard';
 
 export default function ContactPage() {
 	const template = (

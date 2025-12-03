@@ -1,5 +1,5 @@
-import { info } from '../../data/info';
-import { GitHubSvg, LinkedInSvg, MailSvg, StackOverflowSvg } from '../Icons';
+import { info } from '@/data/info';
+import { GitHubSvg, LinkedInSvg, MailSvg, StackOverflowSvg } from '@/components/Icons';
 
 export default function Footer() {
 	return (

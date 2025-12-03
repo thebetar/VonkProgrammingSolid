@@ -1,4 +1,4 @@
-import { LightBulbSvg } from '../Icons';
+import { LightBulbSvg } from '@/components/Icons';
 
 export default function Note({ text, children }) {
 	return (
