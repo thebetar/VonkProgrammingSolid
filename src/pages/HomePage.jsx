@@ -1,4 +1,4 @@
-import { createEffect, onCleanup } from 'solid-js';
+import { createEffect, onCleanup, lazy } from 'solid-js';
 import { Title, Meta } from '@solidjs/meta';
 
 import { experience } from '@/data/experience';
@@ -6,11 +6,12 @@ import { education } from '@/data/education';
 
 import Layout from '@/layouts/Layout';
 import Hero from '@/components/homepage/Hero';
-import BlogsPreview from '@/components/homepage/BlogsPreview';
-import SkillsPreview from '@/components/homepage/SkillsPreview';
-import ExperiencesPreview from '@/components/homepage/ExperiencesPreview';
-import ProjectsPreview from '@/components/homepage/ProjectsPreview';
 import ProductsPreview from '@/components/products/ProductsPreview';
+
+const BlogsPreview = lazy(() => import('@/components/homepage/BlogsPreview'));
+const SkillsPreview = lazy(() => import('@/components/homepage/SkillsPreview'));
+const ExperiencesPreview = lazy(() => import('@/components/homepage/ExperiencesPreview'));
+const ProjectsPreview = lazy(() => import('@/components/homepage/ProjectsPreview'));
 
 let scrollListener;
 
@@ -37,6 +38,7 @@ export default function Homepage() {
 			/>
 			<Hero />
 			<ProductsPreview />
+
 			<BlogsPreview />
 			<SkillsPreview />
 			<ExperiencesPreview title="Experience" details={experience.filter(e => e.featured)} />
