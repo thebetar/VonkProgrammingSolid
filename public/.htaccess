@@ -1,14 +1,14 @@
 <IfModule mod_mime.c>
       AddType text/plain .txt
-      AddType text/html .html .htm
-      AddType application/javascript .js
-      AddType text/css .css
+      AddType 'text/html; charset=UTF-8' .html .htm
+      AddType 'application/javascript; charset=UTF-8' .js
+      AddType 'text/css; charset=UTF-8' .css
+
       AddType image/jpeg .jpg .jpeg
       AddType image/png .png
       AddType image/gif .gif
       AddType image/svg+xml .svg
       AddType image/svg+xml .svgz
-      # Register Brotli type just in case
       AddType application/x-brotli .br
 </IfModule>
 
