@@ -6,7 +6,7 @@ export const experience = [
 		startDate: 'July 2025',
 		endDate: 'Now',
 		description: [
-			'At Mikrocloud, I am currently working as a full-stack developer, filling any role they need. My current responsiblities lie mostly in the development of new features for the Mikrocloud platform, which is a platform that allows users to manage their Mikrotik RouterOS devices. I am also working on the front-end of the platform, using NuxtJS to create a user-friendly interface for the users of the platform.',
+			'At Mikrocloud, I am currently working as a full-stack developer, filling any role they need. My current responsibilities lie mostly in the development of new features for the Mikrocloud platform, which is a platform that allows users to manage their Mikrotik RouterOS devices. I am also working on the front-end of the platform, using NuxtJS to create a user-friendly interface for the users of the platform.',
 		],
 		link: 'https://www.mikrocloud.com/',
 	},
@@ -17,7 +17,7 @@ export const experience = [
 		startDate: 'Sep 2024',
 		endDate: 'Now',
 		description: [
-			'At Wisepim, I am currently working as a full-stack developer, filling any role they need. My current responsiblities lie mostly in the connecting of different APIs together so that they can be used in the Wisepim platform, which is a PIM system that integrates AI to improve data. I am also working on the front-end of the platform, using RemixJS to create a user-friendly interface for the users of the platform.',
+			'At Wisepim, I am currently working as a full-stack developer, filling any role they need. My current responsibilities lie mostly in the connecting of different APIs together so that they can be used in the Wisepim platform, which is a PIM system that integrates AI to improve data. I am also working on the front-end of the platform, using RemixJS to create a user-friendly interface for the users of the platform.',
 		],
 		link: 'https://www.wisepim.com/',
 	},
@@ -28,7 +28,7 @@ export const experience = [
 		startDate: 'Sep 2024',
 		endDate: 'Now',
 		description: [
-			'At WebshopImporter, I am currently working as a full-stack developer, filling any role they need. My current responsiblities are connecting APIs, creating web scraping tools and working on frontends. I use Django, NiceGUI and React to create the tools that are needed for the platform.',
+			'At WebshopImporter, I am currently working as a full-stack developer, filling any role they need. My current responsibilities are connecting APIs, creating web scraping tools and working on frontends. I use Django, NiceGUI and React to create the tools that are needed for the platform.',
 		],
 		link: 'https://www.webshopimporter.com/',
 	},
