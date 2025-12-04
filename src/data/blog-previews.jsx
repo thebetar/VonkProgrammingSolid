@@ -61,6 +61,7 @@ export const blogs = [
 			Self-hosting services has been a passion of mine for a while now. Recently, I took that passion a step further by building a custom Raspberry Pi cluster, utilizing orchestration tools to manage and distribute services across it. But why go down the rabbit hole of self-hosting? In this blog post, I discuss the various self-hosted services I have built and how they can provide value to others.
 		`,
 		keywords: ['monitoring', 'backup', 'services', 'vonkprogramming'],
+		tags: [BlogTags.Innovation, BlogTags.Product, BlogTags.Development],
 		date: '2025-12-04',
 		link: '/blogs/vonkprogramming-services',
 	},

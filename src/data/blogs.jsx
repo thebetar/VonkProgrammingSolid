@@ -13,6 +13,7 @@ export const blogs = [
 			Self-hosting services has been a passion of mine for a while now. Recently, I took that passion a step further by building a custom Raspberry Pi cluster, utilizing orchestration tools to manage and distribute services across it. But why go down the rabbit hole of self-hosting? In this blog post, I discuss the various self-hosted services I have built and how they can provide value to others.
 		`,
 		keywords: ['monitoring', 'backup', 'services', 'vonkprogramming'],
+		tags: [BlogTags.Innovation, BlogTags.Product, BlogTags.Development],
 		date: '2025-12-04',
 		link: '/blogs/vonkprogramming-services',
 		content: (
@@ -52,6 +53,14 @@ export const blogs = [
 						to know about any issues, rather than waiting for a client to complain.
 					</li>
 				</ul>
+
+				<p>
+					<img src="/assets/images/products/monitoring.webp" alt="Uptime Kuma monitoring dashboard" />
+				</p>
+				<blockquote>
+					<p>Uptime Kuma monitoring dashboard</p>
+				</blockquote>
+
 				<h3 id="2-privacy-first-analytics">2. Privacy-First Analytics</h3>
 				<p>
 					Many modern analytics tools are overly intrusive, expensive, and cluttered. I created a custom
@@ -65,6 +74,14 @@ export const blogs = [
 						spent analysing the tracking data.
 					</li>
 				</ul>
+
+				<p>
+					<img src="/assets/images/products/tracking-report.webp" alt="Matomo analytics dashboard" />
+				</p>
+				<blockquote>
+					<p>Example of a weekly AI-generated tracking report</p>
+				</blockquote>
+
 				<h3 id="3-workflow-automation">3. Workflow Automation</h3>
 				<p>
 					While I write code for complex logic, some tasks are simply handled better by automation software. I
@@ -77,6 +94,14 @@ export const blogs = [
 						development hours.
 					</li>
 				</ul>
+
+				<p>
+					<img src="/assets/images/products/n8n.webp" alt="n8n workflow automation dashboard" />
+				</p>
+				<blockquote>
+					<p>n8n workflow automation dashboard</p>
+				</blockquote>
+
 				<h3 id="4-git-backup-redundancy">4. Git Backup &amp; Redundancy</h3>
 				<p>
 					I once read a story about a developer who lost access to their GitHub account due to a policy
@@ -90,6 +115,17 @@ export const blogs = [
 						account access issue.
 					</li>
 				</ul>
+
+				<p>
+					<img
+						src="/assets/images/products/gitea.webp"
+						alt="Gitea backup dashboard showing repository backups"
+					/>
+				</p>
+				<blockquote>
+					<p>Gitea is an easily self-hosted Version Control platform</p>
+				</blockquote>
+
 				<h2 id="personal-services">Personal services</h2>
 				<h3 id="1-ai-business-intelligence-agent">1. AI Business Intelligence Agent</h3>
 				<p>
@@ -121,6 +157,17 @@ export const blogs = [
 						ensuring that the infrastructure remains stable and scalable.
 					</li>
 				</ul>
+
+				<p>
+					<img
+						src="/assets/images/products/portainer.webp"
+						alt="Portainer dashboard showing container orchestration"
+					/>
+				</p>
+				<blockquote>
+					<p>Portainer dashboard showing container orchestration</p>
+				</blockquote>
+
 				<h2 id="why-choose-vonkprogramming-services-">Why Choose VonkProgramming Services?</h2>
 				<p>
 					These services provide simple, low-cost, and low-maintenance solutions ideal for Small-to-Medium
@@ -142,6 +189,13 @@ export const blogs = [
 					me at VonkProgramming. Let’s discuss how we can build a resilient, private, and efficient foundation
 					for your business.
 				</p>
+
+				<button
+					onClick={() => (window.location.href = '/contact')}
+					class="block mt-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors mx-auto w-fit cursor-pointer"
+				>
+					Contact to get started
+				</button>
 			</>
 		),
 	},
