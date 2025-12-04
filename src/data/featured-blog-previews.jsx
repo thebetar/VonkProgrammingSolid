@@ -55,6 +55,16 @@ export function getTagColor(tag) {
 
 export const blogs = [
 	{
+		id: 31,
+		title: 'VonkProgramming services 🚀',
+		description: `
+			Self-hosting services has been a passion of mine for a while now. Recently, I took that passion a step further by building a custom Raspberry Pi cluster, utilizing orchestration tools to manage and distribute services across it. But why go down the rabbit hole of self-hosting? In this blog post, I discuss the various self-hosted services I have built and how they can provide value to others.
+		`,
+		keywords: ['monitoring', 'backup', 'services', 'vonkprogramming'],
+		date: '2025-12-04',
+		link: '/blogs/vonkprogramming-services',
+	},
+	{
 		id: 30,
 		title: 'Spectrum Sensing using Cognitive Radio 📡',
 		description: `
@@ -86,17 +96,6 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Lifestyle, BlogTags.Lifestyle],
 		date: '2025-08-08',
 		link: '/blogs/taking-control',
-	},
-	{
-		id: 27,
-		title: 'How matrices took over the world 🌍',
-		description: `
-			Matrices are often considered as a pain during your studies, but they are actually used everywhere! 3D rendering, neural networks and simulations all use matrices to perform their calculations. In this blog I will explain how they work and where they are used.
-		`,
-		tags: [BlogTags.Innovation, BlogTags.Development],
-		keywords: ['math', 'matrix', 'linear algebra'],
-		date: '2025-07-11',
-		link: '/blogs/matrices',
 	},
 ];
 
