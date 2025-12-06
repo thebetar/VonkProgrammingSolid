@@ -1,7 +1,7 @@
 import { info } from '@/data/info';
-import { CodeSvg, LightBulbSvg, LinkedInSvg, MailSvg } from '@/components/Icons';
+import { CodeSvg, LightBulbSvg, LinkedInSvg, MailSvg, ShareSvg } from '@/components/Icons';
 
-const { name, jobDescription1, jobDescription2, about, socialMedia } = info;
+const { name, jobDescription1, jobDescription2, about, socialMedia, baseUrl } = info;
 
 export default function Hero({ short = false }) {
 	return (
@@ -49,6 +49,17 @@ export default function Hero({ short = false }) {
 					>
 						<LinkedInSvg width={16} height={16} />
 						<span class="text-sm">Connect on LinkedIn</span>
+					</a>
+
+					<a
+						href={`https://www.linkedin.com/sharing/share-offsite/?url=${baseUrl}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+						aria-label="Share on LinkedIn"
+					>
+						<ShareSvg width={16} height={16} />
+						<span class="text-sm">Share on LinkedIn</span>
 					</a>
 				</div>
 			</div>
