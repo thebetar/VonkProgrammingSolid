@@ -1,8 +1,11 @@
+ServerSignature Off
+
 <IfModule mod_mime.c>
+      AddDefaultCharset UTF-8
       AddType text/plain .txt
-      AddType 'text/html; charset=UTF-8' .html .htm
-      AddType 'application/javascript; charset=UTF-8' .js
-      AddType 'text/css; charset=UTF-8' .css
+      AddType "text/html; charset=UTF-8" .html .htm
+      AddType "application/javascript; charset=UTF-8" .js
+      AddType "text/css; charset=UTF-8" .css
 
       AddType image/jpeg .jpg .jpeg
       AddType image/png .png
@@ -14,6 +17,8 @@
 
 <IfModule mod_headers.c>
       # Security Headers
+      Header unset Server
+      Header unset X-Powered-By
       Header set Content-Security-Policy "default-src 'self' 'unsafe-inline'; img-src * data:; style-src 'self' 'unsafe-inline' data:; style-src-elem 'self' 'unsafe-inline' data:; font-src 'self' data:; script-src-elem 'self' 'unsafe-inline' www.googletagmanager.com cdn.jsdelivr.net; connect-src 'self' https://api.ipify.org qcginwkfkawkktlmdiwa.supabase.co;"
 
       # ----------------------------------------------------------------------
@@ -42,16 +47,16 @@
             # Prevents Apache from serving them as "application/x-brotli" or "application/gzip"
             
             # Brotli Rules
-            RewriteRule "\.css\.br$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1]
-            RewriteRule "\.js\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-            RewriteRule "\.html\.br$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
-            RewriteRule "\.svg\.br$"  "-" [T=image/svg+xml,E=no-brotli:1,E=no-gzip:1]
+            RewriteRule "\.css\.br$" "-" [T=text/css;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
+            RewriteRule "\.js\.br$"  "-" [T=text/javascript;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
+            RewriteRule "\.html\.br$" "-" [T=text/html;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
+            RewriteRule "\.svg\.br$"  "-" [T=image/svg+xml;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
 
             # Gzip Rules
-            RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1]
-            RewriteRule "\.js\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-            RewriteRule "\.html\.gz$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
-            RewriteRule "\.svg\.gz$"  "-" [T=image/svg+xml,E=no-brotli:1,E=no-gzip:1]
+            RewriteRule "\.css\.gz$" "-" [T=text/css;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
+            RewriteRule "\.js\.gz$"  "-" [T=text/javascript;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
+            RewriteRule "\.html\.gz$" "-" [T=text/html;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
+            RewriteRule "\.svg\.gz$"  "-" [T=image/svg+xml;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
       </IfModule>
 
       # ----------------------------------------------------------------------
