@@ -8,14 +8,14 @@ export { getTagColor };
 export const blogs = [
 	{
 		id: 31,
-		title: 'VonkProgramming services 🚀',
+		title: 'Self-Hosting Unlocked 🚀',
 		description: `
 			Self-hosting services has been a passion of mine for a while now. Recently, I took that passion a step further by building a custom Raspberry Pi cluster, utilizing orchestration tools to manage and distribute services across it. But why go down the rabbit hole of self-hosting? In this blog post, I discuss the various self-hosted services I have built and how they can provide value to others.
 		`,
 		keywords: ['monitoring', 'backup', 'services', 'vonkprogramming'],
 		tags: [BlogTags.Innovation, BlogTags.Product, BlogTags.Development],
 		date: '2025-12-04',
-		link: '/blogs/vonkprogramming-services',
+		link: '/blogs/self-hosting-services',
 		content: (
 			<>
 				<p>
@@ -32,13 +32,14 @@ export const blogs = [
 				</p>
 				<p>
 					What started as a fun technical challenge has evolved into something more. I realized that the
-					robust, lightweight solutions I built for myself could provide value to others. Today, I am proud to
-					announce that VonkProgramming is opening up these services to clients.
+					robust, lightweight solutions I built for myself could provide value to others. So if you want
+					someone to spar with or help you set up self-hosted services for your business, VonkProgramming is
+					here to help and if you do not want to manage it yourself, I can host it for you.
 				</p>
 				<h2 id="provided-services">Provided Services</h2>
 				<p>
-					Here is a breakdown of the self-hosted services I am currently running, which are now available to
-					help streamline your business:
+					Here is a breakdown of the self-hosted services I am currently running, which I can help you with to
+					streamline your business:
 				</p>
 				<h3 id="1-uptime-monitoring-alerts">1. Uptime Monitoring &amp; Alerts</h3>
 				<p>
@@ -168,7 +169,7 @@ export const blogs = [
 					<p>Portainer dashboard showing container orchestration</p>
 				</blockquote>
 
-				<h2 id="why-choose-vonkprogramming-services-">Why Choose VonkProgramming Services?</h2>
+				<h2 id="why-choose-vonkprogramming-services-">Why self-hosted services?</h2>
 				<p>
 					These services provide simple, low-cost, and low-maintenance solutions ideal for Small-to-Medium
 					Enterprises (SMEs), solo developers, or side-project owners.
@@ -176,12 +177,13 @@ export const blogs = [
 				<p>
 					Additionally, this approach allows you to consolidate these needs. Instead of juggling multiple
 					subscriptions and logins for separate monitoring, analytics, and backup services, you can get
-					everything you need from a single, reliable provider.
+					everything you need from a single, reliable provider, which can either be yourself or
+					VonkProgramming.
 				</p>
 				<p>
-					Need Something Custom? If you require a service beyond our current offerings, we are ready to build
-					it. We are happy to collaborate with you to design, develop, and host custom solutions tailored
-					specifically to your unique requirements.
+					Need Something Custom? If you require a service beyond what is listed above, we are ready to build
+					it. We are happy to collaborate with you to design, develop, and potentially host custom solutions
+					tailored specifically to your unique requirements.
 				</p>
 				<p>
 					Interested in elevating your business? All of these services are available for use upon inquiry.
