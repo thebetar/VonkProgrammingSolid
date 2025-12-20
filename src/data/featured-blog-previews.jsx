@@ -55,6 +55,16 @@ export function getTagColor(tag) {
 
 export const blogs = [
 	{
+		id: 32,
+		title: 'Vibe Coding Needs a Vibe Check ⚗️',
+		description: `
+				Writing unit tests for all your code is not something every developer or company has the time or resources to do. However they can ensure that your code works as expected and prevent production issues. In this blog post I will discuss how using AI you can easily generate unit tests for your codebase and increase your test coverage with minimal effort.		`,
+		keywords: ['unit tests', 'testing', 'ai', 'chatgpt', 'development'],
+		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
+		date: '2026-01-10',
+		link: `/blogs/ai-unit-tests`,
+	},
+	{
 		id: 31,
 		title: 'Self-Hosting Unlocked 🚀',
 		description: `
@@ -86,17 +96,6 @@ export const blogs = [
 		tags: [BlogTags.Innovation, BlogTags.Development],
 		date: '2025-10-18',
 		link: '/blogs/ai-thoughts',
-	},
-	{
-		id: 28,
-		title: 'Taking back control 💪',
-		description: `
-			Reliance on big companies has become more and more of a concern as of recently, for me as well. So the last couple of months I have been looking into how to host some of the most important services for me myself. In this blog post I describe my journey into starting.
-		`,
-		keywords: ['raspberry pi', 'self-hosting', 'independency', 'python'],
-		tags: [BlogTags.Development, BlogTags.Lifestyle, BlogTags.Lifestyle],
-		date: '2025-08-08',
-		link: '/blogs/taking-control',
 	},
 ];
 

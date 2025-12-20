@@ -85,11 +85,12 @@
 				margin-right: auto;
 			}
 
-			h1 {
+			.no-javascript-app h1 {
 				font-size: 1.25rem;
 				font-weight: bold;
 			}
-			header {
+
+			.no-javascript-app header {
 				font-size: 3rem;
 				font-weight: bold;
 			}
@@ -99,7 +100,7 @@
 	<body class="bg-light dark:bg-zinc-900 text-black dark:text-white">
 		<noscript>You need to enable JavaScript to run this app properly. This is the fallback page.</noscript>
 		<div id="app">
-			<article class="container mx-auto px-4">
+			<article class="no-javascript-app container mx-auto px-4">
 				<section>
 					<p>Hey, I’m</p>
 					<header>Lars Vonk</header>
@@ -206,142 +207,546 @@
 				</section>
 
 				<!-- STATIC_CONTENT_START -->
-<div>
-<h2>Services</h2>
-<ul>
-	<li><a href="/products/web-tracking">Web Tracking with AI insights</a><p>Gain actionable insights with our privacy-first, AI-powered web tracking. Receive weekly summaries of anonymous user activity to improve your website without the need for expensive, complex analytics tools.</p></li>
-	<li><a href="/products/monitoring">Monitoring</a><p>Ensure your services stay online with our managed uptime monitoring. We provide a simple, affordable alternative to complex monitoring platforms, alerting you instantly to downtime or expired SSL certificates.</p></li>
-	<li><a href="/products/container-hosting">Container Hosting</a><p>VonkProgramming provides affordable and reliable container hosting solutions without the lock-in. Perfect for side projects that need flexible, short-term deployments without long-term contracts.</p></li>
-	<li><a href="/products/git-backup">Git Backup Service</a><p>Secure your code with an automated fail-safe. We provide a simple managed backup service that mirrors your repositories, ensuring your code remains safe even if you lose access to your main Git provider.</p></li>
-	<li><a href="/products/custom-solutions">Custom solutions</a><p>Turn your unique ideas into reality with tailored software solutions. From web development and AI integration to IoT, we build custom applications designed specifically to meet your business goals.</p></li>
-	<li><a href="/products/workflow-automation">Workflow Automation</a><p>Stop wasting time on repetitive tasks. Our custom workflow automation solutions streamline your business processes, reducing errors and freeing up your team to focus on high-value work.</p></li>
-</ul>
-<h5>Blogs</h5>
-<ul>
-	<li><a href="/blogs/self-hosting-services">Self-Hosting Unlocked 🚀</a><p>Self-hosting services has been a passion of mine for a while now. Recently, I took that passion a step further by building a custom Raspberry Pi cluster, utilizing orchestration tools to manage and distribute services across it. But why go down the rabbit hole of self-hosting? In this blog post, I discuss the various self-hosted services I have built and how they can provide value to others.</p></li>
-	<li><a href="/blogs/spectrum-sensing-cognitive-radio">Spectrum Sensing using Cognitive Radio 📡</a><p>Radio signal congestion in Wi-Fi networks is becoming a critical issue as current channel selection methods struggle to keep up with demand. A novel solution utilizes neural networks to "listen" to the frequency spectrum and intelligently identify the best available channels for data transmission. This approach, particularly when using a Convolutional Support Vector Machine, has demonstrated over 90% accuracy in optimizing wireless connectivity and reducing interference.</p></li>
-	<li><a href="/blogs/ai-thoughts">My views on AI and the future 🤖</a><p>Artificial Intelligence, you've probably heard this term over a thousand times already. But what is the current state of the technology? Where is it going? What are the good and the bad things about it? In my latest blog I talk about my views on this topic and dive into what I think the technology can do now, and what it will be able to do in the near future.</p></li>
-	<li><a href="/blogs/taking-control">Taking back control 💪</a><p>Reliance on big companies has become more and more of a concern as of recently, for me as well. So the last couple of months I have been looking into how to host some of the most important services for me myself. In this blog post I describe my journey into starting.</p></li>
-	<li><a href="/blogs/matrices">How matrices took over the world 🌍</a><p>Matrices are often considered as a pain during your studies, but they are actually used everywhere! 3D rendering, neural networks and simulations all use matrices to perform their calculations. In this blog I will explain how they work and where they are used.</p></li>
-	<li><a href="/blogs/iot-hobby">The wonderful world of IoT: The perfect hobby for tech enthusiasts 👨‍💻</a><p>Over the last months I have been getting more and more interested in creating all kinds of IoT projects. It started with a christmas decoration last christmas but has turned into a full hobby. Home automations are already being built which will hopefully make life easier and more fun!</p></li>
-	<li><a href="/blogs/linux-journey">My operating system journey: From Windows to Linux 🐧</a><p>In this blog post, I will share my journey of switching from Windows to Linux, the challenges I faced, and the benefits I have experienced since making the switch.</p></li>
-	<li><a href="/blogs/zenunet">ZenuNet: An easy way to create your own neural network</a><p>I have recently returned to university to pursue my master's degree after working for a three years. In this blog post, I'll share my experience and how working as a developer between my bachelor's and master's degrees has changed my perspective on studying and has made me a very motivated student.</p></li>
-	<li><a href="/blogs/neural-networks">Neural Networks: A Beginner’s Guide 🧠</a><p>Specialization can feel like a strength, but is it always the best choice for developers? In this blog post, I'll discuss the benefits of broadening your focus and how over-specialization can limit your growth and opportunities.</p></li>
-	<li><a href="/blogs/how-the-internet-works">How the internet works 🌐</a><p>Like every 1 to 2 years I recently decided to rebuild my website again using another framework. This time I chose to use Solid.js to replace my old Astro.js setup. In this blog post I will talk about my experience setting everything up and the reasons why I chose Solid.js.</p></li>
-	<li><a href="/blogs/getting-back-into-studying">Getting back into studying 📚</a><p>Large Language Models have taken the world by storm, but how do they actually work? In this blog post I will talk about the magic behind Large Language Models.</p></li>
-	<li><a href="/blogs/over-specialization">Over-Specialization in Development 🔨</a><p>Are you using Google Chrome for browsing the web? In this blog post I will show you some tips and tricks that will help you get the most out of your browsing experience</p></li>
-	<li><a href="/blogs/rebuilding-website">Rebulding my personal website 🛠️</a><p>Version control is a powerful tool that can help you manage your codebase more effectively. In this blog post, I'll discuss some advanced version control techniques that can help you unlock the full power of version control and take your development workflow to the next level.</p></li>
-	<li><a href="/blogs/large-language-models">The magic of Large Language Models 🪄</a><p>Have you ever noticed that you come up with the best ideas when you are bored? In this blog post I will talk about the power of boredom and how you can use it to your advantage.</p></li>
-	<li><a href="/blogs/chrome-tips">Google Chrome tips & tricks 🔎</a><p>In today's interconnected world, having a strong network is as crucial as being skilled, as connections can open doors to opportunities that talent alone might not. By leveraging both local and digital networks, you can enhance your professional reach and position yourself for greater success.</p></li>
-	<li><a href="/blogs/version-control">Unlocking the Full Power of Version Control 🚀</a><p>In this blog post I will describe my experience with moving from the Netherlands to Poland. I will describe the challenges I faced and how I tackled them and how I think someone else could tackle them just the same.</p></li>
-	<li><a href="/blogs/being-bored">The power of boredom 🤯</a><p>Have you also noticed that software seems to have more and more bugs and big crashes seem to occur more often? In this blog post I will talk about the challenges that come with guaranteeing high code quality.</p></li>
-	<li><a href="/blogs/connected-world">Connected world 🌐</a><p>Developers often prefer to solve all their problems using code, sometimes however using a paid service or a no code solution is a better way to solve your problem faster. In this blog post I will talk about the considerations I make when solving a problem and where I think using abstract solutions like no code are justified.</p></li>
-	<li><a href="/blogs/moving-to-poland">Moving to Poland 🌍</a><p>Is kubernetes really the greatest invention of all time? Are AWS and Azure really going to scale infinetely? Maybe there is still a place in this world for monoliths and dedicated servers. In this blog I talk about my views on this topic and how I think that monoliths are still a viable option for a lot of companies.</p></li>
-	<li><a href="/blogs/degradation-code-quality">The degradation of code quality 📉</a><p>Development teams are often too focussed on the products they work on directly and don't stop to consider who the users are and where the product fits in to the bigger system and what stacks are used that are closely related to the product. In this blog post I will talk about how I deal with understanding this context and how I am often able to communicate with team that work in completely different stacks.</p></li>
-	<li><a href="/blogs/abstraction-spectrum">The abstraction spectrum 🌈</a><p>Do you have the feeling that programming full time as a job has reduced your appreciation of programming? Or are you just curious about the opinions of another lover of programming. In this blog I discuss why I love programming and how I will keep loving it.</p></li>
-	<li><a href="/blogs/viability-of-monoliths">The viability of monoliths 🤫</a><p>Why are all these motivational guru's so successful in conveying their message. I have also had a period in my life where I was susceptible to these kind of voices and what I have noticed; Is that it works very well in achieving more in life! It might sound weird because a lot of the time they also try to sell you some weird course which does not work. But the effect of believing that you will be able to achieve greatness is a very powerful</p></li>
-	<li><a href="/blogs/connected-stacks">Why is context important? 🤔</a><p>It happens to all of us that we encounter something that seems so complex that it cannot be grasped by our brains. But often after looking at the problem for a while and breaking it up into smaller pieces it becomes manageable. In this blog post I will discuss how I use the divide and conquer principle in my coding journey.</p></li>
-	<li><a href="/blogs/love-programming">The love of programming ❤️</a><p>Finding the right tool for the job can be difficult. Finding the optimal tool is even more difficult. In this blog post I go into my views on finding the right tool and what are important things to take into account.</p></li>
-	<li><a href="/blogs/believe-yourself">The benefit of believing in yourself 🤩</a><p>Also experience forgetfulness every now and then? There is a solution! A superpower that is available to everyone, taking notes. In this blog post I will discuss how taking notes has changed my ability to remember.</p></li>
-	<li><a href="/blogs/divide-conquer">Divide & Conquer 🪖</a><p>Working fast and efficient is important. Doing more in less time while impressing your colleagues is amazing. I will dive into what small and easy improvements every developer can make to work more efficiently and save time in the long run which can be spent on other things (most likely more coding!)</p></li>
-	<li><a href="/blogs/finding-tools">The right tool for the job 🔨</a><p>Continuous learning is very important in the world of software engineering. But a pitfall a lot of people encounter is that they cannot stick to it. In this blog post I will delve into my personal journey with learning and my findings and tips.</p></li>
-	<li><a href="/blogs/taking-notes">Taking notes, a real superpower 🦸</a><p>What are the key principles of code excellence? What rules to adhere to and what tools to use? This blog post will delve deep into the world of writing excellent code, click read more to find out.</p></li>
-	<li><a href="/blogs/small-efficiencies">Small efficiencies add up</a><p></p></li>
-	<li><a href="/blogs/learning-sustainably">Learning sustainably</a><p></p></li>
-	<li><a href="/blogs/code-excellence">How to achieve code excellence</a><p></p></li>
-</ul>
-<h3>Skills</h3>
-<ul>
-	<li>Javascript</li>
-	<li>Python</li>
-	<li>Typescript</li>
-	<li>HTML</li>
-	<li>CSS</li>
-	<li>SQL</li>
-	<li>PHP</li>
-	<li>Go</li>
-	<li>C++</li>
-	<li>C</li>
-	<li>Matlab</li>
-	<li>Java</li>
-	<li>MongoDB</li>
-	<li>SQLite</li>
-	<li>MySQL</li>
-	<li>Redis</li>
-	<li>Postgres</li>
-	<li>Vue.js</li>
-	<li>Express.js</li>
-	<li>React</li>
-	<li>Lit</li>
-	<li>Solid.js</li>
-	<li>Flask</li>
-	<li>Angular</li>
-	<li>Ionic</li>
-	<li>Laravel</li>
-	<li>Django</li>
-	<li>React Native</li>
-	<li>Electron</li>
-	<li>Astro</li>
-	<li>Svelte</li>
-	<li>NiceGUI</li>
-	<li>Nuxt.js</li>
-	<li>Nest.js</li>
-	<li>Strapi</li>
-	<li>Git</li>
-	<li>Sass</li>
-	<li>Klaviyo</li>
-	<li>Jest</li>
-	<li>ESLint</li>
-	<li>npm</li>
-	<li>Chart.js</li>
-	<li>Cypress</li>
-	<li>Pandas</li>
-	<li>Puppeteer</li>
-	<li>Playwright</li>
-	<li>PyTorch</li>
-	<li>PySpark</li>
-	<li>Prisma</li>
-	<li>Redux</li>
-	<li>i18next</li>
-	<li>Stripe</li>
-	<li>Payload</li>
-	<li>Vim</li>
-	<li>Langchain</li>
-	<li>Docker</li>
-	<li>Nginx</li>
-	<li>Github</li>
-	<li>Github Actions</li>
-	<li>Apache</li>
-	<li>Azure DevOps</li>
-	<li>AWS</li>
-	<li>Jenkins</li>
-	<li>Lightspeed</li>
-	<li>CCVShop</li>
-	<li>Magento</li>
-	<li>node.js</li>
-	<li>Linux</li>
-	<li>Ubuntu</li>
-	<li>Debian</li>
-	<li>Windows</li>
-</ul>
-<h4>Experience</h4>
-<ul>
-	<li><a href="https://www.mikrocloud.com/">Mikrocloud</a><p>At Mikrocloud, I am currently working as a full-stack developer, filling any role they need. My current responsibilities lie mostly in the development of new features for the Mikrocloud platform, which is a platform that allows users to manage their Mikrotik RouterOS devices. I am also working on the front-end of the platform, using NuxtJS to create a user-friendly interface for the users of the platform.</p></li>
-	<li><a href="https://www.wisepim.com/">Wisepim</a><p>At Wisepim, I am currently working as a full-stack developer, filling any role they need. My current responsibilities lie mostly in the connecting of different APIs together so that they can be used in the Wisepim platform, which is a PIM system that integrates AI to improve data. I am also working on the front-end of the platform, using RemixJS to create a user-friendly interface for the users of the platform.</p></li>
-	<li><a href="https://www.webshopimporter.com/">WebshopImporter</a><p>At WebshopImporter, I am currently working as a full-stack developer, filling any role they need. My current responsibilities are connecting APIs, creating web scraping tools and working on frontends. I use Django, NiceGUI and React to create the tools that are needed for the platform.</p></li>
-	<li><a href="https://www.spar.nl/">Chary Solutions</a><p>At Chary Solutions, I served as the Senior Developer, leading the technical development for integrating marketing software, Klaviyo, with various content management systems that were not supported by default integrations. Additionally, I developed automations to enhance the company's operational efficiency.</p></li>
-	<li><a href="https://www.spar.nl/">SPAR</a><p>At SPAR Nederland I work as a data engineer solving data related questions and problems. I am mostly using my SQL, Azure and python skills to solve complex problems related to big data. Within this role I have gotten the opportunity to try a different stack than I did in my previous roles. I hope this experience will help me broaden my skillset and become a more flexible developer.</p></li>
-	<li><a href="https://www.ing.nl/">ING</a><p>The role at 'ING', in Amsterdam, North Holland, Netherlands, began in April 2022 and ended in September 2023. It primarily involved serving as a full-stack developer, working on various interfaces that are utilized by ING, employing the Lit element framework. In addition to these duties, for a certain period, the role also encompassed serving as a product owner. This required overseeing project timelines, prioritizing features, collaborating with stakeholders, and making key decisions about product direction. This multi-faceted role demonstrates a blend of technical acumen and leadership ability.</p></li>
-	<li><a href="https://www.quintor.nl/">Quintor</a><p>At 'Quintor' in Amersfoort, Utrecht, Netherlands, from October 2020 to October 2023, the role mainly involved working on various software development projects for large clients like ING and different government entities. As part of the experience at Quintor, a traineeship was also completed. This program emphasized learning and implementing best practices for code quality through testing and linting methodologies, which played a significant role in the coding projects.</p></li>
-	<li><a href="https://www.svb.nl/">SVB</a><p>At 'SVB', based in Amstelveen, North Holland, Netherlands, the role took place from April 2021 to April 2022. The primary responsibility involved programming in JavaScript, utilizing the Angular framework. An important part of the job was managing a significant transition, migrating an existing system from AngularJS to Angular. This migration required deep understanding of both frameworks, and extensive planning to ensure a seamless transition with minimal disruption. In addition to development work, the role also entailed working on pipelines, which required careful oversight and management to ensure a smooth, efficient workflow and continuous delivery.</p></li>
-	<li><a href="https://www.j-taxautomotive.nl/">J-Tax Automotive</a><p>Joining 'J-Tax Automotive' situated in Almere, Flevoland, Netherlands, from June 2021, I undertook the significant responsibility of crafting bespoke software tailored for valuation reports. This marked a pivotal milestone as my first major independent project as a freelancer. The project harnessed the power of Vue.js, ExpressJS, and MongoDB to seamlessly develop a comprehensive solution. The outcome of this endeavor was transformative, as the client now reaps the benefit of generating up to four times the number of reports, highlighting the substantial impact of streamlined and efficient software implementation.</p></li>
-	<li><a href="https://www.medweb.nl/">MedWeb</a><p>At 'MedWeb' in Hilversum, North Holland, Netherlands, where I was engaged from September 2019 to August 2020, I played a key role in developing a roster application for medical professionals and updating the 'Medspace' application using VueJS/JavaScript, IBM Notes, IBM Domino Designer, CSS, and HTML. During this time, I also focused on enhancing data visualization capabilities by incorporating Chart.js, enabling clients to derive valuable insights from their data. Working closely with LotusScript, I contributed to the application's functionality, translating intricate data into meaningful charts that empowered medical specialists and doctors to make informed decisions based on clear, visualized information.</p></li>
-	<li><a href="https://www.floriade.com/">Floriade</a><p>At 'Floriade', based in Almere, Flevoland, Netherlands, the role was from September 2018 to January 2019. The responsibilities included contributing to a specific segment of the Floriade project, utilizing skills in PHP, CSS, MySQL, and HTML to enhance its digital presence. The Floriade exposition, held in Almere, is a renowned international horticultural exhibition that showcases innovative landscaping and sustainable gardening practices. It serves as a platform for sharing ideas, technologies, and designs related to urban development, horticulture, and environmental sustainability. The exposition attracts visitors from around the world and offers a unique opportunity to explore cutting-edge concepts in urban greening and ecological urban planning</p></li>
-	<li><a href="https://www.sanoma.com/">Sanoma</a><p>At 'Sanoma', based in Hoofddorp, North Holland, Netherlands, the role was performed from September 2017 to June 2018. The responsibilities included developing software for advertising in PHP, CSS, MySQL, and HTML. The primary focus of the project revolved around utilizing Chart.js to visualize and present data in a variety of advanced chart formats. These advanced charts added a dynamic dimension to the advertising platform, enabling the effective representation of complex data in an easily understandable manner.</p></li>
-	<li><a href="https://www.studentaanhuis.nl/">Student Aan Huis</a><p>At 'Student Aan Huis', based in Utrecht, North Holland, Netherlands, the role involved assisting individuals that were customer's of 'Student Aan Huis' with their computer issues, from printer setups to restoring entire Windows systems.</p></li>
-</ul>
-</div>
-<!-- STATIC_CONTENT_END -->
+				<div>
+					<h2>Services</h2>
+					<ul>
+						<li>
+							<a href="/products/web-tracking">Web Tracking with AI insights</a>
+							<p>
+								Gain actionable insights with our privacy-first, AI-powered web tracking. Receive weekly
+								summaries of anonymous user activity to improve your website without the need for
+								expensive, complex analytics tools.
+							</p>
+						</li>
+						<li>
+							<a href="/products/monitoring">Monitoring</a>
+							<p>
+								Ensure your services stay online with our managed uptime monitoring. We provide a
+								simple, affordable alternative to complex monitoring platforms, alerting you instantly
+								to downtime or expired SSL certificates.
+							</p>
+						</li>
+						<li>
+							<a href="/products/container-hosting">Container Hosting</a>
+							<p>
+								VonkProgramming provides affordable and reliable container hosting solutions without the
+								lock-in. Perfect for side projects that need flexible, short-term deployments without
+								long-term contracts.
+							</p>
+						</li>
+						<li>
+							<a href="/products/git-backup">Git Backup Service</a>
+							<p>
+								Secure your code with an automated fail-safe. We provide a simple managed backup service
+								that mirrors your repositories, ensuring your code remains safe even if you lose access
+								to your main Git provider.
+							</p>
+						</li>
+						<li>
+							<a href="/products/custom-solutions">Custom solutions</a>
+							<p>
+								Turn your unique ideas into reality with tailored software solutions. From web
+								development and AI integration to IoT, we build custom applications designed
+								specifically to meet your business goals.
+							</p>
+						</li>
+						<li>
+							<a href="/products/workflow-automation">Workflow Automation</a>
+							<p>
+								Stop wasting time on repetitive tasks. Our custom workflow automation solutions
+								streamline your business processes, reducing errors and freeing up your team to focus on
+								high-value work.
+							</p>
+						</li>
+					</ul>
+					<h5>Blogs</h5>
+					<ul>
+						<li>
+							<a href="/blogs/self-hosting-services">Self-Hosting Unlocked 🚀</a>
+							<p>
+								Self-hosting services has been a passion of mine for a while now. Recently, I took that
+								passion a step further by building a custom Raspberry Pi cluster, utilizing
+								orchestration tools to manage and distribute services across it. But why go down the
+								rabbit hole of self-hosting? In this blog post, I discuss the various self-hosted
+								services I have built and how they can provide value to others.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/spectrum-sensing-cognitive-radio"
+								>Spectrum Sensing using Cognitive Radio 📡</a
+							>
+							<p>
+								Radio signal congestion in Wi-Fi networks is becoming a critical issue as current
+								channel selection methods struggle to keep up with demand. A novel solution utilizes
+								neural networks to "listen" to the frequency spectrum and intelligently identify the
+								best available channels for data transmission. This approach, particularly when using a
+								Convolutional Support Vector Machine, has demonstrated over 90% accuracy in optimizing
+								wireless connectivity and reducing interference.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/ai-thoughts">My views on AI and the future 🤖</a>
+							<p>
+								Artificial Intelligence, you've probably heard this term over a thousand times already.
+								But what is the current state of the technology? Where is it going? What are the good
+								and the bad things about it? In my latest blog I talk about my views on this topic and
+								dive into what I think the technology can do now, and what it will be able to do in the
+								near future.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/taking-control">Taking back control 💪</a>
+							<p>
+								Reliance on big companies has become more and more of a concern as of recently, for me
+								as well. So the last couple of months I have been looking into how to host some of the
+								most important services for me myself. In this blog post I describe my journey into
+								starting.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/matrices">How matrices took over the world 🌍</a>
+							<p>
+								Matrices are often considered as a pain during your studies, but they are actually used
+								everywhere! 3D rendering, neural networks and simulations all use matrices to perform
+								their calculations. In this blog I will explain how they work and where they are used.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/iot-hobby"
+								>The wonderful world of IoT: The perfect hobby for tech enthusiasts 👨‍💻</a
+							>
+							<p>
+								Over the last months I have been getting more and more interested in creating all kinds
+								of IoT projects. It started with a christmas decoration last christmas but has turned
+								into a full hobby. Home automations are already being built which will hopefully make
+								life easier and more fun!
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/linux-journey">My operating system journey: From Windows to Linux 🐧</a>
+							<p>
+								In this blog post, I will share my journey of switching from Windows to Linux, the
+								challenges I faced, and the benefits I have experienced since making the switch.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/zenunet">ZenuNet: An easy way to create your own neural network</a>
+							<p>
+								I have recently returned to university to pursue my master's degree after working for a
+								three years. In this blog post, I'll share my experience and how working as a developer
+								between my bachelor's and master's degrees has changed my perspective on studying and
+								has made me a very motivated student.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/neural-networks">Neural Networks: A Beginner’s Guide 🧠</a>
+							<p>
+								Specialization can feel like a strength, but is it always the best choice for
+								developers? In this blog post, I'll discuss the benefits of broadening your focus and
+								how over-specialization can limit your growth and opportunities.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/how-the-internet-works">How the internet works 🌐</a>
+							<p>
+								Like every 1 to 2 years I recently decided to rebuild my website again using another
+								framework. This time I chose to use Solid.js to replace my old Astro.js setup. In this
+								blog post I will talk about my experience setting everything up and the reasons why I
+								chose Solid.js.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/getting-back-into-studying">Getting back into studying 📚</a>
+							<p>
+								Large Language Models have taken the world by storm, but how do they actually work? In
+								this blog post I will talk about the magic behind Large Language Models.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/over-specialization">Over-Specialization in Development 🔨</a>
+							<p>
+								Are you using Google Chrome for browsing the web? In this blog post I will show you some
+								tips and tricks that will help you get the most out of your browsing experience
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/rebuilding-website">Rebulding my personal website 🛠️</a>
+							<p>
+								Version control is a powerful tool that can help you manage your codebase more
+								effectively. In this blog post, I'll discuss some advanced version control techniques
+								that can help you unlock the full power of version control and take your development
+								workflow to the next level.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/large-language-models">The magic of Large Language Models 🪄</a>
+							<p>
+								Have you ever noticed that you come up with the best ideas when you are bored? In this
+								blog post I will talk about the power of boredom and how you can use it to your
+								advantage.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/chrome-tips">Google Chrome tips & tricks 🔎</a>
+							<p>
+								In today's interconnected world, having a strong network is as crucial as being skilled,
+								as connections can open doors to opportunities that talent alone might not. By
+								leveraging both local and digital networks, you can enhance your professional reach and
+								position yourself for greater success.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/version-control">Unlocking the Full Power of Version Control 🚀</a>
+							<p>
+								In this blog post I will describe my experience with moving from the Netherlands to
+								Poland. I will describe the challenges I faced and how I tackled them and how I think
+								someone else could tackle them just the same.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/being-bored">The power of boredom 🤯</a>
+							<p>
+								Have you also noticed that software seems to have more and more bugs and big crashes
+								seem to occur more often? In this blog post I will talk about the challenges that come
+								with guaranteeing high code quality.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/connected-world">Connected world 🌐</a>
+							<p>
+								Developers often prefer to solve all their problems using code, sometimes however using
+								a paid service or a no code solution is a better way to solve your problem faster. In
+								this blog post I will talk about the considerations I make when solving a problem and
+								where I think using abstract solutions like no code are justified.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/moving-to-poland">Moving to Poland 🌍</a>
+							<p>
+								Is kubernetes really the greatest invention of all time? Are AWS and Azure really going
+								to scale infinetely? Maybe there is still a place in this world for monoliths and
+								dedicated servers. In this blog I talk about my views on this topic and how I think that
+								monoliths are still a viable option for a lot of companies.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/degradation-code-quality">The degradation of code quality 📉</a>
+							<p>
+								Development teams are often too focussed on the products they work on directly and don't
+								stop to consider who the users are and where the product fits in to the bigger system
+								and what stacks are used that are closely related to the product. In this blog post I
+								will talk about how I deal with understanding this context and how I am often able to
+								communicate with team that work in completely different stacks.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/abstraction-spectrum">The abstraction spectrum 🌈</a>
+							<p>
+								Do you have the feeling that programming full time as a job has reduced your
+								appreciation of programming? Or are you just curious about the opinions of another lover
+								of programming. In this blog I discuss why I love programming and how I will keep loving
+								it.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/viability-of-monoliths">The viability of monoliths 🤫</a>
+							<p>
+								Why are all these motivational guru's so successful in conveying their message. I have
+								also had a period in my life where I was susceptible to these kind of voices and what I
+								have noticed; Is that it works very well in achieving more in life! It might sound weird
+								because a lot of the time they also try to sell you some weird course which does not
+								work. But the effect of believing that you will be able to achieve greatness is a very
+								powerful
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/connected-stacks">Why is context important? 🤔</a>
+							<p>
+								It happens to all of us that we encounter something that seems so complex that it cannot
+								be grasped by our brains. But often after looking at the problem for a while and
+								breaking it up into smaller pieces it becomes manageable. In this blog post I will
+								discuss how I use the divide and conquer principle in my coding journey.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/love-programming">The love of programming ❤️</a>
+							<p>
+								Finding the right tool for the job can be difficult. Finding the optimal tool is even
+								more difficult. In this blog post I go into my views on finding the right tool and what
+								are important things to take into account.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/believe-yourself">The benefit of believing in yourself 🤩</a>
+							<p>
+								Also experience forgetfulness every now and then? There is a solution! A superpower that
+								is available to everyone, taking notes. In this blog post I will discuss how taking
+								notes has changed my ability to remember.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/divide-conquer">Divide & Conquer 🪖</a>
+							<p>
+								Working fast and efficient is important. Doing more in less time while impressing your
+								colleagues is amazing. I will dive into what small and easy improvements every developer
+								can make to work more efficiently and save time in the long run which can be spent on
+								other things (most likely more coding!)
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/finding-tools">The right tool for the job 🔨</a>
+							<p>
+								Continuous learning is very important in the world of software engineering. But a
+								pitfall a lot of people encounter is that they cannot stick to it. In this blog post I
+								will delve into my personal journey with learning and my findings and tips.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/taking-notes">Taking notes, a real superpower 🦸</a>
+							<p>
+								What are the key principles of code excellence? What rules to adhere to and what tools
+								to use? This blog post will delve deep into the world of writing excellent code, click
+								read more to find out.
+							</p>
+						</li>
+						<li>
+							<a href="/blogs/small-efficiencies">Small efficiencies add up</a>
+							<p></p>
+						</li>
+						<li>
+							<a href="/blogs/learning-sustainably">Learning sustainably</a>
+							<p></p>
+						</li>
+						<li>
+							<a href="/blogs/code-excellence">How to achieve code excellence</a>
+							<p></p>
+						</li>
+					</ul>
+					<h3>Skills</h3>
+					<ul>
+						<li>Javascript</li>
+						<li>Python</li>
+						<li>Typescript</li>
+						<li>HTML</li>
+						<li>CSS</li>
+						<li>SQL</li>
+						<li>PHP</li>
+						<li>Go</li>
+						<li>C++</li>
+						<li>C</li>
+						<li>Matlab</li>
+						<li>Java</li>
+						<li>MongoDB</li>
+						<li>SQLite</li>
+						<li>MySQL</li>
+						<li>Redis</li>
+						<li>Postgres</li>
+						<li>Vue.js</li>
+						<li>Express.js</li>
+						<li>React</li>
+						<li>Lit</li>
+						<li>Solid.js</li>
+						<li>Flask</li>
+						<li>Angular</li>
+						<li>Ionic</li>
+						<li>Laravel</li>
+						<li>Django</li>
+						<li>React Native</li>
+						<li>Electron</li>
+						<li>Astro</li>
+						<li>Svelte</li>
+						<li>NiceGUI</li>
+						<li>Nuxt.js</li>
+						<li>Nest.js</li>
+						<li>Strapi</li>
+						<li>Git</li>
+						<li>Sass</li>
+						<li>Klaviyo</li>
+						<li>Jest</li>
+						<li>ESLint</li>
+						<li>npm</li>
+						<li>Chart.js</li>
+						<li>Cypress</li>
+						<li>Pandas</li>
+						<li>Puppeteer</li>
+						<li>Playwright</li>
+						<li>PyTorch</li>
+						<li>PySpark</li>
+						<li>Prisma</li>
+						<li>Redux</li>
+						<li>i18next</li>
+						<li>Stripe</li>
+						<li>Payload</li>
+						<li>Vim</li>
+						<li>Langchain</li>
+						<li>Docker</li>
+						<li>Nginx</li>
+						<li>Github</li>
+						<li>Github Actions</li>
+						<li>Apache</li>
+						<li>Azure DevOps</li>
+						<li>AWS</li>
+						<li>Jenkins</li>
+						<li>Lightspeed</li>
+						<li>CCVShop</li>
+						<li>Magento</li>
+						<li>node.js</li>
+						<li>Linux</li>
+						<li>Ubuntu</li>
+						<li>Debian</li>
+						<li>Windows</li>
+					</ul>
+					<h4>Experience</h4>
+					<ul>
+						<li>
+							<a href="https://www.mikrocloud.com/">Mikrocloud</a>
+							<p>
+								At Mikrocloud, I am currently working as a full-stack developer, filling any role they
+								need. My current responsibilities lie mostly in the development of new features for the
+								Mikrocloud platform, which is a platform that allows users to manage their Mikrotik
+								RouterOS devices. I am also working on the front-end of the platform, using NuxtJS to
+								create a user-friendly interface for the users of the platform.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.wisepim.com/">Wisepim</a>
+							<p>
+								At Wisepim, I am currently working as a full-stack developer, filling any role they
+								need. My current responsibilities lie mostly in the connecting of different APIs
+								together so that they can be used in the Wisepim platform, which is a PIM system that
+								integrates AI to improve data. I am also working on the front-end of the platform, using
+								RemixJS to create a user-friendly interface for the users of the platform.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.webshopimporter.com/">WebshopImporter</a>
+							<p>
+								At WebshopImporter, I am currently working as a full-stack developer, filling any role
+								they need. My current responsibilities are connecting APIs, creating web scraping tools
+								and working on frontends. I use Django, NiceGUI and React to create the tools that are
+								needed for the platform.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.spar.nl/">Chary Solutions</a>
+							<p>
+								At Chary Solutions, I served as the Senior Developer, leading the technical development
+								for integrating marketing software, Klaviyo, with various content management systems
+								that were not supported by default integrations. Additionally, I developed automations
+								to enhance the company's operational efficiency.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.spar.nl/">SPAR</a>
+							<p>
+								At SPAR Nederland I work as a data engineer solving data related questions and problems.
+								I am mostly using my SQL, Azure and python skills to solve complex problems related to
+								big data. Within this role I have gotten the opportunity to try a different stack than I
+								did in my previous roles. I hope this experience will help me broaden my skillset and
+								become a more flexible developer.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.ing.nl/">ING</a>
+							<p>
+								The role at 'ING', in Amsterdam, North Holland, Netherlands, began in April 2022 and
+								ended in September 2023. It primarily involved serving as a full-stack developer,
+								working on various interfaces that are utilized by ING, employing the Lit element
+								framework. In addition to these duties, for a certain period, the role also encompassed
+								serving as a product owner. This required overseeing project timelines, prioritizing
+								features, collaborating with stakeholders, and making key decisions about product
+								direction. This multi-faceted role demonstrates a blend of technical acumen and
+								leadership ability.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.quintor.nl/">Quintor</a>
+							<p>
+								At 'Quintor' in Amersfoort, Utrecht, Netherlands, from October 2020 to October 2023, the
+								role mainly involved working on various software development projects for large clients
+								like ING and different government entities. As part of the experience at Quintor, a
+								traineeship was also completed. This program emphasized learning and implementing best
+								practices for code quality through testing and linting methodologies, which played a
+								significant role in the coding projects.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.svb.nl/">SVB</a>
+							<p>
+								At 'SVB', based in Amstelveen, North Holland, Netherlands, the role took place from
+								April 2021 to April 2022. The primary responsibility involved programming in JavaScript,
+								utilizing the Angular framework. An important part of the job was managing a significant
+								transition, migrating an existing system from AngularJS to Angular. This migration
+								required deep understanding of both frameworks, and extensive planning to ensure a
+								seamless transition with minimal disruption. In addition to development work, the role
+								also entailed working on pipelines, which required careful oversight and management to
+								ensure a smooth, efficient workflow and continuous delivery.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.j-taxautomotive.nl/">J-Tax Automotive</a>
+							<p>
+								Joining 'J-Tax Automotive' situated in Almere, Flevoland, Netherlands, from June 2021, I
+								undertook the significant responsibility of crafting bespoke software tailored for
+								valuation reports. This marked a pivotal milestone as my first major independent project
+								as a freelancer. The project harnessed the power of Vue.js, ExpressJS, and MongoDB to
+								seamlessly develop a comprehensive solution. The outcome of this endeavor was
+								transformative, as the client now reaps the benefit of generating up to four times the
+								number of reports, highlighting the substantial impact of streamlined and efficient
+								software implementation.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.medweb.nl/">MedWeb</a>
+							<p>
+								At 'MedWeb' in Hilversum, North Holland, Netherlands, where I was engaged from September
+								2019 to August 2020, I played a key role in developing a roster application for medical
+								professionals and updating the 'Medspace' application using VueJS/JavaScript, IBM Notes,
+								IBM Domino Designer, CSS, and HTML. During this time, I also focused on enhancing data
+								visualization capabilities by incorporating Chart.js, enabling clients to derive
+								valuable insights from their data. Working closely with LotusScript, I contributed to
+								the application's functionality, translating intricate data into meaningful charts that
+								empowered medical specialists and doctors to make informed decisions based on clear,
+								visualized information.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.floriade.com/">Floriade</a>
+							<p>
+								At 'Floriade', based in Almere, Flevoland, Netherlands, the role was from September 2018
+								to January 2019. The responsibilities included contributing to a specific segment of the
+								Floriade project, utilizing skills in PHP, CSS, MySQL, and HTML to enhance its digital
+								presence. The Floriade exposition, held in Almere, is a renowned international
+								horticultural exhibition that showcases innovative landscaping and sustainable gardening
+								practices. It serves as a platform for sharing ideas, technologies, and designs related
+								to urban development, horticulture, and environmental sustainability. The exposition
+								attracts visitors from around the world and offers a unique opportunity to explore
+								cutting-edge concepts in urban greening and ecological urban planning
+							</p>
+						</li>
+						<li>
+							<a href="https://www.sanoma.com/">Sanoma</a>
+							<p>
+								At 'Sanoma', based in Hoofddorp, North Holland, Netherlands, the role was performed from
+								September 2017 to June 2018. The responsibilities included developing software for
+								advertising in PHP, CSS, MySQL, and HTML. The primary focus of the project revolved
+								around utilizing Chart.js to visualize and present data in a variety of advanced chart
+								formats. These advanced charts added a dynamic dimension to the advertising platform,
+								enabling the effective representation of complex data in an easily understandable
+								manner.
+							</p>
+						</li>
+						<li>
+							<a href="https://www.studentaanhuis.nl/">Student Aan Huis</a>
+							<p>
+								At 'Student Aan Huis', based in Utrecht, North Holland, Netherlands, the role involved
+								assisting individuals that were customer's of 'Student Aan Huis' with their computer
+								issues, from printer setups to restoring entire Windows systems.
+							</p>
+						</li>
+					</ul>
+				</div>
+				<!-- STATIC_CONTENT_END -->
 			</article>
 
 			<footer class="container mx-auto">Developed by <strong>VonkProgramming</strong></footer>
