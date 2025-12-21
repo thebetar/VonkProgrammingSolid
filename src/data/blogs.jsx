@@ -21,8 +21,8 @@ export const blogs = [
 				<p>
 					I remember when I was just starting out at Quintor that the concept of writing unit tests for most
 					of your core functionality was new to me. I understood why it was important but the time it took to
-					write all these tests felt like a massive pain. Even though I persisted and it became second nature
-					once I moved to large companies where testing is done religiously!
+					write all these tests felt like a massive pain. But I persisted and once I started working in large
+					companies where testing is done religiously it became second nature!
 				</p>
 				<p>
 					That changed however once I started working on smaller projects again. I tried to combine a
