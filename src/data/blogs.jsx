@@ -14,7 +14,7 @@ export const blogs = [
 		`,
 		keywords: ['unit tests', 'testing', 'ai', 'chatgpt', 'development'],
 		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
-		date: '2026-01-10',
+		date: '2025-12-27',
 		link: `/blogs/ai-unit-tests`,
 		content: (
 			<>
