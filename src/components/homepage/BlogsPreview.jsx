@@ -56,7 +56,7 @@ export default function Blog() {
 						class="dark:text-white text-zinc-900 underline hover:opacity-70 transition-opacity"
 						href="/blogs"
 					>
-						See all {blogs.length} blogs
+						See all blogs
 					</a>
 				</div>
 			</div>
