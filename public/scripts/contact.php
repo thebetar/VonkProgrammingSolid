@@ -23,7 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $to = 'info@vonkprogramming.nl';
     $subject = 'Contact Form Submission';
     $body = "Name: $name\nEmail: $email\nType of question: $questionType\nMessage:\n$message";
-    $headers = "From: $email\r\nReply-To: $email\r\n";
+    
+    // Send from a local address to prevent SPF/DMARC blocking
+    $headers = "From: info@vonkprogramming.nl\r\nReply-To: $email\r\n";
 
     if (mail($to, $subject, $body, $headers)) {
         echo 'success';

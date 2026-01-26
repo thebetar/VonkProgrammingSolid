@@ -17,7 +17,7 @@ export default function ContactCard() {
 		email: '',
 		message: '',
 		questionType: questionTypes[0].value,
-		website: '',
+		fax: '',
 	});
 	const [status, setStatus] = createSignal('');
 	const [loading, setLoading] = createSignal(false);
@@ -47,7 +47,7 @@ export default function ContactCard() {
 		e.preventDefault();
 
 		// Honeypot check: if the hidden field is filled, block submission
-		if (form().website && form().website.trim() !== '') {
+		if (form().fax && form().fax.trim() !== '') {
 			setStatus('error');
 			return;
 		}
@@ -65,7 +65,7 @@ export default function ContactCard() {
 
 			if (res.ok && text.includes('success')) {
 				setStatus('success');
-				setForm({ name: '', email: '', message: '', questionType: questionTypes[0].value, website: '' });
+				setForm({ name: '', email: '', message: '', questionType: questionTypes[0].value, fax: '' });
 			} else {
 				setStatus('error');
 			}
@@ -110,14 +110,8 @@ export default function ContactCard() {
 			>
 				<div style={{ position: 'absolute', top: '-9999px', left: '-9999px' }} aria-hidden="true">
 					<label>
-						Website
-						<input
-							name="website"
-							tabIndex="-1"
-							autoComplete="off"
-							value={form().website}
-							onInput={handleChange}
-						/>
+						Fax
+						<input name="fax" tabIndex="-1" autoComplete="off" value={form().fax} onInput={handleChange} />
 					</label>
 				</div>
 				<h1 class="text-2xl font-bold mb-2 text-zinc-900 dark:text-white md:text-start text-center">
