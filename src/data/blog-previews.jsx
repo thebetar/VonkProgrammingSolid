@@ -61,7 +61,7 @@ export const blogs = [
 			Writing unit tests for all your code is not something every developer or company has the time or resources to do. However they can ensure that your code works as expected and prevent production issues. In this blog post I will discuss how using AI you can easily generate unit tests for your codebase and increase your test coverage with minimal effort.		`,
 		keywords: ['unit tests', 'testing', 'ai', 'chatgpt', 'development'],
 		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
-		date: '2026-01-10',
+		date: '2025-12-27',
 		link: `/blogs/ai-unit-tests`,
 	},
 	{
