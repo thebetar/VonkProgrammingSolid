@@ -55,6 +55,17 @@ export function getTagColor(tag) {
 
 export const blogs = [
 	{
+		id: 33,
+		title: 'The challenges of European Cloud ☁️',
+		description: `
+				Recently, there has been a lot of discussion about the risks of European governments hosting their digital infrastructure on American cloud providers. While I agree with the security concerns, I believe many people overlook the challenges this transition will bring. In this blog post, I explore what makes providers like AWS, Azure, and Google Cloud special, the downsides of relying on them, and the difficulties in creating a European alternative.
+			`,
+		keywords: ['european cloud', 'cloud hosting', 'aws', 'azure', 'google cloud'],
+		tags: [BlogTags.Development, BlogTags.Innovation],
+		date: '2026-01-31',
+		link: '/blogs/european-cloud-challenges',
+	},
+	{
 		id: 32,
 		title: 'Vibe Coding Needs a Vibe Check ⚗️',
 		description: `

@@ -55,6 +55,17 @@ export function getTagColor(tag) {
 
 export const blogs = [
 	{
+		id: 33,
+		title: 'The challenges of European Cloud ☁️',
+		description: `
+				Recently, there has been a lot of discussion about the risks of European governments hosting their digital infrastructure on American cloud providers. While I agree with the security concerns, I believe many people overlook the challenges this transition will bring. In this blog post, I explore what makes providers like AWS, Azure, and Google Cloud special, the downsides of relying on them, and the difficulties in creating a European alternative.
+			`,
+		keywords: ['european cloud', 'cloud hosting', 'aws', 'azure', 'google cloud'],
+		tags: [BlogTags.Development, BlogTags.Innovation],
+		date: '2026-01-31',
+		link: '/blogs/european-cloud-challenges',
+	},
+	{
 		id: 32,
 		title: 'Vibe Coding Needs a Vibe Check ⚗️',
 		description: `
@@ -85,17 +96,6 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Innovation],
 		date: '2025-11-15',
 		link: '/blogs/spectrum-sensing-cognitive-radio',
-	},
-	{
-		id: 29,
-		title: 'My views on AI and the future 🤖',
-		description: `
-			Artificial Intelligence, you've probably heard this term over a thousand times already. But what is the current state of the technology? Where is it going? What are the good and the bad things about it? In my latest blog I talk about my views on this topic and dive into what I think the technology can do now, and what it will be able to do in the near future.
-		`,
-		keywords: ['ai', 'future', 'technology', 'chatgpt'],
-		tags: [BlogTags.Innovation, BlogTags.Development],
-		date: '2025-10-18',
-		link: '/blogs/ai-thoughts',
 	},
 ];
 
