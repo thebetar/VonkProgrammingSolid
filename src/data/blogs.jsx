@@ -7,6 +7,157 @@ export { getTagColor };
 
 export const blogs = [
 	{
+		id: 34,
+		title: 'Agentic coding, a new layer of abstraction 🤖',
+		description: `
+			AI agents are advancing fast, while the introduction of ChatGPT was already a massive shift in how a lot of work was done, the improvements have kept coming. AI agents are doing more and more of the work and becoming impressively good at it as well. I think it is time to stop criticising using a lot of AI in your work and start thinking of ways to streamline using these agents. How to create guardrails so these agents can be used to effectively make us do more work while not generating AI slop.
+		`,
+		keywords: ['ai', 'agentic coding', 'development', 'productivity'],
+		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
+		date: '2026-03-15',
+		link: '/blogs/agentic-coding',
+		content: (
+			<>
+				<p>
+					I have recently been spending time using Anthropic’s Claude 4.6 Opus, and I have to say, it has won
+					me over. I have long been skeptical of the narrative that AI will simply &quot;take over&quot;
+					coding and change software development at a fundamental level. However, I am beginning to realize we
+					are at an important point in modern history. If it isn&#39;t here today, it is certainly coming
+					soon. Software engineering is changing, but that doesn&#39;t mean we are becoming obsolete; rather,
+					we are moving into a new layer of abstraction.
+				</p>
+				<h2 id="the-shift-to-architecture">The Shift to Architecture</h2>
+				<p>
+					Writing code has never been easier. You can now analyse the problem, find some initial context like
+					what modules, services or components are useful to know about to solve the issue and then just
+					provide all this initial research to an agent like Claude. Even if you do not let agents generate
+					your code yet it will still be able to analyse the context and suggest a potential solution which
+					you can implement yourself or let it implement. I think there will be a day where this step of
+					taking the user’s request and analysing the context to implement a solution will all be done by
+					agents.
+				</p>
+				<p>
+					This means that software engineering is evolving into an architectural role. A deep understanding of
+					best practices, how to build scalable and maintainable applications and how to write clean code is
+					more essential than ever because you must be able to guide your tools effectively. I think manual
+					coding will become a secondary task (if it isn’t already). It will mostly be used to correct a
+					mistake or guide your agent into a certain way of implementing a solution.
+				</p>
+				<p>
+					Version control tools like Git also allow you to easily let the agent make all kinds of changes and
+					being able to review what exact changes were made. Current models are now sophisticated enough to
+					mirror your personal coding style, provided you give them clear boundaries. In many modern IDEs,
+					this is managed through an <code>agents.md</code> file, which is a standard for defining the
+					&quot;ground rules&quot; of your workspace.
+				</p>
+				<h2 id="the-power-of-agents-md-">
+					The Power of <code>agents.md</code>
+				</h2>
+				<p>
+					The flexibility of AI agents is their greatest strength, but it is also a vulnerability. Without
+					specific context or constraints, they can easily miss nuances or create different solutions using
+					different styles of codes or methods of implementation within the same project. This is why a
+					standardized ruleset, whether via <code>agents.md</code> or another method, is vital.
+				</p>
+				<p>
+					I have found immense value in adding simple instructions like:{' '}
+					<em>&quot;Run all unit tests after finalizing changes&quot;</em> and{' '}
+					<em>&quot;Ensure unit test coverage remains above 95%.&quot;</em> It sounds basic, but the number of
+					issues I have caught because an agent automatically ran a test suite and caught its own mistake is
+					significant. This is why i strongly recommend to write a rigorous rules file to force adherence to
+					your standards.
+				</p>
+				<h2 id="the-resurgence-of-unit-testing">The Resurgence of Unit Testing</h2>
+				<p>
+					I have noticed that the way we write unit tests usually depends on the size of the company. In
+					larger organizations, there are often strict rules to ensure high code coverage for every new
+					feature. However, in smaller companies with smaller budgets, writing extensive tests is often
+					skipped because there is little room for it due to time or financial constraints.
+				</p>
+				<p>
+					With agents, I think this trade-off is no longer necessary. The time it takes to create these tests
+					has gone down so much that there is really no reason to disregard high code coverage. It prevents so
+					many issues that it should simply be a standard part of the workflow now. Especially when using AI
+					agents to write more code which, let’s be honest, in a lazy moment is easy to miss certain
+					inconsistencies.
+				</p>
+				<h2 id="learning-the-fundamentals-in-an-ai-world">Learning the Fundamentals in an AI World</h2>
+				<p>
+					While agents are remarkably effective, it is important to understand how to structure a project and
+					write maintainable code. This requires a good understanding of concepts like abstraction, knowing
+					which code to split into new modules and how to write logic that is functional but, most
+					importantly, readable. A solution can be written in a thousand different ways that &quot;work,&quot;
+					but the real challenge lies in making it readable, maintainable and scalable, these are not just
+					buzz words they actually matter.
+				</p>
+				<p>
+					I learned most of these skills myself by actually writing code, following courses, and experimenting
+					with project structures in many side projects. This often meant scaffolding a new application just
+					to see which methods felt best as the project scaled. You need to know where to find specific logic
+					and easily extend on it, even when a project grows to over a thousand files.
+				</p>
+				<p>
+					The best way to describe this is the &quot;Keep It Simple Stupid&quot; (KISS) method. Do not
+					overcomplicate your solution. I find it is best to write functional code that solves the issue
+					first, then refactor it until it is simple and easy to read. If a solution becomes so complex that
+					you have to spend a lot of time explaining it to a colleague, you have likely overcomplicated it.
+					This does not mean to write as little lines of code as possible sometimes the simpler way is to
+					split a complex if statement into a function with a clear name of what conditional is being tested.
+					It needs to be simple to understand as well.
+				</p>
+				<p>
+					All these fundamentals are more important than ever when using agents. You are now the reviewer,
+					software architect and team lead, and you are responsible for publishing code that is easy to
+					maintain, can be extended upon and most importantly understood by the next person working on it
+					(which might also be you after not touching the code for 2 years). While the task of actually
+					writing the initial solution is often offloaded to the AI, current models are not always great at
+					keeping things simple (I am looking at you GPT-5.4). It is your job to ensure the final result
+					remains clean.
+				</p>
+				<h2 id="maintaining-the-craft-through-side-projects">Maintaining the Craft Through Side Projects</h2>
+				<p>
+					While agents boost productivity, they do not necessarily sharpen these ever important skills; in
+					fact, they might cause them to atrophy if you aren&#39;t careful. To counter this, the value of
+					&quot;agentless&quot; side projects has never been higher. See it as training like for sports, it is
+					not to actually gain direct value but it does help you perform better when it actually matters.
+				</p>
+				<p>
+					Most developers have personal projects fueled by curiosity rather than deadlines. These are the
+					perfect environments to work manually, sharpen your ability to recognize good architecture, and keep
+					your &quot;coding muscles&quot; strong without using agents or with reduced use of them. During work
+					hours, efficiency is the priority, and using an agent to generate logic is usually the right choice.
+					But in your own time, the act of writing code manually is how you remain a master of the craft. It
+					does not matter if your private dashboard that shows the values of your sensors is done this weekend
+					or by the end of this month.
+				</p>
+				<h2 id="looking-ahead">Looking Ahead</h2>
+				<p>
+					We might not be at the point of total transformation yet, but the models are becoming remarkably
+					capable. We are approaching a threshold where these tools will be so integrated into the
+					professional standard that choosing not to use them will simply mean being left behind. I think it
+					is time to embrace this way of working, but also think critically about how we can work responsibly,
+					by keeping the quality of software high.
+				</p>
+				<p>
+					In the coming years many new agents will arise with ever increasing quality, many new methodologies
+					on how to use them and create guard rails to give the agents the freedom to solve problems without
+					risking production outages due to missing context. I was feeling down in the past months about
+					feeling that my hard earned software engineering skills were becoming less valuable, but recently I
+					have become more optimistic again due to looking at it more as an evolution than as the end of
+					software engineering. Many influencial software engineers like Linus Torvalds, Bjarne Stroustrup and
+					Guido van Rossum are also positive about the evolution of the field of software engineering, while
+					also all cautioning for letting these agents generate code without supervision of a software
+					engineer who has a deep understanding of the fundamentals discussed in this blog.
+				</p>
+				<p>
+					So let me end on this, the field of software engineering is at an important step in it’s evolution
+					which brings a lot of exciting and sometimes also scary changes with it, but if you adapt you will
+					be able to become essential in the next years to come in software.
+				</p>
+			</>
+		),
+	},
+	{
 		id: 33,
 		title: 'The challenges of European Cloud ☁️',
 		description: `
@@ -164,11 +315,17 @@ export const blogs = [
 					many companies stick with American providers despite the higher costs and privacy concerns.
 				</p>
 				<p>
-					To find European alternatives you can also visit <a href="https://european-alternatives.eu/" target="_blank">European Alternatives</a>
-					</p>
+					To find European alternatives you can also visit{' '}
+					<a href="https://european-alternatives.eu/" target="_blank">
+						European Alternatives
+					</a>
+				</p>
 
 				<p>
-					<img src="/assets/images/blogs/european-cloud/european-providers.webp" alt="European cloud providers" />
+					<img
+						src="/assets/images/blogs/european-cloud/european-providers.webp"
+						alt="European cloud providers"
+					/>
 				</p>
 
 				<blockquote>
@@ -382,7 +539,7 @@ export const blogs = [
 					Here is a breakdown of the self-hosted services I am currently running, which I can help you with to
 					streamline your business:
 				</p>
-				<h3 id="1-uptime-monitoring-alerts">1. Uptime Monitoring &amp; Alerts</h3>
+				<h2 id="1-uptime-monitoring-alerts">1. Uptime Monitoring &amp; Alerts</h2>
 				<p>
 					I host a straightforward, reliable monitoring service that performs health checks on specific pages
 					at defined intervals. It goes beyond simple &quot;is it up?&quot; checks, allowing for custom
@@ -403,7 +560,7 @@ export const blogs = [
 					<p>Uptime Kuma monitoring dashboard</p>
 				</blockquote>
 
-				<h3 id="2-privacy-first-analytics">2. Privacy-First Analytics</h3>
+				<h2 id="2-privacy-first-analytics">2. Privacy-First Analytics</h2>
 				<p>
 					Many modern analytics tools are overly intrusive, expensive, and cluttered. I created a custom
 					tracking tool designed to respect user privacy while still providing actionable data. This data will
@@ -424,7 +581,7 @@ export const blogs = [
 					<p>Example of a weekly AI-generated tracking report</p>
 				</blockquote>
 
-				<h3 id="3-workflow-automation">3. Workflow Automation</h3>
+				<h2 id="3-workflow-automation">3. Workflow Automation</h2>
 				<p>
 					While I write code for complex logic, some tasks are simply handled better by automation software. I
 					host a dedicated workflow automation platform that streamlines routine business processes.
@@ -444,7 +601,7 @@ export const blogs = [
 					<p>n8n workflow automation dashboard</p>
 				</blockquote>
 
-				<h3 id="4-git-backup-redundancy">4. Git Backup &amp; Redundancy</h3>
+				<h2 id="4-git-backup-redundancy">4. Git Backup &amp; Redundancy</h2>
 				<p>
 					I once read a story about a developer who lost access to their GitHub account due to a policy
 					misunderstanding, losing years of hard work. While platforms like GitHub are excellent, redundancy
@@ -469,7 +626,7 @@ export const blogs = [
 				</blockquote>
 
 				<h2 id="personal-services">Personal services</h2>
-				<h3 id="1-ai-business-intelligence-agent">1. AI Business Intelligence Agent</h3>
+				<h2 id="1-ai-business-intelligence-agent">1. AI Business Intelligence Agent</h2>
 				<p>
 					I am running a secure, self-hosted AI agent with restricted access to my data sources. This allows
 					me to &quot;talk&quot; to my data.
@@ -491,7 +648,7 @@ export const blogs = [
 						</ul>
 					</li>
 				</ul>
-				<h3 id="2-container-orchestration">2. Container Orchestration</h3>
+				<h2 id="2-container-orchestration">2. Container Orchestration</h2>
 				<p>To manage all of the above, I utilize a Docker Swarm environment running on my cluster.</p>
 				<ul>
 					<li>
@@ -1619,7 +1776,7 @@ export const blogs = [
 					the temperature is too high or the humidity is too low.{' '}
 				</p>
 
-				<h3 id="step-1-get-the-physical-components">Step 1: get the physical components</h3>
+				<h2 id="step-1-get-the-physical-components">Step 1: get the physical components</h2>
 				<p>For this projects the following components are needed</p>
 				<ul>
 					<li>
@@ -1662,7 +1819,7 @@ export const blogs = [
 				</p>
 				<blockquote>Figure 1: Aliexpress order</blockquote>
 
-				<h3 id="step-2-install-arduino-ide">Step 2: Install Arduino IDE</h3>
+				<h2 id="step-2-install-arduino-ide">Step 2: Install Arduino IDE</h2>
 				<p>
 					After getting these components you will need to download the Arduino IDE to start programming your
 					ESP32! The Arduino IDE is one of multiple editors that can be used to program the ESP32 but I have
@@ -1672,7 +1829,7 @@ export const blogs = [
 					</a>{' '}
 					.
 				</p>
-				<h3 id="step-3-install-the-correct-libraries">Step 3: Install the correct libraries</h3>
+				<h2 id="step-3-install-the-correct-libraries">Step 3: Install the correct libraries</h2>
 				<p>
 					To allow Arduino IDE to commmunicate with the board directly, the correct board manager has to be
 					selected. There is a very good tutorial which describes this which can be found in the link below:
@@ -1682,7 +1839,7 @@ export const blogs = [
 						https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/
 					</a>{' '}
 				</p>
-				<h3 id="step-4-connecting-the-led">Step 4: Connecting the LED</h3>
+				<h2 id="step-4-connecting-the-led">Step 4: Connecting the LED</h2>
 				<p>
 					Once you have all the software installed and tested that your ESP32 works as intended you can start
 					to wire everything. I find it the easiest to first start with the simplest part of the project and
@@ -1705,7 +1862,7 @@ export const blogs = [
 				</p>
 				<blockquote>Figure 2: LED wiring</blockquote>
 
-				<h3 id="step-5-write-some-code">Step 5: Write some code</h3>
+				<h2 id="step-5-write-some-code">Step 5: Write some code</h2>
 				<p>
 					Once the wiring is done we can start writing some code, first we have to set the pin that was used
 					to connect the LED to output mode during the initialisation of the microcontroller, after this we
@@ -1723,7 +1880,7 @@ export const blogs = [
 					function is run when the microcontroller starts while the <code>loop</code> function is run on a
 					loop.
 				</p>
-				<h3 id="step-6-connecting-the-dht-sensor">Step 6: Connecting the DHT sensor</h3>
+				<h2 id="step-6-connecting-the-dht-sensor">Step 6: Connecting the DHT sensor</h2>
 				<p>
 					After confirming that the light starts blinking, you can move on to the second part of the project.
 					This will be the final bit of wiring needed.
@@ -1744,7 +1901,7 @@ export const blogs = [
 				</p>
 				<blockquote>Figure 4: Full circuit with LED and DHT sensor</blockquote>
 
-				<h3 id="step-7-write-more-code-for-the-dht-sensor">Step 7: Write more code for the DHT sensor</h3>
+				<h2 id="step-7-write-more-code-for-the-dht-sensor">Step 7: Write more code for the DHT sensor</h2>
 				<p>
 					Luckily, the DHT sensor is a digital sensor. This means it sends its data as a stream of ones and
 					zeros. There are also many sensors that work with analog signals. These are actually quite common,
@@ -1790,14 +1947,14 @@ export const blogs = [
 				</p>
 				<blockquote>Figure 5: Full code with DHT sensor and LED</blockquote>
 
-				<h3 id="step-6-test-the-implementation">Step 6: Test the implementation</h3>
+				<h2 id="step-6-test-the-implementation">Step 6: Test the implementation</h2>
 				<p>
 					After uploading and running the code, the project should be complete. It’s always a good idea to
 					test it, though. Try warming up the sensor and see if the light turns on. One simple way to do this
 					is by slightly lowering the temperature threshold in the code and then warming the sensor with your
 					hand.
 				</p>
-				<h3 id="step-7-enjoy-your-creation">Step 7: Enjoy your creation</h3>
+				<h2 id="step-7-enjoy-your-creation">Step 7: Enjoy your creation</h2>
 				<p>
 					The most important part now is to enjoy what you have just made! You just created a temperature
 					sensor with a small warning light that looks something like this
@@ -2097,7 +2254,7 @@ export const blogs = [
 				</ul>
 				<h2 id="data-model">Data model</h2>
 				<p>Inside ZenuwNet there are two main things to keep in mind: Datasets and Models.</p>
-				<h3 id="datasets">Datasets</h3>
+				<h2 id="datasets">Datasets</h2>
 				<p>
 					Datasets represent the training data. You can start by choosing one of the example datasets. Once
 					you get the hang of it, you can even add your own.
@@ -2123,7 +2280,7 @@ export const blogs = [
 						</p>
 					</li>
 				</ul>
-				<h3 id="models">Models</h3>
+				<h2 id="models">Models</h2>
 				<p>
 					Models are the actual neural networks. You create a model based on a dataset. The input and output
 					neurons are automatically set based on the dataset, but you can customize a few other things:
@@ -2211,9 +2368,9 @@ export const blogs = [
 					Well, they’re quite simple at their core. However, when you put a lot of simple things together,
 					they can start to seem overwhelming.
 				</p>
-				<h3 id="-the-first-neural-network-">
+				<h2 id="-the-first-neural-network-">
 					<strong>The First Neural Network</strong>
-				</h3>
+				</h2>
 				<p>
 					The first neural network in IT was theorized by{' '}
 					<a href="https://en.wikipedia.org/wiki/Frank_Rosenblatt" target="_blank">
@@ -2239,9 +2396,9 @@ export const blogs = [
 					</a>
 					. A budget phone today has more computational power than the computers that sent people to the moon.
 				</p>
-				<h3 id="-how-does-a-neural-network-work-">
+				<h2 id="-how-does-a-neural-network-work-">
 					<strong>How Does a Neural Network Work?</strong>
-				</h3>
+				</h2>
 				<p>
 					As mentioned before, a neural network is fundamentally simple. It takes in input values performs
 					some multiplication on these input values and gets an output value. For example let’s say we want to
@@ -2279,9 +2436,9 @@ export const blogs = [
 					</a>{' '}
 					to learn more.
 				</p>
-				<h3 id="-ai-terms-">
+				<h2 id="-ai-terms-">
 					<strong>AI Terms</strong>
-				</h3>
+				</h2>
 				<p>Now that we’ve covered the basics, let’s go over some key terms used in neural networks:</p>
 				<ul>
 					<li>
@@ -2377,9 +2534,9 @@ export const blogs = [
 						alt="Simple Neural Network"
 					/>
 				</p>
-				<h3 id="-what-can-be-done-">
+				<h2 id="-what-can-be-done-">
 					<strong>What Can Be Done?</strong>
-				</h3>
+				</h2>
 				<p>
 					After reading this blog, you hopefully have a better understanding of neural networks and how they
 					classify data. Even if you’re not a programmer, you might now feel more comfortable discussing the
@@ -2395,9 +2552,9 @@ export const blogs = [
 					Whether you just want to understand neural networks better or start experimenting with code, this
 					knowledge gives you a solid foundation to explore further.
 				</p>
-				<h3 id="-conclusion-">
+				<h2 id="-conclusion-">
 					<strong>Conclusion</strong>
-				</h3>
+				</h2>
 				<p>
 					I hope this blog has made neural networks easier to understand and has sparked your interest in
 					training one yourself. This technology is set to revolutionize industries in the coming years, and
@@ -2460,7 +2617,7 @@ export const blogs = [
 					server. A DNS server is a system that holds a large database of human-readable domain names like{' '}
 					<code>google.com</code> and <code>amazon.com</code> and maps them to their respective IP addresses.
 				</p>
-				<h3 id="how-is-the-dns-server-found-">How Is the DNS Server Found?</h3>
+				<h2 id="how-is-the-dns-server-found-">How Is the DNS Server Found?</h2>
 				<p>
 					Your device is typically configured with a default DNS server. Common examples include{' '}
 					<strong>1.1.1.1</strong> for{' '}
@@ -2470,7 +2627,7 @@ export const blogs = [
 					DNS server and <strong>8.8.8.8</strong> for Google&#39;s DNS server. If a device does not have a DNS
 					server manually set, it often receives one automatically from the network’s DHCP server.
 				</p>
-				<h3 id="how-does-the-request-reach-the-dns-server-">How Does the Request Reach the DNS Server?</h3>
+				<h2 id="how-does-the-request-reach-the-dns-server-">How Does the Request Reach the DNS Server?</h2>
 				<p>
 					Before even reaching the DNS server, the request must pass through multiple layers of the OSI model:
 				</p>
@@ -2593,7 +2750,7 @@ export const blogs = [
 					multiple devices to share a single public IP address while keeping their internal local IPs
 					separate.
 				</p>
-				<h3 id="how-are-ip-addresses-assigned-">How Are IP Addresses Assigned?</h3>
+				<h2 id="how-are-ip-addresses-assigned-">How Are IP Addresses Assigned?</h2>
 				<p>
 					IP addresses are automatically assigned by a{' '}
 					<strong>Dynamic Host Configuration Protocol (DHCP)</strong> server. This server ensures each device
@@ -2654,7 +2811,7 @@ export const blogs = [
 					experiencing exciting growth that you can achieve with a job requiring just a bachelor&#39;s
 					degree.{' '}
 				</p>
-				<h3 id="getting-my-bachelor-s-degree">Getting my bachelor&#39;s degree</h3>
+				<h2 id="getting-my-bachelor-s-degree">Getting my bachelor&#39;s degree</h2>
 				<p>
 					Most people, even if they had the intention to pursue a master&#39;s degree, end up not doing it. I
 					would like to argue, however, that taking a break between your bachelor&#39;s and master&#39;s
@@ -2667,7 +2824,7 @@ export const blogs = [
 					the knowledge I have attained while getting my bachelor&#39;s degree I have lost, sometimes I have
 					to spend time refamiliarising myself with things that I had multiple courses about.
 				</p>
-				<h3 id="new-perspective-through-working">New perspective through working</h3>
+				<h2 id="new-perspective-through-working">New perspective through working</h2>
 				<p>
 					After university, I started working right away. One big difference between work and university is
 					that the effort you put in is more directly rewarded. If you work hard for a year, you are more
@@ -2686,7 +2843,7 @@ export const blogs = [
 					time on fun projects, and reading interesting articles. Of course I still spend time relaxing and
 					playing some video games and having fun with friends, but I dialed it down a bit.
 				</p>
-				<h3 id="going-back-to-university">Going back to university</h3>
+				<h2 id="going-back-to-university">Going back to university</h2>
 				<p>
 					This mindset carried over when I returned to university for my master&#39;s, and it has made a huge
 					difference. Compared to my bachelor&#39;s, I am much more motivated now to dive deeply into every
@@ -2695,7 +2852,7 @@ export const blogs = [
 					to understand the deeper workings of a subject. I want to know not just the facts but also why these
 					facts are true and what they mean.
 				</p>
-				<h3 id="my-advice">My advice</h3>
+				<h2 id="my-advice">My advice</h2>
 				<p>
 					If you have a bachelor&#39;s degree but not a master&#39;s, and you’re at a point in your life where
 					big changes are still an option, I would encourage you to consider taking this step. Many companies
@@ -2813,7 +2970,7 @@ export const blogs = [
 					mini challenge to try one of the new options that the technologies within the frontend world bring.
 					This time I went from Astro.js to Solid.js.
 				</p>
-				<h3 id="why-solid-js">Why Solid.js</h3>
+				<h2 id="why-solid-js">Why Solid.js</h2>
 				<p>
 					Solid.js is a very minimalist framework. I’ve seen many benchmarks over the years comparing the
 					speeds of different frameworks, and Solid.js has always been at the top (Astro.js is also very
@@ -2826,7 +2983,7 @@ export const blogs = [
 					When starting with a fresh setup, you often don’t encounter big problems, so I can’t speak about
 					this for Solid.js yet, but the community does seem bigger.
 				</p>
-				<h3 id="why-rebuilding">Why Rebuilding</h3>
+				<h2 id="why-rebuilding">Why Rebuilding</h2>
 				<p>
 					A portfolio website is a very easy and simple project. It doesn’t require a deep understanding of a
 					framework to build but just enough to be able to make some pretty cool stuff. This is why rebuilding
@@ -2837,7 +2994,7 @@ export const blogs = [
 					you want, and it will result in you being able to boast that you built your website in the newest,
 					hottest, most modern stack.
 				</p>
-				<h3 id="lessons-learned">Lessons Learned</h3>
+				<h2 id="lessons-learned">Lessons Learned</h2>
 				<p>
 					What really stood out with Solid.js this time around was how much optimization was included.
 					Features like fine-grained reactivity and efficient rendering are already included automatically, so
@@ -2855,7 +3012,7 @@ export const blogs = [
 					On top of that, I liked how familiar the syntax was, it’s very similar to React.js. It cost me less
 					time to figure out how to do things and I could spend more time actually building.
 				</p>
-				<h3 id="conclusion">Conclusion</h3>
+				<h2 id="conclusion">Conclusion</h2>
 				<p>
 					I think it’s good for all developers who have some free time on their hands to take these small
 					challenges. They’re fun, increase your knowledge, and they give you another excuse to experiment
@@ -2908,7 +3065,7 @@ export const blogs = [
 						<p>Responding to input: The model generates a response based on the user&#39;s input.</p>
 					</li>
 				</ul>
-				<h3 id="training">Training</h3>
+				<h2 id="training">Training</h2>
 				<p>
 					A large language model needs to be trained on a huge amount of data to be able to answer a wide
 					range of questions. We want it to handle not just questions about cars but also about animals,
@@ -2923,13 +3080,13 @@ export const blogs = [
 					think about it as a row in an excel sheet where each column is a number in the vector and each row
 					is a separate vector. A vector is just a combination of multiple numbers.
 				</p>
-				<h3 id="encoding">Encoding</h3>
+				<h2 id="encoding">Encoding</h2>
 				<p>
 					When we give input to a language model, like “Explain how an apple grows on a tree,” it’s in human
 					readable text. But computers are better with numbers, so encoding converts this input into numerical
 					data that the model can process efficiently.
 				</p>
-				<h3 id="pattern-matching">Pattern matching</h3>
+				<h2 id="pattern-matching">Pattern matching</h2>
 				<p>
 					Once the input is converted to vectors (combinations of numbers), the model looks for patterns in
 					these vectors to understand the context of the question. For example, it identifies the relationship
@@ -2938,7 +3095,7 @@ export const blogs = [
 					model was trained on a book about growing fruits, it can pull knowledge from that to respond to the
 					user.
 				</p>
-				<h3 id="decoding-">Decoding</h3>
+				<h2 id="decoding-">Decoding</h2>
 				<p>
 					The model’s response is initially generated as numerical data, which is better for computational
 					purposes. But humans aren&#39;t great at reading long strings of numbers, so decoding converts this
@@ -3226,7 +3383,7 @@ export const blogs = [
 					has become a rarity. We can scroll through social media, watch videos on YouTube, or read the news.
 					These are all convenient ways to avoid feeling bored. But is this actually a good thing?
 				</p>
-				<h3 id="the-benefits-of-being-bored">The Benefits of Being Bored</h3>
+				<h2 id="the-benefits-of-being-bored">The Benefits of Being Bored</h2>
 				<p>
 					It might not feel great to be bored, but two amazing things happen when you allow yourself to be
 					bored: you have time to think and be creative. Some of the greatest ideas in the world have come
@@ -3234,21 +3391,21 @@ export const blogs = [
 					been avoiding, like doing the dishes, cleaning the house, or finally picking up that book you’ve
 					been meaning to finish.
 				</p>
-				<h3 id="accepting-boredom">Accepting Boredom</h3>
+				<h2 id="accepting-boredom">Accepting Boredom</h2>
 				<p>
 					It&#39;s beneficial to be bored sometimes. Putting your phone away for a few hours when you have
 					nothing to do and simply sitting with your thoughts might seem like wasting time at first. However,
 					you&#39;ll likely find yourself doing something productive. And the best part? You’ll enjoy it
 					because it’s a meaningful way to combat boredom.
 				</p>
-				<h3 id="combating-boredom-with-productive-activities">Combating Boredom with Productive Activities</h3>
+				<h2 id="combating-boredom-with-productive-activities">Combating Boredom with Productive Activities</h2>
 				<p>
 					This blog isn’t necessarily in favour of boredom. Rather, it’s about realising that fighting boredom
 					with mindless scrolling or watching yet another random YouTube video isn’t the best solution.
 					Instead, filling that time with something useful, something that engages your mind or helps you
 					accomplish a task. It can lead to great things.
 				</p>
-				<h3 id="conclusion">Conclusion</h3>
+				<h2 id="conclusion">Conclusion</h2>
 				<p>
 					I’ve already started to embrace this idea. Sometimes, I just sit and allow myself to be bored for a
 					while. I’ll place my phone somewhere out of reach and live in my mind for a bit. This often gives
@@ -4802,7 +4959,7 @@ export const blogs = [
 					following all rules religiously most likely will end up having you not follow them at all anymore in
 					the long-term.
 				</p>
-				<h3 id="code-splitting">Code splitting</h3>
+				<h2 id="code-splitting">Code splitting</h2>
 				<p>
 					We have all learnt initially that functions used so logic does not have to repeated, this of course
 					is a very important use case for functions!
@@ -4848,21 +5005,21 @@ export const blogs = [
 					I recommend watching the video from
 					<a href="https://www.youtube.com/watch?v=CFRhGnuXG-4"> CodeAesthetic</a> to know more!
 				</p>
-				<h3 id="variable-and-function-names">Variable and function names</h3>
+				<h2 id="variable-and-function-names">Variable and function names</h2>
 				<p>
 					Naming in programming should describe what the variable will be used for or what the function should
 					do. Renaming variables and functions after the program is functional is an important part of keeping
 					everything nice and readable. Variable names should include their context and what they are used
 					for.
 				</p>
-				<h3 id="linting">Linting</h3>
+				<h2 id="linting">Linting</h2>
 				<p>
 					Linting is an integral part of writing qualitative code. Using tools like <code>eslint</code> for
 					javascript are amazing to achieve this task. It is important however to set the right linting tools
 					and not be too nice on yourself when creating the configuration of this linter. Strict rules will
 					reduce the speed at which you can write code but will in the longterm create better quality of code.
 				</p>
-				<h3 id="comments">Comments</h3>
+				<h2 id="comments">Comments</h2>
 				<p>
 					Comments are important for describing function or variables which need more context than can be
 					given in a single name. If the rules above are adhered however comments should not be necessary for
@@ -4870,7 +5027,7 @@ export const blogs = [
 					for all your code, but a sustainable way if there is a time constraint is to at least write it for
 					all complex functions where the context might be a little unclear later on.
 				</p>
-				<h3 id="fix-problem-quick-and-dirty-then-refactor">Fix problem quick and dirty, then refactor</h3>
+				<h2 id="fix-problem-quick-and-dirty-then-refactor">Fix problem quick and dirty, then refactor</h2>
 				<p>
 					This is one of my favourite rules which I apply to almost all my problems. If there is a problem it
 					is not a crime to create some code in the quick and dirty way to fix the problem. However the

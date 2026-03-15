@@ -55,6 +55,17 @@ export function getTagColor(tag) {
 
 export const blogs = [
 	{
+		id: 34,
+		title: 'Agentic coding, a new layer of abstraction 🤖',
+		description: `
+				AI agents are advancing fast, while the introduction of ChatGPT was already a massive shift in how a lot of work was done, the improvements have kept coming. AI agents are doing more and more of the work and becoming impressively good at it as well. I think it is time to stop criticising using a lot of AI in your work and start thinking of ways to streamline using these agents. How to create guardrails so these agents can be used to effectively make us do more work while not generating AI slop.
+			`,
+		keywords: ['ai', 'agentic coding', 'development', 'productivity'],
+		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
+		date: '2026-03-15',
+		link: '/blogs/agentic-coding',
+	},
+	{
 		id: 33,
 		title: 'The challenges of European Cloud ☁️',
 		description: `

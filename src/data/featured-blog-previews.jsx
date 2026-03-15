@@ -55,6 +55,17 @@ export function getTagColor(tag) {
 
 export const blogs = [
 	{
+		id: 34,
+		title: 'Agentic coding, a new layer of abstraction 🤖',
+		description: `
+				AI agents are advancing fast, while the introduction of ChatGPT was already a massive shift in how a lot of work was done, the improvements have kept coming. AI agents are doing more and more of the work and becoming impressively good at it as well. I think it is time to stop criticising using a lot of AI in your work and start thinking of ways to streamline using these agents. How to create guardrails so these agents can be used to effectively make us do more work while not generating AI slop.
+			`,
+		keywords: ['ai', 'agentic coding', 'development', 'productivity'],
+		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
+		date: '2026-03-15',
+		link: '/blogs/agentic-coding',
+	},
+	{
 		id: 33,
 		title: 'The challenges of European Cloud ☁️',
 		description: `
@@ -85,17 +96,6 @@ export const blogs = [
 		tags: [BlogTags.Innovation, BlogTags.Product, BlogTags.Development],
 		date: '2025-12-04',
 		link: '/blogs/self-hosting-services',
-	},
-	{
-		id: 30,
-		title: 'Spectrum Sensing using Cognitive Radio 📡',
-		description: `
-			Radio signal congestion in Wi-Fi networks is becoming a critical issue as current channel selection methods struggle to keep up with demand. A novel solution utilizes neural networks to "listen" to the frequency spectrum and intelligently identify the best available channels for data transmission. This approach, particularly when using a Convolutional Support Vector Machine, has demonstrated over 90% accuracy in optimizing wireless connectivity and reducing interference.
-		`,
-		keywords: ['radio signal', 'cognitive radio', 'spectrum sensing', 'neural networks'],
-		tags: [BlogTags.Development, BlogTags.Innovation],
-		date: '2025-11-15',
-		link: '/blogs/spectrum-sensing-cognitive-radio',
 	},
 ];
 
