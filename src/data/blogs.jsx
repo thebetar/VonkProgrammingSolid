@@ -67,6 +67,15 @@ export const blogs = [
 					significant. This is why i strongly recommend to write a rigorous rules file to force adherence to
 					your standards.
 				</p>
+
+				<p>
+					<img src="/assets/images/blogs/agentic-coding/agents-md.png" alt="Agents.md illustration" />
+				</p>
+
+				<blockquote>
+					<p>Example of a simple agents.md file</p>
+				</blockquote>
+
 				<h2 id="the-resurgence-of-unit-testing">The Resurgence of Unit Testing</h2>
 				<p>
 					I have noticed that the way we write unit tests usually depends on the size of the company. In
@@ -81,6 +90,15 @@ export const blogs = [
 					agents to write more code which, let’s be honest, in a lazy moment is easy to miss certain
 					inconsistencies.
 				</p>
+
+				<p>
+					<img src="/assets/images/blogs/agentic-coding/unit-testing.png" alt="Unit testing illustration" />
+				</p>
+
+				<blockquote>
+					<p>Example of a Pytest run</p>
+				</blockquote>
+
 				<h2 id="learning-the-fundamentals-in-an-ai-world">Learning the Fundamentals in an AI World</h2>
 				<p>
 					While agents are remarkably effective, it is important to understand how to structure a project and
@@ -130,6 +148,18 @@ export const blogs = [
 					does not matter if your private dashboard that shows the values of your sensors is done this weekend
 					or by the end of this month.
 				</p>
+
+				<p>
+					<img
+						src="/assets/images/blogs/agentic-coding/side-projects.webp"
+						alt="Github public side projects"
+					/>
+				</p>
+
+				<blockquote>
+					<p>My (public) side projects on Github</p>
+				</blockquote>
+
 				<h2 id="looking-ahead">Looking Ahead</h2>
 				<p>
 					We might not be at the point of total transformation yet, but the models are becoming remarkably

@@ -21,16 +21,16 @@ export const products = [
 		productLink: '/products/monitoring',
 		logo: <MonitorSvg width={48} height={48} />,
 	},
-	{
-		id: 'container-hosting',
-		title: 'Container Hosting',
-		titleShort: 'Hosting',
-		descriptionShort:
-			'VonkProgramming provides affordable and reliable container hosting solutions without the lock-in. Perfect for side projects that need flexible, short-term deployments without long-term contracts.',
-		contactLink: '/contact/container-hosting',
-		productLink: '/products/container-hosting',
-		logo: <ServerSvg width={48} height={48} />,
-	},
+	// {
+	// 	id: 'container-hosting',
+	// 	title: 'Container Hosting',
+	// 	titleShort: 'Hosting',
+	// 	descriptionShort:
+	// 		'VonkProgramming provides affordable and reliable container hosting solutions without the lock-in. Perfect for side projects that need flexible, short-term deployments without long-term contracts.',
+	// 	contactLink: '/contact/container-hosting',
+	// 	productLink: '/products/container-hosting',
+	// 	logo: <ServerSvg width={48} height={48} />,
+	// },
 	{
 		id: 'git-backup',
 		title: 'Git Backup Service',
@@ -51,14 +51,14 @@ export const products = [
 		productLink: '/products/custom-solutions',
 		logo: <CodeSvg width={48} height={48} />,
 	},
-	{
-		id: 'workflow-automation',
-		title: 'Workflow Automation',
-		titleShort: 'Automation',
-		descriptionShort:
-			'Stop wasting time on repetitive tasks. Our custom workflow automation solutions streamline your business processes, reducing errors and freeing up your team to focus on high-value work.',
-		contactLink: '/contact/workflow-automation',
-		productLink: '/products/workflow-automation',
-		logo: <LightBulbSvg width={48} height={48} />,
-	},
+	// {
+	// 	id: 'workflow-automation',
+	// 	title: 'Workflow Automation',
+	// 	titleShort: 'Automation',
+	// 	descriptionShort:
+	// 		'Stop wasting time on repetitive tasks. Our custom workflow automation solutions streamline your business processes, reducing errors and freeing up your team to focus on high-value work.',
+	// 	contactLink: '/contact/workflow-automation',
+	// 	productLink: '/products/workflow-automation',
+	// 	logo: <LightBulbSvg width={48} height={48} />,
+	// },
 ];
