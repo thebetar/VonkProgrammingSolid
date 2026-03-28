@@ -62,6 +62,10 @@ const routes = [
 		component: lazy(() => import('./pages/ContactPage')),
 	},
 	{
+		path: '/resume',
+		component: lazy(() => import('./pages/ResumePage')),
+	},
+	{
 		path: '*',
 		component: NotFoundPage,
 	},

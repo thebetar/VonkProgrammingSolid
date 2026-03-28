@@ -17,6 +17,7 @@ export const skills = [
 		logo: '/assets/svg/dutch.svg',
 		link: 'https://en.wikipedia.org/wiki/Dutch_language',
 		type: SkillType.LANGUAGE,
+		cv: true,
 	},
 	{
 		title: 'English',
@@ -25,6 +26,7 @@ export const skills = [
 		logo: '/assets/svg/english.svg',
 		link: 'https://en.wikipedia.org/wiki/English_language',
 		type: SkillType.LANGUAGE,
+		cv: true,
 	},
 	{
 		title: 'Polish',
@@ -33,6 +35,7 @@ export const skills = [
 		logo: '/assets/svg/polish.svg',
 		link: 'https://en.wikipedia.org/wiki/Polish_language',
 		type: SkillType.LANGUAGE,
+		cv: false,
 	},
 	{
 		title: 'Javascript',
@@ -42,6 +45,7 @@ export const skills = [
 		link: 'https://www.javascript.com/',
 		featured: true,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: true,
 	},
 	{
 		title: 'Python',
@@ -51,6 +55,7 @@ export const skills = [
 		link: 'https://www.python.org/',
 		featured: true,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: true,
 	},
 	{
 		title: 'Typescript',
@@ -60,6 +65,7 @@ export const skills = [
 		link: 'https://www.typescriptlang.org/',
 		featured: false,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: true,
 	},
 	{
 		title: 'HTML',
@@ -69,6 +75,7 @@ export const skills = [
 		link: 'https://html.spec.whatwg.org/',
 		featured: false,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: true,
 	},
 	{
 		title: 'CSS',
@@ -78,6 +85,7 @@ export const skills = [
 		link: 'https://www.w3.org/Style/CSS/Overview.en.html',
 		featured: false,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: true,
 	},
 	{
 		title: 'SQL',
@@ -87,6 +95,7 @@ export const skills = [
 		link: 'https://www.php.net/',
 		featured: false,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: true,
 	},
 	{
 		title: 'PHP',
@@ -96,6 +105,7 @@ export const skills = [
 		link: 'https://www.php.net/',
 		featured: false,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: true,
 	},
 	{
 		title: 'Go',
@@ -105,6 +115,7 @@ export const skills = [
 		link: 'https://golang.org/',
 		featured: false,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: false,
 	},
 	{
 		title: 'C++',
@@ -114,6 +125,7 @@ export const skills = [
 		link: 'https://isocpp.org/',
 		featured: false,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: false,
 	},
 	{
 		title: 'C',
@@ -123,6 +135,7 @@ export const skills = [
 		link: 'https://en.wikipedia.org/wiki/C_(programming_language)',
 		featured: false,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: false,
 	},
 	{
 		title: 'Matlab',
@@ -132,6 +145,7 @@ export const skills = [
 		link: 'https://www.mathworks.com/products/matlab.html',
 		featured: false,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: false,
 	},
 	{
 		title: 'Java',
@@ -141,6 +155,7 @@ export const skills = [
 		link: 'https://www.java.com/',
 		featured: false,
 		type: SkillType.PROGRAMMING_LANGUAGE,
+		cv: false,
 	},
 	{
 		title: 'MongoDB',
@@ -150,6 +165,7 @@ export const skills = [
 		link: 'https://www.mongodb.com/',
 		featured: true,
 		type: SkillType.DATABASE,
+		cv: true,
 	},
 	{
 		title: 'SQLite',
@@ -158,6 +174,7 @@ export const skills = [
 		logo: '/assets/svg/sqlite.svg',
 		featured: false,
 		type: SkillType.DATABASE,
+		cv: false,
 	},
 	{
 		title: 'MySQL',
@@ -167,6 +184,7 @@ export const skills = [
 		link: 'https://www.mysql.com/',
 		featured: false,
 		type: SkillType.DATABASE,
+		cv: true,
 	},
 	{
 		title: 'Redis',
@@ -176,6 +194,7 @@ export const skills = [
 		link: 'https://redis.io/',
 		featured: false,
 		type: SkillType.DATABASE,
+		cv: true,
 	},
 	{
 		title: 'Postgres',
@@ -185,6 +204,7 @@ export const skills = [
 		link: 'https://www.postgresql.org/',
 		featured: false,
 		type: SkillType.DATABASE,
+		cv: true,
 	},
 	{
 		title: 'Vue.js',
@@ -194,6 +214,7 @@ export const skills = [
 		link: 'https://vuejs.org/',
 		featured: true,
 		type: SkillType.FRAMEWORK,
+		cv: true,
 	},
 	{
 		title: 'Express.js',
@@ -203,6 +224,7 @@ export const skills = [
 		link: 'https://expressjs.com/',
 		featured: true,
 		type: SkillType.FRAMEWORK,
+		cv: true,
 	},
 	{
 		title: 'React',
@@ -212,6 +234,7 @@ export const skills = [
 		link: 'https://reactjs.org/',
 		featured: true,
 		type: SkillType.FRAMEWORK,
+		cv: true,
 	},
 	{
 		title: 'Lit',
@@ -221,6 +244,7 @@ export const skills = [
 		link: 'https://lit.dev/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: true,
 	},
 	{
 		title: 'Solid.js',
@@ -230,6 +254,7 @@ export const skills = [
 		link: 'https://solidjs.com/',
 		featured: true,
 		type: SkillType.FRAMEWORK,
+		cv: true,
 	},
 	{
 		title: 'Flask',
@@ -239,6 +264,7 @@ export const skills = [
 		link: 'https://flask.palletsprojects.com/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: false,
 	},
 	{
 		title: 'Angular',
@@ -248,6 +274,7 @@ export const skills = [
 		link: 'https://angular.io/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: true,
 	},
 	{
 		title: 'Ionic',
@@ -257,6 +284,7 @@ export const skills = [
 		link: 'https://ionicframework.com/',
 		featured: true,
 		type: SkillType.FRAMEWORK,
+		cv: false,
 	},
 	{
 		title: 'Laravel',
@@ -266,6 +294,7 @@ export const skills = [
 		link: 'https://laravel.com/',
 		featured: true,
 		type: SkillType.FRAMEWORK,
+		cv: true,
 	},
 	{
 		title: 'Django',
@@ -275,6 +304,7 @@ export const skills = [
 		link: 'https://www.djangoproject.com/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: true,
 	},
 	{
 		title: 'React Native',
@@ -284,6 +314,7 @@ export const skills = [
 		link: 'https://reactnative.dev/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: false,
 	},
 	{
 		title: 'Electron',
@@ -293,6 +324,7 @@ export const skills = [
 		link: 'https://www.electronjs.org/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: false,
 	},
 	{
 		title: 'Astro',
@@ -302,6 +334,7 @@ export const skills = [
 		link: 'https://astro.build/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: false,
 	},
 	{
 		title: 'Svelte',
@@ -311,6 +344,7 @@ export const skills = [
 		link: 'https://svelte.dev/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: false,
 	},
 	{
 		title: 'NiceGUI',
@@ -320,6 +354,7 @@ export const skills = [
 		link: 'https://nicegui.io/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: false,
 	},
 	{
 		title: 'Nuxt.js',
@@ -329,6 +364,7 @@ export const skills = [
 		link: 'https://nuxt.com/',
 		featured: true,
 		type: SkillType.FRAMEWORK,
+		cv: false,
 	},
 	{
 		title: 'Nest.js',
@@ -338,6 +374,7 @@ export const skills = [
 		link: 'https://nestjs.com/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: false,
 	},
 	{
 		title: 'Strapi',
@@ -347,6 +384,7 @@ export const skills = [
 		link: 'https://www.strapi.io/',
 		featured: false,
 		type: SkillType.FRAMEWORK,
+		cv: false,
 	},
 	{
 		title: 'Git',
@@ -356,6 +394,7 @@ export const skills = [
 		link: 'https://git-scm.com/',
 		featured: true,
 		type: SkillType.TOOL,
+		cv: true,
 	},
 	{
 		title: 'Sass',
@@ -365,6 +404,7 @@ export const skills = [
 		link: 'https://sass-lang.com/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Klaviyo',
@@ -374,6 +414,7 @@ export const skills = [
 		link: 'https://klaviyo.com/',
 		featured: true,
 		type: SkillType.TOOL,
+		cv: true,
 	},
 	{
 		title: 'Jest',
@@ -383,6 +424,7 @@ export const skills = [
 		link: 'https://jestjs.io/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: true,
 	},
 	{
 		title: 'ESLint',
@@ -392,6 +434,7 @@ export const skills = [
 		link: 'https://eslint.org/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: true,
 	},
 	{
 		title: 'npm',
@@ -401,6 +444,7 @@ export const skills = [
 		link: 'https://www.npmjs.com/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Chart.js',
@@ -410,6 +454,7 @@ export const skills = [
 		link: 'https://www.chartjs.org/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Cypress',
@@ -419,6 +464,7 @@ export const skills = [
 		link: 'https://www.cypress.io/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: true,
 	},
 	{
 		title: 'Pandas',
@@ -428,6 +474,7 @@ export const skills = [
 		link: 'https://pandas.pydata.org/',
 		featured: true,
 		type: SkillType.TOOL,
+		cv: true,
 	},
 	{
 		title: 'Puppeteer',
@@ -437,6 +484,7 @@ export const skills = [
 		link: 'https://pptr.dev/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Playwright',
@@ -446,6 +494,7 @@ export const skills = [
 		link: 'https://playwright.dev/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: true,
 	},
 	{
 		title: 'PyTorch',
@@ -455,6 +504,7 @@ export const skills = [
 		link: 'https://pytorch.org/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'PySpark',
@@ -464,6 +514,7 @@ export const skills = [
 		link: 'https://spark.apache.org/docs/latest/api/python/index.html',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Prisma',
@@ -473,6 +524,7 @@ export const skills = [
 		link: 'https://www.prisma.io/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Redux',
@@ -482,6 +534,7 @@ export const skills = [
 		link: 'https://redux.js.org/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'i18next',
@@ -491,6 +544,7 @@ export const skills = [
 		link: 'https://www.i18next.com/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Stripe',
@@ -500,6 +554,7 @@ export const skills = [
 		link: 'https://stripe.com/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Payload',
@@ -509,6 +564,7 @@ export const skills = [
 		link: 'https://payloadcms.com/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Vim',
@@ -518,6 +574,7 @@ export const skills = [
 		link: 'https://www.vim.org/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Langchain',
@@ -527,6 +584,7 @@ export const skills = [
 		link: 'https://langchain.com/',
 		featured: false,
 		type: SkillType.TOOL,
+		cv: false,
 	},
 	{
 		title: 'Docker',
@@ -536,6 +594,7 @@ export const skills = [
 		link: 'https://www.docker.com/',
 		featured: true,
 		type: SkillType.INFRASTRUCTURE,
+		cv: true,
 	},
 
 	{
@@ -546,6 +605,7 @@ export const skills = [
 		link: 'https://www.nginx.com/',
 		featured: false,
 		type: SkillType.INFRASTRUCTURE,
+		cv: true,
 	},
 	{
 		title: 'Github',
@@ -555,6 +615,7 @@ export const skills = [
 		link: 'https://github.com/',
 		featured: false,
 		type: SkillType.INFRASTRUCTURE,
+		cv: true,
 	},
 	{
 		title: 'Github Actions',
@@ -564,6 +625,7 @@ export const skills = [
 		link: 'https://github.com/features/actions',
 		featured: false,
 		type: SkillType.INFRASTRUCTURE,
+		cv: true,
 	},
 	{
 		title: 'Apache',
@@ -573,6 +635,7 @@ export const skills = [
 		link: 'https://httpd.apache.org/',
 		featured: false,
 		type: SkillType.INFRASTRUCTURE,
+		cv: false,
 	},
 	{
 		title: 'Azure DevOps',
@@ -582,6 +645,7 @@ export const skills = [
 		link: 'https://azure.microsoft.com/en-us/services/devops/',
 		featured: false,
 		type: SkillType.INFRASTRUCTURE,
+		cv: true,
 	},
 	{
 		title: 'AWS',
@@ -591,6 +655,7 @@ export const skills = [
 		link: 'https://aws.amazon.com/',
 		featured: false,
 		type: SkillType.INFRASTRUCTURE,
+		cv: true,
 	},
 	{
 		title: 'Jenkins',
@@ -600,6 +665,7 @@ export const skills = [
 		link: 'https://www.jenkins.io/',
 		featured: false,
 		type: SkillType.INFRASTRUCTURE,
+		cv: false,
 	},
 	{
 		title: 'Lightspeed',
@@ -609,6 +675,7 @@ export const skills = [
 		link: 'https://www.lightspeedhq.com/',
 		featured: false,
 		type: SkillType.ECOMMERCE,
+		cv: false,
 	},
 	{
 		title: 'CCVShop',
@@ -618,6 +685,7 @@ export const skills = [
 		link: 'https://www.ccvshop.nl/',
 		featured: false,
 		type: SkillType.ECOMMERCE,
+		cv: false,
 	},
 	{
 		title: 'Magento',
@@ -627,6 +695,7 @@ export const skills = [
 		link: 'https://magento.com/',
 		featured: false,
 		type: SkillType.ECOMMERCE,
+		cv: false,
 	},
 	{
 		title: 'Wordpress',
@@ -636,6 +705,7 @@ export const skills = [
 		link: 'https://wordpress.org/',
 		featured: false,
 		type: SkillType.ECOMMERCE,
+		cv: false,
 	},
 	{
 		title: 'node.js',
@@ -645,6 +715,7 @@ export const skills = [
 		link: 'https://nodejs.org/',
 		featured: true,
 		type: SkillType.OTHER,
+		cv: true,
 	},
 	{
 		title: 'Linux',
@@ -654,6 +725,7 @@ export const skills = [
 		link: 'https://www.linux.org/',
 		featured: false,
 		type: SkillType.OTHER,
+		cv: true,
 	},
 	{
 		title: 'Ubuntu',
@@ -663,6 +735,7 @@ export const skills = [
 		link: 'https://ubuntu.com/',
 		featured: false,
 		type: SkillType.OTHER,
+		cv: false,
 	},
 	{
 		title: 'Debian',
@@ -672,6 +745,7 @@ export const skills = [
 		link: 'https://www.debian.org/',
 		featured: false,
 		type: SkillType.OTHER,
+		cv: false,
 	},
 	{
 		title: 'Windows',
@@ -681,5 +755,6 @@ export const skills = [
 		link: 'https://www.microsoft.com/en-us/windows/',
 		featured: false,
 		type: SkillType.OTHER,
+		cv: false,
 	},
 ];

@@ -1,5 +1,5 @@
 import { info } from '@/data/info';
-import { CodeSvg, LightBulbSvg, LinkedInSvg, MailSvg, ShareSvg } from '@/components/Icons';
+import { CodeSvg, LightBulbSvg, LinkedInSvg, MailSvg, ShareSvg, DocumentSvg } from '@/components/Icons';
 
 const { name, jobDescription1, jobDescription2, about, socialMedia, baseUrl } = info;
 
@@ -38,6 +38,15 @@ export default function Hero({ short = false }) {
 					>
 						<MailSvg width={16} height={16} />
 						<span class="text-sm">Get in touch</span>
+					</a>
+
+					<a
+						href="/resume"
+						class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+						aria-label="View resume"
+					>
+						<DocumentSvg width={16} height={16} />
+						<span class="text-sm">View Resume</span>
 					</a>
 
 					<a

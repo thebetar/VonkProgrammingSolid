@@ -9,6 +9,7 @@ export const education = [
 			"My thesis focused on 'Spectrum Sensing using Cognitive Radio,' which allowed me to combine Radio Signal Processing with Machine Learning.",
 			'I received a 5/5 for my thesis and finished my studies with a 4.55/5 GPA.',
 		],
+		cv: true,
 	},
 	{
 		name: 'HBO-ICT, Windesheim Flevoland',
@@ -19,6 +20,7 @@ export const education = [
 			"Bachelor's degree, Software Engineering",
 			'After my highschool I decided to study software engineering at Windesheim Flevoland. I have learned a lot about software engineering and have worked on various projects. I have also done a minor in entrepreneurship.',
 		],
+		cv: true,
 	},
 	{
 		name: 'Cambridge English: C1',
@@ -29,6 +31,7 @@ export const education = [
 			'A certificate proving my English proficiency at the highest level. I have taken the test to prove my English proficiency and to be able to study in English.',
 			'Issued by Cambridge English Language Assessment.',
 		],
+		cv: true,
 	},
 	{
 		name: 'AWS cloud practitioner',
@@ -36,6 +39,7 @@ export const education = [
 		startDate: 'Feb 2021',
 		endDate: 'Feb 2021',
 		description: ['AWS cloud practitioner certification', 'Issued by Amazon Web Services.'],
+		cv: true,
 	},
 	{
 		name: 'Certified scrum master',
@@ -46,6 +50,7 @@ export const education = [
 			'Basic understanding of the scrum framework and how to work and/or lead in a scrum team.',
 			'Issued by ScrumFoundation.',
 		],
+		cv: true,
 	},
 	{
 		name: 'Graph Developer - Associate',
@@ -53,6 +58,7 @@ export const education = [
 		startDate: 'Apr 2022',
 		endDate: 'Apr 2022',
 		description: ['Basic online course learning GraphQL from the Apollo team.', 'Issued by Apollo.'],
+		cv: false,
 	},
 	{
 		name: 'Various Udemy courses',
@@ -63,5 +69,6 @@ export const education = [
 			'I like to keep my skills up to date by taking various courses on Udemy. I have completed courses on Vue.js, React, Node.js, MongoDB, Express.js, and many more.',
 			'Issued by Udemy.',
 		],
+		cv: false,
 	},
 ];

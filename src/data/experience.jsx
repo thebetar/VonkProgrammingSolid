@@ -12,6 +12,7 @@ export const experience = [
 			'I am the lead developer at Mikrocloud, where I work on a platform that allows users to manage Mikrotik RouterOS devices in a custom SD-WAN. I use Laravel for the backend and Nuxt.js for the frontend. Our infrastructure is built on AWS using a microservices architecture. I use Lambda, API Gateway, and SNS to manage communication between different services. My role also involves writing scripts in the RouterOS language to configure routers, which has given me experience with networking and hardware management. We also build various features using AI to improve the platform.',
 		],
 		link: 'https://www.mikrocloud.com/',
+		cv: true,
 	},
 	{
 		name: 'Webshopimporter',
@@ -24,6 +25,7 @@ export const experience = [
 			'As the lead developer at Webshopimporter, I oversee a system that fetches supplier data and maps it into different e-commerce platforms. I am currently leading the migration of our codebase from CodeIgniter to Django, while maintaining parts of the application built on Laravel and MySQL. My work involves using APIs and FTP connections to move data. I work with a wide range of formats and protocols, including JSON, XML, REST, and SOAP, regardless of how complex the documentation is.',
 		],
 		link: 'https://www.webshopimporter.com/',
+		cv: true,
 	},
 	{
 		name: 'Wisepim',
@@ -36,6 +38,7 @@ export const experience = [
 			'I work at Wisepim, which is a growing startup at the forefront of AI technology. I use my experience working with e-commerce APIs to connect and integrate various systems into their platform. The platform is a PIM system that uses AI to enrich and improve product information. Since the company is growing and working with new technology, my role involves building the tools needed to keep up with that growth using Django and RemixJS.',
 		],
 		link: 'https://www.wisepim.com/',
+		cv: true,
 	},
 	{
 		name: 'Swiftsync',
@@ -48,6 +51,7 @@ export const experience = [
 			'I work as a full-stack developer at Swiftsync.ai, where I handle a variety of projects ranging from API integrations to web scraping and frontend development. I use Django, NiceGUI, and React to build the tools needed for the platform. I created an advanced web scraping dashboard that allows for highly configurable data extraction from websites. I also developed a management dashboard for CCVShop, an e-commerce platform in the Netherlands, which makes it much easier to view and multi-edit data. In this role, I use Python to work with platforms like Magento, CCVShop, and WordPress.',
 		],
 		link: 'https://www.swiftsync.ai/',
+		cv: true,
 	},
 	{
 		name: 'Chary Solutions',
@@ -60,6 +64,7 @@ export const experience = [
 			"I am the senior developer at Chary Solutions, where I lead the technical development for integrating Klaviyo with various content management systems that do not have standard integrations. My work focuses on building solutions for tracking and sending event data to Klaviyo, providing email marketers with the tools they needed to improve their campaigns. I use Google Tag Manager for custom tracking cookies and work with platforms like Shopify, WooCommerce, Lightspeed, and CCVShop. I also build internal automations to make the company's operations more efficient.",
 		],
 		link: 'https://www.spar.nl/',
+		cv: true,
 	},
 	{
 		name: 'SPAR',
@@ -72,6 +77,7 @@ export const experience = [
 			'I worked as a data engineer at SPAR Nederland, where I solved data-related questions and problems. I mostly used SQL, Azure, and Python to handle complex challenges related to big data. I worked extensively with the Pandas framework, which gave me a deep understanding of the data manipulations possible with Pandas and NumPy. This role gave me the opportunity to work with a different tech stack than my previous positions, which helped me broaden my skills and become a more flexible developer.',
 		],
 		link: 'https://www.spar.nl/',
+		cv: true,
 	},
 	{
 		name: 'ING',
@@ -84,6 +90,7 @@ export const experience = [
 			"At ING in Amsterdam, I worked as a full-stack developer and a product owner. I used the Lit element framework to build various interfaces used by the bank. I also focused on creating work methodologies to ensure high code quality. This included managing development pipelines, writing my own custom ESLint rules, and performing extensive unit testing. In addition to my development work, I served as a product owner for a period of time. In that role, I managed project timelines, prioritized features, and worked with stakeholders to make decisions about the product's direction.",
 		],
 		link: 'https://www.ing.nl/',
+		cv: true,
 	},
 	{
 		name: 'Quintor',
@@ -96,6 +103,7 @@ export const experience = [
 			'I worked as an IT consultant and trainee at Quintor, where I was involved in software development projects for large clients like ING and various government organizations. During my traineeship, I learned how important code quality is and how to implement it through extensive testing, including unit tests, integration tests, and more specific testing for different use cases. This role taught me the principles of what makes code good and helped me move to the next level as a developer. I applied these testing and linting methodologies throughout all my projects.',
 		],
 		link: 'https://www.quintor.nl/',
+		cv: true,
 	},
 
 	{
@@ -109,6 +117,7 @@ export const experience = [
 			'At SVB, I was a frontend developer working with JavaScript and the Angular framework. This was my first experience with a large organization like the SVB, which is a Dutch government entity. It taught me how project management works within large companies and how to navigate those structures. I learned to implement complex workflows with code quality guarantees, which gave me my first chance to apply the principles I learned during my traineeship at Quintor. A major part of my job was managing a migration from AngularJS to Angular, which required careful planning and a deep understanding of both frameworks. I also managed development pipelines to ensure an efficient workflow and continuous delivery.',
 		],
 		link: 'https://www.svb.nl/',
+		cv: true,
 	},
 	{
 		name: 'J-Tax Automotive',
@@ -121,6 +130,7 @@ export const experience = [
 			"Joining 'J-Tax Automotive' situated in Almere, Flevoland, Netherlands, from June 2021, I undertook the significant responsibility of crafting bespoke software tailored for valuation reports. This marked a pivotal milestone as my first major independent project as a freelancer. The project harnessed the power of Vue.js, ExpressJS, and MongoDB to seamlessly develop a comprehensive solution. The outcome of this endeavor was transformative, as the client now reaps the benefit of generating up to four times the number of reports, highlighting the substantial impact of streamlined and efficient software implementation.",
 		],
 		link: 'https://www.j-taxautomotive.nl/',
+		cv: false,
 	},
 	{
 		name: 'MedWeb',
@@ -133,6 +143,7 @@ export const experience = [
 			"At 'MedWeb' in Hilversum, North Holland, Netherlands, where I was engaged from September 2019 to August 2020, I played a key role in developing a roster application for medical professionals and updating the 'Medspace' application using VueJS/JavaScript, IBM Notes, IBM Domino Designer, CSS, and HTML. During this time, I also focused on enhancing data visualization capabilities by incorporating Chart.js, enabling clients to derive valuable insights from their data. Working closely with LotusScript, I contributed to the application's functionality, translating intricate data into meaningful charts that empowered medical specialists and doctors to make informed decisions based on clear, visualized information.",
 		],
 		link: 'https://www.medweb.nl/',
+		cv: false,
 	},
 	{
 		name: 'Floriade',
@@ -145,6 +156,7 @@ export const experience = [
 			"At 'Floriade', based in Almere, Flevoland, Netherlands, the role was from September 2018 to January 2019. The responsibilities included contributing to a specific segment of the Floriade project, utilizing skills in PHP, CSS, MySQL, and HTML to enhance its digital presence. The Floriade exposition, held in Almere, is a renowned international horticultural exhibition that showcases innovative landscaping and sustainable gardening practices. It serves as a platform for sharing ideas, technologies, and designs related to urban development, horticulture, and environmental sustainability. The exposition attracts visitors from around the world and offers a unique opportunity to explore cutting-edge concepts in urban greening and ecological urban planning",
 		],
 		link: 'https://www.floriade.com/',
+		cv: false,
 	},
 	{
 		name: 'Sanoma',
@@ -157,6 +169,7 @@ export const experience = [
 			"At 'Sanoma', based in Hoofddorp, North Holland, Netherlands, the role was performed from September 2017 to June 2018. The responsibilities included developing software for advertising in PHP, CSS, MySQL, and HTML. The primary focus of the project revolved around utilizing Chart.js to visualize and present data in a variety of advanced chart formats. These advanced charts added a dynamic dimension to the advertising platform, enabling the effective representation of complex data in an easily understandable manner.",
 		],
 		link: 'https://www.sanoma.com/',
+		cv: false,
 	},
 	{
 		name: 'Student Aan Huis',
@@ -169,5 +182,6 @@ export const experience = [
 			"At 'Student Aan Huis', based in Utrecht, North Holland, Netherlands, the role involved assisting individuals that were customer's of 'Student Aan Huis' with their computer issues, from printer setups to restoring entire Windows systems.",
 		],
 		link: 'https://www.studentaanhuis.nl/',
+		cv: false,
 	},
 ];

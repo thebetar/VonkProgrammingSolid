@@ -152,5 +152,20 @@ export const info = {
 				</svg>
 			),
 		},
+		{
+			id: 'resume',
+			url: '/resume',
+			title: 'Resume',
+			mobile: false,
+			icon: (
+				<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class={iconStyle}>
+					<path
+						fill="currentColor"
+						fill-rule="evenodd"
+						d="M3 1h7.172a2 2 0 011.414.586l2.828 2.828A2 2 0 0115 5.828V14a2 2 0 01-2 2H3a2 2 0 01-2-2V3a2 2 0 012-2zm1 3h5v2h3v8H3V4h1zm1 5h6v1H5V9zm0 2h4v1H5v-1zm0-4h3v1H5V7z"
+					/>
+				</svg>
+			),
+		},
 	],
 };
