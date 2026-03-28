@@ -27,7 +27,7 @@ export const resumeTranslations = {
 		download: 'Download PDF',
 		present: 'Heden',
 		summaryText:
-			'Full-stack engineer met bijna tien jaar ervaring in een breed scala aan organisaties, projecten, vakgebieden en programmeertalen. Gepassioneerd over softwareontwikkeling met een drive die verder reikt dan werk. Ik schrijf regelmatig blogs, onderzoek nieuwe tools en verken opkomende technologieën. Momenteel werk ik aan mijn eigen persoonlijke assistent met OpenClaw en Ollama die een lokaal 9B parameter model draait.',
+			'Full-stack engineer met bijna tien jaar ervaring in divers aantal organisaties, projecten, vakgebieden en programmeertalen. Passie voor softwareontwikkeling dat zich uit in hobby projecten. Ik schrijf regelmatig blogs, onderzoek nieuwe tools en verken opkomende technologieën. Momenteel werk ik aan mijn eigen persoonlijke assistent met OpenClaw en Ollama die een lokaal 9B parameter model draait.',
 	},
 };
 
@@ -94,7 +94,7 @@ export const resumeExperience = {
 			endDate: 'Sep 2023',
 			skills: ['Lit', 'JavaScript', 'ESLint', 'CI/CD', 'Jest'],
 			description:
-				'Built internal banking interfaces using Lit web components. Managed CI/CD pipelines, authored custom ESLint rules, and drove unit testing standards. Also served as product owner — managing timelines, prioritising features, and aligning with stakeholders.',
+				'Built banking interfaces using Lit web components. Managed CI/CD pipelines, authored custom ESLint rules, and drove unit testing standards. Also served as product owner — managing timelines, prioritising features, and aligning with stakeholders.',
 		},
 		{
 			name: 'Quintor',
@@ -123,7 +123,7 @@ export const resumeExperience = {
 			endDate: 'Heden',
 			skills: ['Laravel', 'Nuxt.js', 'AWS', 'PHP', 'Docker'],
 			description:
-				'Lead developer voor een Mikrotik RouterOS SD-WAN-platform. Schaalbare cloudinfrastructuur ontwerpen met Laravel, Nuxt.js en AWS-microservices (Lambda, API Gateway, SNS). Ook RouterOS-scripts schrijven voor routerconfiguratie en AI-functies bouwen.',
+				'Lead developer voor een Mikrotik RouterOS SD-WAN-platform. Microservices ontwerpen met Laravel, Nuxt.js en AWS (Lambda, API Gateway, SNS). Ik heb ook RouterOS-scripts geschreven voor routerconfiguratie en AI-functies gebouwd.',
 		},
 		{
 			name: 'Webshopimporter',
@@ -132,7 +132,7 @@ export const resumeExperience = {
 			endDate: 'Heden',
 			skills: ['Django', 'Python', 'REST', 'SOAP', 'CodeIgniter'],
 			description:
-				'Leiding geven aan een volledige platformmigratie van CodeIgniter naar Django voor een leverancier-naar-webshop datamapping-systeem. Integraties bouwen en onderhouden via REST, SOAP, JSON, XML en FTP voor grote e-commerce platformen.',
+				'Ontwikkelaar voor een platform dat leverancier-naar-webshop synchronisaties verzorgd. Ik help bij de volledige platformmigratie van CodeIgniter naar Django. Integraties bouwen en onderhouden via REST, SOAP, JSON, XML en FTP voor grote e-commerce platformen.',
 		},
 		{
 			name: 'Wisepim',
@@ -159,7 +159,7 @@ export const resumeExperience = {
 			endDate: 'Heden',
 			skills: ['Klaviyo', 'GTM', 'Shopify', 'WooCommerce', 'JavaScript'],
 			description:
-				'Leiding geven aan Klaviyo e-mailmarketingintegraties voor CMS-platformen zonder standaard connectors. Custom event tracking bouwen via Google Tag Manager voor Shopify, WooCommerce, Lightspeed en CCVShop. Ook interne automatiseringen ontwikkelen.',
+				'Ontwikkelen van Klaviyo e-mailmarketingintegraties voor CMS-platformen zonder standaard connectors. Event tracking bouwen via Google Tag Manager voor Shopify, WooCommerce, Lightspeed en CCVShop. Interne automatiseringen ontwikkelen.',
 		},
 		{
 			name: 'SPAR',
@@ -168,7 +168,7 @@ export const resumeExperience = {
 			endDate: 'Dec 2024',
 			skills: ['SQL', 'Azure', 'Python', 'Pandas', 'NumPy'],
 			description:
-				'Big data-vraagstukken aangepakt voor een grote retailketen. Datapipelines en analytische modellen gebouwd met SQL, Azure Data Factory, Python, Pandas en NumPy. Diepgaande expertise opgedaan in datamanipulatie en een breder technisch perspectief verkregen.',
+				'Big data-vraagstukken aangepakt voor grote retailketen. Datapipelines en analytische modellen gebouwd met SQL, Azure Data Factory, Python, Pandas en NumPy. Expertise opgedaan in datamanipulatie en een breder technisch perspectief verkregen.',
 		},
 		{
 			name: 'ING',
@@ -177,7 +177,7 @@ export const resumeExperience = {
 			endDate: 'Sep 2023',
 			skills: ['Lit', 'JavaScript', 'ESLint', 'CI/CD', 'Jest'],
 			description:
-				'Interne bankinterfaces gebouwd met Lit web components. CI/CD-pipelines beheerd, custom ESLint-regels geschreven en unit testing standaarden aangestuurd. Ook product owner geweest — timelines beheerd, features geprioriteerd en afgestemd met stakeholders.',
+				'Interfaces gebouwd met Lit web components. CI/CD-pipelines beheerd, custom ESLint-regels geschreven en unit testing standaarden aangestuurd. Ook product owner geweest timelines beheerd, features geprioriteerd en afgestemd met stakeholders.',
 		},
 		{
 			name: 'Quintor',
