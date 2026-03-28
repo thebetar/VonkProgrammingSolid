@@ -1,5 +1,6 @@
 export const SkillType = {
-	LANGUAGE: 'Programming Language',
+	PROGRAMMING_LANGUAGE: 'Programming Language',
+	LANGUAGE: 'Language',
 	DATABASE: 'Database',
 	FRAMEWORK: 'Framework',
 	TOOL: 'Tool',
@@ -10,13 +11,37 @@ export const SkillType = {
 
 export const skills = [
 	{
+		title: 'Dutch',
+		years: new Date().getFullYear() - 1999,
+		level: 5,
+		logo: '/assets/svg/dutch.svg',
+		link: 'https://en.wikipedia.org/wiki/Dutch_language',
+		type: SkillType.LANGUAGE,
+	},
+	{
+		title: 'English',
+		years: new Date().getFullYear() - 2005,
+		level: 5,
+		logo: '/assets/svg/english.svg',
+		link: 'https://en.wikipedia.org/wiki/English_language',
+		type: SkillType.LANGUAGE,
+	},
+	{
+		title: 'Polish',
+		years: new Date().getFullYear() - 2023,
+		level: 2,
+		logo: '/assets/svg/polish.svg',
+		link: 'https://en.wikipedia.org/wiki/Polish_language',
+		type: SkillType.LANGUAGE,
+	},
+	{
 		title: 'Javascript',
 		years: 9,
 		level: 5,
 		logo: '/assets/svg/javascript.svg',
 		link: 'https://www.javascript.com/',
 		featured: true,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'Python',
@@ -25,7 +50,7 @@ export const skills = [
 		logo: '/assets/svg/python.svg',
 		link: 'https://www.python.org/',
 		featured: true,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'Typescript',
@@ -34,7 +59,7 @@ export const skills = [
 		logo: '/assets/svg/typescript.svg',
 		link: 'https://www.typescriptlang.org/',
 		featured: false,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'HTML',
@@ -43,7 +68,7 @@ export const skills = [
 		logo: '/assets/svg/html.svg',
 		link: 'https://html.spec.whatwg.org/',
 		featured: false,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'CSS',
@@ -52,7 +77,7 @@ export const skills = [
 		logo: '/assets/svg/css.svg',
 		link: 'https://www.w3.org/Style/CSS/Overview.en.html',
 		featured: false,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'SQL',
@@ -61,7 +86,7 @@ export const skills = [
 		logo: '/assets/svg/php.svg',
 		link: 'https://www.php.net/',
 		featured: false,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'PHP',
@@ -70,7 +95,7 @@ export const skills = [
 		logo: '/assets/svg/php.svg',
 		link: 'https://www.php.net/',
 		featured: false,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'Go',
@@ -79,7 +104,7 @@ export const skills = [
 		logo: '/assets/svg/go.svg',
 		link: 'https://golang.org/',
 		featured: false,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'C++',
@@ -88,7 +113,7 @@ export const skills = [
 		logo: '/assets/svg/c++.svg',
 		link: 'https://isocpp.org/',
 		featured: false,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'C',
@@ -97,7 +122,7 @@ export const skills = [
 		logo: '/assets/svg/c.svg',
 		link: 'https://en.wikipedia.org/wiki/C_(programming_language)',
 		featured: false,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'Matlab',
@@ -106,7 +131,7 @@ export const skills = [
 		logo: '/assets/svg/matlab.svg',
 		link: 'https://www.mathworks.com/products/matlab.html',
 		featured: false,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'Java',
@@ -115,7 +140,7 @@ export const skills = [
 		logo: '/assets/svg/java.svg',
 		link: 'https://www.java.com/',
 		featured: false,
-		type: SkillType.LANGUAGE,
+		type: SkillType.PROGRAMMING_LANGUAGE,
 	},
 	{
 		title: 'MongoDB',
@@ -600,6 +625,15 @@ export const skills = [
 		level: 2,
 		logo: '/assets/svg/magento.svg',
 		link: 'https://magento.com/',
+		featured: false,
+		type: SkillType.ECOMMERCE,
+	},
+	{
+		title: 'Wordpress',
+		years: 2,
+		level: 3,
+		logo: '/assets/svg/wordpress.svg',
+		link: 'https://wordpress.org/',
 		featured: false,
 		type: SkillType.ECOMMERCE,
 	},
