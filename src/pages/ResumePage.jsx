@@ -7,6 +7,7 @@ import Resume from '@/components/resume/Resume';
 
 export default function ResumePage() {
 	const [language, setLanguage] = createSignal('en');
+	const [mode, setMode] = createSignal('compact');
 
 	const template = (
 		<div class="md:mt-4 mt-6 md:mb-8 mb-4">
@@ -20,14 +21,14 @@ export default function ResumePage() {
 			<Meta property="og:type" content="website" />
 
 			<div class="hidden md:block">
-				<ResumeControls language={language} setLanguage={setLanguage} />
-				<Resume language={language} />
+				<ResumeControls language={language} setLanguage={setLanguage} mode={mode} setMode={setMode} />
+				<Resume language={language} mode={mode} />
 			</div>
 
 			<div class="flex md:hidden flex-col items-center gap-6 py-12 px-4">
 				<h1 class="text-2xl font-bold dark:text-white">Resume</h1>
 				<p class="text-zinc-500 dark:text-zinc-400 text-center">
-					Select a language and download the resume as PDF.
+					Select a language and version, then download the resume as PDF.
 				</p>
 
 				<div class="flex gap-4 w-full max-w-xs">
@@ -54,6 +55,33 @@ export default function ResumePage() {
 						aria-label="Switch to Dutch"
 					>
 						Nederlands
+					</button>
+				</div>
+
+				<div class="flex gap-4 w-full max-w-xs">
+					<button
+						class={[
+							'flex-1 py-4 text-lg font-semibold rounded-lg transition-colors cursor-pointer border-2',
+							mode() === 'compact'
+								? 'bg-cyan-600 text-white border-cyan-600'
+								: 'bg-zinc-200 text-zinc-600 border-zinc-300 dark:bg-zinc-700 dark:text-zinc-300 dark:border-zinc-600',
+						].join(' ')}
+						onClick={() => setMode('compact')}
+						aria-label="Switch to compact resume"
+					>
+						Compact
+					</button>
+					<button
+						class={[
+							'flex-1 py-4 text-lg font-semibold rounded-lg transition-colors cursor-pointer border-2',
+							mode() === 'extended'
+								? 'bg-cyan-600 text-white border-cyan-600'
+								: 'bg-zinc-200 text-zinc-600 border-zinc-300 dark:bg-zinc-700 dark:text-zinc-300 dark:border-zinc-600',
+						].join(' ')}
+						onClick={() => setMode('extended')}
+						aria-label="Switch to extended resume"
+					>
+						{language() === 'nl' ? 'Uitgebreid' : 'Extended'}
 					</button>
 				</div>
 

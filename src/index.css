@@ -179,6 +179,26 @@ h6 {
 	overflow: hidden;
 }
 
+.resume-page.resume-extended {
+	height: auto;
+	min-height: 2246px;
+	overflow: visible;
+	background: linear-gradient(to right, #27272a 35%, white 35%);
+}
+
+.resume-page.resume-extended .resume-sidebar {
+	align-self: stretch;
+}
+
+.resume-page.resume-extended .resume-experience-entry {
+	break-inside: avoid;
+}
+
+.resume-page.resume-extended .resume-page-break {
+	break-before: page;
+	padding-top: 1.25rem;
+}
+
 /* ========== print styles ========== */
 @media print {
 	@page {
@@ -219,6 +239,35 @@ h6 {
 
 	.resume-page .flex.min-h-full {
 		height: auto;
+	}
+
+	.resume-page.resume-extended {
+		height: auto;
+		overflow: visible;
+		background: linear-gradient(to right, #333 35%, white 35%) !important;
+		print-color-adjust: exact;
+		-webkit-print-color-adjust: exact;
+	}
+
+	.resume-page.resume-extended .resume-sidebar {
+		position: static;
+		align-self: stretch;
+	}
+
+	.resume-page.resume-extended .resume-content {
+		margin-left: 0;
+		width: 65%;
+	}
+
+	.resume-page.resume-extended .resume-experience-entry {
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+
+	.resume-page.resume-extended .resume-page-break {
+		break-before: page;
+		page-break-before: always;
+		padding-top: 1.25rem;
 	}
 
 	.resume-sidebar {

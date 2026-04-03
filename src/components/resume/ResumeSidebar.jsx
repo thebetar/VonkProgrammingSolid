@@ -14,10 +14,11 @@ const cvSkillTypes = [
 
 const languageSkills = skills.filter(s => s.type === SkillType.LANGUAGE && s.cv);
 
-export default function ResumeSidebar({ language }) {
+export default function ResumeSidebar({ language, mode }) {
 	const t = () => resumeTranslations[language()];
 	const eduItems = () => resumeEducation[language()];
 	const certItems = () => resumeCertifications[language()];
+	const isExtended = () => mode() === 'extended';
 
 	return (
 		<div class="w-[35%] bg-zinc-800 text-white p-5 flex flex-col gap-4.5 print-bg resume-sidebar">
@@ -100,6 +101,9 @@ export default function ResumeSidebar({ language }) {
 									<p class="text-xs text-zinc-400">
 										{item.institution} | {item.startDate} — {item.endDate}
 									</p>
+									{isExtended() ? (
+										<p class="text-xs text-zinc-300 mt-0.5">{item.description}</p>
+									) : null}
 								</div>
 							)}
 						</For>
