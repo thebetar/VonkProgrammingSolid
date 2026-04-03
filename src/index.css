@@ -235,6 +235,8 @@ h6 {
 		min-height: auto;
 		box-shadow: none;
 		margin: 0;
+		print-color-adjust: exact;
+		-webkit-print-color-adjust: exact;
 	}
 
 	.resume-page .flex.min-h-full {
