@@ -47,9 +47,7 @@ export default function ResumeExperience({ language, mode }) {
 				when={isExtended()}
 				fallback={
 					<div class="flex flex-col gap-2.5">
-						<For each={items()}>
-							{item => <ExperienceItem item={item} isExtended={isExtended} />}
-						</For>
+						<For each={items()}>{item => <ExperienceItem item={item} isExtended={isExtended} />}</For>
 					</div>
 				}
 			>
@@ -57,9 +55,7 @@ export default function ResumeExperience({ language, mode }) {
 					{(chunk, index) => (
 						<div class={index() > 0 ? 'resume-page-break' : ''}>
 							<div class="flex flex-col gap-4">
-								<For each={chunk}>
-									{item => <ExperienceItem item={item} isExtended={isExtended} />}
-								</For>
+								<For each={chunk}>{item => <ExperienceItem item={item} isExtended={isExtended} />}</For>
 							</div>
 						</div>
 					)}
