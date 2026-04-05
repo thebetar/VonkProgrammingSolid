@@ -16,8 +16,8 @@ function ExperienceItem({ item, isExtended }) {
 				<span class="text-zinc-300">|</span>
 				<p class="text-[9px] text-zinc-400 truncate">{item.skills.join(' · ')}</p>
 			</div>
-			<p class="text-xs text-zinc-600 leading-snug mt-0.5">
-				{isExtended() ? item.extendedDescription : item.description}
+			<p class="text-xs text-zinc-600 leading-snug mt-0.5 whitespace-pre-line">
+				{(isExtended() ? item.extendedDescription : item.description).trim()}
 			</p>
 		</div>
 	);

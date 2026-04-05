@@ -641,7 +641,7 @@ export const skills = [
 		title: 'Github',
 		years: 7,
 		level: 5,
-		logo: '/assets/svg/skills/github.svg',
+		logo: '/assets/svg/github.svg',
 		link: 'https://github.com/',
 		featured: false,
 		type: SkillType.INFRASTRUCTURE,

@@ -21,10 +21,10 @@ export default function Resume({ language, mode }) {
 				<div class="w-[65%] p-5 flex flex-col gap-3 resume-content">
 					<div>
 						<h2 class="text-xs font-bold uppercase tracking-wider border-b border-zinc-300 pb-1 mb-1.5">
-							{t().summary}
+							{t().summary.trim()}
 						</h2>
-						<p class="text-xs text-zinc-600 leading-snug">
-							{isExtended() ? t().extendedSummaryText : t().summaryText}
+						<p class="text-xs text-zinc-600 leading-snug whitespace-pre-line">
+							{(isExtended() ? t().extendedSummaryText : t().summaryText).trim()}
 						</p>
 					</div>
 
