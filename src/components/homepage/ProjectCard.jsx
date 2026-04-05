@@ -4,7 +4,7 @@ export default function ProjectCard({ language, githubUrl, liveUrl, thumbnail, t
 			{language && (
 				<div class="absolute left-4 top-4 md:left-2 md:top-2 z-10">
 					<img
-						src={`/assets/svg/${language.toLowerCase()}.svg`}
+						src={`/assets/svg/skills/${language.toLowerCase()}.svg`}
 						class="md:h-10 h-8 md:w-10 w-8 md:p-2 p-1 bg-black/50 rounded-full backdrop-blur-md"
 						alt={language}
 						title={`Created using ${language}`}

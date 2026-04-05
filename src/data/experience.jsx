@@ -2,7 +2,7 @@ export const experience = [
 	{
 		name: 'Mikrocloud',
 		title: 'Lead Full Stack Developer',
-		skills: ['Laravel', 'Nuxt.js', 'AWS', 'RouterOS'],
+		skills: ['Laravel', 'Nuxt.js', 'AWS', 'Mikrotik'],
 		location: 'Remote - Naas, Kildare, Ireland',
 		startDate: 'July 2025',
 		endDate: 'Now',
@@ -36,7 +36,7 @@ export const experience = [
 	{
 		name: 'Wisepim',
 		title: 'Full Stack Developer',
-		skills: ['Django', 'Python', 'React'],
+		skills: ['Django', 'Python', 'React', 'Postgres'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
 		startDate: 'Sep 2024',
 		endDate: 'Now',
@@ -87,7 +87,7 @@ export const experience = [
 	{
 		name: 'SPAR',
 		title: 'Data Engineer',
-		skills: ['Python', 'Pandas', 'SQL', 'Azure', 'PySpark'],
+		skills: ['Python', 'Pandas', 'SQL', 'Azure-Devops', 'PySpark'],
 		location: 'Remote - Waalwijk, Noord-Brabant, Nederland',
 		startDate: 'Jun 2024',
 		endDate: 'Dec 2024',
