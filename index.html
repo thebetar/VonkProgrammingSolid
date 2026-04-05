@@ -67,15 +67,6 @@
 				color: #ffffff;
 			}
 
-			@media (prefers-color-scheme: dark) {
-				.dark\:bg-zinc-900 {
-					background-color: #18181b;
-				}
-				.dark\:text-white {
-					color: #ffffff;
-				}
-			}
-
 			.container {
 				max-width: 800px;
 			}
@@ -95,6 +86,15 @@
 				font-weight: bold;
 			}
 		</style>
+		<script>
+			(function() {
+				var theme = localStorage.getItem('theme');
+				if (!theme) {
+					theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				}
+				document.documentElement.setAttribute('data-theme', theme);
+			})();
+		</script>
 	</head>
 
 	<body class="bg-light dark:bg-zinc-900 text-black dark:text-white">
