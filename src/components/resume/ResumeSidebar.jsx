@@ -64,7 +64,7 @@ export default function ResumeSidebar({ language, mode }) {
 							rel="noopener noreferrer"
 							class="hover:text-cyan-400 transition-colors break-all flex items-center gap-1.5"
 						>
-							<img src="/assets/svg/github.svg" alt="" class="w-3.5 h-3.5 invert" />
+							<img src="/assets/svg/github.svg" alt="" class="w-3.5 h-3.5" />
 							github.com/thebetar
 						</a>
 					</div>
