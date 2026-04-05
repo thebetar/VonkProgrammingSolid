@@ -16,9 +16,9 @@ export default function ProjectsPreview() {
 				<a
 					class="dark:text-white text-zinc-900 underline hover:opacity-70 transition-opacity"
 					href="/projects"
-					aria-label={`See all ${projects.length} projects`}
+					aria-label={`See all projects`}
 				>
-					See all {projects.length} projects
+					See all projects
 				</a>
 			</div>
 		</section>

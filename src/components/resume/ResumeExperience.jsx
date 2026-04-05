@@ -25,9 +25,9 @@ function ExperienceItem({ item, isExtended }) {
 
 function chunkExperience(items) {
 	const chunks = [];
-	if (items.length > 0) chunks.push(items.slice(0, 4));
-	for (let i = 4; i < items.length; i += 5) {
-		chunks.push(items.slice(i, i + 5));
+	if (items.length > 0) chunks.push(items.slice(0, 3));
+	for (let i = 3; i < items.length; i += 4) {
+		chunks.push(items.slice(i, i + 4));
 	}
 	return chunks;
 }
@@ -54,7 +54,7 @@ export default function ResumeExperience({ language, mode }) {
 				<For each={chunks()}>
 					{(chunk, index) => (
 						<div class={index() > 0 ? 'resume-page-break' : ''}>
-							<div class="flex flex-col gap-4">
+							<div class="flex flex-col gap-6">
 								<For each={chunk}>{item => <ExperienceItem item={item} isExtended={isExtended} />}</For>
 							</div>
 						</div>
