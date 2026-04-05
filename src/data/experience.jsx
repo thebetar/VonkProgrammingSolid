@@ -2,7 +2,7 @@ export const experience = [
 	{
 		name: 'Mikrocloud',
 		title: 'Lead Full Stack Developer',
-		skills: ['Laravel', 'Nuxt.js', 'AWS', 'Mikrotik'],
+		skills: ['Laravel', 'Nuxt.js', 'AWS', 'Mikrotik', 'Stripe', 'Docker'],
 		location: 'Remote - Naas, Kildare, Ireland',
 		startDate: 'July 2025',
 		endDate: 'Now',
@@ -19,7 +19,7 @@ export const experience = [
 	{
 		name: 'Webshopimporter',
 		title: 'Lead Full Stack Developer',
-		skills: ['MySQL', 'PHP', 'Laravel', 'Django', 'Docker'],
+		skills: ['PHP', 'Laravel', 'Django', 'MySQL', 'Magento', 'Shopify', 'WooCommerce'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
 		startDate: 'Sep 2024',
 		endDate: 'Now',
@@ -53,7 +53,7 @@ export const experience = [
 	{
 		name: 'Swiftsync',
 		title: 'Full Stack Developer',
-		skills: ['Django', 'NiceGUI', 'Playwright', 'Magento', 'CCVShop', 'Wordpress'],
+		skills: ['Django', 'NiceGUI', 'Playwright', 'CCVShop', 'Wordpress'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
 		startDate: 'Sep 2024',
 		endDate: 'Now',
@@ -70,7 +70,7 @@ export const experience = [
 	{
 		name: 'Chary Solutions',
 		title: 'Senior Developer',
-		skills: ['Javascript', 'Klaviyo', 'Playwright'],
+		skills: ['Javascript', 'Klaviyo', 'Playwright', 'Lightspeed', 'Shopify', 'WooCommerce', 'CCVShop'],
 		location: 'Amsterdam, Noord-Holland, Nederland',
 		startDate: 'Jul 2024',
 		endDate: 'Now',

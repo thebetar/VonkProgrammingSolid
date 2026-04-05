@@ -1,4 +1,9 @@
-import { info } from './info';
+import { experience } from '@/data/experience';
+
+const getExperience = name => {
+	const e = experience.find(x => x.name === name);
+	return { name: e.name, title: e.title, skills: e.skills };
+};
 
 export const resumeTranslations = {
 	en: {
@@ -52,11 +57,9 @@ export const resumeTranslations = {
 export const resumeExperience = {
 	en: [
 		{
-			name: 'Mikrocloud',
-			title: 'Lead Full Stack Developer',
+			...getExperience('Mikrocloud'),
 			startDate: 'Jul 2025',
 			endDate: 'Present',
-			skills: ['Laravel', 'Nuxt.js', 'AWS', 'PHP', 'Docker'],
 			description:
 				'Lead developer on an SD-WAN platform for Mikrotik RouterOS devices, using Laravel, Nuxt.js, and AWS microservices. Writes RouterOS scripts for remote device configuration and applies networking knowledge including BGP, VPNs and IP routing.',
 			extendedDescription: `
@@ -66,11 +69,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'Webshopimporter',
-			title: 'Lead Full Stack Developer',
+			...getExperience('Webshopimporter'),
 			startDate: 'Sep 2024',
 			endDate: 'Present',
-			skills: ['Django', 'Python', 'REST', 'SOAP', 'CodeIgniter'],
 			description:
 				'Lead developer on a supplier-to-webshop data mapping platform, collaborating on a migration from CodeIgniter to Django. Maintains integrations using protocols like REST, SOAP and FTP and formats like JSON, XML and CSV, while building new features for a clearer customer interface.',
 			extendedDescription: `
@@ -80,11 +81,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'Wisepim',
-			title: 'Full Stack Developer',
+			...getExperience('Wisepim'),
 			startDate: 'Sep 2024',
 			endDate: 'Present',
-			skills: ['Django', 'RemixJS', 'Python', 'REST API'],
 			description:
 				'Full-stack developer contributing to an AI-powered PIM platform, building e-commerce API integrations with Django and RemixJS. Builds admin interfaces enabling non-technical team members to manage integrations independently.',
 			extendedDescription: `
@@ -93,11 +92,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'Swiftsync',
-			title: 'Full Stack Developer',
+			...getExperience('Swiftsync'),
 			startDate: 'Sep 2024',
 			endDate: 'Present',
-			skills: ['Django', 'NiceGUI', 'Playwright', 'Python'],
 			description:
 				'Full-stack developer building custom tools including a CCVShop management dashboard in NiceGUI, a configurable web scraping dashboard in Django with Playwright, and a Wintree product synchronisation tool.',
 			extendedDescription: `
@@ -106,11 +103,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'Chary Solutions',
-			title: 'Senior Developer',
+			...getExperience('Chary Solutions'),
 			startDate: 'Jul 2024',
 			endDate: 'Present',
-			skills: ['Klaviyo', 'GTM', 'Shopify', 'WooCommerce', 'JavaScript'],
 			description:
 				"Senior developer integrating Klaviyo with CMS platforms lacking standard connectors, using Google Tag Manager for custom event tracking across Shopify, WooCommerce, Lightspeed, and CCVShop. Also builds internal automations and tools that integrate Gemini's API to categorise data.",
 			extendedDescription: `
@@ -120,11 +115,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'SPAR',
-			title: 'Data Engineer',
+			...getExperience('SPAR'),
 			startDate: 'Jun 2024',
 			endDate: 'Dec 2024',
-			skills: ['SQL', 'Azure', 'Python', 'Pandas', 'NumPy'],
 			description:
 				'Data engineer at a major Dutch retail chain, parsing and mapping big data using Azure Data Factory, Azure Databricks and PySpark to split workloads across multiple instances.',
 			extendedDescription: `
@@ -134,11 +127,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'ING',
-			title: 'Full Stack Developer / Product Owner',
+			...getExperience('ING'),
 			startDate: 'Apr 2022',
 			endDate: 'Sep 2023',
-			skills: ['Lit', 'JavaScript', 'ESLint', 'CI/CD', 'Jest'],
 			description:
 				'Full-stack developer and product owner at ING, building Lit web component interfaces while managing CI/CD pipelines and custom ESLint rules. As product owner, set realistic expectations and made every deadline by keeping team capacity and stakeholder goals aligned.',
 			extendedDescription: `
@@ -148,11 +139,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'Quintor',
-			title: 'IT Consultant / Trainee',
+			...getExperience('Quintor'),
 			startDate: 'Oct 2020',
 			endDate: 'Oct 2023',
-			skills: ['Java', 'Angular', 'Agile', 'Testing'],
 			description:
 				'IT consultant deployed at ING and SVB, learning extensive testing strategies (unit, integration, e2e) and a framework-agnostic approach that became the foundation of my engineering work.',
 			extendedDescription: `
@@ -162,11 +151,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'SVB',
-			title: 'Frontend Developer',
+			...getExperience('SVB'),
 			startDate: 'Apr 2021',
 			endDate: 'Apr 2022',
-			skills: ['Angular', 'TypeScript', 'AngularJS', 'CI/CD'],
 			description:
 				'Frontend developer at a Dutch government agency, working on a translation layer dashboard and the AngularJS to Angular migration. Set up testing strategies and ensured code quality, guided by a senior consultant.',
 			extendedDescription: `
@@ -178,11 +165,9 @@ export const resumeExperience = {
 	],
 	nl: [
 		{
-			name: 'Mikrocloud',
-			title: 'Lead Full Stack Developer',
+			...getExperience('Mikrocloud'),
 			startDate: 'Jul 2025',
 			endDate: 'Heden',
-			skills: ['Laravel', 'Nuxt.js', 'AWS', 'PHP', 'Docker'],
 			description:
 				"Lead developer van een SD-WAN-platform voor Mikrotik RouterOS-apparaten, gebouwd met Laravel, Nuxt.js en AWS-microservices. Schrijft RouterOS-scripts voor configuratie op afstand en past netwerkkennis toe waaronder BGP, VPN's en IP-routing.",
 			extendedDescription: `
@@ -192,11 +177,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'Webshopimporter',
-			title: 'Lead Full Stack Developer',
+			...getExperience('Webshopimporter'),
 			startDate: 'Sep 2024',
 			endDate: 'Heden',
-			skills: ['Django', 'Python', 'REST', 'SOAP', 'CodeIgniter'],
 			description:
 				'Lead developer op een data-integratieplatform, werkt mee aan de migratie van CodeIgniter naar Django. Bouwt en onderhoudt koppelingen via protocollen als REST, SOAP en FTP en formaten als JSON, XML en CSV, en ontwikkelt nieuwe functionaliteiten voor een overzichtelijker klantinterface.',
 			extendedDescription: `
@@ -206,11 +189,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'Wisepim',
-			title: 'Full Stack Developer',
+			...getExperience('Wisepim'),
 			startDate: 'Sep 2024',
 			endDate: 'Heden',
-			skills: ['Django', 'RemixJS', 'Python', 'REST API'],
 			description:
 				'Full-stack developer die bijdraagt aan een AI-gestuurd PIM-platform, met e-commerce API-integraties in Django en RemixJS. Bouwt admin-interfaces waarmee niet-technische teamleden integraties zelfstandig kunnen beheren.',
 			extendedDescription: `
@@ -219,11 +200,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'Swiftsync',
-			title: 'Full Stack Developer',
+			...getExperience('Swiftsync'),
 			startDate: 'Sep 2024',
 			endDate: 'Heden',
-			skills: ['Django', 'NiceGUI', 'Playwright', 'Python'],
 			description:
 				'Full-stack developer die maatwerktooling bouwt, waaronder een CCVShop-beheerdashboard in NiceGUI, een configureerbaar web scraping dashboard in Django met Playwright en een Wintree-productsynchronisatietool.',
 			extendedDescription: `
@@ -232,11 +211,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'Chary Solutions',
-			title: 'Senior Developer',
+			...getExperience('Chary Solutions'),
 			startDate: 'Jul 2024',
 			endDate: 'Heden',
-			skills: ['Klaviyo', 'GTM', 'Shopify', 'WooCommerce', 'JavaScript'],
 			description:
 				"Senior developer die Klaviyo integreert met CMS-platformen zonder standaard connectors, via custom event tracking in Google Tag Manager voor Shopify, WooCommerce, Lightspeed en CCVShop. Bouwt ook interne automatiseringen en tools die Gemini's API integreren om data te categoriseren.",
 			extendedDescription: `
@@ -246,11 +223,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'SPAR',
-			title: 'Data Engineer',
+			...getExperience('SPAR'),
 			startDate: 'Jun 2024',
 			endDate: 'Dec 2024',
-			skills: ['SQL', 'Azure', 'Python', 'Pandas', 'NumPy'],
 			description:
 				'Data engineer bij een grote Nederlandse retailketen, big data parsen en mappen met Azure Data Factory, Azure Databricks en PySpark om werklasten over meerdere instanties te verdelen.',
 			extendedDescription: `
@@ -260,11 +235,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'ING',
-			title: 'Full Stack Developer / Product Owner',
+			...getExperience('ING'),
 			startDate: 'Apr 2022',
 			endDate: 'Sep 2023',
-			skills: ['Lit', 'JavaScript', 'ESLint', 'CI/CD', 'Jest'],
 			description:
 				'Full-stack developer en product owner bij ING, bankinterfaces gebouwd met Lit web components en CI/CD-pipelines en custom ESLint-regels ingevoerd. Als product owner realistische verwachtingen gesteld en elke deadline gehaald door teamcapaciteit en stakeholderdoelen op één lijn te houden.',
 			extendedDescription: `
@@ -274,11 +247,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'Quintor',
-			title: 'IT Consultant / Trainee',
+			...getExperience('Quintor'),
 			startDate: 'Okt 2020',
 			endDate: 'Okt 2023',
-			skills: ['Java', 'Angular', 'Agile', 'Testing'],
 			description:
 				'IT-consultant ingezet bij ING en SVB. Leerde uitgebreide teststrategieën (unit, integratie, e2e) en een framework-agnostische aanpak die de basis vormen van mijn werk als ontwikkelaar.',
 			extendedDescription: `
@@ -288,11 +259,9 @@ export const resumeExperience = {
 			`,
 		},
 		{
-			name: 'SVB',
-			title: 'Frontend Developer',
+			...getExperience('SVB'),
 			startDate: 'Apr 2021',
 			endDate: 'Apr 2022',
-			skills: ['Angular', 'TypeScript', 'AngularJS', 'CI/CD'],
 			description:
 				'Frontend developer bij een grote overheidsinstantie, werkte aan een vertaallaag-dashboard en de migratie van AngularJS naar Angular. Zette teststrategieën op en waarborgde codekwaliteit, onder begeleiding van een senior consultant.',
 			extendedDescription: `
