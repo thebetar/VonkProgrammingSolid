@@ -27,6 +27,7 @@ export const resumeTranslations = {
 			I have worked at large organisations like ING, where I was both developer and product owner, and the Dutch government agency SVB, where I worked on migrating AngularJS to Angular and built internal dashboards. I have worked at startups like Mikrocloud, where I work on an SD-WAN platform using Laravel, Nuxt.js, and AWS, and Wisepim, where I contribute to an AI-powered product information platform built with Django and React. I have also worked for e-commerce companies like Webshopimporter, where I work on mapping supplier data into platforms like Shopify, WooCommerce, and Magento, and Chary Solutions, where I build Klaviyo integrations and tracking solutions.
 			My main skills cover JavaScript, TypeScript, Python, and PHP with experience in React, Vue, Angular, Django, Laravel, and Lit. I am also comfortable with cloud infrastructure on AWS and Azure, CI/CD pipelines, data engineering with SQL and Pandas, and testing with Jest and Cypress.
 			Outside of work, I am passionate about software and enjoy building side projects. I am currently working on a personal assistant powered by OpenClaw and Ollama running a local 9B parameter model. I also regularly write blogs about topics like agentic coding, European cloud challenges, and software quality.
+			In my free time, I play water polo and run. I recently ran the Warsaw half-marathon and plan to run the full marathon in September.
 		`,
 	},
 	nl: {
@@ -50,6 +51,7 @@ export const resumeTranslations = {
 			Ik heb gewerkt bij grote organisaties zoals ING, waar ik zowel developer als product owner was, en de overheidsinstantie SVB, waar ik werkte aan de migratie van AngularJS naar Angular en interne dashboards bouwde. Ik heb gewerkt bij startups als Mikrocloud, waar ik werk aan een SD-WAN-platform met Laravel, Nuxt.js en AWS, en Wisepim, waar ik bijdraag aan een AI-gestuurd productinformatieplatform gebouwd met Django en React. Daarnaast heb ik gewerkt voor e-commerce bedrijven zoals Webshopimporter, waar ik werk aan het mappen van leveranciersdata naar platformen als Shopify, WooCommerce en Magento, en Chary Solutions, waar ik Klaviyo-integraties en trackingoplossingen bouw.
 			Mijn belangrijkste vaardigheden omvatten JavaScript, TypeScript, Python en PHP met ervaring in React, Vue, Angular, Django, Laravel en Lit. Ik ben ook vertrouwd met cloudinfrastructuur op AWS en Azure, CI/CD-pipelines, data engineering met SQL en Pandas, en testen met Jest en Cypress.
 			Buiten werk heb ik een passie voor software en bouw ik graag zijprojecten. Momenteel werk ik aan een persoonlijke assistent aangedreven door OpenClaw en Ollama met een lokaal 9B-parametermodel. Daarnaast schrijf ik regelmatig blogs over onderwerpen als agentic coding, Europese cloud-uitdagingen en softwarekwaliteit.
+			In mijn vrije tijd speel ik waterpolo en loop ik hard. Ik heb recentelijk de halve marathon van Warschau gerend en ben van plan de hele marathon in September te rennen.
 		`,
 	},
 };
