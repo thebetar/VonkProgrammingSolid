@@ -20,7 +20,7 @@ export const resumeTranslations = {
 		compact: 'Compact',
 		extended: 'Extended',
 		summaryText: `
-			Full-stack engineer with nearly a decade of experience across a wide variety of fields, organisations, and programming languages. My career includes large organisations like ING and the Dutch government agency SVB, startups like Wisepim and Mikrocloud, and e-commerce companies like Webshopimporter and Chary. My main skills cover JavaScript, Python, and PHP with frameworks like React, Vue, Django, and Laravel, along with experience in cloud infrastructure, CI/CD, and data engineering. Outside of work I build side projects, experiment with local AI models, and write blogs.
+			Full-stack engineer with nearly a decade of experience across various domains, ranging from large enterprises like ING to startups like Mikrocloud. My core stack includes JavaScript, Python, and PHP (React, Django, Laravel), along with cloud infrastructure and data engineering. Outside of work, I build side projects and write technical blogs.
 		`,
 		extendedSummaryText: `
 			Full-stack engineer with nearly a decade of experience across a wide variety of fields, organisations, projects, and programming languages.
@@ -44,12 +44,12 @@ export const resumeTranslations = {
 		compact: 'Compact',
 		extended: 'Uitgebreid',
 		summaryText: `
-			Full-stack engineer met bijna tien jaar ervaring in een breed scala aan vakgebieden, organisaties en programmeertalen. Mijn carrière omvat grote organisaties zoals ING en de overheidsinstantie SVB, startups als Wisepim en Mikrocloud, en e-commerce bedrijven zoals Webshopimporter en Chary. Mijn belangrijkste vaardigheden zijn JavaScript, Python en PHP met frameworks als React, Vue, Django en Laravel, gecombineerd met ervaring in cloudinfrastructuur, CI/CD en data engineering. Buiten werk bouw ik zijprojecten, experimenteer ik met lokale AI-modellen en schrijf ik blogs.
+			Full-stack engineer met bijna tien jaar ervaring in diverse domeinen, van de overheid en ING tot startups als Mikrocloud. Mijn core stack omvat JavaScript, Python en PHP (React, Django, Laravel), gecombineerd met cloudinfrastructuur en data engineering. Buiten werk vind ik het leuk om zijprojecten te bouwen en schrijf ik technische blogs.
 		`,
 		extendedSummaryText: `
-			Full-stack engineer met bijna tien jaar ervaring in een breed scala aan vakgebieden, organisaties, projecten en programmeertalen.
-			Ik heb gewerkt bij grote organisaties zoals ING, waar ik zowel developer als product owner was, en de overheidsinstantie SVB, waar ik werkte aan de migratie van AngularJS naar Angular en interne dashboards bouwde. Ik heb gewerkt bij startups als Mikrocloud, waar ik werk aan een SD-WAN-platform met Laravel, Nuxt.js en AWS, en Wisepim, waar ik bijdraag aan een AI-gestuurd productinformatieplatform gebouwd met Django en React. Daarnaast heb ik gewerkt voor e-commerce bedrijven zoals Webshopimporter, waar ik werk aan het mappen van leveranciersdata naar platformen als Shopify, WooCommerce en Magento, en Chary Solutions, waar ik Klaviyo-integraties en trackingoplossingen bouw.
-			Mijn belangrijkste vaardigheden omvatten JavaScript, TypeScript, Python en PHP met ervaring in React, Vue, Angular, Django, Laravel en Lit. Ik ben ook vertrouwd met cloudinfrastructuur op AWS en Azure, CI/CD-pipelines, data engineering met SQL en Pandas, en testen met Jest en Cypress.
+			Full-stack engineer met bijna tien jaar ervaring in diverse omgevingen, organisaties, projecten en programmeertalen.
+			Ik heb gewerkt bij grote organisaties zoals ING, in de rol van developer en product owner, en de overheidsinstantie SVB, voor de migratie van AngularJS naar Angular en het bouwen van interne dashboards. Ik ben ook actief geweest bij startups zoals Mikrocloud, als developer van een SD-WAN-platform met Laravel, Nuxt.js en AWS, en Wisepim, voor de ontwikkeling van een AI-gestuurd productinformatieplatform gebouwd met Django en React. Daarnaast heb ik gewerkt voor e-commerce bedrijven zoals Webshopimporter, voor het mappen van leveranciersdata naar platformen als Shopify, WooCommerce en Magento, en Chary Solutions, voor de bouw van Klaviyo-integraties en trackingoplossingen.
+			Mijn belangrijkste vaardigheden omvatten JavaScript, TypeScript, Python en PHP met ervaring in React, Vue, Angular, Django, Laravel en Lit. Ik ben ook bekend met cloudinfrastructuur op AWS en Azure, CI/CD-pipelines, data engineering met SQL en Pandas, en testen met Jest en Cypress.
 			Buiten werk heb ik een passie voor software en bouw ik graag zijprojecten. Momenteel werk ik aan een persoonlijke assistent aangedreven door OpenClaw en Ollama met een lokaal 9B-parametermodel. Daarnaast schrijf ik regelmatig blogs over onderwerpen als agentic coding, Europese cloud-uitdagingen en softwarekwaliteit.
 			In mijn vrije tijd speel ik waterpolo en loop ik hard. Ik heb recentelijk de halve marathon van Warschau gerend en ben van plan de hele marathon in September te rennen.
 		`,
@@ -109,7 +109,7 @@ export const resumeExperience = {
 			startDate: 'Jul 2024',
 			endDate: 'Present',
 			description:
-				"Senior developer integrating Klaviyo with CMS platforms lacking standard connectors, using Google Tag Manager for custom event tracking across Shopify, WooCommerce, Lightspeed, and CCVShop. Also builds internal automations and tools that integrate Gemini's API to categorise data.",
+				"Senior developer integrating Klaviyo with CMS platforms using Google Tag Manager for custom event tracking. Also builds internal automations and tools integrating Gemini's API to categorise data.",
 			extendedDescription: `
 				As the senior developer at Chary Solutions I lead the technical development for integrating Klaviyo with various content management systems that lack standard integration connectors.
 				My work focuses on building custom solutions for tracking user behaviour and sending event data to Klaviyo, providing email marketers with the data they need to optimise their campaigns. I use Google Tag Manager extensively for custom tracking cookies and event firing across platforms like Shopify, WooCommerce, Lightspeed, and CCVShop.
@@ -173,7 +173,7 @@ export const resumeExperience = {
 			description:
 				"Lead developer van een SD-WAN-platform voor Mikrotik RouterOS-apparaten, gebouwd met Laravel, Nuxt.js en AWS-microservices. Schrijft RouterOS-scripts voor configuratie op afstand en past netwerkkennis toe waaronder BGP, VPN's en IP-routing.",
 			extendedDescription: `
-				Als lead developer bij Mikrocloud ben ik verantwoordelijk voor de technische beslissingen en de algehele architectuur van een SD-WAN-platform waarmee gebruikers Mikrotik RouterOS-apparaten kunnen beheren.
+				Als lead developer bij Mikrocloud ben ik verantwoordelijk voor de technische beslissingen en de algehele architectuur van een SD-WAN-platform dat gebruikers in staat stelt Mikrotik RouterOS-apparaten te beheren.
 				De backend is gebouwd met Laravel op AWS Lambda met een microservices-architectuur via SQS voor communicatie tussen services, en de frontend met Nuxt.js. Ik schrijf ook scripts in de RouterOS-scripttaal om routers op afstand te configureren.
 				Deze rol vereist zowel webapplicatie-ontwikkelvaardigheden als netwerkkennis, waaronder het opzetten van BGP-routes, configureren van VPN's, beheren van IP-routeringstabellen en apparaatbeheer op afstand.
 			`,
@@ -195,10 +195,10 @@ export const resumeExperience = {
 			startDate: 'Sep 2024',
 			endDate: 'Heden',
 			description:
-				'Full-stack developer die bijdraagt aan een AI-gestuurd PIM-platform, met e-commerce API-integraties in Django en RemixJS. Bouwt admin-interfaces waarmee niet-technische teamleden integraties zelfstandig kunnen beheren.',
+				'Full-stack developer die bijdraagt aan een AI-gestuurd PIM-platform, met e-commerce API-integraties in Django en RemixJS. Bouwt admin-interfaces om niet-technische teamleden in staat te stellen integraties zelfstandig te beheren.',
 			extendedDescription: `
 				Bij Wisepim, een snelgroeiende startup, draag ik bij aan een AI-gestuurd Product Information Management-platform dat productinformatie automatisch verrijkt en verbetert.
-				Ik bouw backendservices met Django en de frontend met RemixJS, waarbij ik mijn ervaring met e-commerce API's en LLM's gebruik om diverse externe systemen aan het platform te koppelen. Ik bouw ook admin-interfaces waarmee niet-technische teamleden integraties zelfstandig kunnen beheren.
+				Ik bouw backendservices met Django en de frontend met RemixJS, hierbij gebruikmakend van mijn ervaring met e-commerce API's en LLM's om diverse externe systemen aan het platform te koppelen. Ik bouw ook admin-interfaces zodat niet-technische teamleden integraties zelfstandig kunnen beheren.
 			`,
 		},
 		{
@@ -209,7 +209,7 @@ export const resumeExperience = {
 				'Full-stack developer die maatwerktooling bouwt, waaronder een CCVShop-beheerdashboard in NiceGUI, een configureerbaar web scraping dashboard in Django met Playwright en een Wintree-productsynchronisatietool.',
 			extendedDescription: `
 				Bij Swiftsync werk ik aan diverse platformen en tools voor de klanten van het bedrijf, van API-integraties tot web scraping en frontendwerk.
-				Ik heb een databeheerdashboard gebouwd in NiceGUI dat een eenvoudiger interface biedt voor het beheren van CCVShop-productdata, en een web scraping dashboard met Django en Playwright waarmee data op een zeer configureerbare manier van websites geëxtraheerd kan worden. Daarnaast heb ik een productsynchronisatietool ontwikkeld tussen Wintree, een beheersysteem in de Nederlandse sierteeltsector, en diverse e-commerce platformen, voor niet alleen productdata maar ook voorraadniveaus, klantgroepen en staffelprijzen.
+				Ik heb een databeheerdashboard gebouwd in NiceGUI dat een eenvoudiger interface biedt voor het beheren van CCVShop-productdata, en een web scraping dashboard met Django en Playwright voor uiterst configureerbare data-extractie van websites. Daarnaast heb ik een productsynchronisatietool ontwikkeld tussen Wintree, een beheersysteem in de Nederlandse sierteeltsector, en diverse e-commerce platformen, voor niet alleen productdata maar ook voorraadniveaus, klantgroepen en staffelprijzen.
 			`,
 		},
 		{
@@ -217,7 +217,7 @@ export const resumeExperience = {
 			startDate: 'Jul 2024',
 			endDate: 'Heden',
 			description:
-				"Senior developer die Klaviyo integreert met CMS-platformen zonder standaard connectors, via custom event tracking in Google Tag Manager voor Shopify, WooCommerce, Lightspeed en CCVShop. Bouwt ook interne automatiseringen en tools die Gemini's API integreren om data te categoriseren.",
+				"Senior developer die Klaviyo integreert met diverse CMS-platformen via custom event tracking in Google Tag Manager. Bouwt ook interne automatiseringen en tools die Gemini's API integreren om data te categoriseren.",
 			extendedDescription: `
 				Als senior developer bij Chary Solutions leid ik de technische ontwikkeling voor het integreren van Klaviyo met diverse CMS-platformen die geen standaard integratieconnectors hebben.
 				Mijn werk richt zich op het bouwen van maatwerkoplossingen voor het tracken van gebruikersgedrag en het versturen van eventdata naar Klaviyo, zodat e-mailmarketeers beschikken over de data die ze nodig hebben om hun campagnes te optimaliseren. Ik gebruik Google Tag Manager uitgebreid voor custom tracking cookies en event firing op platformen als Shopify, WooCommerce, Lightspeed en CCVShop.
@@ -265,11 +265,11 @@ export const resumeExperience = {
 			startDate: 'Apr 2021',
 			endDate: 'Apr 2022',
 			description:
-				'Frontend developer bij een grote overheidsinstantie, werkte aan een vertaallaag-dashboard en de migratie van AngularJS naar Angular. Zette teststrategieën op en waarborgde codekwaliteit, onder begeleiding van een senior consultant.',
+				'Frontend developer bij een grote overheidsinstantie, gewerkt aan een vertaallaag-dashboard en de migratie van AngularJS naar Angular. Zette teststrategieën op en waarborgde codekwaliteit, onder begeleiding van een senior consultant.',
 			extendedDescription: `
 				Bij de SVB (Sociale Verzekeringsbank), een grote Nederlandse overheidsinstantie, werkte ik als frontend developer aan een platform dat ruwe data vertaalde naar een geavanceerd frontend dashboard, als vertaallaag tussen de legacy-applicatie en de nieuwe frontend.
-				Ik werkte ook aan de migratie van AngularJS naar modern Angular, wat mij leerde hoe je de uitdagingen van grote migraties binnen grote organisaties navigeert. Onder begeleiding van een senior consultant leerde ik snel de theoretische kennis uit mijn traineeship toe te passen in een praktische omgeving.
-				Ik zette teststrategieën op en waarborgde codekwaliteit, waarbij ik mijn kennis van Angular gebruikte om nieuwe systemen aan legacy-applicaties te koppelen. Dit was mijn eerste ervaring in een grote overheidsorganisatie.
+				Ik werkte ook aan de migratie van AngularJS naar modern Angular, wat mij leerde om de uitdagingen van grote migraties binnen grote organisaties te navigeren. Onder begeleiding van een senior consultant leerde ik snel de theoretische kennis uit mijn traineeship toe te passen in een praktische omgeving.
+				Ik zette teststrategieën op en waarborgde codekwaliteit, met gebruik van mijn kennis van Angular om nieuwe systemen aan legacy-applicaties te koppelen. Dit was mijn eerste ervaring in een grote overheidsorganisatie.
 			`,
 		},
 	],
