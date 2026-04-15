@@ -2,7 +2,7 @@ export const experience = [
 	{
 		name: 'Mikrocloud',
 		title: 'Lead Full Stack Developer',
-		skills: ['Laravel', 'Nuxt.js', 'AWS', 'Mikrotik', 'Stripe', 'Docker'],
+		skills: ['Laravel', 'Nuxt.js', 'AWS', 'MySQL', 'Mikrotik RouterOS', 'PHP', 'Stripe', 'Docker'],
 		location: 'Remote - Naas, Kildare, Ireland',
 		startDate: 'July 2025',
 		endDate: 'Now',
@@ -19,7 +19,7 @@ export const experience = [
 	{
 		name: 'Webshopimporter',
 		title: 'Lead Full Stack Developer',
-		skills: ['PHP', 'Laravel', 'Django', 'MySQL', 'Magento', 'Shopify', 'WooCommerce'],
+		skills: ['PHP', 'Laravel', 'Django', 'MySQL', 'Github Actions', 'Magento', 'Shopify', 'WooCommerce'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
 		startDate: 'Sep 2024',
 		endDate: 'Now',
@@ -36,7 +36,7 @@ export const experience = [
 	{
 		name: 'Wisepim',
 		title: 'Full Stack Developer',
-		skills: ['Django', 'Python', 'React', 'Postgres'],
+		skills: ['Django', 'Python', 'React', 'Postgres', 'Github Actions'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
 		startDate: 'Sep 2024',
 		endDate: 'Now',
@@ -65,7 +65,7 @@ export const experience = [
 			`,
 		],
 		link: 'https://www.swiftsync.ai/',
-		cv: true,
+		cv: false,
 	},
 	{
 		name: 'Chary Solutions',
@@ -87,7 +87,7 @@ export const experience = [
 	{
 		name: 'SPAR',
 		title: 'Data Engineer',
-		skills: ['Python', 'Pandas', 'SQL', 'Azure-Devops', 'PySpark'],
+		skills: ['Python', 'Pandas', 'SQL', 'Azure DevOps', 'PySpark'],
 		location: 'Remote - Waalwijk, Noord-Brabant, Nederland',
 		startDate: 'Jun 2024',
 		endDate: 'Dec 2024',
@@ -104,7 +104,7 @@ export const experience = [
 	{
 		name: 'ING',
 		title: 'Full Stack Developer / Product Owner',
-		skills: ['Lit', 'Javascript', 'Azure DevOps'],
+		skills: ['Lit', 'Javascript', 'Typescript', 'Azure DevOps', 'ESLint'],
 		location: 'Amsterdam, Noord-Holland, Nederland',
 		startDate: 'Apr 2022',
 		endDate: 'Sep 2023',
@@ -121,7 +121,7 @@ export const experience = [
 	{
 		name: 'Quintor',
 		title: 'IT Consultant / Trainee',
-		skills: ['Javascript', 'Azure Devops', 'node.js'],
+		skills: ['Javascript', 'Azure DevOps', 'node.js', 'Angular', 'React', 'Vue.js'],
 		location: 'Amersfoort, Utrecht, Nederland',
 		startDate: 'Oct 2020',
 		endDate: 'Oct 2023',
@@ -139,7 +139,7 @@ export const experience = [
 	{
 		name: 'SVB',
 		title: 'Frontend Developer',
-		skills: ['Javascript', 'Angular', 'Jenkins', 'Cypress'],
+		skills: ['Angular', 'Javascript', 'Jenkins', 'Cypress'],
 		location: 'Amstelveen, Noord-Holland, Nederland',
 		startDate: 'Apr 2021',
 		endDate: 'Apr 2022',
@@ -173,7 +173,7 @@ export const experience = [
 	{
 		name: 'MedWeb',
 		title: 'Software Developer',
-		skills: ['Vue.js'],
+		skills: ['Vue.js', 'Chart.js'],
 		location: 'Hilversum, Noord-Holland, Nederland',
 		startDate: 'Sep 2019',
 		endDate: 'Aug 2020',
