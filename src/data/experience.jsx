@@ -10,7 +10,7 @@ export const experience = [
 			`
 				At MikroCloud I worked as the lead developer on the Software Defined WAN platform designed to work with Mikrotik network devices. In this role I was responsible for the technical decisions and the overall architecture of the platform, as well as the implementation of new features and the maintenance of the existing codebase.
 				The platform was built using a microservices architecture using Laravel Vapor which uses AWS Lambda and API Gateway under the hood to manage the backend. The microservices themselves were built using Laravel using the SQS messaging queue to communicate between different services. The frontend was built using Nuxt.js, which fit well with my prior experience using Vue.js. The platform also runs scripts written in the RouterOS scripting language on the Mikrotik network devices.
-				Within this stack I have to use my skills for managing a web application as well as my knowledge for networking protocols such as setting up BGP routes, managing VLANs, configuring firewalls and managing IP routing tables, among other things.
+				Within this stack I had to use my skills for managing a web application as well as my knowledge for networking protocols such as setting up BGP routes, managing VLANs, configuring firewalls and managing IP routing tables, among other things.
 			`,
 		],
 		link: 'https://www.mikrocloud.com/',
@@ -25,31 +25,31 @@ export const experience = [
 		endDate: 'Now',
 		description: [
 			`
-				At Webshopimporter, I am the lead developer responsible on the ecommerce data integration platform. The platform is designed to fetch supplier data and map it into different e-commerce platforms such as Shopify, Lightspeed, WooCommerce, Magento and CCVShop. My tasks include designing and implementing new integrations, solving complex data mapping problems and updating prior integrations when the supplier change their data structure.
-				The platform was built using CodeIgniter and Laravel and we are currently working on a migration using Django. The platform is hosted using our own Linux server using Docker containers with docker compose and a MySQL database. The platform's integrations feature a wide variety of formats and protocols, including protocols such as REST, SOAP and FTP and formats such as JSON, XML and CSV.
-				Within this role I have to use my skills for analysing data from a wide variety of sources and formats. This role also requires deep knowledge of the APIs provided by the different e-commerce platforms (Shopify, Lightspeed, WooCommerce, Magento and CCVShop).
+				At Webshopimporter, I was the lead developer responsible for the ecommerce data integration platform. The platform was designed to fetch supplier data and map it into different e-commerce platforms such as Shopify, Lightspeed, WooCommerce, Magento and CCVShop. My tasks included designing and implementing new integrations, solving complex data mapping problems and updating prior integrations when the supplier changed their data structure.
+				The platform was built using CodeIgniter and Laravel and we were also working on a migration using Django. The platform is hosted using our own Linux server using Docker containers with docker compose and a MySQL database. The platform's integrations feature a wide variety of formats and protocols, including protocols such as REST, SOAP and FTP and formats such as JSON, XML and CSV.
+				Within this role I had to use my skills for analysing data from a wide variety of sources and formats. This role also required deep knowledge of the APIs provided by the different e-commerce platforms (Shopify, Lightspeed, WooCommerce, Magento and CCVShop).
 			`,
 		],
 		link: 'https://www.webshopimporter.com/',
 		cv: true,
 	},
-	{
-		name: 'Wisepim',
-		title: 'Full Stack Developer',
-		skills: ['Django', 'Python', 'React', 'Postgres', 'Github Actions'],
-		location: 'Remote - Enschede, Overijssel, Nederland',
-		startDate: 'Sep 2024',
-		endDate: 'Now',
-		description: [
-			`
-				At Wisepim, I work as a full-stack developer on a cutting-edge PIM platform which uses AI to enrich and improve product information. My role involves assisting in a wide variety of tasks, from building new features inside of the Django backend to building new interfaces in the modern React frontend. I use my experience working with e-commerce APIs and interacting with LLMs over the API to connect and integrate various systems into the platform.
-				The platform was built using Django for the backend, React for the frontend and PostgreSQL for the database. The platform is hosted using Railway's hosting solution, which provides a simple and efficient interface for managing the application's infrastructure.
-				Within this role I have to use my skills for building a web application using Django and React, as well as my knowledge of e-commerce APIs and LLMs to build the tools needed to keep up with the growth of the company and the new technology we are working with.
-			`,
-		],
-		link: 'https://www.wisepim.com/',
-		cv: true,
-	},
+	// {
+	// 	name: 'Wisepim',
+	// 	title: 'Full Stack Developer',
+	// 	skills: ['Django', 'Python', 'React', 'Postgres', 'Github Actions'],
+	// 	location: 'Remote - Enschede, Overijssel, Nederland',
+	// 	startDate: 'Sep 2024',
+	// 	endDate: 'Now',
+	// 	description: [
+	// 		`
+	// 			At Wisepim, I worked as a full-stack developer on a cutting-edge PIM platform which uses AI to enrich and improve product information. My role involved assisting in a wide variety of tasks, from building new features inside of the Django backend to building new interfaces in the modern React frontend. I used my experience working with e-commerce APIs and interacting with LLMs over the API to connect and integrate various systems into the platform.
+	// 			The platform was built using Django for the backend, React for the frontend and PostgreSQL for the database.
+	// 			Within this role I had to use my skills for building a web application using Django and React, as well as my knowledge of e-commerce APIs and LLMs to build the tools needed to keep up with the growth of the company and the new technology we were working with.
+	// 		`,
+	// 	],
+	// 	link: 'https://www.wisepim.com/',
+	// 	cv: true,
+	// },
 	{
 		name: 'Swiftsync',
 		title: 'Full Stack Developer',
@@ -59,9 +59,9 @@ export const experience = [
 		endDate: 'Now',
 		description: [
 			`
-				At Swiftsync, I work as a full-stack developer on various platforms and tools needed for SwiftSync.ai's customers. Some of the platforms that I have set up and worked on are a data management platform that creates an easy interface in front of CCVShop, a web scraping dashboard that alows for highly configurable data extraction from websites, an advanced product synchronisation tool between Wintree (a management system within the Dutch horticultural industry) which manages not only product data but also stock levels, customer groups, tier pricing and more.
-				The platforms were built using a variety of technologies, including Django, NiceGUI, Playwright, Pandas, Gemini's API and more. The platforms are hosted using Railway's hosting solution, which provides a simple and efficient interface for managing the application's infrastructure. Within this role I have to use my skills for building web applications using Django and NiceGUI, as well as my knowledge of e-commerce APIs and web scraping to build the tools needed for the platform.
-				Within this role I have to use my skills for designing and building web applications that solve complex problems for our customers, as well as my knowledge of e-commerce APIs and web scraping to build the tools needed for the platform.
+				At Swiftsync, I worked as a full-stack developer on various platforms and tools needed for SwiftSync.ai's customers. Some of the platforms that I have set up and worked on are a data management platform that creates an easy interface in front of CCVShop, a web scraping dashboard that alows for highly configurable data extraction from websites, an advanced product synchronisation tool between Wintree (a management system within the Dutch horticultural industry) which manages not only product data but also stock levels, customer groups, tier pricing and more.
+				The platforms were built using a variety of technologies, including Django, NiceGUI, Playwright, Pandas, Gemini's API and more. Within this role I had to use my skills for building web applications using Django and NiceGUI, as well as my knowledge of e-commerce APIs and web scraping to build the tools needed for the platform.
+				Within this role I had to use my skills for designing and building web applications that solve complex problems for our customers, as well as my knowledge of e-commerce APIs and web scraping to build the tools needed for the platform.
 			`,
 		],
 		link: 'https://www.swiftsync.ai/',
@@ -76,9 +76,9 @@ export const experience = [
 		endDate: 'Now',
 		description: [
 			`
-				At Chary Solutions, I work as a senior developer leading the technical development for internal tools and integrating Klaviyo with various content management systems that do not have standard integrations. My work focuses on building solutions for tracking and sending event data to Klaviyo, providing email marketers with the tools they needed to improve their campaigns and building internal automations which reduce time spent on menial tasks such as sorting e-mails inside of Gmail, managing Excel sheets, and more. 
-				For these integrations I use Google Tag Manager for custom tracking cookies and work with platforms like Shopify, WooCommerce, Lightspeed and CCVShop. For the internal automations I use Google's app script which allows me to build custom automations for Google Sheets, Gmail and more using basic scripts written in Javascript. 
-				Within this role I have to use my knowledge of web applications to build different tracking solutions in a wide variety of webshops depending on the data need of the e-mail marketers, as well as my knowledge of Google's app script to build internal automations that make the company's operations more efficient.
+				At Chary Solutions, I worked as a senior developer leading the technical development for internal tools and integrating Klaviyo with various content management systems that do not have standard integrations. My work focused on building solutions for tracking and sending event data to Klaviyo, providing email marketers with the tools they needed to improve their campaigns and building internal automations which reduced time spent on menial tasks such as sorting e-mails inside of Gmail, managing Excel sheets, and more. 
+				For these integrations I used Google Tag Manager for custom tracking cookies and worked with platforms like Shopify, WooCommerce, Lightspeed and CCVShop. For the internal automations I used Google's app script which allowed me to build custom automations for Google Sheets, Gmail and more using basic scripts written in Javascript. 
+				Within this role I had to use my knowledge of web applications to build different tracking solutions in a wide variety of webshops depending on the data need of the e-mail marketers, as well as my knowledge of Google's app script to build internal automations that make the company's operations more efficient.
 			`,
 		],
 		link: 'https://www.spar.nl/',
