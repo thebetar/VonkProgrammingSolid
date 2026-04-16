@@ -82,17 +82,17 @@ export const resumeExperience = {
 				I also design new features that provide a clearer interface for customers to manage their data mappings and improve the overall user experience.
 			`,
 		},
-		{
-			...getExperience('Wisepim'),
-			startDate: 'Sep 2024',
-			endDate: 'Present',
-			description:
-				'Full-stack developer contributing to an AI-powered PIM platform, building e-commerce API integrations with Django and RemixJS. Builds admin interfaces enabling non-technical team members to manage integrations independently.',
-			extendedDescription: `
-				At Wisepim, a fast-growing startup, I contribute to an AI-powered Product Information Management platform that enriches and improves product information automatically.
-				I build backend services with Django and the frontend with RemixJS, using my experience with e-commerce APIs and LLMs to connect and integrate various external systems into the platform. I also build admin interfaces that allow non-technical team members to manage integrations independently.
-			`,
-		},
+		// {
+		// 	...getExperience('Wisepim'),
+		// 	startDate: 'Sep 2024',
+		// 	endDate: 'Present',
+		// 	description:
+		// 		'Full-stack developer contributing to an AI-powered PIM platform, building e-commerce API integrations with Django and RemixJS. Builds admin interfaces enabling non-technical team members to manage integrations independently.',
+		// 	extendedDescription: `
+		// 		At Wisepim, a fast-growing startup, I contribute to an AI-powered Product Information Management platform that enriches and improves product information automatically.
+		// 		I build backend services with Django and the frontend with RemixJS, using my experience with e-commerce APIs and LLMs to connect and integrate various external systems into the platform. I also build admin interfaces that allow non-technical team members to manage integrations independently.
+		// 	`,
+		// },
 		{
 			...getExperience('Swiftsync'),
 			startDate: 'Sep 2024',
@@ -190,17 +190,17 @@ export const resumeExperience = {
 				Ik ontwerp ook nieuwe functionaliteiten die klanten een overzichtelijker interface bieden om hun datamappings te beheren en de algehele gebruikerservaring te verbeteren.
 			`,
 		},
-		{
-			...getExperience('Wisepim'),
-			startDate: 'Sep 2024',
-			endDate: 'Heden',
-			description:
-				'Full-stack developer die bijdraagt aan een AI-gestuurd PIM-platform, met e-commerce API-integraties in Django en RemixJS. Bouwt admin-interfaces om niet-technische teamleden in staat te stellen integraties zelfstandig te beheren.',
-			extendedDescription: `
-				Bij Wisepim, een snelgroeiende startup, draag ik bij aan een AI-gestuurd Product Information Management-platform dat productinformatie automatisch verrijkt en verbetert.
-				Ik bouw backendservices met Django en de frontend met RemixJS, hierbij gebruikmakend van mijn ervaring met e-commerce API's en LLM's om diverse externe systemen aan het platform te koppelen. Ik bouw ook admin-interfaces zodat niet-technische teamleden integraties zelfstandig kunnen beheren.
-			`,
-		},
+		// {
+		// 	...getExperience('Wisepim'),
+		// 	startDate: 'Sep 2024',
+		// 	endDate: 'Heden',
+		// 	description:
+		// 		'Full-stack developer die bijdraagt aan een AI-gestuurd PIM-platform, met e-commerce API-integraties in Django en RemixJS. Bouwt admin-interfaces om niet-technische teamleden in staat te stellen integraties zelfstandig te beheren.',
+		// 	extendedDescription: `
+		// 		Bij Wisepim, een snelgroeiende startup, draag ik bij aan een AI-gestuurd Product Information Management-platform dat productinformatie automatisch verrijkt en verbetert.
+		// 		Ik bouw backendservices met Django en de frontend met RemixJS, hierbij gebruikmakend van mijn ervaring met e-commerce API's en LLM's om diverse externe systemen aan het platform te koppelen. Ik bouw ook admin-interfaces zodat niet-technische teamleden integraties zelfstandig kunnen beheren.
+		// 	`,
+		// },
 		{
 			...getExperience('Swiftsync'),
 			startDate: 'Sep 2024',
