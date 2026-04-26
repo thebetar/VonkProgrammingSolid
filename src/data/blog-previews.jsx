@@ -1,59 +1,17 @@
-export const BlogTags = {
-	Productivity: 'productivity',
-	Development: 'development',
-	Lifestyle: 'lifestyle',
-	Innovation: 'innovation',
-	Business: 'business',
-	Career: 'career',
-	Guide: 'guide',
-	Product: 'product',
-};
-
-export const blogTags = [
-	{
-		name: BlogTags.Productivity,
-		color: 'green',
-	},
-	{
-		name: BlogTags.Lifestyle,
-		color: 'blue',
-	},
-	{
-		name: BlogTags.Development,
-		color: 'purple',
-	},
-	{
-		name: BlogTags.Innovation,
-		color: 'red',
-	},
-	{
-		name: BlogTags.Business,
-		color: 'orange',
-	},
-	{
-		name: BlogTags.Career,
-		color: 'cyan',
-	},
-	{
-		name: BlogTags.Guide,
-		color: 'yellow',
-	},
-	{
-		name: BlogTags.Product,
-		color: 'pink',
-	},
-];
-
-export function getTagColor(tag) {
-	const color = blogTags.find(blogTag => blogTag.name === tag)?.color;
-
-	if (color === 'blue') {
-		return 'indigo';
-	}
-	return color;
-}
+import { BlogTags } from '@/data/blog-tags';
 
 export const blogs = [
+	{
+		id: 35,
+		title: 'Making Sense of the Web, a guide to basic internet terms 🌐',
+		description: `
+			A beginner-friendly guide demystifying everyday internet terminology. Learn how networks, IP addresses, DNS, firewalls, HTTPS, and VPNs actually work to keep you connected and secure online.
+		`,
+		keywords: ['networking', 'internet', 'dns', 'ssl', 'https', 'ip'],
+		tags: [BlogTags.Development, BlogTags.Education],
+		date: '2026-04-26',
+		link: '/blogs/basic-internet-terms',
+	},
 	{
 		id: 34,
 		title: 'Agentic coding, a new layer of abstraction 🤖',

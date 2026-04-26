@@ -1,9 +1,9 @@
 import { createEffect, createSignal } from 'solid-js';
 import { Title, Meta } from '@solidjs/meta';
 
-import { getTagColor } from '@/data/blogs';
 import Share from '@/components/blogs/Share';
 import Comment from '@/components/blogs/Comment';
+import { getTagColor } from '@/data/blogs';
 
 export default function BlogPost({ id, title, description, link, date, tags, keywords, content }) {
 	const [viewCount, setViewCount] = createSignal(1);
