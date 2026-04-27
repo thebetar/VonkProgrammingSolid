@@ -16,6 +16,7 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Education],
 		date: '2026-04-26',
 		link: '/blogs/basic-internet-terms',
+		image: '/assets/images/blogs/basic-internet-terms/network-diagram.webp',
 		content: (
 			<>
 				<p>
@@ -247,6 +248,7 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
 		date: '2026-03-15',
 		link: '/blogs/agentic-coding',
+		image: '/assets/images/blogs/agentic-coding/side-projects.webp',
 		content: (
 			<>
 				<p>
@@ -428,6 +430,7 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Innovation],
 		date: '2026-01-31',
 		link: '/blogs/european-cloud-challenges',
+		image: '/assets/images/blogs/european-cloud/big-three.webp',
 		content: (
 			<>
 				<p>
@@ -667,6 +670,7 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
 		date: '2025-12-27',
 		link: `/blogs/ai-unit-tests`,
+		image: '/assets/images/blogs/ai-unit-tests/clean-code.webp',
 		content: (
 			<>
 				<p>
@@ -970,6 +974,7 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Innovation],
 		date: '2025-11-15',
 		link: '/blogs/spectrum-sensing-cognitive-radio',
+		image: '/assets/images/blogs/spectrum-sensing/spectrum-example.webp',
 		content: (
 			<>
 				<h2 id="introduction">Introduction</h2>
@@ -1126,6 +1131,7 @@ export const blogs = [
 		tags: [BlogTags.Innovation, BlogTags.Development],
 		date: '2025-10-18',
 		link: '/blogs/ai-thoughts',
+		image: '/assets/images/blogs/ai-thoughts/intro.webp',
 		content: (
 			<>
 				<p>
@@ -1287,6 +1293,7 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Lifestyle, BlogTags.Lifestyle],
 		date: '2025-08-08',
 		link: '/blogs/taking-control',
+		image: '/assets/images/blogs/taking-control/raspberry-pi-zero.webp',
 		content: (
 			<>
 				<p>
@@ -1832,6 +1839,7 @@ export const blogs = [
 		keywords: ['math', 'matrix', 'linear algebra'],
 		date: '2025-07-11',
 		link: '/blogs/matrices',
+		image: '/assets/images/blogs/matrices/linear-transform.png',
 		content: (
 			<>
 				<p>
@@ -1970,6 +1978,7 @@ export const blogs = [
 		],
 		date: '2025-07-05',
 		link: '/blogs/iot-hobby',
+		image: '/assets/images/blogs/iot-hobby/final-project.webp',
 		content: (
 			<>
 				<p>
@@ -2619,6 +2628,7 @@ export const blogs = [
 		keywords: ['neural networks', 'machine learning', 'deep learning', 'ai', 'artificial intelligence'],
 		date: '2025-02-28',
 		link: '/blogs/neural-networks',
+		image: '/assets/images/blogs/neural-networks/simple_neural_network.jpg',
 		content: (
 			<>
 				<p>

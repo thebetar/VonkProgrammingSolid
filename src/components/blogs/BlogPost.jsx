@@ -1,5 +1,4 @@
 import { createEffect, createSignal } from 'solid-js';
-import { Title, Meta } from '@solidjs/meta';
 
 import Share from '@/components/blogs/Share';
 import Comment from '@/components/blogs/Comment';
@@ -11,8 +10,6 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 
 	const [showShare, setShowShare] = createSignal(false);
 	const [showComment, setShowComment] = createSignal(false);
-
-	const cleanDescription = description ? description.replace(/<[^>]*>?/gm, '').trim() : '';
 
 	const parseTitle = title => {
 		try {
@@ -81,33 +78,6 @@ export default function BlogPost({ id, title, description, link, date, tags, key
 
 	return (
 		<>
-			<Title>VonkProgramming - {title}</Title>
-			<Meta name="description" content={cleanDescription} />
-			<Meta name="keywords" content={keywords?.join(', ')} />
-			<Meta property="og:title" content={`VonkProgramming - ${title}`} />
-			<Meta property="og:description" content={cleanDescription} />
-			<Meta property="og:image" content="https://vonkprogramming.nl/assets/images/logo.webp" />
-			<Meta property="og:url" content={`https://vonkprogramming.nl${link}`} />
-			<Meta property="og:type" content="article" />
-			<Meta name="twitter:card" content="summary_large_image" />
-			<Meta name="twitter:title" content={`VonkProgramming - ${title}`} />
-			<Meta name="twitter:description" content={cleanDescription} />
-			<Meta name="twitter:image" content="https://vonkprogramming.nl/assets/images/logo.webp" />
-			<script type="application/ld+json">
-				{JSON.stringify({
-					'@context': 'https://schema.org',
-					'@type': 'BlogPosting',
-					headline: title,
-					description: cleanDescription,
-					image: 'https://vonkprogramming.nl/assets/images/logo.webp',
-					author: {
-						'@type': 'Person',
-						name: 'Lars Vonk',
-					},
-					datePublished: date,
-					url: `https://vonkprogramming.nl${link}`,
-				})}
-			</script>
 			{showShare() && <Share handleClose={() => setShowShare(false)} />}{' '}
 			<div id="blog_id" class="hidden">
 				{id}

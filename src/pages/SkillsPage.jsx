@@ -1,17 +1,17 @@
-import { Title, Meta } from '@solidjs/meta';
-
 import Layout from '@/layouts/Layout';
+import SEO from '@/components/general/SEO';
 
 import AllSkills from '@/components/skills/AllSkills';
 
-export default function BlogsPage() {
+export default function SkillsPage() {
 	const template = (
 		<div className="md:mt-4 mt-6">
-			<Title>VonkProgramming - Skills</Title>
-			<Meta name="description" content="Overview of my technical skills and expertise." />
-			<Meta property="og:title" content="VonkProgramming - Skills" />
-			<Meta property="og:description" content="Overview of my technical skills and expertise." />
-			<Meta property="og:type" content="website" />
+			<SEO
+				title="Skills"
+				description="Technical expertise of Lars Vonk: JavaScript, TypeScript, Python, PHP, Go, C++, SolidJS, React, Node.js, Laravel, Docker, AI, and more."
+				path="/skills"
+				keywords={['skills', 'javascript', 'typescript', 'python', 'php', 'go', 'docker', 'AI']}
+			/>
 
 			<AllSkills />
 		</div>

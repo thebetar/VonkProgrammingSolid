@@ -1,5 +1,4 @@
 import { createSignal, createEffect } from 'solid-js';
-import { Link } from '@solidjs/meta';
 
 import Cookie from '@/components/general/Cookie';
 import Subscribe from '@/components/general/Subscribe';
@@ -43,7 +42,6 @@ export default function Layout({ slot }) {
 
 	return (
 		<div class="md:pb-0 pb-12">
-			<Link rel="canonical" href={window.location.href} />
 			<Navbar />
 
 			<main class="container">

@@ -1,19 +1,26 @@
 import { For } from 'solid-js';
-import { Title, Meta } from '@solidjs/meta';
 
 import { projects } from '@/data/projects';
 import Layout from '@/layouts/Layout';
+import SEO from '@/components/general/SEO';
 import ProjectCard from '@/components/homepage/ProjectCard';
 import PageHeader from '@/components/skills/PageHeader';
 
 export default function ProjectsPage() {
 	const template = (
 		<>
-			<Title>VonkProgramming - Projects</Title>
-			<Meta name="description" content="Showcase of my personal and professional projects." />
-			<Meta property="og:title" content="VonkProgramming - Projects" />
-			<Meta property="og:description" content="Showcase of my personal and professional projects." />
-			<Meta property="og:type" content="website" />
+			<SEO
+				title="Projects"
+				description="Personal and open-source projects by Lars Vonk — C++ tools, IoT automation, web apps, and experiments across the full stack."
+				path="/projects"
+				keywords={['projects', 'open source', 'C++', 'IoT', 'web development', 'github']}
+				jsonLd={{
+					'@context': 'https://schema.org',
+					'@type': 'CollectionPage',
+					name: 'VonkProgramming Projects',
+					url: 'https://vonkprogramming.nl/projects',
+				}}
+			/>
 
 			<PageHeader>Projects</PageHeader>
 

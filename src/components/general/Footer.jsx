@@ -9,7 +9,7 @@ export default function Footer() {
 			</p>
 			<div class="grid grid-cols-4 gap-4">
 				<a
-					aria-label="Social Media"
+					aria-label="Visit my Stack Overflow profile"
 					href={info.socialMedia.stackoverflow}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -18,7 +18,7 @@ export default function Footer() {
 					<StackOverflowSvg width={18} height={18} />
 				</a>
 				<a
-					aria-label="Social Media"
+					aria-label="Visit my GitHub profile"
 					href={info.socialMedia.github}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -27,7 +27,7 @@ export default function Footer() {
 					<GitHubSvg width={18} height={18} />
 				</a>
 				<a
-					aria-label="Social Media"
+					aria-label="Connect on LinkedIn"
 					href={info.socialMedia.linkedin}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -36,7 +36,7 @@ export default function Footer() {
 					<LinkedInSvg width={18} height={18} />
 				</a>
 				<a
-					aria-label="Social Media"
+					aria-label="Send me an email"
 					href={info.socialMedia.email}
 					target="_blank"
 					rel="noopener noreferrer"

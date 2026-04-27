@@ -1,7 +1,7 @@
 import { createSignal } from 'solid-js';
-import { Title, Meta } from '@solidjs/meta';
 
 import Layout from '@/layouts/Layout';
+import SEO from '@/components/general/SEO';
 import ResumeControls from '@/components/resume/ResumeControls';
 import Resume from '@/components/resume/Resume';
 
@@ -11,14 +11,12 @@ export default function ResumePage() {
 
 	const template = (
 		<div class="md:mt-4 mt-6 md:mb-8 mb-4">
-			<Title>VonkProgramming - Resume</Title>
-			<Meta
-				name="description"
-				content="Resume of Lars Vonk - Full-Stack Engineer with experience in JavaScript, Python, and PHP."
+			<SEO
+				title="Resume"
+				description="Resume of Lars Vonk — Full-Stack Engineer with nearly a decade of experience in JavaScript, Python, PHP, Go, AI integrations, and IoT."
+				path="/resume"
+				keywords={['resume', 'CV', 'full-stack engineer', 'freelance']}
 			/>
-			<Meta property="og:title" content="VonkProgramming - Resume" />
-			<Meta property="og:description" content="Resume of Lars Vonk - Full-Stack Engineer" />
-			<Meta property="og:type" content="website" />
 
 			<div class="hidden md:block">
 				<ResumeControls language={language} setLanguage={setLanguage} mode={mode} setMode={setMode} />
