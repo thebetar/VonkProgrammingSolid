@@ -49,11 +49,7 @@ export default function Homepage() {
 				name: info.name,
 				url: info.baseUrl,
 				jobTitle: info.jobDescription1,
-				sameAs: [
-					info.socialMedia.github,
-					info.socialMedia.linkedin,
-					info.socialMedia.stackoverflow,
-				],
+				sameAs: [info.socialMedia.github, info.socialMedia.linkedin, info.socialMedia.stackoverflow],
 			},
 		],
 	};

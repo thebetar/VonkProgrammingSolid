@@ -1,3 +1,4 @@
+import { onMount } from 'solid-js';
 import { Title, Meta, Link } from '@solidjs/meta';
 
 import { info } from '@/data/info';
@@ -5,9 +6,20 @@ import { info } from '@/data/info';
 const DEFAULT_IMAGE = '/assets/images/logo.webp';
 const SITE_NAME = 'VonkProgramming';
 
+let defaultsStripped = false;
+
+function stripDefaultTags() {
+	if (defaultsStripped || typeof document === 'undefined') return;
+	defaultsStripped = true;
+	document.head.querySelectorAll('[data-default]').forEach(node => node.remove());
+}
+
 function truncate(text, max = 158) {
 	if (!text) return '';
-	const clean = String(text).replace(/<[^>]*>?/gm, '').replace(/\s+/g, ' ').trim();
+	const clean = String(text)
+		.replace(/<[^>]*>?/gm, '')
+		.replace(/\s+/g, ' ')
+		.trim();
 	if (clean.length <= max) return clean;
 	return clean.slice(0, max - 1).replace(/\s+\S*$/, '') + '…';
 }
@@ -35,6 +47,8 @@ export default function SEO({
 	const imageUrl = absoluteUrl(image);
 	const keywordsString = Array.isArray(keywords) ? keywords.join(', ') : keywords;
 
+	onMount(stripDefaultTags);
+
 	return (
 		<>
 			<Title>{fullTitle}</Title>
@@ -56,9 +70,7 @@ export default function SEO({
 			<Meta name="twitter:description" content={desc} />
 			<Meta name="twitter:image" content={imageUrl} />
 
-			{jsonLd && (
-				<script type="application/ld+json" innerHTML={JSON.stringify(jsonLd)} />
-			)}
+			{jsonLd && <script type="application/ld+json" innerHTML={JSON.stringify(jsonLd)} />}
 		</>
 	);
 }

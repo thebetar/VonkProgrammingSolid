@@ -7,7 +7,12 @@ import SEO from '@/components/general/SEO';
 import BlogPost from '@/components/blogs/BlogPost';
 
 function cleanText(text) {
-	return text ? text.replace(/<[^>]*>?/gm, '').replace(/\s+/g, ' ').trim() : '';
+	return text
+		? text
+				.replace(/<[^>]*>?/gm, '')
+				.replace(/\s+/g, ' ')
+				.trim()
+		: '';
 }
 
 function buildJsonLd(blog) {
