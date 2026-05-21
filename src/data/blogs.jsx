@@ -8,7 +8,7 @@ export { getTagColor };
 export const blogs = [
 	{
 		id: 36,
-		title: 'What is a good password?',
+		title: 'What is a good password? 🔒',
 		description: `
 			Passwords are the key to your online identity and data. In this blog, I will explain what makes a good password, why using just one password is risky, and how a password manager can help you stay secure in an increasingly dangerous online world.
 		`,
