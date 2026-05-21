@@ -2,6 +2,17 @@ import { BlogTags } from '@/data/blog-tags';
 
 export const blogs = [
 	{
+		id: 36,
+		title: 'What is a good password?',
+		description: `
+			Passwords are the key to your online identity and data. In this blog, I will explain what makes a good password, why using just one password is risky, and how a password manager can help you stay secure in an increasingly dangerous online world.
+		`,
+		keywords: ['passwords', 'security', 'hacking', 'password manager'],
+		tags: [BlogTags.Education, BlogTags.Guide],
+		date: '2026-05-21',
+		link: '/blogs/password-policy',
+	},
+	{
 		id: 35,
 		title: 'Making Sense of the Web, a guide to basic internet terms 🌐',
 		description: `

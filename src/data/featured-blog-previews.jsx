@@ -2,6 +2,17 @@ import { BlogTags } from '@/data/blog-tags';
 
 export const blogs = [
 	{
+		id: 36,
+		title: 'What is a good password?',
+		description: `
+			Passwords are the key to your online identity and data. In this blog, I will explain what makes a good password, why using just one password is risky, and how a password manager can help you stay secure in an increasingly dangerous online world.
+		`,
+		keywords: ['passwords', 'security', 'hacking', 'password manager'],
+		tags: [BlogTags.Education, BlogTags.Guide],
+		date: '2026-05-21',
+		link: '/blogs/password-policy',
+	},
+	{
 		id: 35,
 		title: 'Making Sense of the Web, a guide to basic internet terms 🌐',
 		description: `
@@ -33,16 +44,6 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Innovation],
 		date: '2026-01-31',
 		link: '/blogs/european-cloud-challenges',
-	},
-	{
-		id: 32,
-		title: 'Vibe Coding Needs a Vibe Check ⚗️',
-		description: `
-				Writing unit tests for all your code is not something every developer or company has the time or resources to do. However they can ensure that your code works as expected and prevent production issues. In this blog post I will discuss how using AI you can easily generate unit tests for your codebase and increase your test coverage with minimal effort.		`,
-		keywords: ['unit tests', 'testing', 'ai', 'chatgpt', 'development'],
-		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
-		date: '2025-12-27',
-		link: `/blogs/ai-unit-tests`,
 	},
 ];
 
