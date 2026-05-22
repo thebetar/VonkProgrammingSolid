@@ -8,9 +8,9 @@ export const experience = [
 		endDate: 'Now',
 		description: [
 			`
-				At MikroCloud I worked as the lead developer on the Software Defined WAN platform designed to work with Mikrotik network devices. In this role I was responsible for the technical decisions and the overall architecture of the platform, as well as the implementation of new features and the maintenance of the existing codebase.
-				The platform was built using a microservices architecture using Laravel Vapor which uses AWS Lambda and API Gateway under the hood to manage the backend. The microservices themselves were built using Laravel using the SQS messaging queue to communicate between different services. The frontend was built using Nuxt.js, which fit well with my prior experience using Vue.js. The platform also runs scripts written in the RouterOS scripting language on the Mikrotik network devices.
-				Within this stack I had to use my skills for managing a web application as well as my knowledge for networking protocols such as setting up BGP routes, managing VLANs, configuring firewalls and managing IP routing tables, among other things.
+				At Mikrocloud, I work as the lead developer responsible for the technical decisions and infrastructure of an SD-WAN platform that helps users manage Mikrotik RouterOS devices.
+				The backend is built with Laravel on AWS Lambda via Laravel Vapor, using a microservices architecture with SQS for inter-service communication, and the frontend with Nuxt.js. I also write scripts in the RouterOS scripting language to configure routers remotely.
+				Within this role I am responsible for the technical development of the platform, its architecture and infrastructure.
 			`,
 		],
 		link: 'https://www.mikrocloud.com/',
@@ -25,9 +25,9 @@ export const experience = [
 		endDate: 'Now',
 		description: [
 			`
-				At Webshopimporter, I was the lead developer responsible for the ecommerce data integration platform. The platform was designed to fetch supplier data and map it into different e-commerce platforms such as Shopify, Lightspeed, WooCommerce, Magento and CCVShop. My tasks included designing and implementing new integrations, solving complex data mapping problems and updating prior integrations when the supplier changed their data structure.
-				The platform was built using CodeIgniter and Laravel and we were also working on a migration using Django. The platform is hosted using our own Linux server using Docker containers with docker compose and a MySQL database. The platform's integrations feature a wide variety of formats and protocols, including protocols such as REST, SOAP and FTP and formats such as JSON, XML and CSV.
-				Within this role I had to use my skills for analysing data from a wide variety of sources and formats. This role also required deep knowledge of the APIs provided by the different e-commerce platforms (Shopify, Lightspeed, WooCommerce, Magento and CCVShop).
+				At Webshopimporter, I am the lead developer managing the application that synchronises supplier data to different e-commerce platforms such as Shopify, Lightspeed, WooCommerce, Magento and CCVShop.
+				I collaborate on migrating the platform from the legacy CodeIgniter codebase to Django, while also building and maintaining integrations using protocols like REST, SOAP and FTP and formats like JSON, XML and CSV, even when supplier documentation is complex or incomplete.
+				Within this role I am responsible for the technical development of these integrations and how they are implemented. For this I need to thoroughly study various supplier documentation and the APIs they provide in order to integrate them into the platform.
 			`,
 		],
 		link: 'https://www.webshopimporter.com/',
@@ -53,15 +53,15 @@ export const experience = [
 	{
 		name: 'Swiftsync',
 		title: 'Full Stack Developer',
-		skills: ['Django', 'NiceGUI', 'Playwright', 'CCVShop', 'Wordpress'],
+		skills: ['Django', 'NiceGUI', 'Playwright', 'Pandas', 'CCVShop', 'Wordpress'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
 		startDate: 'Sep 2024',
 		endDate: 'Now',
 		description: [
 			`
-				At Swiftsync, I worked as a full-stack developer on various platforms and tools needed for SwiftSync.ai's customers. Some of the platforms that I have set up and worked on are a data management platform that creates an easy interface in front of CCVShop, a web scraping dashboard that alows for highly configurable data extraction from websites, an advanced product synchronisation tool between Wintree (a management system within the Dutch horticultural industry) which manages not only product data but also stock levels, customer groups, tier pricing and more.
-				The platforms were built using a variety of technologies, including Django, NiceGUI, Playwright, Pandas, Gemini's API and more. Within this role I had to use my skills for building web applications using Django and NiceGUI, as well as my knowledge of e-commerce APIs and web scraping to build the tools needed for the platform.
-				Within this role I had to use my skills for designing and building web applications that solve complex problems for our customers, as well as my knowledge of e-commerce APIs and web scraping to build the tools needed for the platform.
+				At Swiftsync, I work as a full-stack developer on various software solutions based on client requirements.
+				I use frameworks including Django, NiceGUI, Playwright and Pandas, and have built a data management dashboard in NiceGUI for CCVShop product data, a web scraping dashboard using Django and Playwright, and a product synchronisation tool between Wintree and various e-commerce platforms handling product data, stock levels, customer groups and tier pricing.
+				Within this role I am responsible for the technical development of these tools and how they are implemented.
 			`,
 		],
 		link: 'https://www.swiftsync.ai/',
@@ -70,15 +70,15 @@ export const experience = [
 	{
 		name: 'Chary Solutions',
 		title: 'Senior Developer',
-		skills: ['Javascript', 'Klaviyo', 'Playwright', 'Lightspeed', 'Shopify', 'WooCommerce', 'CCVShop'],
+		skills: ['Javascript', 'Klaviyo', 'Gemini', 'Lightspeed', 'Shopify', 'WooCommerce', 'CCVShop'],
 		location: 'Amsterdam, Noord-Holland, Nederland',
 		startDate: 'Jul 2024',
 		endDate: 'Now',
 		description: [
 			`
-				At Chary Solutions, I worked as a senior developer leading the technical development for internal tools and integrating Klaviyo with various content management systems that do not have standard integrations. My work focused on building solutions for tracking and sending event data to Klaviyo, providing email marketers with the tools they needed to improve their campaigns and building internal automations which reduced time spent on menial tasks such as sorting e-mails inside of Gmail, managing Excel sheets, and more. 
-				For these integrations I used Google Tag Manager for custom tracking cookies and worked with platforms like Shopify, WooCommerce, Lightspeed and CCVShop. For the internal automations I used Google's app script which allowed me to build custom automations for Google Sheets, Gmail and more using basic scripts written in Javascript. 
-				Within this role I had to use my knowledge of web applications to build different tracking solutions in a wide variety of webshops depending on the data need of the e-mail marketers, as well as my knowledge of Google's app script to build internal automations that make the company's operations more efficient.
+				At Chary Solutions, I work as a senior developer handling the technical development of marketing integrations between platforms that are not supported by Klaviyo out of the box.
+				I use Google Tag Manager for custom tracking cookies for actions on websites and use the APIs of various companies to collect the required data and integrate it into Klaviyo. I also build internal automations, scripts and tools that streamline business processes and reduce manual work for the marketing team, including integrating Gemini's API to automatically categorise data.
+				Within this role I am responsible for the technical development of these integrations and internal automations and how they are implemented.
 			`,
 		],
 		link: 'https://www.spar.nl/',
@@ -93,9 +93,9 @@ export const experience = [
 		endDate: 'Dec 2024',
 		description: [
 			`
-				At SPAR Nederland, I worked as a data engineer solving data-related questions and problems related to mapping big data in an efficient manner. I mostly used SQL, Azure, and Python to handle complex challenges related to big data. One of the main projects I worked on was mapping a large amount of data from a feed from XML to JSON, which required me to use my knowledge of data manipulation as well as using parallelism using PySpark.
-				For this role I mainly used Azure's data services, such as Azure Data Factory, Azure Databricks and Azure SQL Database to manage and process large datasets. I also used Python and PySpark to write custom scripts for data manipulation and analysis, which allowed me to efficiently handle the large amount of data that SPAR works with.
-				Within this role I had to use my skills for handling big data using efficient solutions as well as parallelism and my knowledge of Azure's data services to solve complex data-related problems and provide insights that helped SPAR make informed decisions based on their data.
+				At SPAR Nederland, I worked as a data engineer on data challenges for one of the Netherlands' largest retail chains, with a focus on parsing and mapping big data as efficiently as possible.
+				I used Azure Data Factory, Azure Databricks and Azure SQL Database to manage and process large datasets. I used Pandas to efficiently shape data into the right form, and PySpark to split workloads into batches across multiple instances.
+				Within this role I was responsible for the technical development of these data challenges and how they were implemented as a team member. For this I had to use my skills for working with big data and my knowledge of Azure's data services to solve the complex problems SPAR faced.
 			`,
 		],
 		link: 'https://www.spar.nl/',
@@ -104,15 +104,15 @@ export const experience = [
 	{
 		name: 'ING',
 		title: 'Full Stack Developer / Product Owner',
-		skills: ['Lit', 'Javascript', 'Typescript', 'Azure DevOps', 'ESLint'],
+		skills: ['Lit', 'Javascript', 'Typescript', 'Jest', 'Azure DevOps', 'ESLint'],
 		location: 'Amsterdam, Noord-Holland, Nederland',
 		startDate: 'Apr 2022',
 		endDate: 'Sep 2023',
 		description: [
 			`
-				At ING, I worked as a frontend and full stack developer on the internal application for managing user data and customer forms. Later, I switched to the role of product owner when our senior developer had to leave the project. In this new role, I was responsible for planning the project, leading discussions with stakeholders, and working with my team to determine achievable sprint goals and realistic deadlines.
-				The application was built using the Lit element framework, which was originally developed by ING. For this role, I focused heavily on code quality by setting up development pipelines and implementing extensive testing strategies specifically designed for large scale applications.
-				Within this role I had to use my deep technical knowledge to bridge the gap between development and management, as well as my ability to take responsibility and lead a project effectively.
+				At ING, I worked as a full-stack developer and product owner on banking interfaces built with Lit web components, focusing on code quality by writing custom ESLint rules enforced across the team and driving unit testing standards with Jest.
+				I managed Azure DevOps CI/CD pipelines for reliable deployments, using frameworks such as Lit, Node.js, ESLint and Azure DevOps to build the banking interfaces. As product owner I focused on setting realistic expectations and preventing stakeholder misalignment — what the team said they could handle was what got planned, not more.
+				Within this role I was responsible for the technical development of these banking interfaces and how they were implemented as a team member, as well as keeping both the team and stakeholders aligned so we made every deadline.
 			`,
 		],
 		link: 'https://www.ing.nl/',
@@ -145,9 +145,9 @@ export const experience = [
 		endDate: 'Apr 2022',
 		description: [
 			`
-				At SVB, I started as an IT consultant after completing my traineeship at Quintor. I worked on a platform that translated raw data into an advanced frontend dashboard, functioning as a translation layer to connect the legacy application with the new frontend. We also worked on a large migration from AngularJS to Angular, which taught me how to navigate the challenges of major migrations within large organizations.
-				The applications were built primarily using the Angular framework. Guided by a senior consultant, I quickly learned to apply the theoretical knowledge from my traineeship into a practical environment, allowing me to take full ownership of my role.
-				Within this role I had to use my skills to set up complex testing strategies and ensure code quality, as well as my knowledge of Angular to successfully connect new systems to legacy applications.
+				At SVB, I worked as a frontend developer on a platform that translated raw data into an advanced frontend dashboard, as a translation layer between the legacy application and the new frontend.
+				I used AngularJS for the legacy application and Angular for the new frontend, Jasmine for testing the code, and Jenkins for CI/CD pipelines.
+				Within this role I was responsible for the technical development of this frontend and how it was implemented as a team member.
 			`,
 		],
 		link: 'https://www.svb.nl/',
@@ -172,20 +172,20 @@ export const experience = [
 	},
 	{
 		name: 'MedWeb',
-		title: 'Software Developer',
+		title: 'Software Developer / Intern',
 		skills: ['Vue.js', 'Chart.js'],
 		location: 'Hilversum, Noord-Holland, Nederland',
 		startDate: 'Sep 2019',
 		endDate: 'Aug 2020',
 		description: [
 			`
-				At MedWeb, which was my first full time role, I worked on a new insights portal for medical professionals. The portal allowed users to view advanced scheduling data through a large variety of graphs and diagrams, providing them with valuable insights into their operations.
-				The frontend of the application was built using Vue.js alongside HTML and CSS, while the data visualization was implemented using Chart.js. I also worked with IBM Notes, IBM Domino Designer, and LotusScript to manage the underlying data structures.
-				Within this role I had to use my skills in frontend development to translate intricate data into clear visualizations, as well as my ability to learn new technologies quickly to work effectively with their existing tech stack.
+				At MedWeb, my first full-time role, I started as an intern working on a data visualisation project for medical professionals. I built an insights portal using Vue.js that presented scheduling data through charts created with Chart.js.
+				The underlying data was stored in HCL Notes, a document-oriented database I accessed using LotusScript via IBM Domino Designer.
+				Within this role I was responsible for the technical development of this visualisation platform and how it was implemented. For this I had to learn LotusScript to access large datasets from HCL Notes and transform them in Chart.js into clear, readable graphs.
 			`,
 		],
 		link: 'https://www.medweb.nl/',
-		cv: false,
+		cv: true,
 	},
 	{
 		name: 'Floriade',

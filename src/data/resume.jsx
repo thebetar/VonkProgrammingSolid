@@ -20,14 +20,17 @@ export const resumeTranslations = {
 		compact: 'Compact',
 		extended: 'Extended',
 		summaryText: `
-			Full-stack engineer with nearly a decade of experience across various domains, ranging from large enterprises like ING to startups like Mikrocloud. My core stack includes JavaScript, Python, and PHP (React, Django, Laravel), along with cloud infrastructure and data engineering. Outside of work, I build side projects and write technical blogs.
+			Full-stack engineer with nearly a decade of experience across diverse domains, from government and large enterprises to smaller organisations. Strong in JavaScript/TypeScript, Node.js, Python and PHP with Angular, React, Vue, Laravel, Django and NestJS. Also experienced with AWS, Azure, CI/CD and data engineering. I value code quality and have extensive experience with unit testing using Jest, Pytest and Vitest, as well as Cypress. Outside of work I deepen my knowledge of IT topics and write technical blogs.
 		`,
 		extendedSummaryText: `
-			Full-stack engineer with nearly a decade of experience across a wide variety of fields, organisations, projects, and programming languages.
-			I have worked at large organisations like ING, where I was both developer and product owner, and the Dutch government agency SVB, where I worked on migrating AngularJS to Angular and built internal dashboards. I have worked at startups like Mikrocloud, where I work on an SD-WAN platform using Laravel, Nuxt.js, and AWS, and Wisepim, where I contribute to an AI-powered product information platform built with Django and React. I have also worked for e-commerce companies like Webshopimporter, where I work on mapping supplier data into platforms like Shopify, WooCommerce, and Magento, and Chary Solutions, where I build Klaviyo integrations and tracking solutions.
-			My main skills cover JavaScript, TypeScript, Python, and PHP with experience in React, Vue, Angular, Django, Laravel, and Lit. I am also comfortable with cloud infrastructure on AWS and Azure, CI/CD pipelines, data engineering with SQL and Pandas, and testing with Jest and Cypress.
-			Outside of work, I am passionate about software and enjoy building side projects. I am currently working on a personal assistant powered by OpenClaw and Ollama running a local 9B parameter model. I also regularly write blogs about topics like agentic coding, European cloud challenges, and software quality.
-			In my free time, I play water polo and run. I recently ran the Warsaw half-marathon and plan to run the full marathon in September.
+			Full-stack engineer with nearly a decade of experience across diverse domains.
+			I have experience in enterprise environments within government organisations and enterprise level organisations as well as smaller companies.
+			I have extensive experience with JavaScript/TypeScript, Node.js, Python and PHP. Within these languages I have worked on the frontend with Angular, React, Vue and Solid.js.
+			On the backend I have experience with Laravel, Django, NestJS, Express.js and FastAPI.
+			I am also familiar with cloud infrastructure on AWS and Azure, CI/CD pipelines, and data engineering with SQL and Pandas.
+			I value code quality and work with unit testing frameworks such as Jest, Pytest and Vitest, with extensive experience running them alongside Cypress.
+			Outside of work I deepen my knowledge of various IT topics such as hashing, encryption, networking, etc. See my GitHub for more details.
+			I also write blogs, readable on my website.
 		`,
 	},
 	nl: {
@@ -44,14 +47,17 @@ export const resumeTranslations = {
 		compact: 'Compact',
 		extended: 'Uitgebreid',
 		summaryText: `
-			Full-stack engineer met bijna tien jaar ervaring in diverse domeinen, van de overheid en ING tot startups als Mikrocloud. Mijn core stack omvat JavaScript, Python en PHP (React, Django, Laravel), gecombineerd met cloudinfrastructuur en data engineering. Buiten werk vind ik het leuk om zijprojecten te bouwen en schrijf ik technische blogs.
+			Full-stack engineer met bijna tien jaar ervaring in diverse domeinen, van overheid en grote organisaties tot kleinere bedrijven. Sterk in Javascript/Typescript, Node.js, Python en PHP met Angular, React, Vue, Laravel, Django en NestJS. Ook ervaring met AWS, Azure, CI/CD en data engineering. Ik hecht waarde aan codekwaliteit en heb uitgebreide ervaring met unit testing via Jest, Pytest en Vitest, evenals Cypress. Buiten werk verdiep ik me in IT-onderwerpen en schrijf ik technische blogs.
 		`,
 		extendedSummaryText: `
-			Full-stack engineer met bijna tien jaar ervaring in diverse omgevingen, organisaties, projecten en programmeertalen.
-			Ik heb gewerkt bij grote organisaties zoals ING, in de rol van developer en product owner, en de overheidsinstantie SVB, voor de migratie van AngularJS naar Angular en het bouwen van interne dashboards. Ik ben ook actief geweest bij startups zoals Mikrocloud, als developer van een SD-WAN-platform met Laravel, Nuxt.js en AWS, en Wisepim, voor de ontwikkeling van een AI-gestuurd productinformatieplatform gebouwd met Django en React. Daarnaast heb ik gewerkt voor e-commerce bedrijven zoals Webshopimporter, voor het mappen van leveranciersdata naar platformen als Shopify, WooCommerce en Magento, en Chary Solutions, voor de bouw van Klaviyo-integraties en trackingoplossingen.
-			Mijn belangrijkste vaardigheden omvatten JavaScript, TypeScript, Python en PHP met ervaring in React, Vue, Angular, Django, Laravel en Lit. Ik ben ook bekend met cloudinfrastructuur op AWS en Azure, CI/CD-pipelines, data engineering met SQL en Pandas, en testen met Jest en Cypress.
-			Buiten werk heb ik een passie voor software en bouw ik graag zijprojecten. Momenteel werk ik aan een persoonlijke assistent aangedreven door OpenClaw en Ollama met een lokaal 9B-parametermodel. Daarnaast schrijf ik regelmatig blogs over onderwerpen als agentic coding, Europese cloud-uitdagingen en softwarekwaliteit.
-			In mijn vrije tijd speel ik waterpolo en loop ik hard. Ik heb recentelijk de halve marathon van Warschau gerend en ben van plan de hele marathon in September te rennen.
+			Full-stack engineer met bijna tien jaar ervaring in diverse domeinen. 
+			Ik heb ervaring in enterprise omgevingen binnen de overheid en grote organisaties en in kleinere organisaties. 
+			Ik heb veel ervaring met Javascript/Typescript, Node.js, Python en PHP. Binnen deze talen heb ik binnen de frontend gewerkt met Angular, React, Vue en Solid.js. 
+			Binnen de backend heb ik ervaring met Laravel, Django, NestJS, Express.js en FastAPI. 
+			Ik ben ook bekend met cloudinfrastructuur op AWS en Azure, CI/CD-pipelines en data engineering met SQL en Pandas.
+			Ik hecht waarde aan codekwaliteit en werk met unit testing frameworks zoals Jest, Pytest en Vitest, met uitgebreide ervaring in het gebruik hiervan naast Cypress.
+			Buiten mijn werk houdt ik mij bezig met me verdiepen in verschillende IT-onderwerpen zoals hashing, encrypties, networking, etc. Zie mijn Github voor meer details.
+			Ook schrijf ik blogs, te lezen op mijn website.
 		`,
 	},
 };
@@ -63,11 +69,12 @@ export const resumeExperience = {
 			startDate: 'Jul 2025',
 			endDate: 'Present',
 			description:
-				'Lead developer on an SD-WAN platform for Mikrotik RouterOS devices, using Laravel, Nuxt.js, and AWS microservices. Writes RouterOS scripts for remote device configuration and applies networking knowledge including BGP, VPNs and IP routing.',
+				'Lead developer on an SD-WAN platform for Mikrotik RouterOS devices, built with Laravel on AWS Lambda (via Laravel Vapor), Nuxt.js and microservices via SQS. Writes RouterOS scripts for remote configuration and is responsible for architecture and infrastructure.',
 			extendedDescription: `
-				As the lead developer at Mikrocloud I am responsible for the technical decisions and overall architecture of an SD-WAN platform that allows users to manage Mikrotik RouterOS devices.
-				The backend is built with Laravel on AWS Lambda using a microservices architecture with SQS for inter-service communication, and the frontend with Nuxt.js. I also write scripts in the RouterOS scripting language to configure routers remotely.
-				This role requires both web application development skills and networking knowledge, including setting up BGP routes, configuring VPNs, managing IP routing tables and remote device management.
+				As the lead developer at Mikrocloud I am responsible for the technical decisions and infrastructure of an SD-WAN platform that helps users manage Mikrotik RouterOS devices.
+				The backend is built with Laravel on AWS Lambda (via Laravel Vapor) using a microservices architecture with SQS for inter-service communication, and the frontend with Nuxt.js.
+				I also write scripts in the RouterOS scripting language to configure routers remotely.
+				Within this role I am responsible for the technical development of the platform, its architecture and infrastructure.
 			`,
 		},
 		{
@@ -75,11 +82,11 @@ export const resumeExperience = {
 			startDate: 'Sep 2024',
 			endDate: 'Present',
 			description:
-				'Lead developer on a supplier-to-webshop data mapping platform, collaborating on a migration from CodeIgniter to Django. Maintains integrations using protocols like REST, SOAP and FTP and formats like JSON, XML and CSV, while building new features for a clearer customer interface.',
+				'Lead developer managing an application that synchronises supplier data to e-commerce platforms such as Shopify, WooCommerce and Magento. Collaborating on a migration from CodeIgniter to Django and building integrations via REST, SOAP and FTP, even when supplier documentation is complex or incomplete.',
 			extendedDescription: `
-				As the lead developer at Webshopimporter I oversee a system that fetches supplier data and maps it into different e-commerce platforms such as Shopify, Lightspeed, WooCommerce, Magento and CCVShop.
+				As the lead developer at Webshopimporter I manage the application that synchronises supplier data to different e-commerce platforms such as Shopify, Lightspeed, WooCommerce, Magento and CCVShop.
 				I collaborate on migrating the platform from the legacy CodeIgniter codebase to Django, while also building and maintaining integrations using protocols like REST, SOAP and FTP and formats like JSON, XML and CSV, even when supplier documentation is complex or incomplete.
-				I also design new features that provide a clearer interface for customers to manage their data mappings and improve the overall user experience.
+				Within this role I am responsible for the technical development of these integrations and how they are implemented. For this I need to thoroughly study various supplier documentation and the APIs they provide in order to integrate them into the platform.
 			`,
 		},
 		// {
@@ -98,10 +105,13 @@ export const resumeExperience = {
 			startDate: 'Sep 2024',
 			endDate: 'Present',
 			description:
-				'Full-stack developer building custom tools including a CCVShop management dashboard in NiceGUI, a configurable web scraping dashboard in Django with Playwright, and a Wintree product synchronisation tool.',
+				'Full-stack developer building custom software solutions based on client requirements, using frameworks such as Django, NiceGUI, Playwright and Pandas. Built a CCVShop management dashboard, a configurable web scraping dashboard and a Wintree product synchronisation tool.',
 			extendedDescription: `
-				At Swiftsync I work on various platforms and tools for the company's customers, ranging from API integrations to web scraping and frontend development.
-				I built a data management dashboard in NiceGUI that provides an easier interface for managing CCVShop product data, and a web scraping dashboard using Django and Playwright that allows for highly configurable data extraction from websites. I also developed a product synchronisation tool between Wintree, a management system in the Dutch horticultural industry, and various e-commerce platforms, handling not only product data but also stock levels, customer groups and tier pricing.
+				As a full-stack developer at Swiftsync I work on various software solutions based on client requirements.
+				I use various frameworks, including Django, NiceGUI, Playwright, Pandas, Gemini's API and more.
+				I built a data management dashboard in NiceGUI that provides an easier interface for managing CCVShop product data, and a web scraping dashboard using Django and Playwright for highly configurable data extraction from websites.
+				I also developed a product synchronisation tool between Wintree, a management system in the Dutch horticultural industry, and various e-commerce platforms, handling not only product data but also stock levels, customer groups and tier pricing.
+				Within this role I am responsible for the technical development of these tools and how they are implemented.
 			`,
 		},
 		{
@@ -109,11 +119,12 @@ export const resumeExperience = {
 			startDate: 'Jul 2024',
 			endDate: 'Present',
 			description:
-				"Senior developer integrating Klaviyo with CMS platforms using Google Tag Manager for custom event tracking. Also builds internal automations and tools integrating Gemini's API to categorise data.",
+				"Senior developer building marketing integrations between platforms not supported by Klaviyo, using Google Tag Manager and various APIs. Also builds internal automations and tools integrating Gemini's API to categorise data.",
 			extendedDescription: `
-				As the senior developer at Chary Solutions I lead the technical development for integrating Klaviyo with various content management systems that lack standard integration connectors.
-				My work focuses on building custom solutions for tracking user behaviour and sending event data to Klaviyo, providing email marketers with the data they need to optimise their campaigns. I use Google Tag Manager extensively for custom tracking cookies and event firing across platforms like Shopify, WooCommerce, Lightspeed, and CCVShop.
-				Beyond integrations I also build internal automations, scripts and tools that streamline the company's operations and reduce manual work for the marketing team, including integrating Gemini's API to automatically categorise data.
+				As the senior developer at Chary Solutions I handle the technical development of marketing integrations between various platforms that are not supported by Klaviyo out of the box.
+				I use Google Tag Manager for custom tracking cookies for actions on websites and use the APIs of various companies to collect the required data and integrate it into Klaviyo.
+				I also build internal automations, scripts and tools that streamline business processes and reduce manual work for the marketing team, including integrating Gemini's API to automatically categorise data.
+				Within this role I am responsible for the technical development of these integrations and internal automations and how they are implemented.
 			`,
 		},
 		{
@@ -121,11 +132,12 @@ export const resumeExperience = {
 			startDate: 'Jun 2024',
 			endDate: 'Dec 2024',
 			description:
-				'Data engineer at a major Dutch retail chain, parsing and mapping big data using Azure Data Factory, Azure Databricks and PySpark to split workloads across multiple instances.',
+				'Data engineer at a major Dutch retail chain, parsing and mapping big data using Azure Data Factory, Azure Databricks, Pandas and PySpark to split workloads across multiple instances.',
 			extendedDescription: `
-				At SPAR Nederland I worked as a data engineer solving data-related problems for one of the Netherlands' largest retail chains, with a focus on parsing and mapping big data as efficiently as possible.
-				I used Azure Data Factory, Azure Databricks and Azure SQL Database to manage and process large datasets. When data volumes exceeded what a single process could handle, I used PySpark to split workloads into batches across multiple instances, making heavy transformations feasible at scale.
-				This role was a deliberate departure from my usual full-stack web development work. It broadened my technical perspective considerably and gave me hands-on experience with data manipulation and working with big data.
+				As a data engineer at SPAR Nederland I worked on data challenges for one of the Netherlands' largest retail chains, with a focus on parsing and mapping big data as efficiently as possible.
+				I used Azure Data Factory, Azure Databricks and Azure SQL Database to manage and process large datasets.
+				I used Pandas to efficiently shape data into the right form, and PySpark to split workloads into batches across multiple instances.
+				Within this role I was responsible for the technical development of these data challenges and how they were implemented as a team member. For this I had to use my skills for working with big data and my knowledge of Azure's data services to solve the complex problems SPAR faced.
 			`,
 		},
 		{
@@ -133,23 +145,15 @@ export const resumeExperience = {
 			startDate: 'Apr 2022',
 			endDate: 'Sep 2023',
 			description:
-				'Full-stack developer and product owner at ING, building Lit web component interfaces while managing CI/CD pipelines and custom ESLint rules. As product owner, set realistic expectations and made every deadline by keeping team capacity and stakeholder goals aligned.',
+				'Full-stack developer and product owner at ING, building banking interfaces with Lit web components, CI/CD pipelines and custom ESLint rules. As product owner, set realistic expectations and made every deadline by keeping team capacity and stakeholder goals aligned.',
 			extendedDescription: `
-				At ING in Amsterdam I worked as both a full-stack developer and product owner.
-				On the development side I built banking interfaces using Lit web components, focusing on code quality by writing custom ESLint rules enforced across the team and driving unit testing standards with Jest. I managed Azure DevOps CI/CD pipelines to ensure reliable deployments.
-				As product owner I focused on setting realistic expectations and preventing stakeholder misalignment. What the team said they could handle was what got allotted, not more. This approach meant we made every deadline and kept both the team and stakeholders aligned throughout the project.
-			`,
-		},
-		{
-			...getExperience('Quintor'),
-			startDate: 'Oct 2020',
-			endDate: 'Oct 2023',
-			description:
-				'IT consultant deployed at ING and SVB, learning extensive testing strategies (unit, integration, e2e) and a framework-agnostic approach that became the foundation of my engineering work.',
-			extendedDescription: `
-				At Quintor I started as a trainee and grew into an IT consultant deployed at ING and SVB.
-				During my traineeship I learned to work in a framework-agnostic manner, adapting quickly to different technologies. I was taught extensive testing strategies, including unit tests, integration tests and end-to-end tests, and learnt the value of thorough testing firsthand. The traineeship also taught me to look beyond just the frontend, understanding the backend it communicates with and the infrastructure it runs on.
-				The testing principles and cross-team collaboration skills I learned at Quintor became foundational to my work and are practices I have carried into every subsequent role.
+				As a full-stack developer and product owner at ING I worked on banking interfaces built with Lit web components, focusing on code quality by writing custom ESLint rules enforced across the team and driving unit testing standards with Jest.
+				I managed Azure DevOps CI/CD pipelines for reliable deployments.
+				In my role as developer I used frameworks such as Lit, Node.js, ESLint and Azure DevOps to build the banking interfaces and manage the CI/CD pipelines.
+				In my role as product owner I focused on setting realistic expectations and preventing stakeholder misalignment.
+				What the team said they could handle was what got planned, not more.
+				This approach meant we made every deadline and kept both the team and stakeholders aligned throughout the project.
+				Within this role I was responsible for the technical development of these banking interfaces and how they were implemented as a team member.
 			`,
 		},
 		{
@@ -157,11 +161,24 @@ export const resumeExperience = {
 			startDate: 'Apr 2021',
 			endDate: 'Apr 2022',
 			description:
-				'Frontend developer at a Dutch government agency, working on a translation layer dashboard and the AngularJS to Angular migration. Set up testing strategies and ensured code quality, guided by a senior consultant.',
+				'Frontend developer at SVB, working on a translation layer dashboard between legacy AngularJS and Angular. Used Jasmine for testing and Jenkins for CI/CD pipelines.',
 			extendedDescription: `
-				At SVB (Sociale Verzekeringsbank), a major Dutch government agency, I worked as a frontend developer on a platform that translated raw data into an advanced frontend dashboard, connecting the legacy application with the new frontend.
-				I also worked on the migration from AngularJS to modern Angular, which taught me how to navigate the challenges of major migrations within large organisations. Guided by a senior consultant, I quickly learned to apply the theoretical knowledge from my traineeship in a practical environment.
-				I set up testing strategies and ensured code quality, using my knowledge of Angular to connect new systems to legacy applications. This was my first experience in a large government organisation.
+				As a frontend developer at SVB (Sociale Verzekeringsbank), a major Dutch government agency, I worked on a platform that translated raw data into an advanced frontend dashboard, as a translation layer between the legacy application and the new frontend.
+				I used AngularJS for the legacy application and Angular for the new frontend, Jasmine for testing the code, and also worked with Jenkins for CI/CD pipelines.
+				Within this role I was responsible for the technical development of this frontend and how it was implemented as a team member.
+			`,
+		},
+		{
+			...getExperience('MedWeb'),
+			startDate: 'Sep 2019',
+			endDate: 'Aug 2020',
+			description:
+				'Software developer who started as an intern building a data visualisation portal for medical professionals with Vue.js and Chart.js. Retrieved large datasets from HCL Notes using LotusScript and transformed them into clear charts and graphs.',
+			extendedDescription: `
+				As a software developer at MedWeb, my first full-time role, I started as an intern working on a data visualisation project for medical professionals.
+				I built an insights portal using Vue.js that presented scheduling data through charts created with Chart.js.
+				The underlying data was stored in HCL Notes, a document-oriented database I accessed using LotusScript via IBM Domino Designer.
+				Within this role I was responsible for the technical development of this visualisation platform and how it was implemented. For this I had to learn LotusScript to access large datasets from HCL Notes and transform them in Chart.js into clear, readable graphs.
 			`,
 		},
 	],
@@ -171,11 +188,12 @@ export const resumeExperience = {
 			startDate: 'Jul 2025',
 			endDate: 'Heden',
 			description:
-				"Lead developer van een SD-WAN-platform voor Mikrotik RouterOS-apparaten, gebouwd met Laravel, Nuxt.js en AWS-microservices. Schrijft RouterOS-scripts voor configuratie op afstand en past netwerkkennis toe waaronder BGP, VPN's en IP-routing.",
+				'Lead developer van een SD-WAN-platform voor Mikrotik RouterOS-apparaten, gebouwd met Laravel op AWS Lambda (via Laravel Vapor), Nuxt.js en microservices via SQS. Schrijft RouterOS-scripts voor configuratie op afstand en is verantwoordelijk voor architectuur en infrastructuur.',
 			extendedDescription: `
-				Als lead developer bij Mikrocloud ben ik verantwoordelijk voor de technische beslissingen en de algehele architectuur van een SD-WAN-platform dat gebruikers in staat stelt Mikrotik RouterOS-apparaten te beheren.
-				De backend is gebouwd met Laravel op AWS Lambda met een microservices-architectuur via SQS voor communicatie tussen services, en de frontend met Nuxt.js. Ik schrijf ook scripts in de RouterOS-scripttaal om routers op afstand te configureren.
-				Deze rol vereist zowel webapplicatie-ontwikkelvaardigheden als netwerkkennis, waaronder het opzetten van BGP-routes, configureren van VPN's, beheren van IP-routeringstabellen en apparaatbeheer op afstand.
+					Als lead developer bij Mikrocloud ben ik verantwoordelijk voor de technische beslissingen en de infrastructuur van een SD-WAN-platform dat gebruikers helpt om Mikrotik RouterOS-apparaten te beheren.
+					De backend is gebouwd met Laravel op AWS Lambda (via Laravel Vapor) met een microservices-architectuur, via SQS voor communicatie tussen services, en de frontend met Nuxt.js. 
+					Ik schrijf ook scripts in de RouterOS-scripttaal om routers op afstand te configureren.
+					Binnen deze rol ben ik verantwoordelijk voor de technische ontwikkeling van het platform, de architectuur en de infrastructuur.
 			`,
 		},
 		{
@@ -183,33 +201,25 @@ export const resumeExperience = {
 			startDate: 'Sep 2024',
 			endDate: 'Heden',
 			description:
-				'Lead developer op een data-integratieplatform, werkt mee aan de migratie van CodeIgniter naar Django. Bouwt en onderhoudt koppelingen via protocollen als REST, SOAP en FTP en formaten als JSON, XML en CSV, en ontwikkelt nieuwe functionaliteiten voor een overzichtelijker klantinterface.',
+				'Lead developer die leveranciersdata synchroniseert naar e-commerce platformen zoals Shopify, WooCommerce en Magento. Werkt aan migratie van CodeIgniter naar Django en bouwt koppelingen via REST, SOAP en FTP, ook bij complexe of onvolledige leveranciersdocumentatie.',
 			extendedDescription: `
-				Als lead developer bij Webshopimporter beheer ik een systeem dat leveranciersdata ophaalt en mapt naar verschillende e-commerce platformen zoals Shopify, Lightspeed, WooCommerce, Magento en CCVShop.
+				Als lead developer bij Webshopimporter beheer ik de applicatie die leveranciersdata synchroniseert naar verschillende e-commerce platformen zoals Shopify, Lightspeed, WooCommerce, Magento en CCVShop.
 				Ik werk mee aan de migratie van het platform van de legacy CodeIgniter-codebase naar Django, terwijl ik ook koppelingen bouw en onderhoud via protocollen als REST, SOAP en FTP en formaten als JSON, XML en CSV, ook wanneer leveranciersdocumentatie complex of onvolledig is.
-				Ik ontwerp ook nieuwe functionaliteiten die klanten een overzichtelijker interface bieden om hun datamappings te beheren en de algehele gebruikerservaring te verbeteren.
+				Binnen deze rol ben ik verantwoordelijk voor de technische ontwikkeling van deze integraties en hoe deze geïmplementeerd worden. Hiervoor moet ik mij goed inlezen in verschillende leveranciersdocumentatie en de API's die ze bieden om deze vervolgens te integreren in het platform.
 			`,
 		},
-		// {
-		// 	...getExperience('Wisepim'),
-		// 	startDate: 'Sep 2024',
-		// 	endDate: 'Heden',
-		// 	description:
-		// 		'Full-stack developer die bijdraagt aan een AI-gestuurd PIM-platform, met e-commerce API-integraties in Django en RemixJS. Bouwt admin-interfaces om niet-technische teamleden in staat te stellen integraties zelfstandig te beheren.',
-		// 	extendedDescription: `
-		// 		Bij Wisepim, een snelgroeiende startup, draag ik bij aan een AI-gestuurd Product Information Management-platform dat productinformatie automatisch verrijkt en verbetert.
-		// 		Ik bouw backendservices met Django en de frontend met RemixJS, hierbij gebruikmakend van mijn ervaring met e-commerce API's en LLM's om diverse externe systemen aan het platform te koppelen. Ik bouw ook admin-interfaces zodat niet-technische teamleden integraties zelfstandig kunnen beheren.
-		// 	`,
-		// },
 		{
 			...getExperience('Swiftsync'),
 			startDate: 'Sep 2024',
 			endDate: 'Heden',
 			description:
-				'Full-stack developer die maatwerktooling bouwt, waaronder een CCVShop-beheerdashboard in NiceGUI, een configureerbaar web scraping dashboard in Django met Playwright en een Wintree-productsynchronisatietool.',
+				'Full-stack developer die maatwerksoftware bouwt op basis van klantwensen, met frameworks als Django, NiceGUI, Playwright en Pandas. Bouwde onder meer een CCVShop-beheerdashboard, een configureerbaar web scraping dashboard en een Wintree-productsynchronisatietool.',
 			extendedDescription: `
-				Bij Swiftsync werk ik aan diverse platformen en tools voor de klanten van het bedrijf, van API-integraties tot web scraping en frontendwerk.
-				Ik heb een databeheerdashboard gebouwd in NiceGUI dat een eenvoudiger interface biedt voor het beheren van CCVShop-productdata, en een web scraping dashboard met Django en Playwright voor uiterst configureerbare data-extractie van websites. Daarnaast heb ik een productsynchronisatietool ontwikkeld tussen Wintree, een beheersysteem in de Nederlandse sierteeltsector, en diverse e-commerce platformen, voor niet alleen productdata maar ook voorraadniveaus, klantgroepen en staffelprijzen.
+				Als Full-stack developer bij Swiftsync werk ik aan verschillende software oplossingen op basis van klantwensen.
+				Hierbij gebruik ik verschillende frameworks, waaronder Django, NiceGUI, Playwright, Pandas, Gemini's API en meer.
+				Ik heb een databeheerdashboard gebouwd in NiceGUI dat een eenvoudiger interface biedt voor het beheren van CCVShop-productdata, en een web scraping dashboard met Django en Playwright voor uiterst configureerbare data-extractie van websites. 
+				Daarnaast heb ik een productsynchronisatietool ontwikkeld tussen Wintree, een beheersysteem in de Nederlandse sierteeltsector, en diverse e-commerce platformen, voor niet alleen productdata maar ook voorraadniveaus, klantgroepen en staffelprijzen.
+				Binnen deze rol ben ik verantwoordelijk voor de technische ontwikkeling van deze tools en hoe deze geïmplementeerd worden.
 			`,
 		},
 		{
@@ -217,11 +227,12 @@ export const resumeExperience = {
 			startDate: 'Jul 2024',
 			endDate: 'Heden',
 			description:
-				"Senior developer die Klaviyo integreert met diverse CMS-platformen via custom event tracking in Google Tag Manager. Bouwt ook interne automatiseringen en tools die Gemini's API integreren om data te categoriseren.",
+				"Senior developer die marketingintegraties bouwt tussen platformen zonder standaard Klaviyo-koppeling, via Google Tag Manager en diverse API's. Bouwt ook interne automatiseringen en tools met Gemini's API om data te categoriseren.",
 			extendedDescription: `
-				Als senior developer bij Chary Solutions leid ik de technische ontwikkeling voor het integreren van Klaviyo met diverse CMS-platformen die geen standaard integratieconnectors hebben.
-				Mijn werk richt zich op het bouwen van maatwerkoplossingen voor het tracken van gebruikersgedrag en het versturen van eventdata naar Klaviyo, zodat e-mailmarketeers beschikken over de data die ze nodig hebben om hun campagnes te optimaliseren. Ik gebruik Google Tag Manager uitgebreid voor custom tracking cookies en event firing op platformen als Shopify, WooCommerce, Lightspeed en CCVShop.
-				Naast integraties bouw ik ook interne automatiseringen, scripts en tools die de bedrijfsprocessen stroomlijnen en handmatig werk voor het marketingteam verminderen, waaronder het integreren van Gemini's API om data automatisch te categoriseren.
+				Als senior developer bij Chary Solutions zorg ik voor de technische ontwikkeling van marketing integraties tussen verschillende platformen die niet ondersteund worden vanuit Klaviyo.
+				Hierbij maak ik gebruik van Google Tag Manager voor custom tracking cookies voor handelingen op de website en gebruik ik de API's van verschillende bedrijven om de benodigde data te verzamelen en te integreren in Klaviyo.
+				Daarnaast bouw ik ook interne automatiseringen, scripts en tools die de bedrijfsprocessen stroomlijnen en handmatig werk voor het marketingteam verminderen, waaronder het integreren van Gemini's API om data automatisch te categoriseren.
+				Binnen deze rol ben ik verantwoordelijk voor de technische ontwikkeling van deze integraties en interne automatiseringen en hoe deze geïmplementeerd worden.
 			`,
 		},
 		{
@@ -229,11 +240,12 @@ export const resumeExperience = {
 			startDate: 'Jun 2024',
 			endDate: 'Dec 2024',
 			description:
-				'Data engineer bij een grote Nederlandse retailketen, big data parsen en mappen met Azure Data Factory, Azure Databricks en PySpark om werklasten over meerdere instanties te verdelen.',
+				'Data engineer bij een grote Nederlandse retailketen, big data parsen en mappen met Azure Data Factory, Azure Databricks, Pandas en PySpark om werklasten over meerdere instanties te verdelen.',
 			extendedDescription: `
-				Bij SPAR Nederland werkte ik als data engineer aan datavraagstukken voor een van de grootste retailketens van Nederland, met focus op het zo efficiënt mogelijk parsen en mappen van big data.
-				Ik gebruikte Azure Data Factory, Azure Databricks en Azure SQL Database om grote datasets te beheren en verwerken. Wanneer datavolumes te groot waren voor een enkel proces, gebruikte ik PySpark om werklasten in batches over meerdere instanties te verdelen, waardoor zware transformaties op schaal mogelijk werden.
-				Deze rol was een bewuste stap buiten mijn gebruikelijke full-stack webontwikkeling. Het verbreedde mijn technisch perspectief aanzienlijk en gaf mij praktijkervaring met datamanipulatie en het werken met big data.
+				Als data engineer bij SPAR Nederland werkte ik aan datavraagstukken voor een van de grootste retailketens van Nederland, met focus op het zo efficiënt mogelijk parsen en mappen van big data. 
+				Ik gebruikte Azure Data Factory, Azure Databricks en Azure SQL Database om grote datasets te beheren en verwerken. 
+				Hierbij gebruikte ik Pandas om efficiënt data in de juiste vorm te krijgen, en PySpark om werklasten in batches over meerdere instanties te verdelen.
+				Binnen deze rol was ik verantwoordelijk voor de technische ontwikkeling van deze datavraagstukken en hoe deze geïmplementeerd worden als teamlid. Hiervoor moest ik mijn vaardigheden voor het werken met big data gebruiken en mijn kennis van Azure's data services gebruiken om de complexe problemen op te lossen die SPAR tegemoet kwam.
 			`,
 		},
 		{
@@ -243,21 +255,13 @@ export const resumeExperience = {
 			description:
 				'Full-stack developer en product owner bij ING, bankinterfaces gebouwd met Lit web components en CI/CD-pipelines en custom ESLint-regels ingevoerd. Als product owner realistische verwachtingen gesteld en elke deadline gehaald door teamcapaciteit en stakeholderdoelen op één lijn te houden.',
 			extendedDescription: `
-				Bij ING in Amsterdam werkte ik als full-stack developer en product owner.
-				Aan de ontwikkelkant bouwde ik bankinterfaces met Lit web components, met focus op codekwaliteit door het schrijven van custom ESLint-regels die teambreed werden afgedwongen en het aansturen van unit testing standaarden met Jest. Ik beheerde Azure DevOps CI/CD-pipelines voor betrouwbare deployments.
-				Als product owner richtte ik mij op het stellen van realistische verwachtingen en het voorkomen van misafstemming met stakeholders. Wat het team aangaf aan te kunnen was wat werd ingepland, niet meer. Deze aanpak zorgde ervoor dat we elke deadline haalden en zowel het team als de stakeholders gedurende het hele project op één lijn bleven.
-			`,
-		},
-		{
-			...getExperience('Quintor'),
-			startDate: 'Okt 2020',
-			endDate: 'Okt 2023',
-			description:
-				'IT-consultant ingezet bij ING en SVB. Leerde uitgebreide teststrategieën (unit, integratie, e2e) en een framework-agnostische aanpak die de basis vormen van mijn werk als ontwikkelaar.',
-			extendedDescription: `
-				Bij Quintor begon ik als trainee en groeide door naar IT-consultant, ingezet bij ING en SVB.
-				Tijdens mijn traineeship leerde ik framework-agnostisch te werken en mij snel aan te passen aan verschillende technologieën. Ik kreeg uitgebreide teststrategieën aangeleerd, waaronder unit tests, integratietests en end-to-end tests, en leerde de waarde van grondig testen uit eerste hand. Het traineeship leerde mij ook verder te kijken dan alleen de frontend, en de backend waarmee deze communiceert en de onderliggende infrastructuur te begrijpen.
-				De testprincipes en samenwerkingsvaardigheden die ik bij Quintor heb geleerd werden de basis van mijn werk en zijn praktijken die ik in elke volgende rol heb meegenomen.
+				Als Full-stack developer en product owner bij ING werkte ik aan bankinterfaces gebouwd met Lit web components, met focus op codekwaliteit door het schrijven van custom ESLint-regels die teambreed werden afgedwongen en het aansturen van unit testing standaarden met Jest. 
+				Ik beheerde Azure DevOps CI/CD-pipelines voor betrouwbare deployments.
+				Binnen mijn rol als developer gebruikte ik frameworks als Lit, Node.js, ESLint en Azure DevOps om de bankinterfaces te bouwen en de CI/CD-pipelines te beheren.
+				Binnen mijn rol als product owner richtte ik mij op het stellen van realistische verwachtingen en het voorkomen van misafstemming met stakeholders. 
+				Wat het team aangaf aan te kunnen was wat werd ingepland, niet meer. 
+				Deze aanpak zorgde ervoor dat we elke deadline haalden en zowel het team als de stakeholders gedurende het hele project op één lijn bleven.
+				Binnen deze rol was ik verantwoordelijk voor de technische ontwikkeling van deze bankinterfaces en hoe deze geïmplementeerd worden als teamlid.
 			`,
 		},
 		{
@@ -265,11 +269,24 @@ export const resumeExperience = {
 			startDate: 'Apr 2021',
 			endDate: 'Apr 2022',
 			description:
-				'Frontend developer bij een grote overheidsinstantie, gewerkt aan een vertaallaag-dashboard en de migratie van AngularJS naar Angular. Zette teststrategieën op en waarborgde codekwaliteit, onder begeleiding van een senior consultant.',
+				'Frontend developer bij de SVB, werkte aan een vertaallaag-dashboard tussen legacy AngularJS en Angular. Gebruikte Jasmine voor testen en Jenkins voor CI/CD-pipelines.',
 			extendedDescription: `
-				Bij de SVB (Sociale Verzekeringsbank), een grote Nederlandse overheidsinstantie, werkte ik als frontend developer aan een platform dat ruwe data vertaalde naar een geavanceerd frontend dashboard, als vertaallaag tussen de legacy-applicatie en de nieuwe frontend.
-				Ik werkte ook aan de migratie van AngularJS naar modern Angular, wat mij leerde om de uitdagingen van grote migraties binnen grote organisaties te navigeren. Onder begeleiding van een senior consultant leerde ik snel de theoretische kennis uit mijn traineeship toe te passen in een praktische omgeving.
-				Ik zette teststrategieën op en waarborgde codekwaliteit, met gebruik van mijn kennis van Angular om nieuwe systemen aan legacy-applicaties te koppelen. Dit was mijn eerste ervaring in een grote overheidsorganisatie.
+				Als frontend developer bij de SVB (Sociale Verzekeringsbank), een grote Nederlandse overheidsinstantie, werkte ik aan een platform dat ruwe data vertaalde naar een geavanceerd frontend dashboard, als vertaallaag tussen de legacy-applicatie en de nieuwe frontend.
+				Ik gebruikte AngularJS voor de legacy-applicatie en Angular voor de nieuwe frontend, Jasmine voor het testen van de code, ook heb ik gewerkt met Jenkins voor de CI/CD-pipelines.
+				Binnen deze rol was ik verantwoordelijk voor de technische ontwikkeling van deze frontend en hoe deze geïmplementeerd worden als teamlid.
+			`,
+		},
+		{
+			...getExperience('MedWeb'),
+			startDate: 'Sep 2019',
+			endDate: 'Aug 2020',
+			description:
+				'Software developer die begon als stagiair met een datavisualisatieproject voor medische professionals met Vue.js en Chart.js. Haalde grote datasets op uit HCL Notes via LotusScript en transformeerde deze naar overzichtelijke grafieken.',
+			extendedDescription: `
+				Als software developer bij MedWeb, mijn eerste fulltime rol, begon ik als stagiair aan een datavisualisatieproject voor medische professionals.
+				Ik bouwde een insights-portal met Vue.js die planningsdata presenteerde via grafieken gemaakt met Chart.js.
+				De onderliggende data stond in HCL Notes, een documentgeoriënteerde database die ik benaderde met LotusScript via IBM Domino Designer.
+				Binnen deze rol was ik verantwoordelijk voor de technische ontwikkeling van dit visualisatieplatform en hoe dit geïmplementeerd werd. Hiervoor moest ik LotusScript leren om grote datasets uit HCL Notes op te halen en deze in Chart.js om te zetten naar duidelijke, leesbare grafieken.
 			`,
 		},
 	],
