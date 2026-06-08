@@ -327,6 +327,10 @@ export const resumeEducation = {
 	],
 };
 
+export function resumePdfPath(language, mode) {
+	return `/assets/pdf/resume_${language}_${mode}.pdf`;
+}
+
 export const resumeCertifications = {
 	en: [
 		{ name: 'Cambridge English: C1', year: '2016' },
