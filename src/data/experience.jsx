@@ -127,7 +127,7 @@ export const experience = [
 		endDate: 'Oct 2023',
 		description: [
 			`
-				At Quintor, an IT consultancy, I started my career with a traineeship and later became an IT Consultant. Over my three years here, I completed assignments at SVB and ING.
+				At Quintor, an IT consultancy, I started with a traineeship and later became an IT Consultant. Over my three years here, I completed assignments at SVB and ING.
 				During my traineeship and time at the company, I learned a lot from more experienced consultants about high code quality, development pipelines, and deep testing strategies. I also shared my own knowledge by giving knowledge sessions.
 				The role focused on working in a framework-agnostic manner, teaching me to quickly adapt to different technologies and understand the entire application stack, from frontend to backend and infrastructure.
 			`,

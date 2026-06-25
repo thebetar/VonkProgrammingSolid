@@ -176,7 +176,7 @@ export const resumeExperience = {
 			description:
 				'Started with a traineeship at this IT consultancy and worked here for three years. Completed assignments at SVB and ING, learned from experienced consultants, and gave knowledge sessions.',
 			extendedDescription: `
-				At Quintor, an IT consultancy, I started my career with a traineeship and later became an IT Consultant. Over my three years here, I completed assignments at SVB and ING.
+				At Quintor, an IT consultancy, I started with a traineeship and later became an IT Consultant. Over my three years here, I completed assignments at SVB and ING.
 				During my time at the company, I learned a lot from more experienced consultants about high code quality, development pipelines, and deep testing strategies. I also shared my own knowledge by giving knowledge sessions.
 				The role focused on working in a framework-agnostic manner, teaching me to quickly adapt to different technologies and understand the entire application stack.
 			`,
@@ -297,7 +297,7 @@ export const resumeExperience = {
 			description:
 				'Begon met een traineeship bij deze IT-consultancy en werkte hier drie jaar. Heb opdrachten uitgevoerd bij de SVB en ING, veel geleerd van ervaren consultants en kennissessies gegeven.',
 			extendedDescription: `
-				Bij Quintor, een IT-consultancy, begon ik mijn carrière met een traineeship en werd ik later IT Consultant. In de drie jaar dat ik hier werkte, heb ik opdrachten uitgevoerd bij de SVB en ING.
+				Bij Quintor, een IT-consultancy, begon ik met een traineeship en werd ik later IT Consultant. In de drie jaar dat ik hier werkte, heb ik opdrachten uitgevoerd bij de SVB en ING.
 				Tijdens mijn traineeship en verdere tijd bij het bedrijf heb ik enorm veel geleerd van meer ervaren consultants over hoge codekwaliteit, development pipelines en uitgebreide teststrategieën. Ook heb ik mijn eigen kennis gedeeld door het geven van kennissessies.
 				De rol richtte zich op framework-agnostisch werken, waardoor ik me snel kon aanpassen aan verschillende technologieën en de volledige applicatiestack leerde begrijpen.
 			`,
