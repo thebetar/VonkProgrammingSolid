@@ -34,7 +34,10 @@ function chunkExperience(items) {
 
 export default function ResumeExperience({ language, mode }) {
 	const t = () => resumeTranslations[language()];
-	const items = () => resumeExperience[language()];
+	const items = () => {
+		const allItems = resumeExperience[language()];
+		return isExtended() ? allItems : allItems.filter(item => !item.extendedOnly);
+	};
 	const isExtended = () => mode() === 'extended';
 	const chunks = () => chunkExperience(items());
 

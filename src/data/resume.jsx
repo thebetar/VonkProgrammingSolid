@@ -104,6 +104,7 @@ export const resumeExperience = {
 			...getExperience('Swiftsync'),
 			startDate: 'Sep 2024',
 			endDate: 'Present',
+			extendedOnly: true,
 			description:
 				'Full-stack developer building custom software solutions based on client requirements, using frameworks such as Django, NiceGUI, Playwright and Pandas. Built a CCVShop management dashboard, a configurable web scraping dashboard and a Wintree product synchronisation tool.',
 			extendedDescription: `
@@ -169,16 +170,28 @@ export const resumeExperience = {
 			`,
 		},
 		{
+			...getExperience('Quintor'),
+			startDate: 'Oct 2020',
+			endDate: 'Oct 2023',
+			description:
+				'Started with a traineeship at this IT consultancy and worked here for three years. Completed assignments at SVB and ING, learned from experienced consultants, and gave knowledge sessions.',
+			extendedDescription: `
+				At Quintor, an IT consultancy, I started my career with a traineeship and later became an IT Consultant. Over my three years here, I completed assignments at SVB and ING.
+				During my time at the company, I learned a lot from more experienced consultants about high code quality, development pipelines, and deep testing strategies. I also shared my own knowledge by giving knowledge sessions.
+				The role focused on working in a framework-agnostic manner, teaching me to quickly adapt to different technologies and understand the entire application stack.
+			`,
+		},
+		{
 			...getExperience('MedWeb'),
 			startDate: 'Sep 2019',
 			endDate: 'Aug 2020',
+			extendedOnly: true,
 			description:
-				'Software developer who started as an intern building a data visualisation portal for medical professionals with Vue.js and Chart.js. Retrieved large datasets from HCL Notes using LotusScript and transformed them into clear charts and graphs.',
+				'Started as an intern and later became a Software Developer. Worked on advanced scheduling software for hospitals. Used HCL Notes, a document-oriented database, with LotusScript as the backend language and Vue.js as the frontend language with Chart.js to create various data dashboards.',
 			extendedDescription: `
-				As a software developer at MedWeb, my first full-time role, I started as an intern working on a data visualisation project for medical professionals.
-				I built an insights portal using Vue.js that presented scheduling data through charts created with Chart.js.
-				The underlying data was stored in HCL Notes, a document-oriented database I accessed using LotusScript via IBM Domino Designer.
-				Within this role I was responsible for the technical development of this visualisation platform and how it was implemented. For this I had to learn LotusScript to access large datasets from HCL Notes and transform them in Chart.js into clear, readable graphs.
+				At MedWeb, my first full-time role, I started as an intern and later became a Software Developer. I worked on advanced scheduling software focused on the medical field, primarily used by hospitals.
+				Within this role I worked with HCL Notes, which is a document-oriented database, using LotusScript as the backend language and Vue.js as the frontend language, along with Chart.js to create various data dashboards for scheduling insights.
+				I was responsible for the technical development of this platform and how it was implemented, transforming large datasets from HCL Notes into clear, readable graphs.
 			`,
 		},
 	],
@@ -212,6 +225,7 @@ export const resumeExperience = {
 			...getExperience('Swiftsync'),
 			startDate: 'Sep 2024',
 			endDate: 'Heden',
+			extendedOnly: true,
 			description:
 				'Full-stack developer die maatwerksoftware bouwt op basis van klantwensen, met frameworks als Django, NiceGUI, Playwright en Pandas. Bouwde onder meer een CCVShop-beheerdashboard, een configureerbaar web scraping dashboard en een Wintree-productsynchronisatietool.',
 			extendedDescription: `
@@ -277,16 +291,28 @@ export const resumeExperience = {
 			`,
 		},
 		{
+			...getExperience('Quintor'),
+			startDate: 'Okt 2020',
+			endDate: 'Okt 2023',
+			description:
+				'Begon met een traineeship bij deze IT-consultancy en werkte hier drie jaar. Heb opdrachten uitgevoerd bij de SVB en ING, veel geleerd van ervaren consultants en kennissessies gegeven.',
+			extendedDescription: `
+				Bij Quintor, een IT-consultancy, begon ik mijn carrière met een traineeship en werd ik later IT Consultant. In de drie jaar dat ik hier werkte, heb ik opdrachten uitgevoerd bij de SVB en ING.
+				Tijdens mijn traineeship en verdere tijd bij het bedrijf heb ik enorm veel geleerd van meer ervaren consultants over hoge codekwaliteit, development pipelines en uitgebreide teststrategieën. Ook heb ik mijn eigen kennis gedeeld door het geven van kennissessies.
+				De rol richtte zich op framework-agnostisch werken, waardoor ik me snel kon aanpassen aan verschillende technologieën en de volledige applicatiestack leerde begrijpen.
+			`,
+		},
+		{
 			...getExperience('MedWeb'),
 			startDate: 'Sep 2019',
 			endDate: 'Aug 2020',
+			extendedOnly: true,
 			description:
-				'Software developer die begon als stagiair met een datavisualisatieproject voor medische professionals met Vue.js en Chart.js. Haalde grote datasets op uit HCL Notes via LotusScript en transformeerde deze naar overzichtelijke grafieken.',
+				'Begon als stagiair en daarna als Software Developer. Werkte aan geavanceerde planningssoftware voor ziekenhuizen. Binnen deze rol werkte ik met HCL Notes, een document-oriented database, met LotusScript als backend taal, Vue.js als frontend taal en Chart.js voor data dashboards.',
 			extendedDescription: `
-				Als software developer bij MedWeb, mijn eerste fulltime rol, begon ik als stagiair aan een datavisualisatieproject voor medische professionals.
-				Ik bouwde een insights-portal met Vue.js die planningsdata presenteerde via grafieken gemaakt met Chart.js.
-				De onderliggende data stond in HCL Notes, een documentgeoriënteerde database die ik benaderde met LotusScript via IBM Domino Designer.
-				Binnen deze rol was ik verantwoordelijk voor de technische ontwikkeling van dit visualisatieplatform en hoe dit geïmplementeerd werd. Hiervoor moest ik LotusScript leren om grote datasets uit HCL Notes op te halen en deze in Chart.js om te zetten naar duidelijke, leesbare grafieken.
+				Bij MedWeb, mijn eerste fulltime rol, begon ik als stagiair en daarna als Software Developer. Ik werkte aan geavanceerde planningssoftware gericht op de medische sector, voornamelijk voor ziekenhuizen.
+				Binnen deze rol werkte ik met HCL Notes, wat een document-oriented database is, met LotusScript als backend taal en Vue.js als frontend taal, en Chart.js om verschillende data dashboards te maken voor planningsinzichten.
+				Ik was verantwoordelijk voor de technische ontwikkeling van dit platform en hoe dit geïmplementeerd werd, waarbij ik grote datasets uit HCL Notes transformeerde naar overzichtelijke grafieken.
 			`,
 		},
 	],

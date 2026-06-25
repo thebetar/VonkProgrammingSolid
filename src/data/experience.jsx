@@ -120,16 +120,16 @@ export const experience = [
 	},
 	{
 		name: 'Quintor',
-		title: 'IT Consultant / Trainee',
+		title: 'IT Consultant',
 		skills: ['Javascript', 'Azure DevOps', 'node.js', 'Angular', 'React', 'Vue.js'],
 		location: 'Amersfoort, Utrecht, Nederland',
 		startDate: 'Oct 2020',
 		endDate: 'Oct 2023',
 		description: [
 			`
-				At Quintor, I started my career as an IT consultant and trainee. During my traineeship, I learned the core principles of high code quality, how development pipelines function, and how to implement deep testing strategies.
-				The traineeship focused on working in a framework agnostic manner, teaching me to quickly adapt to different technologies. I also learned to look beyond the frontend to understand how the entire application operates, including the backend it communicates with and the underlying infrastructure it runs on.
-				Within this role I had to use my eagerness to learn to grasp complex software engineering concepts and build a strong foundation that helped me move to the next level as a developer.
+				At Quintor, an IT consultancy, I started my career with a traineeship and later became an IT Consultant. Over my three years here, I completed assignments at SVB and ING.
+				During my traineeship and time at the company, I learned a lot from more experienced consultants about high code quality, development pipelines, and deep testing strategies. I also shared my own knowledge by giving knowledge sessions.
+				The role focused on working in a framework-agnostic manner, teaching me to quickly adapt to different technologies and understand the entire application stack, from frontend to backend and infrastructure.
 			`,
 		],
 		link: 'https://www.quintor.nl/',
@@ -172,16 +172,16 @@ export const experience = [
 	},
 	{
 		name: 'MedWeb',
-		title: 'Software Developer / Intern',
-		skills: ['Vue.js', 'Chart.js'],
+		title: 'Intern / Software Developer',
+		skills: ['HCL Notes', 'LotusScript', 'Vue.js', 'Chart.js'],
 		location: 'Hilversum, Noord-Holland, Nederland',
 		startDate: 'Sep 2019',
 		endDate: 'Aug 2020',
 		description: [
 			`
-				At MedWeb, my first full-time role, I started as an intern working on a data visualisation project for medical professionals. I built an insights portal using Vue.js that presented scheduling data through charts created with Chart.js.
-				The underlying data was stored in HCL Notes, a document-oriented database I accessed using LotusScript via IBM Domino Designer.
-				Within this role I was responsible for the technical development of this visualisation platform and how it was implemented. For this I had to learn LotusScript to access large datasets from HCL Notes and transform them in Chart.js into clear, readable graphs.
+				At MedWeb, my first full-time role, I started as an intern and later became a Software Developer. I worked on advanced scheduling software focused on the medical field, primarily used by hospitals.
+				Within this role I worked with HCL Notes, which is a document-oriented database, using LotusScript as the backend language and Vue.js as the frontend language, along with Chart.js to create various data dashboards for scheduling insights.
+				I was responsible for the technical development of this platform and how it was implemented, transforming large datasets from HCL Notes into clear, readable graphs.
 			`,
 		],
 		link: 'https://www.medweb.nl/',
