@@ -33,23 +33,6 @@ export const experience = [
 		link: 'https://www.webshopimporter.com/',
 		cv: true,
 	},
-	// {
-	// 	name: 'Wisepim',
-	// 	title: 'Full Stack Developer',
-	// 	skills: ['Django', 'Python', 'React', 'Postgres', 'Github Actions'],
-	// 	location: 'Remote - Enschede, Overijssel, Nederland',
-	// 	startDate: 'Sep 2024',
-	// 	endDate: 'Now',
-	// 	description: [
-	// 		`
-	// 			At Wisepim, I worked as a full-stack developer on a cutting-edge PIM platform which uses AI to enrich and improve product information. My role involved assisting in a wide variety of tasks, from building new features inside of the Django backend to building new interfaces in the modern React frontend. I used my experience working with e-commerce APIs and interacting with LLMs over the API to connect and integrate various systems into the platform.
-	// 			The platform was built using Django for the backend, React for the frontend and PostgreSQL for the database.
-	// 			Within this role I had to use my skills for building a web application using Django and React, as well as my knowledge of e-commerce APIs and LLMs to build the tools needed to keep up with the growth of the company and the new technology we were working with.
-	// 		`,
-	// 	],
-	// 	link: 'https://www.wisepim.com/',
-	// 	cv: true,
-	// },
 	{
 		name: 'Swiftsync',
 		title: 'Full Stack Developer',

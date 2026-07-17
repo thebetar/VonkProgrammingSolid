@@ -11,8 +11,12 @@ const EXPERIENCE_PATH = path.join(__dirname, '../src/data/experience.jsx');
 const BLOGS_PATH = path.join(__dirname, '../src/data/blogs.jsx');
 const INDEX_HTML_PATH = path.join(__dirname, '../index.html');
 
+function stripLineComments(content) {
+    return content.replace(/^\s*\/\/.*$/gm, '');
+}
+
 function extractData(filePath, regex, groupIndex = 2) {
-    const content = fs.readFileSync(filePath, 'utf8');
+    const content = stripLineComments(fs.readFileSync(filePath, 'utf8'));
     const results = [];
     let match;
     while ((match = regex.exec(content)) !== null) {
@@ -33,7 +37,8 @@ function generateStaticContent() {
     // Experience
     const experienceNames = extractData(EXPERIENCE_PATH, /name:\s*(['"])(.*?)\1/g, 2);
     const experienceLinks = extractData(EXPERIENCE_PATH, /link:\s*(['"])(.*?)\1/g, 2);
-    const experienceDescriptions = extractData(EXPERIENCE_PATH, /description:\s*\[\s*(['"`])(.*?)\1/g, 2);
+    // Descriptions are multiline template literals inside an array: description: [ `...` ]
+    const experienceDescriptions = extractData(EXPERIENCE_PATH, /description:\s*\[\s*`([\s\S]*?)`/g, 1);
 
     // Blogs
     const blogTitles = extractData(BLOGS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
@@ -69,7 +74,9 @@ function generateStaticContent() {
     html += '<h4>Experience</h4>\n';
     html += '<ul>\n';
     experienceNames.forEach((name, index) => {
-        const description = experienceDescriptions[index];
+        const description = experienceDescriptions[index]
+            ? experienceDescriptions[index].replace(/\s+/g, ' ').trim()
+            : '';
         const link = experienceLinks[index];
         html += `\t<li><a href="${link}">${name}</a><p>${description}</p></li>\n`;
     });

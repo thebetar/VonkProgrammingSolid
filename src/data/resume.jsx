@@ -89,17 +89,6 @@ export const resumeExperience = {
 				Within this role I am responsible for the technical development of these integrations and how they are implemented. For this I need to thoroughly study various supplier documentation and the APIs they provide in order to integrate them into the platform.
 			`,
 		},
-		// {
-		// 	...getExperience('Wisepim'),
-		// 	startDate: 'Sep 2024',
-		// 	endDate: 'Present',
-		// 	description:
-		// 		'Full-stack developer contributing to an AI-powered PIM platform, building e-commerce API integrations with Django and RemixJS. Builds admin interfaces enabling non-technical team members to manage integrations independently.',
-		// 	extendedDescription: `
-		// 		At Wisepim, a fast-growing startup, I contribute to an AI-powered Product Information Management platform that enriches and improves product information automatically.
-		// 		I build backend services with Django and the frontend with RemixJS, using my experience with e-commerce APIs and LLMs to connect and integrate various external systems into the platform. I also build admin interfaces that allow non-technical team members to manage integrations independently.
-		// 	`,
-		// },
 		{
 			...getExperience('Swiftsync'),
 			startDate: 'Sep 2024',

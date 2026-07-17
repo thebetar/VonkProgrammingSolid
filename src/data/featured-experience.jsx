@@ -17,23 +17,6 @@ export const experience = [
 		],
 	},
 	{
-		name: 'Wisepim',
-		skills: ['Django', 'Python', 'React'],
-		location: 'Remote - Enschede, Overijssel, Nederland',
-		startDate: 'Sep 2024',
-		endDate: 'Now',
-		link: 'https://www.wisepim.com/',
-		description: [
-			`
-					
-									At Wisepim, I work as a full-stack developer on a cutting-edge PIM platform which uses AI to enrich and improve product information. My role involves assisting in a wide variety of tasks, from building new features inside of the Django backend to building new interfaces in the modern React frontend. I use my experience working with e-commerce APIs and interacting with LLMs over the API to connect and integrate various systems into the platform.
-									The platform was built using Django for the backend, React for the frontend and PostgreSQL for the database. The platform is hosted using Railway's hosting solution, which provides a simple and efficient interface for managing the application's infrastructure.
-									Within this role I have to use my skills for building a web application using Django and React, as well as my knowledge of e-commerce APIs and LLMs to build the tools needed to keep up with the growth of the company and the new technology we are working with.
-								
-				`,
-		],
-	},
-	{
 		name: 'Webshopimporter',
 		skills: ['Django', 'NiceGUI', 'Playwright'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
