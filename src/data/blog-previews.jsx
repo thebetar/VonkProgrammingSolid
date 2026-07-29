@@ -95,7 +95,7 @@ export const blogs = [
 			Reliance on big companies has become more and more of a concern as of recently, for me as well. So the last couple of months I have been looking into how to host some of the most important services for me myself. In this blog post I describe my journey into starting.
 		`,
 		keywords: ['raspberry pi', 'self-hosting', 'independency', 'python'],
-		tags: [BlogTags.Development, BlogTags.Lifestyle, BlogTags.Lifestyle],
+		tags: [BlogTags.Development, BlogTags.Lifestyle],
 		date: '2025-08-08',
 		link: '/blogs/taking-control',
 	},
