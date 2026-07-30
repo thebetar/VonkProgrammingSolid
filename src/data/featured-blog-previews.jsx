@@ -2,6 +2,24 @@ import { BlogTags } from '@/data/blog-tags';
 
 export const blogs = [
 	{
+		id: 37,
+		title: 'Opening the Black Box',
+		description: `
+			Understanding concepts like TCP, messaging queues, and encryption on a conceptual level is often enough for day-to-day work. But once you try to recreate them yourself, you quickly realise how much more ingenious these tools really are. In this blog, I share what I've learned by opening the black box and building my own versions of the fundamentals we use every day.
+		`,
+		keywords: [
+			'side projects',
+			'programming',
+			'learning',
+			'messaging queue',
+			'encryption',
+			'databases',
+		],
+		tags: [BlogTags.Development, BlogTags.Education],
+		date: '2026-07-30',
+		link: '/blogs/opening-the-black-box',
+	},
+	{
 		id: 36,
 		title: 'What is a good password? 🔒',
 		description: `
@@ -33,17 +51,6 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
 		date: '2026-03-15',
 		link: '/blogs/agentic-coding',
-	},
-	{
-		id: 33,
-		title: 'The challenges of European Cloud ☁️',
-		description: `
-				Recently, there has been a lot of discussion about the risks of European governments hosting their digital infrastructure on American cloud providers. While I agree with the security concerns, I believe many people overlook the challenges this transition will bring. In this blog post, I explore what makes providers like AWS, Azure, and Google Cloud special, the downsides of relying on them, and the difficulties in creating a European alternative.
-			`,
-		keywords: ['european cloud', 'cloud hosting', 'aws', 'azure', 'google cloud'],
-		tags: [BlogTags.Development, BlogTags.Innovation],
-		date: '2026-01-31',
-		link: '/blogs/european-cloud-challenges',
 	},
 ];
 

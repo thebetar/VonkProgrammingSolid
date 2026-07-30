@@ -30,5 +30,9 @@
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.15.3",
     "solid-js": "^1.9.7"
+  },
+  "overrides": {
+    "minimatch": "^10.2.5",
+    "brace-expansion": "5.0.8"
   }
 }

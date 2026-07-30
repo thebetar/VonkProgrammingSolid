@@ -2,6 +2,24 @@ import { BlogTags } from '@/data/blog-tags';
 
 export const blogs = [
 	{
+		id: 37,
+		title: 'Opening the Black Box',
+		description: `
+			Understanding concepts like TCP, messaging queues, and encryption on a conceptual level is often enough for day-to-day work. But once you try to recreate them yourself, you quickly realise how much more ingenious these tools really are. In this blog, I share what I've learned by opening the black box and building my own versions of the fundamentals we use every day.
+		`,
+		keywords: [
+			'side projects',
+			'programming',
+			'learning',
+			'messaging queue',
+			'encryption',
+			'databases',
+		],
+		tags: [BlogTags.Development, BlogTags.Education],
+		date: '2026-07-30',
+		link: '/blogs/opening-the-black-box',
+	},
+	{
 		id: 36,
 		title: 'What is a good password? 🔒',
 		description: `
