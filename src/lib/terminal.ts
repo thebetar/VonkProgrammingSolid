@@ -1,447 +1,354 @@
-import { Terminal as XtermTerminal } from '@xterm/xterm';
-import { FitAddon } from '@xterm/addon-fit';
-import { ImageAddon } from '@xterm/addon-image';
-import '@xterm/xterm/css/xterm.css';
+import { Terminal as XtermTerminal } from "@xterm/xterm";
+import { FitAddon } from "@xterm/addon-fit";
+import { ImageAddon } from "@xterm/addon-image";
+import "@xterm/xterm/css/xterm.css";
 
-import { getPrompt, getWelcomeText, os } from '@/data/os';
-import { runCommand, type CommandResult } from '@/lib/commands';
-import { commandToPath, pathToCommand } from '@/lib/routes';
-import { color, muted } from '@/lib/ansi';
+import { runCommand, type CommandResult } from "@/lib/commands";
+import { commandToPath, pathToCommand } from "@/lib/routes";
+import { color, muted } from "@/lib/ansi";
 import {
-	buildInlineImageSequence,
-	imageSrcFromLine,
-	imageUrlToPngBase64,
-	isImageLine,
-} from '@/lib/terminal-image';
+  createLineInput,
+  handleLineInputKey,
+  readLineInput,
+  resetLineInput,
+  type LineInputState,
+} from "@/lib/line-input";
+import { getPrompt, getWelcomeText, os } from "@/data/os";
+import {
+  buildInlineImageSequence,
+  imageSrcFromLine,
+  imageUrlToPngBase64,
+  isImageLine,
+} from "@/lib/terminal-image";
 
 const terminalTheme = {
-	background: '#0b0f14',
-	foreground: '#d6e3f0',
-	cursor: '#7ee787',
-	cursorAccent: '#0b0f14',
-	selectionBackground: '#264f7844',
-	black: '#0b0f14',
-	red: '#ff7b72',
-	green: '#7ee787',
-	yellow: '#e3b341',
-	blue: '#79c0ff',
-	magenta: '#d2a8ff',
-	cyan: '#56d4dd',
-	white: '#d6e3f0',
-	brightBlack: '#8b949e',
-	brightRed: '#ffa198',
-	brightGreen: '#56d364',
-	brightYellow: '#e3b341',
-	brightBlue: '#79c0ff',
-	brightMagenta: '#d2a8ff',
-	brightCyan: '#56d4dd',
-	brightWhite: '#ffffff',
+  background: "#0b0f14",
+  foreground: "#d6e3f0",
+  cursor: "#7ee787",
+  cursorAccent: "#0b0f14",
+  selectionBackground: "#264f7844",
+  black: "#0b0f14",
+  red: "#ff7b72",
+  green: "#7ee787",
+  yellow: "#e3b341",
+  blue: "#79c0ff",
+  magenta: "#d2a8ff",
+  cyan: "#56d4dd",
+  white: "#d6e3f0",
+  brightBlack: "#8b949e",
+  brightRed: "#ffa198",
+  brightGreen: "#56d364",
+  brightYellow: "#e3b341",
+  brightBlue: "#79c0ff",
+  brightMagenta: "#d2a8ff",
+  brightCyan: "#56d4dd",
+  brightWhite: "#ffffff",
 };
 
 export interface TerminalMount {
-	screen: HTMLElement;
-	input: HTMLInputElement;
-	sticky: HTMLElement;
-}
-
-type PromptMode = 'inline' | 'sticky';
-
-async function writeImage(term: XtermTerminal, src: string): Promise<void> {
-	try {
-		const { base64, size } = await imageUrlToPngBase64(src);
-		term.write(buildInlineImageSequence(base64, size));
-		term.writeln('');
-	} catch {
-		term.writeln(muted(`[image unavailable] ${src}`));
-	}
-}
-
-async function writeLines(term: XtermTerminal, lines: string[]): Promise<void> {
-	for (const line of lines) {
-		if (isImageLine(line)) {
-			await writeImage(term, imageSrcFromLine(line));
-			continue;
-		}
-
-		term.writeln(line);
-	}
-}
-
-function resetView(term: XtermTerminal): void {
-	term.write('\x1b[2J\x1b[3J\x1b[H');
-}
-
-function applyScroll(term: XtermTerminal, scrollTo: 'top' | 'bottom' = 'bottom'): void {
-	if (scrollTo === 'top') {
-		term.scrollToTop();
-		return;
-	}
-
-	term.scrollToBottom();
-}
-
-function contentOverflowsViewport(term: XtermTerminal): boolean {
-	// baseY > 0 means there is scrollback above the visible rows.
-	return term.buffer.active.baseY > 0;
+  screen: HTMLElement;
 }
 
 function syncUrlForCommand(command: string): void {
-	const path = commandToPath(command);
+  const path = commandToPath(command);
+  if (!path) {
+    return;
+  }
 
-	if (!path) {
-		return;
-	}
+  const current = `${window.location.pathname}${window.location.search}`;
+  if (current === path) {
+    return;
+  }
 
-	const current = `${window.location.pathname}${window.location.search}`;
-	if (current === path) {
-		return;
-	}
-
-	window.history.replaceState(null, '', path);
+  window.history.replaceState(null, "", path);
 }
 
 function triggerDownload(url: string, filename: string): void {
-	const anchor = document.createElement('a');
-	anchor.href = url;
-	anchor.download = filename;
-	anchor.rel = 'noopener';
-	document.body.appendChild(anchor);
-	anchor.click();
-	anchor.remove();
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  anchor.rel = "noopener";
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
 }
 
-interface PromptController {
-	mode: PromptMode;
-	inputBuffer: string;
-	setMode: (mode: PromptMode, options?: { writeInlinePrompt?: boolean }) => void;
-	syncAfterContent: (scrollTo?: 'top' | 'bottom') => void;
-	focus: () => void;
-	setBusy: (busy: boolean) => void;
-}
+/** Interactive xterm session with an inline prompt. */
+export class Terminal {
+  private readonly term: XtermTerminal;
+  private readonly fitAddon: FitAddon;
+  private readonly screen: HTMLElement;
+  private readonly lineInput: LineInputState;
+  private readonly onData: { dispose: () => void };
+  private busy = true;
 
-function createPromptController(
-	term: XtermTerminal,
-	input: HTMLInputElement,
-	sticky: HTMLElement,
-	fitAddon: FitAddon,
-): PromptController {
-	const controller: PromptController = {
-		mode: 'inline',
-		inputBuffer: '',
-		setMode(mode, options = {}) {
-			const writeInlinePrompt = options.writeInlinePrompt ?? true;
-			const prev = controller.mode;
-			controller.mode = mode;
-			sticky.hidden = mode !== 'sticky';
-			sticky.classList.toggle('is-active', mode === 'sticky');
-			term.options.disableStdin = mode === 'sticky';
-			term.options.cursorBlink = mode === 'inline';
+  constructor(mount: TerminalMount) {
+    this.screen = mount.screen;
+    this.lineInput = createLineInput();
 
-			if (prev !== mode) {
-				fitAddon.fit();
-			}
+    this.term = new XtermTerminal({
+      cursorBlink: true,
+      disableStdin: false,
+      fontFamily:
+        "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      fontSize: 15,
+      lineHeight: 1.2,
+      theme: terminalTheme,
+      allowProposedApi: true,
+      scrollback: 5000,
+    });
 
-			if (mode === 'sticky') {
-				input.disabled = false;
-				input.focus();
-				return;
-			}
+    this.fitAddon = new FitAddon();
+    const imageAddon = new ImageAddon({
+      enableSizeReports: true,
+      sixelSupport: false,
+      iipSupport: true,
+      showPlaceholder: true,
+    });
 
-			if (writeInlinePrompt) {
-				term.write(getPrompt());
-				term.focus();
-			}
-		},
-		syncAfterContent(scrollTo = 'bottom') {
-			// Measure overflow with the sticky bar hidden so height isn't biased.
-			if (controller.mode === 'sticky') {
-				sticky.hidden = true;
-				sticky.classList.remove('is-active');
-				controller.mode = 'inline';
-				term.options.disableStdin = false;
-				term.options.cursorBlink = true;
-				fitAddon.fit();
-			}
+    this.term.loadAddon(this.fitAddon);
+    this.term.loadAddon(imageAddon);
+    this.term.open(this.screen);
+    this.fitAddon.fit();
 
-			applyScroll(term, scrollTo === 'top' ? 'top' : 'bottom');
+    this.term.options.linkHandler = {
+      activate: (_event, uri) => this.openLink(uri),
+      allowNonHttpProtocols: true,
+    };
 
-			if (contentOverflowsViewport(term)) {
-				controller.setMode('sticky', { writeInlinePrompt: false });
-				applyScroll(term, scrollTo);
-				return;
-			}
+    this.onData = this.term.onData((data) => this.handleInput(data));
+    this.screen.addEventListener("mousedown", this.onScreenClick);
+    window.addEventListener("resize", this.onResize);
 
-			controller.setMode('inline');
-			applyScroll(term, 'bottom');
-		},
-		focus() {
-			if (controller.mode === 'sticky') {
-				input.focus();
-				return;
-			}
+    void this.boot().finally(() => {
+      this.busy = false;
+      this.term.focus();
+    });
+  }
 
-			term.focus();
-		},
-		setBusy(busy) {
-			input.disabled = busy;
-			if (!busy) {
-				controller.focus();
-			}
-		},
-	};
+  dispose(): void {
+    this.onData.dispose();
+    this.screen.removeEventListener("mousedown", this.onScreenClick);
+    window.removeEventListener("resize", this.onResize);
+    this.term.dispose();
+  }
 
-	return controller;
-}
+  private readonly onScreenClick = (): void => {
+    this.term.focus();
+  };
 
-async function applyCommandResult(
-	term: XtermTerminal,
-	result: CommandResult,
-	prompt: PromptController,
-): Promise<void> {
-	if (result.download) {
-		triggerDownload(result.download.url, result.download.filename);
-	}
+  private readonly onResize = (): void => {
+    this.fitAddon.fit();
+  };
 
-	if (result.action === 'clear') {
-		resetView(term);
-		prompt.inputBuffer = '';
-		prompt.syncAfterContent('bottom');
-		return;
-	}
+  private write(data: string): Promise<void> {
+    return new Promise((resolve) => {
+      this.term.write(data, () => resolve());
+    });
+  }
 
-	if (result.action === 'print') {
-		if (result.lines && result.lines.length > 0) {
-			resetView(term);
-			prompt.inputBuffer = '';
-			await writeLines(term, result.lines);
-			prompt.syncAfterContent(result.scrollTo ?? 'bottom');
-			return;
-		}
-	}
+  private writeln(data = ""): Promise<void> {
+    return new Promise((resolve) => {
+      this.term.writeln(data, () => resolve());
+    });
+  }
 
-	prompt.syncAfterContent('bottom');
-}
+  private async writeImage(src: string): Promise<void> {
+    try {
+      const { base64, size } = await imageUrlToPngBase64(src);
+      await this.writeln("");
+      await this.write(buildInlineImageSequence(base64, size));
+      await this.writeln("");
+    } catch {
+      await this.writeln(muted(`[image unavailable] ${src}`));
+    }
+  }
 
-async function bootTerminal(term: XtermTerminal, prompt: PromptController): Promise<void> {
-	const initialCommand = pathToCommand(window.location.pathname, window.location.search);
+  /**
+   * Stream lines into the terminal. When `pinTop` is set, keep the viewport locked
+   * at the top while content grows below (avoids chase-to-bottom then jump-up).
+   */
+  private async writeLines(
+    lines: string[],
+    options: { pinTop?: boolean } = {},
+  ): Promise<void> {
+    const pinTop = options.pinTop === true;
+    const viewport = pinTop ? this.getViewportEl() : null;
 
-	if (!initialCommand) {
-		await writeLines(term, getWelcomeText());
-		prompt.syncAfterContent('bottom');
-		document.title = `${os.osName} — Portfolio`;
-		return;
-	}
+    const keepTop = () => {
+      this.term.scrollToTop();
+      if (viewport) {
+        viewport.scrollTop = 0;
+      }
+    };
 
-	await writeLines(term, [
-		color.bold(color.brightGreen(`Welcome to ${os.osName}`)),
-		muted(`Opening shared link → running: ${initialCommand}`),
-		'',
-	]);
-	term.write(getPrompt());
-	term.writeln(initialCommand);
+    let disposeScroll: { dispose: () => void } | undefined;
+    const onDomScroll = () => {
+      if (viewport) {
+        viewport.scrollTop = 0;
+      }
+    };
 
-	const result = runCommand(initialCommand);
+    if (pinTop) {
+      disposeScroll = this.term.onScroll(() => {
+        keepTop();
+      });
+      viewport?.addEventListener("scroll", onDomScroll);
+      keepTop();
+    }
 
-	if (result.download) {
-		triggerDownload(result.download.url, result.download.filename);
-	}
+    try {
+      for (const line of lines) {
+        if (isImageLine(line)) {
+          await this.writeImage(imageSrcFromLine(line));
+        } else {
+          await this.writeln(line);
+        }
 
-	if (result.action === 'print') {
-		if (result.lines && result.lines.length > 0) {
-			resetView(term);
-			await writeLines(term, result.lines);
-			prompt.syncAfterContent(result.scrollTo ?? 'bottom');
-		} else {
-			prompt.syncAfterContent('bottom');
-		}
-	} else if (result.action === 'clear') {
-		resetView(term);
-		prompt.syncAfterContent('bottom');
-	} else {
-		prompt.syncAfterContent('bottom');
-	}
+        if (pinTop) {
+          keepTop();
+        }
+      }
+    } finally {
+      disposeScroll?.dispose();
+      viewport?.removeEventListener("scroll", onDomScroll);
+    }
+  }
 
-	document.title = `${os.osName} — ${initialCommand}`;
-}
+  private getViewportEl(): HTMLElement | null {
+    return this.term.element?.querySelector(".xterm-viewport") ?? null;
+  }
 
-async function runSubmittedCommand(
-	term: XtermTerminal,
-	command: string,
-	prompt: PromptController,
-	busyRef: { value: boolean },
-): Promise<void> {
-	if (busyRef.value) {
-		return;
-	}
+  private applyScroll(scrollTo: "top" | "bottom"): void {
+    if (scrollTo === "top") {
+      this.term.scrollToTop();
+    } else {
+      this.term.scrollToBottom();
+    }
 
-	const result = runCommand(command);
-	const trimmed = command.trim();
-	if (trimmed) {
-		syncUrlForCommand(trimmed);
-	}
+    const viewport = this.getViewportEl();
+    if (!viewport) {
+      return;
+    }
 
-	busyRef.value = true;
-	prompt.setBusy(true);
+    viewport.scrollTop = scrollTo === "top" ? 0 : viewport.scrollHeight;
+  }
 
-	try {
-		await applyCommandResult(term, result, prompt);
-	} finally {
-		busyRef.value = false;
-		prompt.setBusy(false);
-	}
-}
+  private contentOverflowsViewport(): boolean {
+    return this.term.buffer.active.baseY > 0;
+  }
 
-function handleInlineInput(
-	term: XtermTerminal,
-	data: string,
-	prompt: PromptController,
-	busyRef: { value: boolean },
-): void {
-	if (busyRef.value || prompt.mode !== 'inline') {
-		return;
-	}
+  /** Prompt stays at the bottom of the buffer; tall pages open scrolled to the top. */
+  private finishPage(scrollTo: "top" | "bottom" = "top"): void {
+    this.term.write(getPrompt());
 
-	const code = data.charCodeAt(0);
+    if (scrollTo === "bottom") {
+      this.applyScroll("bottom");
+      return;
+    }
 
-	if (data === '\r') {
-		term.writeln('');
-		const command = prompt.inputBuffer;
-		prompt.inputBuffer = '';
-		void runSubmittedCommand(term, command, prompt, busyRef);
-		return;
-	}
+    // Tall content → start at top so you can read; short content → stay at bottom with the prompt.
+    this.applyScroll(this.contentOverflowsViewport() ? "top" : "bottom");
+  }
 
-	if (data === '\u007f' || data === '\b') {
-		if (prompt.inputBuffer.length > 0) {
-			prompt.inputBuffer = prompt.inputBuffer.slice(0, -1);
-			term.write('\b \b');
-		}
-		return;
-	}
+  private async clearPage(): Promise<void> {
+    this.fitAddon.fit();
+    // Erase via the write queue (after any pending Enter newline). Using term.clear()
+    // is racy and also keeps the active prompt/command line by design.
+    await this.write("\x1b[2J\x1b[3J\x1b[H");
+    this.applyScroll("top");
+  }
 
-	if (code === 3) {
-		term.writeln('^C');
-		prompt.inputBuffer = '';
-		prompt.syncAfterContent('bottom');
-		return;
-	}
+  private openLink(uri: string): void {
+    if (uri.startsWith("/") && !uri.startsWith("//")) {
+      const command = pathToCommand(uri);
+      if (command) {
+        syncUrlForCommand(command);
+        void this.runCommand(command);
+        return;
+      }
 
-	if (code === 12) {
-		resetView(term);
-		prompt.inputBuffer = '';
-		prompt.syncAfterContent('bottom');
-		return;
-	}
+      window.history.replaceState(null, "", uri);
+      return;
+    }
 
-	if (code < 32) {
-		return;
-	}
+    window.open(uri, "_blank", "noopener,noreferrer");
+  }
 
-	prompt.inputBuffer += data;
-	term.write(data);
-}
+  private async applyCommandResult(result: CommandResult): Promise<void> {
+    if (result.download) {
+      triggerDownload(result.download.url, result.download.filename);
+    }
 
-/** Create and wire an interactive xterm instance + conditional sticky input. */
-export function initTerminal(mount: TerminalMount): () => void {
-	const { screen, input, sticky } = mount;
+    if (result.action === "print" && result.lines && result.lines.length > 0) {
+      await this.clearPage();
+      resetLineInput(this.lineInput);
+      const scrollTo = result.scrollTo ?? "top";
+      await this.writeLines(result.lines, { pinTop: scrollTo === "top" });
+      this.finishPage(scrollTo);
+      return;
+    }
 
-	const term = new XtermTerminal({
-		cursorBlink: true,
-		disableStdin: false,
-		fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
-		fontSize: 15,
-		lineHeight: 1.2,
-		theme: terminalTheme,
-		allowProposedApi: true,
-		scrollback: 5000,
-	});
+    this.finishPage("bottom");
+  }
 
-	const fitAddon = new FitAddon();
-	const imageAddon = new ImageAddon({
-		enableSizeReports: true,
-		sixelSupport: false,
-		iipSupport: true,
-		showPlaceholder: true,
-	});
+  private async boot(): Promise<void> {
+    const initialCommand = pathToCommand(
+      window.location.pathname,
+      window.location.search,
+    );
 
-	term.loadAddon(fitAddon);
-	term.loadAddon(imageAddon);
-	term.open(screen);
-	fitAddon.fit();
+    if (!initialCommand) {
+      await this.writeLines(getWelcomeText());
+      this.finishPage("bottom");
+      document.title = `${os.osName} — Portfolio`;
+      return;
+    }
 
-	const prompt = createPromptController(term, input, sticky, fitAddon);
-	sticky.hidden = true;
+    await this.writeLines([
+      color.bold(color.brightGreen(`Welcome to ${os.osName}`)),
+      muted(`Opening shared link → running: ${initialCommand}`),
+      "",
+    ]);
+    this.term.write(getPrompt());
+    this.term.writeln(initialCommand);
 
-	const busyRef = { value: true };
+    await this.applyCommandResult(runCommand(initialCommand));
+    document.title = `${os.osName} — ${initialCommand}`;
+  }
 
-	void bootTerminal(term, prompt).finally(() => {
-		busyRef.value = false;
-		prompt.setBusy(false);
-	});
+  private async runCommand(command: string): Promise<void> {
+    if (this.busy) {
+      return;
+    }
 
-	const onData = term.onData((data) => {
-		handleInlineInput(term, data, prompt, busyRef);
-	});
+    const trimmed = command.trim();
+    if (trimmed) {
+      syncUrlForCommand(trimmed);
+    }
 
-	const onSubmit = (event: Event) => {
-		event.preventDefault();
-		if (busyRef.value || prompt.mode !== 'sticky') {
-			return;
-		}
+    this.busy = true;
 
-		const command = input.value;
-		input.value = '';
-		term.writeln(`${getPrompt()}${command}`);
-		void runSubmittedCommand(term, command, prompt, busyRef);
-	};
+    try {
+      await this.applyCommandResult(runCommand(command));
+    } finally {
+      this.busy = false;
+      this.term.focus();
+    }
+  }
 
-	const onStickyKeyDown = (event: KeyboardEvent) => {
-		if (busyRef.value || prompt.mode !== 'sticky') {
-			return;
-		}
+  private handleInput(data: string): void {
+    if (this.busy) {
+      return;
+    }
 
-		if (event.key === 'l' && event.ctrlKey) {
-			event.preventDefault();
-			input.value = '';
-			resetView(term);
-			prompt.syncAfterContent('bottom');
-			return;
-		}
-
-		if (event.key === 'c' && event.ctrlKey) {
-			event.preventDefault();
-			input.value = '';
-			term.writeln('^C');
-			prompt.syncAfterContent('bottom');
-		}
-	};
-
-	const onScreenClick = () => {
-		prompt.focus();
-	};
-
-	const form = input.closest('form');
-	form?.addEventListener('submit', onSubmit);
-	input.addEventListener('keydown', onStickyKeyDown);
-	screen.addEventListener('mousedown', onScreenClick);
-
-	const onResize = () => {
-		fitAddon.fit();
-		// Re-evaluate sticky vs inline after viewport size changes.
-		if (contentOverflowsViewport(term)) {
-			prompt.setMode('sticky', { writeInlinePrompt: false });
-		} else if (prompt.mode === 'sticky') {
-			prompt.setMode('inline');
-		}
-	};
-	window.addEventListener('resize', onResize);
-
-	return () => {
-		onData.dispose();
-		form?.removeEventListener('submit', onSubmit);
-		input.removeEventListener('keydown', onStickyKeyDown);
-		screen.removeEventListener('mousedown', onScreenClick);
-		window.removeEventListener('resize', onResize);
-		term.dispose();
-	};
+    const result = handleLineInputKey(this.term, data, this.lineInput);
+    if (result === "submit") {
+      const command = readLineInput(this.lineInput);
+      resetLineInput(this.lineInput);
+      void this.runCommand(command);
+    } else if (result === "cancel") {
+      this.finishPage("bottom");
+    }
+  }
 }

@@ -249,12 +249,12 @@ function findExperience(query: string): ExperienceEntry | undefined {
 	return undefined;
 }
 
-function listExperience(page: number): string[] {
+function listExperience(page: number): { lines: string[]; page: number } {
 	const slice = paginate(experience, page);
 	const idWidth = Math.max(...slice.items.map((entry) => entry.id.length));
 	const lines: string[] = [
 		heading('Experience'),
-		muted('Newest first. Use: experience get <id>  |  experience list page <n>'),
+		muted('Newest first. Use: experience get <id>  |  experience list page <n|next|prev>'),
 		'',
 	];
 
@@ -268,7 +268,7 @@ function listExperience(page: number): string[] {
 	}
 
 	lines.push(...paginationFooter(slice, 'experience list'));
-	return lines;
+	return { lines, page: slice.page };
 }
 
 function renderExperience(entry: ExperienceEntry): string[] {

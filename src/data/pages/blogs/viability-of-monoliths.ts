@@ -1,0 +1,115 @@
+import type { BlogEntry } from './types';
+
+const blog: BlogEntry = {
+	id: "10",
+	numericId: 10,
+	slug: "viability-of-monoliths",
+	title: "The viability of monoliths 🤫",
+	description: "Is kubernetes really the greatest invention of all time? Are AWS and Azure really going to scale infinetely? Maybe there is still a place in this world for monoliths and dedicated servers. In this blog I talk about my views on this topic and how I think that monoliths are still a viable option for a lot of companies.",
+	date: "2024-07-13",
+	link: "https://vonkprogramming.nl/blogs/viability-of-monoliths",
+	content: `
+Cloud services like AWS and Microsoft Azure are very popular nowadays
+and have almost completely taken over hosting. The complete set of
+tools and services they offer with the added bonus of high flexiblity
+in hosting offers a lot of benefits, but is it really the best
+solution for every use case? I would like to argue that the answer is
+no
+
+## Over architecting
+
+Using multiple instances instead of one big instance is mostly because
+of the popularity of microservices. The idea of using microservices is
+great in splitting the logic of an application vertically instead of
+horizontally, which means that each feature and corresponding team
+maintains the whole chain from database to the client, ideally at
+least. In the past this used to be more split up. I think using
+microservices is great but I think it might be overdone a little. It
+introduces a lot of layers of complexity and most of the time every
+team gets to choose what stack they use. This often causes an
+application to become very cluttered with many different kinds of
+services using different technologies which depend on each other.
+There are even
+jokes (https://youtu.be/y8OnoxKotPQ?si=dQTDloEf93C7EPTV)
+about it nowadays, that to get a birthday from a customer you have to
+go through multiple services just to get this simple date displayed so
+the estimated time to develop this feature is over one year. This is
+an exageration of course but these kinds of problems are taking longer
+than necessary in a lot of cases.
+
+I think central services within an application should be managed by
+one big system, for instance handling database operations like a read
+or write, authentication and other basic operations.
+
+Another downside of this split is the added cost of running all these
+services atomically. Every service has to be managed and monitored.
+
+## Over scalability
+
+I think the scalability that cloud providers offer is great; but how
+often do you really peak above mean load or have very low traffic on
+your platform. I think a combination of one big dedicated server which
+gets help from scaled instances can also offer this advantage. The
+advantage of this big dedicated server to handle mean load is that it
+is cheaper and you will get more control over your own server.
+Virtualising still runs on top of a hypervisor which a dedicated
+server does not need. This construction makes it so software that need
+kernel level drivers that are not there can not be installed, while
+they can on dedicated servers
+
+## Over specialisation
+
+The microservices landscape where each team works isolated on a
+specific number of services also reduces communication between
+different teams. Teams will be working on more isolated parts of the
+application. I think communication between teams is very important to
+not only have a more healthy social environment in a company but also
+to have more creativity that can be used to solve complex problems.
+Maybe a developer in another team has already fixed a similar problem
+that your team has been struggling with for weeks.
+
+## Over complication
+
+Using a scalable solution where the amount of instances can be scaled
+up and down also adds a new layer of complexity, which for a lot of
+companies is definetely needed, but for some is quite overkill. For a
+large scale organisation using kubernetes or similar tools is a must!
+But is it really necessary to run smaller projects in it, just a
+simple docker container using docker compose is enough for a lot of
+use cases in my opinion. I think we as developers get too drawn to
+feeling smart and wanting the best, most technically amazing solution,
+but sometimes the problem that has to be solved just does not require
+this big of a solution.
+
+## Over reliance
+
+The best pricing and features are currently only available with the
+biggest companies right now, these are Google, Microsoft Azure and
+AWS. Where AWS and Microsoft Azure together control about 50% of this
+market. This raises concerns for me since this control of the market
+means that these companies have a lot of power. Sadly only one of
+these things can be solved by using a more monolithic approach which
+is the price. The amount of features you will have to develop yourself
+which is still a big obstacle. I do not have a solution for this
+problem, but I am concerned what this growing power of these companies
+will do.
+
+## Conclusion
+
+After reading the above you will probably get the idea that I am not a
+fan of all these modern auto-scaling and orhcestration tools, but on
+the contrary! I think this technology is amazing and have also tried
+Google Cloud, Microsoft Azure and AWS. I think it is good that these
+services and their competitors have changed the landscape of how
+servers run. My criticism is that you should not overdo it. I think it
+is not the perfect solution for every problem.
+
+I think reducing some of the servers to a dedicated server which can
+handle mean load, can reduce some of the complexity of a system and
+reduce running costs. If you don't believe me even companies like
+Amazon for hosting Amazon Prime has shifted to doing this, YES the
+same Amazon that tries to sell us AWS.
+`,
+};
+
+export default blog;

@@ -1,4 +1,4 @@
-import { accent, color, heading, label, muted, wrapText } from '@/lib/ansi';
+import { accent, color, heading, label, link, muted, wrapText } from '@/lib/ansi';
 import { paginate, paginationFooter } from '@/lib/paginate';
 
 export interface ProjectEntry {
@@ -264,12 +264,12 @@ function findProject(query: string): ProjectEntry | undefined {
 	return undefined;
 }
 
-function listProjects(page: number): string[] {
+function listProjects(page: number): { lines: string[]; page: number } {
 	const slice = paginate(projects, page);
 	const idWidth = Math.max(...slice.items.map((project) => project.id.length));
 	const lines: string[] = [
 		heading('Projects'),
-		muted('Newest first. Use: projects get <id>  |  projects list page <n>'),
+		muted('Newest first. Use: projects get <id>  |  projects list page <n|next|prev>'),
 		'',
 	];
 
@@ -285,11 +285,17 @@ function listProjects(page: number): string[] {
 		if (project.description) {
 			lines.push(...wrapText(project.description, 74).map((line) => `  ${color.white(line)}`));
 		}
+		if (project.githubUrl) {
+			lines.push(`  ${label('GitHub:')} ${link(project.githubUrl, project.githubUrl)}`);
+		}
+		if (project.liveUrl) {
+			lines.push(`  ${label('Live:')}   ${link(project.liveUrl, project.liveUrl)}`);
+		}
 		lines.push('');
 	}
 
 	lines.push(...paginationFooter(slice, 'projects list'));
-	return lines;
+	return { lines, page: slice.page };
 }
 
 function renderProject(project: ProjectEntry): string[] {
@@ -299,8 +305,12 @@ function renderProject(project: ProjectEntry): string[] {
 		`${label('ID:')} ${accent(project.id)}`,
 	];
 	if (project.language) lines.push(`${label('Lang:')} ${accent(project.language)}`);
-	if (project.githubUrl) lines.push(`${label('GitHub:')} ${color.blue(project.githubUrl)}`);
-	if (project.liveUrl) lines.push(`${label('Live:')} ${color.blue(project.liveUrl)}`);
+	if (project.githubUrl) {
+		lines.push(`${label('GitHub:')} ${link(project.githubUrl, project.githubUrl)}`);
+	}
+	if (project.liveUrl) {
+		lines.push(`${label('Live:')} ${link(project.liveUrl, project.liveUrl)}`);
+	}
 	if (project.description) {
 		lines.push('');
 		lines.push(...wrapText(project.description).map((line) => color.white(line)));

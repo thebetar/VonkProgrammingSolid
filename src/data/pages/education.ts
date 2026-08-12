@@ -121,12 +121,12 @@ function findEducation(query: string): EducationEntry | undefined {
 	return undefined;
 }
 
-export function listEducation(page: number): string[] {
+export function listEducation(page: number): { lines: string[]; page: number } {
 	const slice = paginate(education, page);
 	const idWidth = Math.max(...slice.items.map((entry) => entry.id.length));
 	const lines: string[] = [
 		heading('Education'),
-		muted('Newest first. Use: education get <id>  |  education list page <n>'),
+		muted('Newest first. Use: education get <id>  |  education list page <n|next|prev>'),
 		'',
 	];
 
@@ -140,7 +140,7 @@ export function listEducation(page: number): string[] {
 	}
 
 	lines.push(...paginationFooter(slice, 'education list'));
-	return lines;
+	return { lines, page: slice.page };
 }
 
 export function showEducation(id: string): string[] | null {

@@ -1,0 +1,96 @@
+import type { BlogEntry } from './types';
+
+const blog: BlogEntry = {
+	id: "6",
+	numericId: 6,
+	slug: "divide-conquer",
+	title: "Divide & Conquer 🪖",
+	description: "It happens to all of us that we encounter something that seems so complex that it cannot be grasped by our brains. But often after looking at the problem for a while and breaking it up into smaller pieces it becomes manageable. In this blog post I will discuss how I use the divide and conquer principle in my coding journey.",
+	date: "2024-06-07",
+	link: "https://vonkprogramming.nl/blogs/divide-conquer",
+	content: `
+If you attended school this will sound very familiar to you. You learn
+about something new that sounds so complex that you cannot even
+imagine how you will ever wrap your head around it. But once you start
+slowly learning all the details you realise that the complex topic, is
+not that complex once you learn all the details. This is true for
+knowledge, computer systems and almost all things.
+
+Being able to break big problems down into smaller sub problems is
+very important to start solving them and breaking down how a complex
+system of systems work in each component is crucial to understanding
+what environment you are working in.
+
+## Shame
+
+Facing a problem which is difficult to understand can be frustrating
+and instill a sense of shame. This is very normal and most people have
+this feeling. It is important to know this because it makes it easier
+to accept that you do not understand it and that it is okay to not
+understand something. Because this frustration will make it more
+difficult. Once you have this frustration and shame tackled by
+accepting that it is a normal thing, the steps of breaking up the
+problem into the parts you do and do not understand can begin. By
+identifying the parts you do not understand you can ask targeted
+questions or read articles to fill in the gaps.
+
+## Losing overview
+
+The reason that problems might seem complex is that the overview of
+all simple parts is not clear. Some information is missing which makes
+the whole seem difficult to understand. The best way to prevent this
+is to not try to understand the whole problem but to break it up into
+parts and try to understand each part.
+
+For instance trying to understand how authentication and authorisation
+of a user works needs many steps, but once you break it up into the
+steps of sending login credentials, getting the user with the same
+username from the database, comparing the result of hashing the sent
+password and the password hash stored in the database and based on
+this authenticate or not. It becomes quite clear per step what is
+going on. This is of course just a simple example of breaking
+something that can be considered complex into small easy to understand
+parts, but I have found that almost all things can be approached like
+this.
+
+For bigger problems where the overview is hard to grasp it helps to
+map it out. I love drawing simple diagrams to get a new visual
+representation of what the thing is I am trying to solve, and very
+often after I am done drawing it, it already seems very clear! Of
+course not every problem requires a diagram to be drawn, but the step
+of creating a visual representation of the problem helps to get this
+overview, even a simple drawing using a pencil and paper helps.
+
+## How to go from complex to simple
+
+Sometimes it is hard to find where to start when breaking down a
+problem. In these instances it's good to start at the part of the
+problem that is understood and expanding this part. Most of the time
+while writing the logic for the parts that you do understand, the
+other parts that come before and after also become clear.
+
+If this is not possible, you can try to find a way to break up the
+problem into sub problems which can be more easily solved. I know that
+sometimes it feels like this is not possible, but often when a problem
+is analysed enough ways to split the problem will appear.
+
+Within programming all programs can be boiled down to a large systems
+of very basic operations. The complexity comes from the combination of
+many of these operations. Understanding this and not losing hope when
+something seems too complex is very important. It happens to all of us
+that something seems impossible to understand. The solutions that need
+to be created to fix a problem are also built on combining basic
+operations to create basic methods to create more and more complexity.
+
+## Conclusion
+
+We have all experienced the thought that we will never understand a
+concept or architecture. It is a normal feeling. The most important
+thing is to keep your head cool and slowly start breaking up the
+problem by creating a nice overview of the problem or splitting it up
+into nice sub problems which can be tackled. When combining these
+steps almost all problems can be fixed!
+`,
+};
+
+export default blog;

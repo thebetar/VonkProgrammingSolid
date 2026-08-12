@@ -1,0 +1,121 @@
+import type { BlogEntry } from './types';
+
+const blog: BlogEntry = {
+	id: "11",
+	numericId: 11,
+	slug: "abstraction-spectrum",
+	title: "The abstraction spectrum 🌈",
+	description: "Developers often prefer to solve all their problems using code, sometimes however using a paid service or a no code solution is a better way to solve your problem faster. In this blog post I will talk about the considerations I make when solving a problem and where I think using abstract solutions like no code are justified.",
+	date: "2024-07-20",
+	link: "https://vonkprogramming.nl/blogs/abstraction-spectrum",
+	content: `
+Within development there are many levels of abstraction that can be
+used to create applications there are no-code, low-code and high-code
+solutions. Even high-code solutions using high-level programming
+languages can be considered abstract since they abstract away a lot of
+what is actually going on the hardware level. Making the decision
+which level of abstraction to use can be a challenge. Too abstract and
+you will not be flexibile, too low level and you will not be
+efficient, what is the sweet spot?
+
+## Understanding all levels
+
+I think as a developer it is important to have some experience in all
+levels of abstraction. This means as a frontend developer having
+experience using a content management system to create a website is
+just as important as knowing how to make a website in react. You will
+find out that using a content management system is the best solution
+for certain use cases. This also counts for less abstract levels, like
+understanding how the V8 engine in the chrome browser works and how
+your javascript code is translated to machine instructions. This will
+help to get a better understanding how to write the most efficient
+algorithms for example.
+
+## Efficiency and cost versus flexibility and performance
+
+Abstraction is a great way to make it easier and more time efficient
+to create things. Making a website using wordpress is way faster and
+more feature rich in less time. Of course the same can be done writing
+all the code yourself but it will take a lot more time and every
+feature has to be created manually. Is this trade off worth it? The
+best way to approach this is to start considering the most time
+efficient option like using a content management system for a website,
+but this can also be a SaaS for a piece of custom software. Will this
+solution fix your problem? Will it be able to tackle all or most
+potential changes? If the answer is yes it might be a good decision to
+go for the easier more abstract solution. Maybe the price tag of the
+service you will buy seems crazy but consider all the time you will
+have to pay a developer to create the same software and when the
+service is target build for your problem it will probably be a more
+feature rich and robust solution for a lower price. This is because a
+single developer or a team of developers can spent a lot of time on
+developing the service since it will service many clients.
+
+This blog is not an advertisement for these kind of services however
+since in a lot of cases custom software is necessary! For instance if
+a certain level of control or performance is needed or if you do not
+want to be reliant on a third party. I think the following points need
+to be considered to find out if paying for a service is the correct
+option:
+
+- Does the service offer all features that you need because if the service you are paying for does not offer a certain feature that you require it might take a while before they have time to work on it, while if you own the software yourself you can immediately start developing.
+
+- Does the service offer the required performance you need? Because having unused extra features or no control over hosting the service yourself can offer lower performance than having a minimal service that is hosted on your own solution. Scaling performance also becomes easier and when it is self hosted however most services do offer performance packages, at a cost.
+
+- Are you okay with being reliant on a third party and how important is it that this service always works or is in your control? If the service is very central to your organisation or project and the cost of developing it yourself (or paying someone else to develop it for you) is affordable for your company, is the added reliance worth it?
+
+## The overengineering trap
+
+Developers often avoid using no-code or low-code tools since they
+didn't spend hours learning how to develop computer programs to not
+use it, but I think this is a bad approach It is logical however that
+if you are trained to solve problems using code that your brain will
+only think of these options (when all you have is a hammer everything
+looks like a nail) Developers will also be less inclined to pay for a
+service they need for their own product if they can create it
+themselves for free using open source tools This consideration changes
+however when working for clients Although I understand the extra work
+and thus paid hours are nice, to give the best advice to a client you
+will also need to give them the option of using a paid service which
+offer fast time to production and might contain all the necessary
+features Part of being an expert in your field is giving the best
+solution for the problem and not only benefiting yourself.
+
+## How to find the best solution?
+
+Being aware of all the possiblities that exist is very hard Often you
+will not know about some options that could help solve your problem,
+especially if it is a problem you have solved before. However there
+might be a new solution out there which can solve the problem more
+efficiently and cost effectively. My new preferred way of work is to
+ask one of the many large language models like chatgpt and gemini how
+they would solve the problem. Often they will come up with the same
+solution or a solution that I have already considered but made a
+conscious not to pursue. Sometimes however it will present a tool or
+way of work that is completely new for me and works a lot better.
+
+I have also found there are often hybrid solutions out there between
+low-code and high-code solutions. One good example is the content
+management system Strapi, which is a fully featured content management
+system that still offers all the freedom that a developer would
+normally get with developing their own solution completely.
+
+An example of this is a recent automation I have created using google
+services. After asking chatgpt it told me about Google App Script
+which is an amazing tool that can easily couple different google
+services together. If I did not know this I would have needed to rent
+a VPS somewhere and play around with API keys which would have been
+more costly in both time and money.
+
+## Conclusion
+
+It might feel wrong to use a service instead of creating your own as a
+developer but creating more robust solutions faster is even better.
+Using paid services for this might be the best solution. With this
+blog I am not trying to say that I am a huge fan of these paid
+services but I am trying to say that considering these options is very
+important.
+`,
+};
+
+export default blog;

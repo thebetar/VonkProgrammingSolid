@@ -178,7 +178,7 @@ export const resumeContent: Record<ResumeLocale, ResumeLocaleContent> = {
 };
 
 export function resumeHelp(): string[] {
-	const width = 42;
+	const width = 48;
 	const line = (command: string, args: string, description: string) => {
 		const visible = `${command}${args}`;
 		const pad = ' '.repeat(Math.max(2, width - visible.length));
@@ -188,19 +188,28 @@ export function resumeHelp(): string[] {
 	return [
 		heading('Resume'),
 		'',
-		color.white('Show resume text and download the matching PDF.'),
+		color.white('Show resume text in the terminal (starts at the top so you can scroll).'),
+		color.white('Add --download or -d to also save the matching PDF.'),
 		'',
-		line('resume get default', '', 'extended en (shortcut)'),
-		line('resume get', ' <compact|extended> <en|nl>', 'pick variant + language'),
+		color.brightCyan('Usage'),
+		line('resume get', ' <short|long> <en|nl>', 'show resume text'),
+		line('resume get', ' … --download|-d', 'show text + download PDF'),
+		line('resume get default', '', 'same as: long en'),
 		line('resume help', '', 'this message'),
+		'',
+		color.brightCyan('Options'),
+		`  ${color.yellow('short')}   ${muted('compact one-page style')}`,
+		`  ${color.yellow('long')}    ${muted('full detailed version')}`,
+		`  ${color.yellow('en')}      ${muted('English')}`,
+		`  ${color.yellow('nl')}      ${muted('Dutch')}`,
 		'',
 		color.brightCyan('Examples'),
 		`  ${accent('resume get default')}`,
-		`  ${accent('resume get compact en')}`,
-		`  ${accent('resume get extended nl')}`,
+		`  ${accent('resume get long en --download')}`,
+		`  ${accent('resume get short en -d')}`,
+		`  ${accent('resume get long nl')}`,
 		'',
-		muted('PDFs: /assets/pdf/resume_{en|nl}_{compact|extended}.pdf'),
-		muted('Alias: resume get  ≡  resume get default'),
+		muted('Alias: resume get  ≡  resume get default  ≡  resume get long en'),
 	];
 }
 
@@ -212,7 +221,7 @@ export function getResumePdfFilename(variant: ResumeVariant, locale: ResumeLocal
 	return `resume_${locale}_${variant}.pdf`;
 }
 
-function renderCompact(locale: ResumeLocale): string[] {
+function renderCompact(locale: ResumeLocale, downloading: boolean): string[] {
 	const content = resumeContent[locale];
 	const pdf = getResumePdfPath('compact', locale);
 	const lines: string[] = [
@@ -221,13 +230,21 @@ function renderCompact(locale: ResumeLocale): string[] {
 		`${label('Name:')} ${color.brightWhite('Lars Vonk')}`,
 		`${label('Role:')} ${accent('Full-Stack Engineer')}`,
 		`${label('PDF:')}  ${color.blue(pdf)}`,
-		muted('Download started…'),
+	];
+
+	if (downloading) {
+		lines.push(muted('Download started…'));
+	} else {
+		lines.push(muted('Hint: add --download or -d to save the PDF'));
+	}
+
+	lines.push(
 		'',
 		color.brightCyan('Summary'),
 		...wrapText(content.summary).map((line) => color.white(line)),
 		'',
 		color.brightCyan('Experience'),
-	];
+	);
 
 	for (const entry of content.experience) {
 		if (entry.extendedOnly) continue;
@@ -241,7 +258,7 @@ function renderCompact(locale: ResumeLocale): string[] {
 	return lines;
 }
 
-function renderExtended(locale: ResumeLocale): string[] {
+function renderExtended(locale: ResumeLocale, downloading: boolean): string[] {
 	const content = resumeContent[locale];
 	const pdf = getResumePdfPath('extended', locale);
 	const lines: string[] = [
@@ -250,13 +267,21 @@ function renderExtended(locale: ResumeLocale): string[] {
 		`${label('Name:')} ${color.brightWhite('Lars Vonk')}`,
 		`${label('Role:')} ${accent('Full-Stack Engineer')}`,
 		`${label('PDF:')}  ${color.blue(pdf)}`,
-		muted('Download started…'),
+	];
+
+	if (downloading) {
+		lines.push(muted('Download started…'));
+	} else {
+		lines.push(muted('Hint: add --download or -d to save the PDF'));
+	}
+
+	lines.push(
 		'',
 		color.brightCyan('Summary'),
 		...wrapText(content.extendedSummary).map((line) => color.white(line)),
 		'',
 		color.brightCyan('Experience'),
-	];
+	);
 
 	for (const entry of content.experience) {
 		lines.push(
@@ -277,10 +302,14 @@ function renderExtended(locale: ResumeLocale): string[] {
 	return lines;
 }
 
-export function renderResume(variant: ResumeVariant, locale: ResumeLocale): string[] {
+export function renderResume(
+	variant: ResumeVariant,
+	locale: ResumeLocale,
+	downloading = false,
+): string[] {
 	if (variant === 'compact') {
-		return renderCompact(locale);
+		return renderCompact(locale, downloading);
 	}
 
-	return renderExtended(locale);
+	return renderExtended(locale, downloading);
 }

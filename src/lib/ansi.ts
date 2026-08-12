@@ -45,6 +45,11 @@ export function success(text: string): string {
 	return color.brightGreen(text);
 }
 
+/** OSC 8 hyperlink (clickable in xterm when linkHandler is set). */
+export function link(uri: string, labelText: string): string {
+	return `\x1b]8;;${uri}\x07${color.blue(labelText)}\x1b]8;;\x07`;
+}
+
 export function wrapText(text: string, width = 78): string[] {
 	const normalized = text.replace(/\s+/g, ' ').trim();
 

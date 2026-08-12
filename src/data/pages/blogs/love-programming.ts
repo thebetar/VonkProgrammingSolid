@@ -1,0 +1,105 @@
+import type { BlogEntry } from './types';
+
+const blog: BlogEntry = {
+	id: "8",
+	numericId: 8,
+	slug: "love-programming",
+	title: "The love of programming ❤️",
+	description: "Do you have the feeling that programming full time as a job has reduced your appreciation of programming? Or are you just curious about the opinions of another lover of programming. In this blog I discuss why I love programming and how I will keep loving it.",
+	date: "2024-06-28",
+	link: "https://vonkprogramming.nl/blogs/love-programming",
+	content: `
+Do you still remember that first piece of code you wrote? I do, I was
+making a simple HTML website but it was so cool to see my work turn
+into an actual website. From that point on every new thing I learnt
+was another eye opening moment to the possiblities that programming
+offers nowadays. The amount of things there is to learn is almost
+endless and every time you learn something new you become better at
+what you do and a more valuable developer as a result of this.
+Isn't that amazing, you can do what you love and the more you do
+it the more you will probably get paid for it. Sadly not everyone
+thinks of it like this, but they did at one point. What happened?
+
+Most developers start programming out of their own interest. The first
+couple of projects that you code are amazing but somewhere down the
+line when it has to be done 8 hours a day as a job it might start to
+feel like a grind, which is sad since the concept is still so fun. How
+to fix this?
+
+## Fun programming
+
+I like to spend time on my own projects where I build things using
+tools that might not even be useful for my job. I find some tool
+online or read about a new programming language that has become
+popular and start thinking "what would be cool to make with
+this?" and then I start building somewhere that week. The goal
+should not be to learn something from it, but just to feed the
+curiosity of how it works. These kind of programming projects are in
+my opinion super important to keep programming fun and even though the
+goal is not to learn new skills, you will anyway.
+
+This way I have also build up a decent portfolio on my Github with all
+different kinds of programming languages.
+
+## Finding what to make
+
+There are a lot of different projects to throw yourself into and it
+depends greatly on where your interests lie what kind of projects are
+fun. From my own experience the following list contains the majority
+of small projects I have made over the year
+
+- Trying a new programming language, just try to make something easy
+
+- Trying a new framework, just make a small demo and compare it to how you would normally make it
+
+- Contributing to an open source project you have used for a while
+
+- Trying to create a simple proof of concept of a cool idea you had
+
+- Doing an online programming challenge, advent of code is a great place to start
+
+- Creating a tool to increase your productivity
+
+These items can also be combined but I think at least one of these
+topics should give enough inspiration to start a new project for fun
+today!
+
+## Sustainability
+
+As discussed in one of my other blogs about
+learning sustainably (https://www.amplenote.com/notes/a3815736-0c4b-11ef-844c-a6f126245c9e)
+, I think another very important aspect about these projects is to not
+overdo it. If you have a very busy period where you cannot work on
+your project for 1 to 2 weeks or maybe a month that is fine. But I
+think everyone who says they do not have time at all over a long
+period of time is a liar. There is always an hour on sunday evening or
+somewhere else in the week where you could work on such projects. It
+is not about grinding it is about an adventure to feed your curiosity.
+So one hour every two weeks consistently is also fine, if that is
+enough to feed your curiosity of course.
+
+## Why?
+
+Doing projects that are in programming languages that you do not use
+professionally or using tools that your place of work will never touch
+might feel like a waste of time to some people, but I think doing
+these fun projects is never a waste of time. Even if you disregard all
+the skills you will gain, a very valuable advantage is that it might
+reignite your love of programming. It will make the enjoyment of
+writing code increase and make those long days feel a lot shorter,
+maybe because you are looking forward to coding your own project
+again, but most likely because programming will be fun again.
+
+## Conclusion
+
+Having fun projects is very important to not lose the love of
+programming, we all loved programming once and I find it sad to see
+this love fading in some developers. I think the best cure to losing
+this love is to make something you actually love and can call your
+own. It might not be a crazy advantages application, but a lot of
+pride can still be gained from something small that might be written
+in a crazy programming language or using a weird tool.
+`,
+};
+
+export default blog;

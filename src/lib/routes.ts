@@ -1,248 +1,175 @@
 /**
- * Map the current URL path (and optional ?cmd=) to a terminal command.
- * Used so shareable links open VonkOS with the right command pre-run.
+ * Map shareable URLs ↔ terminal commands so deep links open VonkOS pre-run.
  */
-export function pathToCommand(pathname: string, search = ''): string | null {
-	let searchParams = search;
-	if (search.startsWith('?')) {
-		searchParams = search.slice(1);
-	}
 
-	const params = new URLSearchParams(searchParams);
-	const cmdParam = params.get('cmd');
+const SIMPLE = new Set(["about", "contact", "help"]);
 
-	if (cmdParam) {
-		const trimmed = cmdParam.trim();
-		if (trimmed) {
-			return trimmed;
-		}
-	}
+/** One entry per collection: command noun, URL segment, and accepted aliases. */
+const COLLECTIONS = [
+  { command: "blog", path: "blogs", aliases: ["blog", "blogs"] },
+  { command: "experience", path: "experience", aliases: ["experience"] },
+  { command: "projects", path: "projects", aliases: ["project", "projects"] },
+  { command: "education", path: "education", aliases: ["education"] },
+] as const;
 
-	let path = pathname.replace(/\/+$/, '');
-	if (!path) {
-		path = '/';
-	}
+const RESUME_LENGTH: Record<string, "short" | "long"> = {
+  short: "short",
+  compact: "short",
+  long: "long",
+  extended: "long",
+};
 
-	const parts = path.split('/').filter(Boolean);
+const PAGE_NAV = new Set(["n", "next", "p", "prev", "previous"]);
 
-	if (parts.length === 0) {
-		return null;
-	}
-
-	const section = parts[0];
-	const id = parts[1];
-	const rest = parts.slice(2);
-
-	switch (section) {
-		case 'about':
-			return 'about';
-		case 'contact':
-			return 'contact';
-		case 'help':
-			return 'help';
-		case 'blogs':
-		case 'blog':
-			return pathToCollectionCommand('blog', id, rest);
-		case 'experience':
-			return pathToCollectionCommand('experience', id, rest);
-		case 'projects':
-		case 'project':
-			return pathToCollectionCommand('projects', id, rest);
-		case 'education':
-			return pathToCollectionCommand('education', id, rest);
-		case 'skills':
-		case 'skill':
-			if (!id) {
-				return 'skills list';
-			}
-
-			return `skills get ${decodeURIComponent([id, ...rest].join(' '))}`;
-		case 'resume':
-			return pathToResumeCommand(id, rest);
-		default:
-			return null;
-	}
+function collectionByAlias(alias: string) {
+  return COLLECTIONS.find((entry) =>
+    (entry.aliases as readonly string[]).includes(alias),
+  );
 }
 
-function pathToCollectionCommand(
-	name: string,
-	id: string | undefined,
-	rest: string[],
-): string {
-	if (!id) {
-		return `${name} list`;
-	}
+function normalizePageToken(token: string): string {
+  const lower = token.toLowerCase();
+  return lower === "previous" ? "prev" : lower;
+}
 
-	if (id === 'page') {
-		if (rest[0]) {
-			return `${name} list page ${rest[0]}`;
-		}
-	}
+function stripDownloadFlags(parts: string[]): string[] {
+  return parts.filter((part) => {
+    const lower = part.toLowerCase();
+    return lower !== "--download" && lower !== "-d";
+  });
+}
 
-	return `${name} get ${decodeURIComponent(id)}`;
+export function pathToCommand(pathname: string, search = ""): string | null {
+  const query = search.startsWith("?") ? search.slice(1) : search;
+  const cmdParam = new URLSearchParams(query).get("cmd")?.trim();
+  if (cmdParam) {
+    return cmdParam;
+  }
+
+  const path = pathname.replace(/\/+$/, "") || "/";
+  const [section, id, ...rest] = path.split("/").filter(Boolean);
+  if (!section) {
+    return null;
+  }
+
+  if (SIMPLE.has(section)) {
+    return section;
+  }
+
+  const collection = collectionByAlias(section);
+  if (collection) {
+    if (!id) {
+      return `${collection.command} list`;
+    }
+    if (id === "page" && rest[0]) {
+      const token = PAGE_NAV.has(rest[0].toLowerCase())
+        ? normalizePageToken(rest[0])
+        : rest[0];
+      return `${collection.command} list page ${token}`;
+    }
+    return `${collection.command} get ${decodeURIComponent(id)}`;
+  }
+
+  if (section === "skills" || section === "skill") {
+    if (!id) {
+      return "skills list";
+    }
+    return `skills get ${decodeURIComponent([id, ...rest].join(" "))}`;
+  }
+
+  if (section === "resume") {
+    return pathToResumeCommand(id, rest);
+  }
+
+  return null;
 }
 
 function pathToResumeCommand(id: string | undefined, rest: string[]): string {
-	if (!id) {
-		return 'resume help';
-	}
+  if (!id) {
+    return "resume help";
+  }
+  if (id === "default") {
+    return "resume get default";
+  }
 
-	if (id === 'default') {
-		return 'resume get default';
-	}
+  const hyphen = /^(short|long|compact|extended)-(en|nl)$/.exec(id);
+  if (hyphen) {
+    return `resume get ${RESUME_LENGTH[hyphen[1]]} ${hyphen[2]}`;
+  }
 
-	if (id === 'compact-en') {
-		return 'resume get compact en';
-	}
+  const length = RESUME_LENGTH[id];
+  if (length && (rest[0] === "en" || rest[0] === "nl")) {
+    return `resume get ${length} ${rest[0]}`;
+  }
 
-	if (id === 'compact-nl') {
-		return 'resume get compact nl';
-	}
-
-	if (id === 'extended-en') {
-		return 'resume get extended en';
-	}
-
-	if (id === 'extended-nl') {
-		return 'resume get extended nl';
-	}
-
-	if (id === 'compact') {
-		if (rest[0] === 'en' || rest[0] === 'nl') {
-			return `resume get compact ${rest[0]}`;
-		}
-	}
-
-	if (id === 'extended') {
-		if (rest[0] === 'en' || rest[0] === 'nl') {
-			return `resume get extended ${rest[0]}`;
-		}
-	}
-
-	return 'resume help';
+  return "resume help";
 }
 
 /** Build a shareable path for a command when possible. */
 export function commandToPath(command: string): string | null {
-	const parts = command.trim().split(/\s+/);
-	const cmd = parts[0];
-	const sub = parts[1];
-	const rest = parts.slice(2);
+  const [cmd, sub = "", ...rest] = command.trim().split(/\s+/);
+  if (!cmd) {
+    return null;
+  }
 
-	if (!cmd) {
-		return null;
-	}
+  const name = cmd.toLowerCase();
+  const action = sub.toLowerCase();
 
-	const normalizedCmd = cmd.toLowerCase();
-	const normalizedSub = sub ? sub.toLowerCase() : '';
+  if (SIMPLE.has(name)) {
+    return `/${name}`;
+  }
 
-	if (normalizedCmd === 'about') {
-		return '/about';
-	}
+  const collection = collectionByAlias(name);
+  if (collection) {
+    if (!action || action === "list") {
+      if (rest[0] === "page" && rest[1]) {
+        return `/${collection.path}/page/${normalizePageToken(rest[1])}`;
+      }
+      return `/${collection.path}`;
+    }
+    if (action === "get" && rest[0]) {
+      if (collection.path === "blogs" && rest[0].toLowerCase() === "latest") {
+        return "/blogs/latest";
+      }
+      return `/${collection.path}/${encodeURIComponent(rest.join(" "))}`;
+    }
+    return null;
+  }
 
-	if (normalizedCmd === 'contact') {
-		return '/contact';
-	}
+  if (name === "skills" || name === "skill") {
+    if (!action || action === "list") {
+      return "/skills";
+    }
+    if (action === "get" && rest[0]) {
+      return `/skills/${encodeURIComponent(rest.join(" "))}`;
+    }
+    return null;
+  }
 
-	if (normalizedCmd === 'help') {
-		return '/help';
-	}
+  if (name === "resume") {
+    return commandToResumePath(action, rest);
+  }
 
-	if (normalizedCmd === 'blog' || normalizedCmd === 'blogs') {
-		return commandToCollectionPath('blogs', normalizedSub, rest);
-	}
-
-	if (normalizedCmd === 'experience') {
-		return commandToCollectionPath('experience', normalizedSub, rest);
-	}
-
-	if (normalizedCmd === 'projects' || normalizedCmd === 'project') {
-		return commandToCollectionPath('projects', normalizedSub, rest);
-	}
-
-	if (normalizedCmd === 'education') {
-		return commandToCollectionPath('education', normalizedSub, rest);
-	}
-
-	if (normalizedCmd === 'skills' || normalizedCmd === 'skill') {
-		if (!normalizedSub || normalizedSub === 'list') {
-			return '/skills';
-		}
-
-		if (normalizedSub === 'get') {
-			if (rest[0]) {
-				return `/skills/${encodeURIComponent(rest.join(' '))}`;
-			}
-		}
-
-		return null;
-	}
-
-	if (normalizedCmd === 'resume') {
-		return commandToResumePath(normalizedSub, rest);
-	}
-
-	return null;
-}
-
-function commandToCollectionPath(
-	section: string,
-	sub: string,
-	rest: string[],
-): string | null {
-	if (!sub || sub === 'list') {
-		if (rest[0] === 'page') {
-			if (rest[1]) {
-				return `/${section}/page/${rest[1]}`;
-			}
-		}
-
-		return `/${section}`;
-	}
-
-	if (sub === 'get') {
-		if (!rest[0]) {
-			return null;
-		}
-
-		if (section === 'blogs' && rest[0].toLowerCase() === 'latest') {
-			return '/blogs/latest';
-		}
-
-		return `/${section}/${encodeURIComponent(rest.join(' '))}`;
-	}
-
-	return null;
+  return null;
 }
 
 function commandToResumePath(sub: string, rest: string[]): string | null {
-	if (!sub || sub === 'help') {
-		return '/resume';
-	}
+  if (!sub || sub === "help") {
+    return "/resume";
+  }
+  if (sub !== "get") {
+    return null;
+  }
 
-	if (sub !== 'get') {
-		return null;
-	}
+  const parts = stripDownloadFlags(rest).map((part) => part.toLowerCase());
+  if (!parts[0] || parts[0] === "default") {
+    return "/resume/default";
+  }
 
-	if (!rest[0] || rest[0] === 'default') {
-		return '/resume/default';
-	}
+  const length = RESUME_LENGTH[parts[0]];
+  if (length && (parts[1] === "en" || parts[1] === "nl")) {
+    return `/resume/${length}-${parts[1]}`;
+  }
 
-	if (rest[0] === 'compact' && rest[1] === 'en') {
-		return '/resume/compact-en';
-	}
-
-	if (rest[0] === 'compact' && rest[1] === 'nl') {
-		return '/resume/compact-nl';
-	}
-
-	if (rest[0] === 'extended' && rest[1] === 'en') {
-		return '/resume/extended-en';
-	}
-
-	if (rest[0] === 'extended' && rest[1] === 'nl') {
-		return '/resume/extended-nl';
-	}
-
-	return null;
+  return null;
 }

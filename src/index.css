@@ -21,7 +21,6 @@ body,
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	gap: 0.35rem;
 }
 
 .terminal-screen {
@@ -45,65 +44,4 @@ body,
 	width: 100% !important;
 	height: 100% !important;
 	overflow-y: auto !important;
-}
-
-/* Sticky command line — only shown when scrollback exceeds the viewport */
-.terminal-sticky-input {
-	flex: 0 0 auto;
-	display: none;
-	align-items: center;
-	gap: 0.5rem;
-	min-height: 2rem;
-	padding: 0.35rem 0.15rem 0.5rem;
-	border-top: 1px solid #21262d;
-	background: #0b0f14;
-	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-	font-size: 15px;
-	line-height: 1.2;
-}
-
-.terminal-sticky-input.is-active,
-.terminal-sticky-input:not([hidden]) {
-	display: flex;
-}
-
-.terminal-sticky-input[hidden] {
-	display: none !important;
-}
-
-.terminal-sticky-prompt {
-	flex: 0 0 auto;
-	white-space: nowrap;
-	user-select: none;
-	cursor: text;
-}
-
-.terminal-sticky-user,
-.terminal-sticky-host {
-	color: #56d364;
-}
-
-.terminal-sticky-at {
-	color: #d6e3f0;
-}
-
-.terminal-sticky-path {
-	color: #79c0ff;
-	margin-left: 0.05rem;
-}
-
-.terminal-sticky-field {
-	flex: 1 1 auto;
-	min-width: 0;
-	border: 0;
-	outline: none;
-	background: transparent;
-	color: #d6e3f0;
-	caret-color: #7ee787;
-	font: inherit;
-	padding: 0;
-}
-
-.terminal-sticky-field:disabled {
-	opacity: 0.55;
 }
