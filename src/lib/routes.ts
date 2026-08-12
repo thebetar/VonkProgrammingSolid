@@ -2,14 +2,26 @@
  * Map shareable URLs ↔ terminal commands so deep links open VonkOS pre-run.
  */
 
-const SIMPLE = new Set(["about", "contact", "help"]);
+const SIMPLE = new Set(["about", "contact", "help", "a", "c", "h"]);
 
 /** One entry per collection: command noun, URL segment, and accepted aliases. */
 const COLLECTIONS = [
-  { command: "blog", path: "blogs", aliases: ["blog", "blogs"] },
-  { command: "experience", path: "experience", aliases: ["experience"] },
-  { command: "projects", path: "projects", aliases: ["project", "projects"] },
-  { command: "education", path: "education", aliases: ["education"] },
+  { command: "blog", path: "blogs", aliases: ["blog", "blogs", "b"] },
+  {
+    command: "experience",
+    path: "experience",
+    aliases: ["experience", "experiences", "ex"],
+  },
+  {
+    command: "projects",
+    path: "projects",
+    aliases: ["project", "projects", "p"],
+  },
+  {
+    command: "education",
+    path: "education",
+    aliases: ["education", "ed"],
+  },
 ] as const;
 
 const RESUME_LENGTH: Record<string, "short" | "long"> = {
@@ -53,6 +65,9 @@ export function pathToCommand(pathname: string, search = ""): string | null {
   }
 
   if (SIMPLE.has(section)) {
+    if (section === "a") return "about";
+    if (section === "c") return "contact";
+    if (section === "h") return "help";
     return section;
   }
 
@@ -70,14 +85,14 @@ export function pathToCommand(pathname: string, search = ""): string | null {
     return `${collection.command} get ${decodeURIComponent(id)}`;
   }
 
-  if (section === "skills" || section === "skill") {
+  if (section === "skills" || section === "skill" || section === "s") {
     if (!id) {
       return "skills list";
     }
     return `skills get ${decodeURIComponent([id, ...rest].join(" "))}`;
   }
 
-  if (section === "resume") {
+  if (section === "resume" || section === "r") {
     return pathToResumeCommand(id, rest);
   }
 
@@ -116,6 +131,9 @@ export function commandToPath(command: string): string | null {
   const action = sub.toLowerCase();
 
   if (SIMPLE.has(name)) {
+    if (name === "a") return "/about";
+    if (name === "c") return "/contact";
+    if (name === "h") return "/help";
     return `/${name}`;
   }
 
@@ -136,7 +154,7 @@ export function commandToPath(command: string): string | null {
     return null;
   }
 
-  if (name === "skills" || name === "skill") {
+  if (name === "skills" || name === "skill" || name === "s") {
     if (!action || action === "list") {
       return "/skills";
     }
@@ -146,7 +164,7 @@ export function commandToPath(command: string): string | null {
     return null;
   }
 
-  if (name === "resume") {
+  if (name === "resume" || name === "r") {
     return commandToResumePath(action, rest);
   }
 

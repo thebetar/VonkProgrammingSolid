@@ -5,7 +5,7 @@ import "@xterm/xterm/css/xterm.css";
 
 import { runCommand, type CommandResult } from "@/lib/commands";
 import { commandToPath, pathToCommand } from "@/lib/routes";
-import { color, muted } from "@/lib/ansi";
+import { color, muted, setWrapWidth } from "@/lib/ansi";
 import {
   createLineInput,
   handleLineInputKey,
@@ -20,6 +20,10 @@ import {
   imageUrlToPngBase64,
   isImageLine,
 } from "@/lib/terminal-image";
+
+const DESKTOP_FONT_SIZE = 15;
+const MOBILE_FONT_SIZE = 12;
+const MOBILE_MAX_WIDTH = 640;
 
 const terminalTheme = {
   background: "#0b0f14",
@@ -63,6 +67,12 @@ function syncUrlForCommand(command: string): void {
   window.history.replaceState(null, "", path);
 }
 
+function preferredFontSize(): number {
+  return window.matchMedia(`(max-width: ${MOBILE_MAX_WIDTH}px)`).matches
+    ? MOBILE_FONT_SIZE
+    : DESKTOP_FONT_SIZE;
+}
+
 function triggerDownload(url: string, filename: string): void {
   const anchor = document.createElement("a");
   anchor.href = url;
@@ -91,7 +101,7 @@ export class Terminal {
       disableStdin: false,
       fontFamily:
         "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
-      fontSize: 15,
+      fontSize: preferredFontSize(),
       lineHeight: 1.2,
       theme: terminalTheme,
       allowProposedApi: true,
@@ -109,7 +119,7 @@ export class Terminal {
     this.term.loadAddon(this.fitAddon);
     this.term.loadAddon(imageAddon);
     this.term.open(this.screen);
-    this.fitAddon.fit();
+    this.syncLayout();
 
     this.term.options.linkHandler = {
       activate: (_event, uri) => this.openLink(uri),
@@ -138,8 +148,19 @@ export class Terminal {
   };
 
   private readonly onResize = (): void => {
-    this.fitAddon.fit();
+    this.syncLayout();
   };
+
+  /** Fit columns to the container and keep text wrapping aligned with the live width. */
+  private syncLayout(): void {
+    const nextFontSize = preferredFontSize();
+    if (this.term.options.fontSize !== nextFontSize) {
+      this.term.options.fontSize = nextFontSize;
+    }
+
+    this.fitAddon.fit();
+    setWrapWidth(this.term.cols - 1);
+  }
 
   private write(data: string): Promise<void> {
     return new Promise((resolve) => {
@@ -252,7 +273,7 @@ export class Terminal {
   }
 
   private async clearPage(): Promise<void> {
-    this.fitAddon.fit();
+    this.syncLayout();
     // Erase via the write queue (after any pending Enter newline). Using term.clear()
     // is racy and also keeps the active prompt/command line by design.
     await this.write("\x1b[2J\x1b[3J\x1b[H");

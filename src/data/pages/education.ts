@@ -1,4 +1,4 @@
-import { accent, color, heading, label, muted, wrapText } from '@/lib/ansi';
+import { accent, color, heading, label, muted, wrapIndented, wrapText } from '@/lib/ansi';
 import { paginate, paginationFooter } from '@/lib/paginate';
 
 export interface EducationEntry {
@@ -126,7 +126,9 @@ export function listEducation(page: number): { lines: string[]; page: number } {
 	const idWidth = Math.max(...slice.items.map((entry) => entry.id.length));
 	const lines: string[] = [
 		heading('Education'),
-		muted('Newest first. Use: education get <id>  |  education list page <n|next|prev>'),
+		...wrapText(
+			'Newest first. Use: education get <id>  |  education list page <n|next|prev>',
+		).map((line) => muted(line)),
 		'',
 	];
 
@@ -135,7 +137,7 @@ export function listEducation(page: number): { lines: string[]; page: number } {
 			`${color.yellow(entry.id.padEnd(idWidth))}  ${color.bold(color.brightWhite(entry.name))}`,
 		);
 		lines.push(`  ${color.dim(`${entry.startDate} — ${entry.endDate}`)}  ${muted(entry.location)}`);
-		lines.push(...wrapText(entry.summary, 74).map((line) => `  ${color.white(line)}`));
+		lines.push(...wrapIndented(entry.summary).map((line) => `  ${color.white(line)}`));
 		lines.push('');
 	}
 

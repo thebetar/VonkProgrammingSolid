@@ -1,4 +1,4 @@
-import { accent, color, heading, label, link, muted, wrapText } from '@/lib/ansi';
+import { accent, color, heading, label, link, muted, wrapIndented, wrapText } from '@/lib/ansi';
 import { paginate, paginationFooter } from '@/lib/paginate';
 
 export interface ProjectEntry {
@@ -269,7 +269,9 @@ function listProjects(page: number): { lines: string[]; page: number } {
 	const idWidth = Math.max(...slice.items.map((project) => project.id.length));
 	const lines: string[] = [
 		heading('Projects'),
-		muted('Newest first. Use: projects get <id>  |  projects list page <n|next|prev>'),
+		...wrapText(
+			'Newest first. Use: projects get <id>  |  projects list page <n|next|prev>',
+		).map((line) => muted(line)),
 		'',
 	];
 
@@ -283,7 +285,7 @@ function listProjects(page: number): { lines: string[]; page: number } {
 			`${color.yellow(project.id.padEnd(idWidth))}  ${color.bold(color.brightWhite(project.title))}${lang}`,
 		);
 		if (project.description) {
-			lines.push(...wrapText(project.description, 74).map((line) => `  ${color.white(line)}`));
+			lines.push(...wrapIndented(project.description).map((line) => `  ${color.white(line)}`));
 		}
 		if (project.githubUrl) {
 			lines.push(`  ${label('GitHub:')} ${link(project.githubUrl, project.githubUrl)}`);

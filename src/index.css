@@ -23,6 +23,12 @@ body,
 	overflow: hidden;
 }
 
+@media (max-width: 640px) {
+	.terminal-root {
+		padding: 0.15rem 0.2rem 0.1rem;
+	}
+}
+
 .terminal-screen {
 	flex: 1 1 auto;
 	min-height: 0;

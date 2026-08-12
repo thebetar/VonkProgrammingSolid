@@ -1,4 +1,4 @@
-import { accent, color, heading, label, muted, wrapText } from '@/lib/ansi';
+import { accent, color, heading, label, muted, wrapIndented, wrapText } from '@/lib/ansi';
 import { paginate, paginationFooter } from '@/lib/paginate';
 
 export interface ExperienceEntry {
@@ -254,7 +254,9 @@ function listExperience(page: number): { lines: string[]; page: number } {
 	const idWidth = Math.max(...slice.items.map((entry) => entry.id.length));
 	const lines: string[] = [
 		heading('Experience'),
-		muted('Newest first. Use: experience get <id>  |  experience list page <n|next|prev>'),
+		...wrapText(
+			'Newest first. Use: experience get <id>  |  experience list page <n|next|prev>',
+		).map((line) => muted(line)),
 		'',
 	];
 
@@ -263,7 +265,7 @@ function listExperience(page: number): { lines: string[]; page: number } {
 			`${color.yellow(entry.id.padEnd(idWidth))}  ${color.bold(color.brightWhite(entry.name))}  ${color.dim(`${entry.startDate} — ${entry.endDate}`)}`,
 		);
 		lines.push(`  ${accent(entry.title)}`);
-		lines.push(...wrapText(entry.summary, 74).map((line) => `  ${color.white(line)}`));
+		lines.push(...wrapIndented(entry.summary).map((line) => `  ${color.white(line)}`));
 		lines.push('');
 	}
 

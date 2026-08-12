@@ -1,8 +1,9 @@
-import { color, heading, muted } from '@/lib/ansi';
+import { color, getWrapWidth, heading, muted, wrapText } from '@/lib/ansi';
 import {
 	SkillType,
 	skillTypeAliases,
 	skillTypeLabels,
+	skillTypeOrder,
 	type Skill,
 } from './skills.type';
 
@@ -577,7 +578,8 @@ export const skills: Skill[] = [
 ];
 
 function stars(level: number): string {
-	return color.yellow('★'.repeat(level) + '☆'.repeat(5 - level));
+	// ASCII keeps column width stable across fonts/terminals (esp. mobile).
+	return color.yellow('*'.repeat(level)) + color.dim('.'.repeat(5 - level));
 }
 
 function renderSkillRows(group: Skill[]): string[] {
@@ -585,22 +587,42 @@ function renderSkillRows(group: Skill[]): string[] {
 		return [muted('  (no skills in this list)')];
 	}
 
+	const width = getWrapWidth();
+	const yearsWidth = Math.max(
+		...group.map((skill) => `${skill.years}y`.length),
+		2,
+	);
+
+	// Narrow: compact "Name  9y  *****" rows without a padded table.
+	if (width < 48) {
+		const titleWidth = Math.min(
+			Math.max(...group.map((skill) => skill.title.length)),
+			Math.max(10, width - yearsWidth - 11),
+		);
+
+		return group.map((skill) => {
+			const title =
+				skill.title.length > titleWidth
+					? `${skill.title.slice(0, Math.max(1, titleWidth - 1))}.`
+					: skill.title.padEnd(titleWidth);
+			const years = `${skill.years}y`.padStart(yearsWidth);
+			return `  ${color.brightWhite(title)}  ${color.dim(years)}  ${stars(skill.level)}`;
+		});
+	}
+
 	const titleWidth = Math.max(
 		...group.map((skill) => skill.title.length),
 		'Name'.length,
 	);
-	const yearsWidth = Math.max(
-		...group.map((skill) => `${skill.years}y`.length),
-		'Years'.length,
-	);
+	const headerYearsWidth = Math.max(yearsWidth, 'Years'.length);
 
 	const header =
-		`  ${color.dim('Name'.padEnd(titleWidth))}  ${color.dim('Years'.padStart(yearsWidth))}  ${color.dim('Level')}`;
+		`  ${color.dim('Name'.padEnd(titleWidth))}  ${color.dim('Years'.padStart(headerYearsWidth))}  ${color.dim('Level')}`;
 	const divider =
-		`  ${color.dim('─'.repeat(titleWidth))}  ${color.dim('─'.repeat(yearsWidth))}  ${color.dim('─'.repeat(5))}`;
+		`  ${color.dim('-'.repeat(titleWidth))}  ${color.dim('-'.repeat(headerYearsWidth))}  ${color.dim('-'.repeat(5))}`;
 
 	const rows = group.map((skill) => {
-		const years = `${skill.years}y`.padStart(yearsWidth);
+		const years = `${skill.years}y`.padStart(headerYearsWidth);
 		return `  ${color.brightWhite(skill.title.padEnd(titleWidth))}  ${color.dim(years)}  ${stars(skill.level)}`;
 	});
 
@@ -611,54 +633,67 @@ function categoryCommandToken(type: SkillType): string {
 	return type.toLowerCase().replaceAll('_', '-');
 }
 
+function renderCategoryEntries(prefix: 'command' | 'token'): string[] {
+	const width = getWrapWidth();
+	const lines: string[] = [];
+
+	for (const type of skillTypeOrder) {
+		const token = categoryCommandToken(type);
+		const count = skills.filter((skill) => skill.type === type).length;
+		const label = `${skillTypeLabels[type]} (${count})`;
+		const left = prefix === 'command' ? `skills get ${token}` : token;
+
+		// Stack on narrow screens so long tokens don't overflow.
+		if (width < 56 || left.length + 4 + label.length > width) {
+			lines.push(`  ${color.yellow(left)}`);
+			lines.push(muted(`    ${label}`));
+			continue;
+		}
+
+		const padTo = prefix === 'command' ? 36 : 24;
+		const pad = ' '.repeat(Math.max(2, padTo - left.length));
+		lines.push(
+			`  ${color.yellow(left)}${pad}${color.brightWhite(skillTypeLabels[type])}  ${color.dim(`(${count})`)}`,
+		);
+	}
+
+	return lines;
+}
+
 function listTopSkills(): string[] {
 	const top = skills
 		.filter((skill) => skill.featured)
 		.sort(compareSkills);
 
-	const lines: string[] = [
+	return [
 		heading('Skills'),
-		muted('Featured skills below. Full lists are per category.'),
+		...wrapText(
+			'Featured skills below. Full lists are per category.',
+		).map((line) => muted(line)),
 		'',
 		color.brightCyan('Top skills'),
 		...renderSkillRows(top),
 		'',
 		color.brightCyan('Categories'),
-		muted('Run: skills get <category>'),
+		...wrapText('Run: skills get <category>').map((line) => muted(line)),
 		'',
+		...renderCategoryEntries('command'),
+		'',
+		muted('Also: skills get categories'),
 	];
-
-	for (const type of Object.values(SkillType)) {
-		const token = categoryCommandToken(type);
-		const count = skills.filter((skill) => skill.type === type).length;
-		lines.push(
-			`  ${color.yellow(`skills get ${token}`.padEnd(36))}  ${color.brightWhite(skillTypeLabels[type])}  ${color.dim(`(${count})`)}`,
-		);
-	}
-
-	lines.push('');
-	lines.push(muted('Also: skills get categories'));
-	return lines;
 }
 
 function listSkillCategories(): string[] {
-	const lines: string[] = [
+	return [
 		heading('Skill categories'),
-		muted('Use any of these with: skills get <category>'),
+		...wrapText('Use any of these with: skills get <category>').map(
+			(line) => muted(line),
+		),
 		'',
+		...renderCategoryEntries('token'),
+		'',
+		muted('Example: skills get frameworks'),
 	];
-
-	for (const type of Object.values(SkillType)) {
-		const token = categoryCommandToken(type);
-		const count = skills.filter((skill) => skill.type === type).length;
-		lines.push(
-			`  ${color.yellow(token.padEnd(24))}  ${color.brightWhite(skillTypeLabels[type])}  ${color.dim(`(${count})`)}`,
-		);
-	}
-
-	lines.push('');
-	lines.push(muted('Example: skills get frameworks'));
-	return lines;
 }
 
 function listCategory(type: SkillType): string[] {
@@ -671,7 +706,9 @@ function listCategory(type: SkillType): string[] {
 		'',
 		...renderSkillRows(group),
 		'',
-		muted('Back: skills list  |  skills get categories'),
+		...wrapText('Back: skills list  |  skills get categories').map(
+			(line) => muted(line),
+		),
 	];
 }
 

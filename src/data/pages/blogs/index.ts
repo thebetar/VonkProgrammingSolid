@@ -1,7 +1,7 @@
-import { accent, color, heading, label, link, muted, wrapText } from '@/lib/ansi';
+import { accent, color, getWrapWidth, heading, label, link, muted, wrapIndented, wrapText } from '@/lib/ansi';
 import { blogImagesById } from '@/data/pages/blog-images';
 import { imageLine } from '@/lib/terminal-image';
-import { paginate, paginationFooter } from '@/lib/paginate';
+import { paginate, paginationFooter, listPageSize } from '@/lib/paginate';
 
 import blog37 from './opening-the-black-box';
 import blog36 from './password-policy';
@@ -144,7 +144,7 @@ function contentLines(text: string, imageSrcs: string[] = []): string[] {
 		} else if (line.startsWith('NOTE: ')) {
 			lines.push(color.yellow(`Note: ${line.slice(6)}`));
 		} else if (line.startsWith('- ')) {
-			lines.push(...wrapText(`• ${line.slice(2)}`, 74).map((l) => color.white(l)));
+			lines.push(...wrapText(`• ${line.slice(2)}`).map((l) => color.white(l)));
 		} else if (line.startsWith('[Image')) {
 			const src = imageSrcs[imageIndex];
 			imageIndex += 1;
@@ -162,24 +162,26 @@ function contentLines(text: string, imageSrcs: string[] = []): string[] {
 		} else if (!line.trim()) {
 			lines.push('');
 		} else {
-			lines.push(...wrapText(line, 74).map((l) => color.white(l)));
+			lines.push(...wrapText(line).map((l) => color.white(l)));
 		}
 	}
 	return lines;
 }
 
 export function listBlogs(page: number): { lines: string[]; page: number } {
-	const slice = paginate(blogs, page);
+	const slice = paginate(blogs, page, listPageSize());
 	const lines: string[] = [
 		heading('Blogs'),
-		muted('Newest first. Use: blog get <id|slug|latest>  |  blog list page <n|next|prev>'),
+		...wrapText(
+			'Newest first. Use: blog get <id|slug|latest>  |  blog list page <n|next|prev>',
+		).map((line) => muted(line)),
 		'',
 	];
 
 	for (const blog of slice.items) {
 		lines.push(`${color.yellow(blog.id.padStart(2))}  ${color.bold(color.brightWhite(blog.title))}`);
 		lines.push(`    ${color.dim(blog.date)}  ${color.blue(blog.slug)}`);
-		lines.push(...wrapText(blog.description, 74).map((line) => `    ${color.white(line)}`));
+		lines.push(...wrapIndented(blog.description, 4).map((line) => `    ${color.white(line)}`));
 		lines.push('');
 	}
 
@@ -201,7 +203,7 @@ function renderBlog(blog: BlogEntry): string[] {
 		'',
 		...wrapText(blog.description).map((line) => color.dim(line)),
 		'',
-		muted('─'.repeat(48)),
+		muted('─'.repeat(Math.min(48, Math.max(16, getWrapWidth())))),
 		'',
 		...contentLines(blog.content, images),
 	];

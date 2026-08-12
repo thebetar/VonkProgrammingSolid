@@ -1,6 +1,12 @@
-import { muted } from "@/lib/ansi";
+import { muted, wrapText, getWrapWidth } from "@/lib/ansi";
 
 export const DEFAULT_PAGE_SIZE = 5;
+export const MOBILE_PAGE_SIZE = 4;
+
+/** Smaller pages on narrow terminals so list views fit the viewport better. */
+export function listPageSize(mobileSize = MOBILE_PAGE_SIZE): number {
+  return getWrapWidth() < 56 ? mobileSize : DEFAULT_PAGE_SIZE;
+}
 
 export interface PageSlice<T> {
   items: T[];
@@ -41,22 +47,24 @@ export function paginationFooter(
 ): string[] {
   const lines = [
     "",
-    muted(`Page ${slice.page}/${slice.totalPages} · ${slice.totalItems} items`),
+    ...wrapText(
+      `Page ${slice.page}/${slice.totalPages} · ${slice.totalItems} items`,
+    ).map((line) => muted(line)),
   ];
 
   if (slice.page < slice.totalPages) {
     lines.push(
-      muted(
+      ...wrapText(
         `Next: ${commandHint} page next  ·  ${commandHint} page ${slice.page + 1}`,
-      ),
+      ).map((line) => muted(line)),
     );
   }
 
   if (slice.page > 1) {
     lines.push(
-      muted(
+      ...wrapText(
         `Prev: ${commandHint} page prev  ·  ${commandHint} page ${slice.page - 1}`,
-      ),
+      ).map((line) => muted(line)),
     );
   }
 

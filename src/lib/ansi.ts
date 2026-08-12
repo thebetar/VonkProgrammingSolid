@@ -50,7 +50,20 @@ export function link(uri: string, labelText: string): string {
 	return `\x1b]8;;${uri}\x07${color.blue(labelText)}\x1b]8;;\x07`;
 }
 
-export function wrapText(text: string, width = 78): string[] {
+/** Terminal content width in columns; kept in sync from the live xterm size. */
+let wrapWidth = 78;
+
+export function setWrapWidth(cols: number): void {
+	wrapWidth = Math.max(24, Math.floor(cols));
+}
+
+export function getWrapWidth(): number {
+	return wrapWidth;
+}
+
+/** Word-wrap plain text to the current terminal width (minus optional indent). */
+export function wrapText(text: string, width = wrapWidth): string[] {
+	const maxWidth = Math.max(16, width);
 	const normalized = text.replace(/\s+/g, ' ').trim();
 
 	if (!normalized) {
@@ -67,7 +80,7 @@ export function wrapText(text: string, width = 78): string[] {
 			next = `${current} ${word}`;
 		}
 
-		if (next.length > width) {
+		if (next.length > maxWidth) {
 			if (current) {
 				lines.push(current);
 				current = word;
@@ -83,4 +96,9 @@ export function wrapText(text: string, width = 78): string[] {
 	}
 
 	return lines;
+}
+
+/** Wrap text that will be printed with a leading indent (spaces). */
+export function wrapIndented(text: string, indent = 2): string[] {
+	return wrapText(text, getWrapWidth() - indent);
 }

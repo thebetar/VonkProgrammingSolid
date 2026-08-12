@@ -1,11 +1,22 @@
+import { getWrapWidth } from "@/lib/ansi";
+
 /** Marker prefix for lines that should render as inline terminal images. */
 export const IMAGE_LINE_PREFIX = "\x1fIMG:";
 
 /** Max pixel width when embedding images (keeps IIP payloads small + readable). */
 const MAX_IMAGE_WIDTH = 1040;
 
-/** Display width inside the terminal (percent of viewport). */
-const IMAGE_WIDTH_PERCENT = 40;
+/** Desktop display width inside the terminal (percent of viewport). */
+const DESKTOP_IMAGE_WIDTH_PERCENT = 40;
+
+/** Mobile: use the full terminal width. */
+const MOBILE_IMAGE_WIDTH_PERCENT = 100;
+
+function imageWidthPercent(): number {
+  return getWrapWidth() < 56
+    ? MOBILE_IMAGE_WIDTH_PERCENT
+    : DESKTOP_IMAGE_WIDTH_PERCENT;
+}
 
 export function imageLine(src: string): string {
   return `${IMAGE_LINE_PREFIX}${src}`;
@@ -99,7 +110,7 @@ export async function imageUrlToPngBase64(
 export function buildInlineImageSequence(
   base64: string,
   size: number,
-  widthPercent = IMAGE_WIDTH_PERCENT,
+  widthPercent = imageWidthPercent(),
 ): string {
   // `size` MUST be the exact decoded byte length — a wrong estimate makes ImageAddon
   // abort the sequence silently (often only some images in a post appear).

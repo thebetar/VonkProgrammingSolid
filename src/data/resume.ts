@@ -1,4 +1,4 @@
-import { accent, color, heading, label, muted, wrapText } from '@/lib/ansi';
+import { accent, color, heading, label, muted, wrapIndented, wrapText } from '@/lib/ansi';
 
 export type ResumeLocale = 'en' | 'nl';
 export type ResumeVariant = 'compact' | 'extended';
@@ -251,7 +251,7 @@ function renderCompact(locale: ResumeLocale, downloading: boolean): string[] {
 		lines.push(
 			`${color.bold(color.brightWhite(entry.name))}  ${color.dim(`${entry.startDate} — ${entry.endDate}`)}`,
 		);
-		lines.push(...wrapText(entry.description, 74).map((line) => `  ${color.white(line)}`));
+		lines.push(...wrapIndented(entry.description).map((line) => `  ${color.white(line)}`));
 		lines.push('');
 	}
 
@@ -294,7 +294,7 @@ function renderExtended(locale: ResumeLocale, downloading: boolean): string[] {
 		}
 
 		lines.push(
-			...wrapText(body, 74).map((line) => `  ${color.white(line)}`),
+			...wrapIndented(body).map((line) => `  ${color.white(line)}`),
 		);
 		lines.push('');
 	}
