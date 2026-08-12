@@ -94,5 +94,14 @@ ServerSignature Off
       </FilesMatch>
 </IfModule>
 
-# Redirect 404s to index.html (SPA Fallback)
+# SPA fallback: deep links like /blogs/slug keep the URL and load the app
 ErrorDocument 404 /index.html
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_URI} !^/scripts/
+	RewriteRule ^ index.html [L]
+</IfModule>

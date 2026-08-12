@@ -7,11 +7,11 @@ export default [
 	{
 		ignores: [
 			'tailwind.config.js',
-			'vite.config.js',
+			'vite.config.ts',
 			'postcss.config.js',
 			'public/googletagmanager.js',
 			'dist/**/*',
-			'scripts/*.js'
+			'scripts/**/*',
 		],
 	},
 ];
