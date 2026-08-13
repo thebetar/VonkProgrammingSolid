@@ -2,7 +2,18 @@
  * Map shareable URLs ↔ terminal commands so deep links open VonkOS pre-run.
  */
 
-const SIMPLE = new Set(["about", "contact", "help", "a", "c", "h"]);
+const SIMPLE = new Set([
+  "about",
+  "contact",
+  "help",
+  "subscribe",
+  "cookies",
+  "cookie",
+  "a",
+  "c",
+  "h",
+  "sub",
+]);
 
 /** One entry per collection: command noun, URL segment, and accepted aliases. */
 const COLLECTIONS = [
@@ -68,6 +79,16 @@ export function pathToCommand(pathname: string, search = ""): string | null {
     if (section === "a") return "about";
     if (section === "c") return "contact";
     if (section === "h") return "help";
+    if (section === "sub") return "subscribe";
+    if (section === "cookie") {
+      return id ? `cookies ${decodeURIComponent(id)}` : "cookies";
+    }
+    if (section === "subscribe") {
+      return "subscribe";
+    }
+    if (section === "cookies" && id) {
+      return `cookies ${decodeURIComponent(id)}`;
+    }
     return section;
   }
 
@@ -85,11 +106,18 @@ export function pathToCommand(pathname: string, search = ""): string | null {
     return `${collection.command} get ${decodeURIComponent(id)}`;
   }
 
-  if (section === "skills" || section === "skill" || section === "s") {
+  if (section === "skills" || section === "skill" || section === "sk") {
     if (!id) {
       return "skills list";
     }
     return `skills get ${decodeURIComponent([id, ...rest].join(" "))}`;
+  }
+
+  if (section === "script" || section === "sc") {
+    if (id === "list") {
+      return "scripts list";
+    }
+    return "scripts";
   }
 
   if (section === "resume" || section === "r") {
@@ -134,6 +162,15 @@ export function commandToPath(command: string): string | null {
     if (name === "a") return "/about";
     if (name === "c") return "/contact";
     if (name === "h") return "/help";
+    if (name === "sub" || name === "subscribe") {
+      return "/subscribe";
+    }
+    if (name === "cookie" || name === "cookies") {
+      if (action) {
+        return `/cookies/${encodeURIComponent(action)}`;
+      }
+      return "/cookies";
+    }
     return `/${name}`;
   }
 
@@ -154,7 +191,7 @@ export function commandToPath(command: string): string | null {
     return null;
   }
 
-  if (name === "skills" || name === "skill" || name === "s") {
+  if (name === "skills" || name === "skill" || name === "sk") {
     if (!action || action === "list") {
       return "/skills";
     }
@@ -162,6 +199,13 @@ export function commandToPath(command: string): string | null {
       return `/skills/${encodeURIComponent(rest.join(" "))}`;
     }
     return null;
+  }
+
+  if (name === "scripts" || name === "script" || name === "sc") {
+    if (action === "list") {
+      return "/script/list";
+    }
+    return "/script";
   }
 
   if (name === "resume" || name === "r") {

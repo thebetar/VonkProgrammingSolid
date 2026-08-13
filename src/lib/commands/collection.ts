@@ -2,21 +2,22 @@ import { parsePageArgs } from '@/lib/paginate';
 import { fail, getSubcommand, ok } from '@/lib/commands/helpers';
 import type { CommandResult } from '@/lib/commands/types';
 
-type ListFn = (page: number) => { lines: string[]; page: number };
-type GetFn = (id: string) => string[] | null;
+type ListFn = (page: number) => { lines: string[]; page: number } | Promise<{ lines: string[]; page: number }>;
+type GetFn = (id: string) => string[] | null | Promise<string[] | null>;
+type GetLatestFn = () => string[] | Promise<string[]>;
 
 /** Last list page per collection — used by `list page next|prev`. */
 const listPageState = new Map<string, number>();
 
-export function collectionCommand(
+export async function collectionCommand(
 	name: string,
 	args: string[],
 	handlers: {
 		list: ListFn;
 		get: GetFn;
-		getLatest?: () => string[];
+		getLatest?: GetLatestFn;
 	},
-): CommandResult {
+): Promise<CommandResult> {
 	const { sub, rest } = getSubcommand(args, 'list');
 
 	if (sub === 'list') {
@@ -30,7 +31,7 @@ export function collectionCommand(
 			);
 		}
 
-		const { lines, page } = handlers.list(parsed.page);
+		const { lines, page } = await handlers.list(parsed.page);
 		listPageState.set(name, page);
 		return ok(lines, 'top');
 	}
@@ -49,11 +50,11 @@ export function collectionCommand(
 
 		if (handlers.getLatest) {
 			if (id.toLowerCase() === 'latest') {
-				return ok(handlers.getLatest(), 'top');
+				return ok(await handlers.getLatest(), 'top');
 			}
 		}
 
-		const lines = handlers.get(id);
+		const lines = await handlers.get(id);
 		if (!lines) {
 			return fail(`${name} item not found: ${id}`, `Try: ${name} list`);
 		}

@@ -1,4 +1,4 @@
-export type CommandAction = 'print' | 'none';
+export type CommandAction = 'print' | 'none' | 'append';
 
 export interface CommandResult {
 	action: CommandAction;

@@ -4,6 +4,18 @@ import { ImageAddon } from "@xterm/addon-image";
 import "@xterm/xterm/css/xterm.css";
 
 import { runCommand, type CommandResult } from "@/lib/commands";
+import {
+  evalScriptsLine,
+  exitScriptsRepl,
+  isScriptsReplActive,
+} from "@/lib/commands/scripts";
+import {
+  applyCookieChoice,
+  cookiePromptLines,
+  enableAnalyticsIfAllowed,
+  getCookieChoice,
+  parseCookieAnswer,
+} from "@/lib/consent";
 import { commandToPath, pathToCommand } from "@/lib/routes";
 import { color, muted, setWrapWidth } from "@/lib/ansi";
 import {
@@ -13,7 +25,7 @@ import {
   resetLineInput,
   type LineInputState,
 } from "@/lib/line-input";
-import { getPrompt, getWelcomeText, os } from "@/data/os";
+import { getPrompt, getScriptsPrompt, getWelcomeText, os } from "@/data/os";
 import {
   buildInlineImageSequence,
   imageSrcFromLine,
@@ -91,6 +103,7 @@ export class Terminal {
   private readonly lineInput: LineInputState;
   private readonly onData: { dispose: () => void };
   private busy = true;
+  private lineWaiter: ((line: string) => void) | null = null;
 
   constructor(mount: TerminalMount) {
     this.screen = mount.screen;
@@ -261,7 +274,7 @@ export class Terminal {
 
   /** Prompt stays at the bottom of the buffer; tall pages open scrolled to the top. */
   private finishPage(scrollTo: "top" | "bottom" = "top"): void {
-    this.term.write(getPrompt());
+    this.term.write(this.promptText());
 
     if (scrollTo === "bottom") {
       this.applyScroll("bottom");
@@ -270,6 +283,10 @@ export class Terminal {
 
     // Tall content → start at top so you can read; short content → stay at bottom with the prompt.
     this.applyScroll(this.contentOverflowsViewport() ? "top" : "bottom");
+  }
+
+  private promptText(): string {
+    return isScriptsReplActive() ? getScriptsPrompt() : getPrompt();
   }
 
   private async clearPage(): Promise<void> {
@@ -284,6 +301,7 @@ export class Terminal {
     if (uri.startsWith("/") && !uri.startsWith("//")) {
       const command = pathToCommand(uri);
       if (command) {
+        exitScriptsRepl();
         syncUrlForCommand(command);
         void this.runCommand(command);
         return;
@@ -301,6 +319,15 @@ export class Terminal {
       triggerDownload(result.download.url, result.download.filename);
     }
 
+    if (result.action === "append") {
+      const lines = result.lines ?? [];
+      if (lines.length > 0) {
+        await this.writeLines(lines);
+      }
+      this.finishPage(result.scrollTo ?? "bottom");
+      return;
+    }
+
     if (result.action === "print" && result.lines && result.lines.length > 0) {
       await this.clearPage();
       resetLineInput(this.lineInput);
@@ -313,7 +340,38 @@ export class Terminal {
     this.finishPage("bottom");
   }
 
+  private waitForLine(): Promise<string> {
+    return new Promise((resolve) => {
+      this.lineWaiter = resolve;
+    });
+  }
+
+  private async promptCookiesIfNeeded(): Promise<void> {
+    if (getCookieChoice()) {
+      enableAnalyticsIfAllowed();
+      return;
+    }
+
+    await this.writeLines(cookiePromptLines());
+    this.term.write(`${color.yellow("y/n")} ${color.brightBlue(">")} `);
+
+    const answer = await this.waitForLine();
+    const choice = parseCookieAnswer(answer);
+    applyCookieChoice(choice);
+
+    await this.writeln(
+      choice === "accept"
+        ? color.brightGreen("Cookies accepted. Analytics enabled.")
+        : color.yellow("Cookies declined. Analytics stay off."),
+    );
+    await this.writeln("");
+    await this.clearPage();
+  }
+
   private async boot(): Promise<void> {
+    this.term.focus();
+    await this.promptCookiesIfNeeded();
+
     const initialCommand = pathToCommand(
       window.location.pathname,
       window.location.search,
@@ -331,15 +389,27 @@ export class Terminal {
       muted(`Opening shared link → running: ${initialCommand}`),
       "",
     ]);
-    this.term.write(getPrompt());
+    this.term.write(this.promptText());
     this.term.writeln(initialCommand);
 
-    await this.applyCommandResult(runCommand(initialCommand));
+    await this.applyCommandResult(await runCommand(initialCommand));
     document.title = `${os.osName} — ${initialCommand}`;
   }
 
   private async runCommand(command: string): Promise<void> {
     if (this.busy) {
+      return;
+    }
+
+    if (isScriptsReplActive()) {
+      this.busy = true;
+
+      try {
+        await this.applyCommandResult(evalScriptsLine(command));
+      } finally {
+        this.busy = false;
+        this.term.focus();
+      }
       return;
     }
 
@@ -351,7 +421,7 @@ export class Terminal {
     this.busy = true;
 
     try {
-      await this.applyCommandResult(runCommand(command));
+      await this.applyCommandResult(await runCommand(command));
     } finally {
       this.busy = false;
       this.term.focus();
@@ -359,7 +429,7 @@ export class Terminal {
   }
 
   private handleInput(data: string): void {
-    if (this.busy) {
+    if (this.busy && !this.lineWaiter) {
       return;
     }
 
@@ -367,8 +437,23 @@ export class Terminal {
     if (result === "submit") {
       const command = readLineInput(this.lineInput);
       resetLineInput(this.lineInput);
+      if (this.lineWaiter) {
+        const resolve = this.lineWaiter;
+        this.lineWaiter = null;
+        resolve(command);
+        return;
+      }
       void this.runCommand(command);
     } else if (result === "cancel") {
+      if (this.lineWaiter) {
+        const resolve = this.lineWaiter;
+        this.lineWaiter = null;
+        resolve("");
+        return;
+      }
+      if (isScriptsReplActive()) {
+        exitScriptsRepl();
+      }
       this.finishPage("bottom");
     }
   }

@@ -19,7 +19,7 @@ ServerSignature Off
       # Security Headers
       Header unset Server
       Header unset X-Powered-By
-      Header set Content-Security-Policy "default-src 'self' 'unsafe-inline'; img-src * data:; style-src 'self' 'unsafe-inline' data:; style-src-elem 'self' 'unsafe-inline' data:; font-src 'self' data:; script-src-elem 'self' 'unsafe-inline' www.googletagmanager.com cdn.jsdelivr.net; connect-src 'self' https://api.ipify.org qcginwkfkawkktlmdiwa.supabase.co;"
+      Header set Content-Security-Policy "default-src 'self' 'unsafe-inline'; img-src * data:; style-src 'self' 'unsafe-inline' data:; style-src-elem 'self' 'unsafe-inline' data:; font-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com cdn.jsdelivr.net; script-src-elem 'self' 'unsafe-inline' www.googletagmanager.com cdn.jsdelivr.net; connect-src 'self' https://api.ipify.org qcginwkfkawkktlmdiwa.supabase.co;"
 
       # ----------------------------------------------------------------------
       # | Compression / Pre-compressed files serving                          |

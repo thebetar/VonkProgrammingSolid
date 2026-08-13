@@ -6,14 +6,17 @@ import { listExperience, showExperience } from '@/data/pages/experience';
 import { listProjects, showProject } from '@/data/pages/projects';
 import { getWelcomeText } from '@/data/os';
 import { collectionCommand } from '@/lib/commands/collection';
+import { cookiesCommand } from '@/lib/commands/cookies';
 import { fail, ok } from '@/lib/commands/helpers';
 import { resumeCommand } from '@/lib/commands/resume';
+import { scriptsCommand } from '@/lib/commands/scripts';
 import { skillsCommand } from '@/lib/commands/skills';
+import { subscribeCommand } from '@/lib/commands/subscribe';
 import type { CommandResult } from '@/lib/commands/types';
 
 export type { CommandAction, CommandResult } from '@/lib/commands/types';
 
-export function runCommand(line: string): CommandResult {
+export async function runCommand(line: string): Promise<CommandResult> {
 	const trimmed = line.trim();
 	if (!trimmed) return { action: 'none' };
 
@@ -32,6 +35,12 @@ export function runCommand(line: string): CommandResult {
 		case 'contact':
 		case 'c':
 			return ok(showContact());
+		case 'subscribe':
+		case 'sub':
+			return subscribeCommand(args);
+		case 'cookie':
+		case 'cookies':
+			return cookiesCommand(args);
 		case 'blog':
 		case 'blogs':
 		case 'b':
@@ -62,8 +71,12 @@ export function runCommand(line: string): CommandResult {
 			});
 		case 'skill':
 		case 'skills':
-		case 's':
+		case 'sk':
 			return skillsCommand(args);
+		case 'script':
+		case 'scripts':
+		case 'sc':
+			return scriptsCommand(args);
 		case 'resume':
 		case 'r':
 			return resumeCommand(args);

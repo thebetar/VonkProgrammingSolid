@@ -1,5 +1,6 @@
 import { accent, color, getWrapWidth, heading, label, link, muted, wrapIndented, wrapText } from '@/lib/ansi';
 import { blogImagesById } from '@/data/pages/blog-images';
+import { fetchBlogViewCounts, formatViewCount, trackBlogView } from '@/lib/blog-stats';
 import { imageLine } from '@/lib/terminal-image';
 import { paginate, paginationFooter, listPageSize } from '@/lib/paginate';
 
@@ -168,8 +169,9 @@ function contentLines(text: string, imageSrcs: string[] = []): string[] {
 	return lines;
 }
 
-export function listBlogs(page: number): { lines: string[]; page: number } {
+export async function listBlogs(page: number): Promise<{ lines: string[]; page: number }> {
 	const slice = paginate(blogs, page, listPageSize());
+	const viewsById = await fetchBlogViewCounts();
 	const lines: string[] = [
 		heading('Blogs'),
 		...wrapText(
@@ -179,8 +181,14 @@ export function listBlogs(page: number): { lines: string[]; page: number } {
 	];
 
 	for (const blog of slice.items) {
+		const views = viewsById.get(blog.numericId);
+		const viewsPart =
+			views === undefined
+				? ''
+				: `  ${color.gray('·')} ${color.yellow(formatViewCount(views))}`;
+
 		lines.push(`${color.yellow(blog.id.padStart(2))}  ${color.bold(color.brightWhite(blog.title))}`);
-		lines.push(`    ${color.dim(blog.date)}  ${color.blue(blog.slug)}`);
+		lines.push(`    ${color.dim(blog.date)}  ${color.blue(blog.slug)}${viewsPart}`);
 		lines.push(...wrapIndented(blog.description, 4).map((line) => `    ${color.white(line)}`));
 		lines.push('');
 	}
@@ -189,8 +197,12 @@ export function listBlogs(page: number): { lines: string[]; page: number } {
 	return { lines, page: slice.page };
 }
 
-function renderBlog(blog: BlogEntry): string[] {
+function renderBlog(blog: BlogEntry, views: number | null): string[] {
 	const images = blogImagesById[blog.id] ?? [];
+	const viewLine =
+		views === null
+			? []
+			: [`${label('Views:')} ${color.yellow(formatViewCount(views))}`];
 
 	return [
 		heading(`Blog · ${blog.title}`),
@@ -198,6 +210,7 @@ function renderBlog(blog: BlogEntry): string[] {
 		`${label('ID:')}    ${accent(blog.id)}`,
 		`${label('Slug:')}  ${accent(blog.slug)}`,
 		`${label('Date:')}  ${color.yellow(blog.date)}`,
+		...viewLine,
 		`${label('Share:')} ${link(`/blogs/${blog.slug}`, `/blogs/${blog.slug}`)}`,
 		`${label('URL:')}   ${link(blog.link, blog.link)}`,
 		'',
@@ -206,15 +219,22 @@ function renderBlog(blog: BlogEntry): string[] {
 		muted('─'.repeat(Math.min(48, Math.max(16, getWrapWidth())))),
 		'',
 		...contentLines(blog.content, images),
+		'',
+		muted('─'.repeat(Math.min(48, Math.max(16, getWrapWidth())))),
+		'',
+		`${muted('New posts:')} ${accent('subscribe <email>')}`,
 	];
 }
 
-export function showBlog(id: string): string[] | null {
+export async function showBlog(id: string): Promise<string[] | null> {
 	const blog = findBlog(id);
 	if (!blog) return null;
-	return renderBlog(blog);
+	const views = await trackBlogView(blog.numericId);
+	return renderBlog(blog, views);
 }
 
-export function showLatestBlog(): string[] {
-	return renderBlog(blogs[0]);
+export async function showLatestBlog(): Promise<string[]> {
+	const blog = blogs[0];
+	const views = await trackBlogView(blog.numericId);
+	return renderBlog(blog, views);
 }

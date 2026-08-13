@@ -14,6 +14,10 @@ export function getPrompt(): string {
   return `${color.brightGreen(`${os.promptUser}@${os.osName}`)}${color.brightBlue(":~$")} `;
 }
 
+export function getScriptsPrompt(): string {
+  return `${color.yellow(">")} `;
+}
+
 /**
  * Help row: yellow command, magenta `(alias)`, then args.
  * Spacing: `command (alias)` then two spaces before args.
@@ -24,11 +28,15 @@ function helpLines(
   args: string,
   description: string,
 ): string[] {
-  const aliasText = `(${alias})`;
+  const aliasText = alias ? `(${alias})` : "";
   const argsPart = args ? `  ${args}` : "";
-  const visible = `${command} ${aliasText}${argsPart}`;
+  const visible = alias
+    ? `${command} ${aliasText}${argsPart}`
+    : `${command}${argsPart}`;
   const width = getWrapWidth();
-  const commandLine = `  ${color.yellow(command)} ${color.magenta(aliasText)}${argsPart}`;
+  const commandLine = alias
+    ? `  ${color.yellow(command)} ${color.magenta(aliasText)}${argsPart}`
+    : `  ${color.yellow(command)}${argsPart}`;
 
   // Narrow screens: put the description on its own indented line.
   if (width < 56 || visible.length + 4 + description.length > width) {
@@ -63,6 +71,8 @@ export function getWelcomeText(): string[] {
     ...helpLines("help", "h", "", "Show this message again"),
     ...helpLines("about", "a", "", "About me"),
     ...helpLines("contact", "c", "", "Contact details"),
+    ...helpLines("subscribe", "sub", "<email>", "Notify me of new blog posts"),
+    ...helpLines("cookies", "", "accept|decline|status", "Analytics cookie choice"),
     ...helpLines(
       "blog",
       "b",
@@ -91,13 +101,18 @@ export function getWelcomeText(): string[] {
       "List education",
     ),
     ...helpLines("education", "ed", "get <id>", "Show one entry"),
-    ...helpLines("skills", "s", "list", "Top skills"),
+    ...helpLines("skills", "sk", "list", "Top skills"),
     ...helpLines(
       "skills",
-      "s",
+      "sk",
       "get <category|categories>",
       "Skills by category",
     ),
+    ...helpLines("scripts", "sc", "", "Open scripts"),
+    ...helpLines("scripts", "sc", "list", "List named scripts"),
+    ...helpLines("scripts", "sc", "create <name>", "Create a named script"),
+    ...helpLines("scripts", "sc", "update <name>", "Update a named script"),
+    ...helpLines("scripts", "sc", "delete <name>", "Delete a named script"),
     ...helpLines("resume", "r", "get default", "Default resume (long en)"),
     ...helpLines(
       "resume",

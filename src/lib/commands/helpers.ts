@@ -5,6 +5,10 @@ export function ok(lines: string[], scrollTo: 'top' | 'bottom' = 'top'): Command
 	return { action: 'print', lines, scrollTo };
 }
 
+export function append(lines: string[]): CommandResult {
+	return { action: 'append', lines, scrollTo: 'bottom' };
+}
+
 export function fail(message: string, hint?: string): CommandResult {
 	const lines = [error(message)];
 
