@@ -267,3 +267,20 @@ export const DocumentSvg = ({ width, height, color }) => (
 		<polyline points="10 9 9 9 8 9"></polyline>
 	</svg>
 );
+
+export const TerminalSvg = ({ width, height, color }) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width={width || '18'}
+		height={height || '18'}
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke={color || 'currentColor'}
+		stroke-width="2"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+	>
+		<polyline points="4 17 10 11 4 5"></polyline>
+		<line x1="12" y1="19" x2="20" y2="19"></line>
+	</svg>
+);
