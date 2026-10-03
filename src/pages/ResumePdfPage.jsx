@@ -6,8 +6,9 @@ import ResumeControls from '@/components/resume/ResumeControls';
 import Resume from '@/components/resume/Resume';
 
 export default function ResumePdfPage() {
-	const [language, setLanguage] = createSignal('en');
-	const [mode, setMode] = createSignal('compact');
+	const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+	const [language, setLanguage] = createSignal(params?.get('lang') === 'nl' ? 'nl' : 'en');
+	const [mode, setMode] = createSignal(params?.get('mode') === 'extended' ? 'extended' : 'compact');
 
 	const template = (
 		<div class="md:mt-4 mt-6 md:mb-8 mb-4">

@@ -215,7 +215,9 @@ h6 {
 	header,
 	footer,
 	nav,
-	.print\:hidden {
+	.print\:hidden,
+	#cookie-component,
+	#subscribe-component {
 		display: none !important;
 	}
 

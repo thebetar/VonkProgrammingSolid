@@ -34,6 +34,14 @@ export const education = [
 		cv: true,
 	},
 	{
+		name: 'AWS Certified Developer - Associate',
+		location: 'Online',
+		startDate: 'Sep 2026',
+		endDate: 'Sep 2026',
+		description: ['AWS Certified Developer - Associate certification', 'Issued by Amazon Web Services.'],
+		cv: true,
+	},
+	{
 		name: 'AWS cloud practitioner',
 		location: 'Online',
 		startDate: 'Feb 2021',

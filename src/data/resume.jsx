@@ -20,14 +20,14 @@ export const resumeTranslations = {
 		compact: 'Compact',
 		extended: 'Extended',
 		summaryText: `
-			Full-stack engineer with nearly a decade of experience across diverse domains, from government and large enterprises to smaller organisations. Strong in JavaScript/TypeScript, Node.js, Python and PHP with Angular, React, Vue, Laravel, Django and NestJS. Also experienced with AWS, Azure, CI/CD and data engineering. I value code quality and have extensive experience with unit testing using Jest, Pytest and Vitest, as well as Cypress. Outside of work I deepen my knowledge of IT topics and write technical blogs.
+			Full-stack engineer with nearly a decade of experience across diverse domains, from government and large enterprises to smaller organisations. Strong in JavaScript/TypeScript, Node.js, Python and PHP with Angular, React, Vue, Laravel, Django and NestJS. Also experienced with AWS (Certified Developer - Associate), Azure, CI/CD and data engineering. I value code quality and have extensive experience with unit testing using Jest, Pytest and Vitest, as well as Cypress. Outside of work I deepen my knowledge of IT topics and write technical blogs.
 		`,
 		extendedSummaryText: `
 			Full-stack engineer with nearly a decade of experience across diverse domains.
 			I have experience in enterprise environments within government organisations and enterprise level organisations as well as smaller companies.
 			I have extensive experience with JavaScript/TypeScript, Node.js, Python and PHP. Within these languages I have worked on the frontend with Angular, React, Vue and Solid.js.
 			On the backend I have experience with Laravel, Django, NestJS, Express.js and FastAPI.
-			I am also familiar with cloud infrastructure on AWS and Azure, CI/CD pipelines, and data engineering with SQL and Pandas.
+			I am also familiar with cloud infrastructure on AWS and Azure, CI/CD pipelines, and data engineering with SQL and Pandas. I hold the AWS Certified Developer - Associate certification.
 			I value code quality and work with unit testing frameworks such as Jest, Pytest and Vitest, with extensive experience running them alongside Cypress.
 			Outside of work I deepen my knowledge of various IT topics such as hashing, encryption, networking, etc. See my GitHub for more details.
 			I also write blogs, readable on my website.
@@ -47,14 +47,14 @@ export const resumeTranslations = {
 		compact: 'Compact',
 		extended: 'Uitgebreid',
 		summaryText: `
-			Full-stack engineer met bijna tien jaar ervaring in diverse domeinen, van overheid en grote organisaties tot kleinere bedrijven. Sterk in Javascript/Typescript, Node.js, Python en PHP met Angular, React, Vue, Laravel, Django en NestJS. Ook ervaring met AWS, Azure, CI/CD en data engineering. Ik hecht waarde aan codekwaliteit en heb uitgebreide ervaring met unit testing via Jest, Pytest en Vitest, evenals Cypress. Buiten werk verdiep ik me in IT-onderwerpen en schrijf ik technische blogs.
+			Full-stack engineer met bijna tien jaar ervaring in diverse domeinen, van overheid en grote organisaties tot kleinere bedrijven. Sterk in Javascript/Typescript, Node.js, Python en PHP met Angular, React, Vue, Laravel, Django en NestJS. Ook ervaring met AWS (Certified Developer - Associate), Azure, CI/CD en data engineering. Ik hecht waarde aan codekwaliteit en heb uitgebreide ervaring met unit testing via Jest, Pytest en Vitest, evenals Cypress. Buiten werk verdiep ik me in IT-onderwerpen en schrijf ik technische blogs.
 		`,
 		extendedSummaryText: `
 			Full-stack engineer met bijna tien jaar ervaring in diverse domeinen. 
 			Ik heb ervaring in enterprise omgevingen binnen de overheid en grote organisaties en in kleinere organisaties. 
 			Ik heb veel ervaring met Javascript/Typescript, Node.js, Python en PHP. Binnen deze talen heb ik binnen de frontend gewerkt met Angular, React, Vue en Solid.js. 
 			Binnen de backend heb ik ervaring met Laravel, Django, NestJS, Express.js en FastAPI. 
-			Ik ben ook bekend met cloudinfrastructuur op AWS en Azure, CI/CD-pipelines en data engineering met SQL en Pandas.
+			Ik ben ook bekend met cloudinfrastructuur op AWS en Azure, CI/CD-pipelines en data engineering met SQL en Pandas. Ik heb het AWS Certified Developer - Associate certificaat.
 			Ik hecht waarde aan codekwaliteit en werk met unit testing frameworks zoals Jest, Pytest en Vitest, met uitgebreide ervaring in het gebruik hiervan naast Cypress.
 			Buiten mijn werk houdt ik mij bezig met me verdiepen in verschillende IT-onderwerpen zoals hashing, encrypties, networking, etc. Zie mijn Github voor meer details.
 			Ook schrijf ik blogs, te lezen op mijn website.
@@ -65,56 +65,81 @@ export const resumeTranslations = {
 export const resumeExperience = {
 	en: [
 		{
-			...getExperience('Mikrocloud'),
-			startDate: 'Jul 2025',
+			...getExperience('Lab Digital'),
+			startDate: 'Oct 2026',
 			endDate: 'Present',
 			description:
-				'Lead developer on an SD-WAN platform for Mikrotik RouterOS devices, built with Laravel on AWS Lambda (via Laravel Vapor), Nuxt.js and microservices via SQS. Writes RouterOS scripts for remote configuration and is responsible for architecture and infrastructure.',
+				'Senior full stack engineer working on various projects for Lab Digital\'s customers, using GraphQL, Node.js, TypeScript, Next.js and AWS.',
 			extendedDescription: `
-				As the lead developer at Mikrocloud I am responsible for the technical decisions and infrastructure of an SD-WAN platform that helps users manage Mikrotik RouterOS devices.
-				The backend is built with Laravel on AWS Lambda (via Laravel Vapor) using a microservices architecture with SQS for inter-service communication, and the frontend with Nuxt.js.
-				I also write scripts in the RouterOS scripting language to configure routers remotely.
-				Within this role I am responsible for the technical development of the platform, its architecture and infrastructure.
+				As a senior full stack engineer at Lab Digital I work on various projects for Lab Digital's customers.
+				I use GraphQL, Node.js, TypeScript, Next.js and AWS to build these projects.
+				Within this role I am responsible for the technical development of these customer projects and how they are implemented.
+			`,
+		},
+		{
+			...getExperience('Mikrocloud'),
+			startDate: 'Jul 2025',
+			endDate: 'Oct 2026',
+			description:
+				'Lead developer on an SD-WAN platform for Mikrotik RouterOS devices, built with Laravel on AWS Lambda (via Laravel Vapor), Nuxt.js and microservices via SQS. Wrote RouterOS scripts for remote configuration and was responsible for architecture and infrastructure.',
+			extendedDescription: `
+				As the lead developer at Mikrocloud I was responsible for the technical decisions and infrastructure of an SD-WAN platform that helps users manage Mikrotik RouterOS devices.
+				The backend was built with Laravel on AWS Lambda (via Laravel Vapor) using a microservices architecture with SQS for inter-service communication, and the frontend with Nuxt.js.
+				I also wrote scripts in the RouterOS scripting language to configure routers remotely.
+				Within this role I was responsible for the technical development of the platform, its architecture and infrastructure.
+			`,
+		},
+		{
+			...getExperience('WISEPIM'),
+			startDate: 'Oct 2024',
+			endDate: 'Oct 2026',
+			description:
+				'Full stack developer at WISEPIM, an AI company and PIM that improves product data so catalogs are easier to find, search, and sell. Worked on both the frontend and the backend, built with Next.js and Django.',
+			extendedDescription: `
+				As a full stack developer at WISEPIM I worked on both the frontend and the backend of their PIM.
+				WISEPIM is an AI company that improves product data. The PIM enriches catalogs so products are easier to find, search, and sell, and publishes that content to shops and marketplaces.
+				The platform was built with Next.js and Django.
+				Within this role I was responsible for the technical development of the frontend and the backend and how they were implemented.
 			`,
 		},
 		{
 			...getExperience('Webshopimporter'),
 			startDate: 'Sep 2024',
-			endDate: 'Present',
+			endDate: 'Oct 2026',
 			description:
-				'Lead developer managing an application that synchronises supplier data to e-commerce platforms such as Shopify, WooCommerce and Magento. Collaborating on a migration from CodeIgniter to Django and building integrations via REST, SOAP and FTP, even when supplier documentation is complex or incomplete.',
+				'Lead developer managing the application that synchronises supplier data to e-commerce platforms, built with CodeIgniter and Laravel. Made architectural decisions, mapped large supplier datasets onto those platforms, and managed the hosting on a Linux server with Docker.',
 			extendedDescription: `
-				As the lead developer at Webshopimporter I manage the application that synchronises supplier data to different e-commerce platforms such as Shopify, Lightspeed, WooCommerce, Magento and CCVShop.
-				I collaborate on migrating the platform from the legacy CodeIgniter codebase to Django, while also building and maintaining integrations using protocols like REST, SOAP and FTP and formats like JSON, XML and CSV, even when supplier documentation is complex or incomplete.
-				Within this role I am responsible for the technical development of these integrations and how they are implemented. For this I need to thoroughly study various supplier documentation and the APIs they provide in order to integrate them into the platform.
+				As the lead developer at Webshopimporter I managed the entire application that synchronises supplier data to different e-commerce platforms. The platform uses CodeIgniter and Laravel. I also managed the hosting on a Linux server with Docker.
+				A large part of the work was complex data mapping. Supplier data arrived in many different structures, and I had to map those large datasets onto the product models of the e-commerce platforms so the catalogues stayed in sync.
+				Within this role I made the architectural decisions for the application and was responsible for how those mappings and the rest of the platform were implemented.
 			`,
 		},
 		{
 			...getExperience('Swiftsync'),
 			startDate: 'Sep 2024',
-			endDate: 'Present',
+			endDate: 'Oct 2026',
 			extendedOnly: true,
 			description:
 				'Full-stack developer building custom software solutions based on client requirements, using frameworks such as Django, NiceGUI, Playwright and Pandas. Built a CCVShop management dashboard, a configurable web scraping dashboard and a Wintree product synchronisation tool.',
 			extendedDescription: `
-				As a full-stack developer at Swiftsync I work on various software solutions based on client requirements.
-				I use various frameworks, including Django, NiceGUI, Playwright, Pandas, Gemini's API and more.
+				As a full-stack developer at Swiftsync I worked on various software solutions based on client requirements.
+				I used various frameworks, including Django, NiceGUI, Playwright, Pandas, Gemini's API and more.
 				I built a data management dashboard in NiceGUI that provides an easier interface for managing CCVShop product data, and a web scraping dashboard using Django and Playwright for highly configurable data extraction from websites.
 				I also developed a product synchronisation tool between Wintree, a management system in the Dutch horticultural industry, and various e-commerce platforms, handling not only product data but also stock levels, customer groups and tier pricing.
-				Within this role I am responsible for the technical development of these tools and how they are implemented.
+				Within this role I was responsible for the technical development of these tools and how they were implemented.
 			`,
 		},
 		{
 			...getExperience('Chary Solutions'),
 			startDate: 'Jul 2024',
-			endDate: 'Present',
+			endDate: 'Oct 2026',
 			description:
-				"Senior developer building marketing integrations between platforms not supported by Klaviyo, using Google Tag Manager and various APIs. Also builds internal automations and tools integrating Gemini's API to categorise data.",
+				"Senior developer building marketing integrations between platforms not supported by Klaviyo, using Google Tag Manager and various APIs. Also built internal automations and tools integrating Gemini's API to categorise data.",
 			extendedDescription: `
-				As the senior developer at Chary Solutions I handle the technical development of marketing integrations between various platforms that are not supported by Klaviyo out of the box.
-				I use Google Tag Manager for custom tracking cookies for actions on websites and use the APIs of various companies to collect the required data and integrate it into Klaviyo.
-				I also build internal automations, scripts and tools that streamline business processes and reduce manual work for the marketing team, including integrating Gemini's API to automatically categorise data.
-				Within this role I am responsible for the technical development of these integrations and internal automations and how they are implemented.
+				As the senior developer at Chary Solutions I handled the technical development of marketing integrations between various platforms that are not supported by Klaviyo out of the box.
+				I used Google Tag Manager for custom tracking cookies for actions on websites and used the APIs of various companies to collect the required data and integrate it into Klaviyo.
+				I also built internal automations, scripts and tools that streamline business processes and reduce manual work for the marketing team, including integrating Gemini's API to automatically categorise data.
+				Within this role I was responsible for the technical development of these integrations and internal automations and how they were implemented.
 			`,
 		},
 		{
@@ -186,56 +211,81 @@ export const resumeExperience = {
 	],
 	nl: [
 		{
-			...getExperience('Mikrocloud'),
-			startDate: 'Jul 2025',
+			...getExperience('Lab Digital'),
+			startDate: 'Okt 2026',
 			endDate: 'Heden',
 			description:
-				'Lead developer van een SD-WAN-platform voor Mikrotik RouterOS-apparaten, gebouwd met Laravel op AWS Lambda (via Laravel Vapor), Nuxt.js en microservices via SQS. Schrijft RouterOS-scripts voor configuratie op afstand en is verantwoordelijk voor architectuur en infrastructuur.',
+				'Senior full stack engineer die aan verschillende projecten werkt voor de klanten van Lab Digital, met GraphQL, Node.js, TypeScript, Next.js en AWS.',
 			extendedDescription: `
-					Als lead developer bij Mikrocloud ben ik verantwoordelijk voor de technische beslissingen en de infrastructuur van een SD-WAN-platform dat gebruikers helpt om Mikrotik RouterOS-apparaten te beheren.
-					De backend is gebouwd met Laravel op AWS Lambda (via Laravel Vapor) met een microservices-architectuur, via SQS voor communicatie tussen services, en de frontend met Nuxt.js. 
-					Ik schrijf ook scripts in de RouterOS-scripttaal om routers op afstand te configureren.
-					Binnen deze rol ben ik verantwoordelijk voor de technische ontwikkeling van het platform, de architectuur en de infrastructuur.
+				Als senior full stack engineer bij Lab Digital werk ik aan verschillende projecten voor de klanten van Lab Digital.
+				Hierbij gebruik ik GraphQL, Node.js, TypeScript, Next.js en AWS.
+				Binnen deze rol ben ik verantwoordelijk voor de technische ontwikkeling van deze klantprojecten en hoe deze geïmplementeerd worden.
+			`,
+		},
+		{
+			...getExperience('Mikrocloud'),
+			startDate: 'Jul 2025',
+			endDate: 'Okt 2026',
+			description:
+				'Lead developer van een SD-WAN-platform voor Mikrotik RouterOS-apparaten, gebouwd met Laravel op AWS Lambda (via Laravel Vapor), Nuxt.js en microservices via SQS. Schreef RouterOS-scripts voor configuratie op afstand en was verantwoordelijk voor architectuur en infrastructuur.',
+			extendedDescription: `
+					Als lead developer bij Mikrocloud was ik verantwoordelijk voor de technische beslissingen en de infrastructuur van een SD-WAN-platform dat gebruikers helpt om Mikrotik RouterOS-apparaten te beheren.
+					De backend was gebouwd met Laravel op AWS Lambda (via Laravel Vapor) met een microservices-architectuur, via SQS voor communicatie tussen services, en de frontend met Nuxt.js. 
+					Ik schreef ook scripts in de RouterOS-scripttaal om routers op afstand te configureren.
+					Binnen deze rol was ik verantwoordelijk voor de technische ontwikkeling van het platform, de architectuur en de infrastructuur.
+			`,
+		},
+		{
+			...getExperience('WISEPIM'),
+			startDate: 'Okt 2024',
+			endDate: 'Okt 2026',
+			description:
+				'Full stack developer bij WISEPIM, een AI-bedrijf en een PIM die productdata verbetert zodat catalogi beter vindbaar, doorzoekbaar en verkoopbaar zijn. Werkte aan zowel de frontend als de backend, gebouwd met Next.js en Django.',
+			extendedDescription: `
+				Als full stack developer bij WISEPIM werkte ik aan zowel de frontend als de backend van hun PIM.
+				WISEPIM is een AI-bedrijf dat productdata verbetert. De PIM verrijkt catalogi zodat producten beter vindbaar, doorzoekbaar en verkoopbaar zijn, en publiceert die content naar webshops en marktplaatsen.
+				Het platform was gebouwd met Next.js en Django.
+				Binnen deze rol was ik verantwoordelijk voor de technische ontwikkeling van de frontend en de backend en hoe deze geïmplementeerd werden.
 			`,
 		},
 		{
 			...getExperience('Webshopimporter'),
 			startDate: 'Sep 2024',
-			endDate: 'Heden',
+			endDate: 'Okt 2026',
 			description:
-				'Lead developer die leveranciersdata synchroniseert naar e-commerce platformen zoals Shopify, WooCommerce en Magento. Werkt aan migratie van CodeIgniter naar Django en bouwt koppelingen via REST, SOAP en FTP, ook bij complexe of onvolledige leveranciersdocumentatie.',
+				'Lead developer die de applicatie beheerde die leveranciersdata synchroniseert naar e-commerce platformen, gebouwd met CodeIgniter en Laravel. Nam architectuurbeslissingen, koppelde grote leveranciersdatasets aan die platformen en beheerde de hosting op een Linux-server met Docker.',
 			extendedDescription: `
-				Als lead developer bij Webshopimporter beheer ik de applicatie die leveranciersdata synchroniseert naar verschillende e-commerce platformen zoals Shopify, Lightspeed, WooCommerce, Magento en CCVShop.
-				Ik werk mee aan de migratie van het platform van de legacy CodeIgniter-codebase naar Django, terwijl ik ook koppelingen bouw en onderhoud via protocollen als REST, SOAP en FTP en formaten als JSON, XML en CSV, ook wanneer leveranciersdocumentatie complex of onvolledig is.
-				Binnen deze rol ben ik verantwoordelijk voor de technische ontwikkeling van deze integraties en hoe deze geïmplementeerd worden. Hiervoor moet ik mij goed inlezen in verschillende leveranciersdocumentatie en de API's die ze bieden om deze vervolgens te integreren in het platform.
+				Als lead developer bij Webshopimporter beheerde ik de volledige applicatie die leveranciersdata synchroniseert naar verschillende e-commerce platformen. Het platform gebruikt CodeIgniter en Laravel. Ook beheerde ik de hosting op een Linux-server met Docker.
+				Een groot deel van het werk was complexe datamapping. Leveranciersdata kwam binnen in veel verschillende structuren, en ik moest die grote datasets mappen op de productmodellen van de e-commerce platformen zodat de catalogi synchroon bleven.
+				Binnen deze rol nam ik de architectuurbeslissingen voor de applicatie en was ik verantwoordelijk voor hoe die mappings en de rest van het platform geïmplementeerd werden.
 			`,
 		},
 		{
 			...getExperience('Swiftsync'),
 			startDate: 'Sep 2024',
-			endDate: 'Heden',
+			endDate: 'Okt 2026',
 			extendedOnly: true,
 			description:
-				'Full-stack developer die maatwerksoftware bouwt op basis van klantwensen, met frameworks als Django, NiceGUI, Playwright en Pandas. Bouwde onder meer een CCVShop-beheerdashboard, een configureerbaar web scraping dashboard en een Wintree-productsynchronisatietool.',
+				'Full-stack developer die maatwerksoftware bouwde op basis van klantwensen, met frameworks als Django, NiceGUI, Playwright en Pandas. Bouwde onder meer een CCVShop-beheerdashboard, een configureerbaar web scraping dashboard en een Wintree-productsynchronisatietool.',
 			extendedDescription: `
-				Als Full-stack developer bij Swiftsync werk ik aan verschillende software oplossingen op basis van klantwensen.
-				Hierbij gebruik ik verschillende frameworks, waaronder Django, NiceGUI, Playwright, Pandas, Gemini's API en meer.
+				Als Full-stack developer bij Swiftsync werkte ik aan verschillende software oplossingen op basis van klantwensen.
+				Hierbij gebruikte ik verschillende frameworks, waaronder Django, NiceGUI, Playwright, Pandas, Gemini's API en meer.
 				Ik heb een databeheerdashboard gebouwd in NiceGUI dat een eenvoudiger interface biedt voor het beheren van CCVShop-productdata, en een web scraping dashboard met Django en Playwright voor uiterst configureerbare data-extractie van websites. 
 				Daarnaast heb ik een productsynchronisatietool ontwikkeld tussen Wintree, een beheersysteem in de Nederlandse sierteeltsector, en diverse e-commerce platformen, voor niet alleen productdata maar ook voorraadniveaus, klantgroepen en staffelprijzen.
-				Binnen deze rol ben ik verantwoordelijk voor de technische ontwikkeling van deze tools en hoe deze geïmplementeerd worden.
+				Binnen deze rol was ik verantwoordelijk voor de technische ontwikkeling van deze tools en hoe deze geïmplementeerd werden.
 			`,
 		},
 		{
 			...getExperience('Chary Solutions'),
 			startDate: 'Jul 2024',
-			endDate: 'Heden',
+			endDate: 'Okt 2026',
 			description:
-				"Senior developer die marketingintegraties bouwt tussen platformen zonder standaard Klaviyo-koppeling, via Google Tag Manager en diverse API's. Bouwt ook interne automatiseringen en tools met Gemini's API om data te categoriseren.",
+				"Senior developer die marketingintegraties bouwde tussen platformen zonder standaard Klaviyo-koppeling, via Google Tag Manager en diverse API's. Bouwde ook interne automatiseringen en tools met Gemini's API om data te categoriseren.",
 			extendedDescription: `
-				Als senior developer bij Chary Solutions zorg ik voor de technische ontwikkeling van marketing integraties tussen verschillende platformen die niet ondersteund worden vanuit Klaviyo.
-				Hierbij maak ik gebruik van Google Tag Manager voor custom tracking cookies voor handelingen op de website en gebruik ik de API's van verschillende bedrijven om de benodigde data te verzamelen en te integreren in Klaviyo.
-				Daarnaast bouw ik ook interne automatiseringen, scripts en tools die de bedrijfsprocessen stroomlijnen en handmatig werk voor het marketingteam verminderen, waaronder het integreren van Gemini's API om data automatisch te categoriseren.
-				Binnen deze rol ben ik verantwoordelijk voor de technische ontwikkeling van deze integraties en interne automatiseringen en hoe deze geïmplementeerd worden.
+				Als senior developer bij Chary Solutions zorgde ik voor de technische ontwikkeling van marketing integraties tussen verschillende platformen die niet ondersteund worden vanuit Klaviyo.
+				Hierbij maakte ik gebruik van Google Tag Manager voor custom tracking cookies voor handelingen op de website en gebruikte ik de API's van verschillende bedrijven om de benodigde data te verzamelen en te integreren in Klaviyo.
+				Daarnaast bouwde ik ook interne automatiseringen, scripts en tools die de bedrijfsprocessen stroomlijnen en handmatig werk voor het marketingteam verminderen, waaronder het integreren van Gemini's API om data automatisch te categoriseren.
+				Binnen deze rol was ik verantwoordelijk voor de technische ontwikkeling van deze integraties en interne automatiseringen en hoe deze geïmplementeerd werden.
 			`,
 		},
 		{
@@ -348,11 +398,13 @@ export function resumePdfPath(language, mode) {
 
 export const resumeCertifications = {
 	en: [
+		{ name: 'AWS Certified Developer - Associate', year: '2026' },
 		{ name: 'Cambridge English: C1', year: '2016' },
 		{ name: 'AWS Cloud Practitioner', year: '2021' },
 		{ name: 'Certified Scrum Master', year: '2022' },
 	],
 	nl: [
+		{ name: 'AWS Certified Developer - Associate', year: '2026' },
 		{ name: 'Cambridge English: C1', year: '2016' },
 		{ name: 'AWS Cloud Practitioner', year: '2021' },
 		{ name: 'Gecertificeerd Scrum Master', year: '2022' },

@@ -1,34 +1,68 @@
 export const experience = [
 	{
+		name: 'Lab Digital',
+		skills: ['GraphQL', 'node.js', 'Next.js', 'AWS'],
+		location: 'Utrecht, Utrecht, Nederland',
+		startDate: 'Oct 2026',
+		endDate: 'Now',
+		link: 'https://www.labdigital.nl/',
+		description: [
+			`
+					
+									At Lab Digital, I work as a senior full stack engineer on various projects for Lab Digital's customers.
+									These projects are built with GraphQL, Node.js, TypeScript, Next.js and AWS.
+									Within this role I am responsible for the technical development of these customer projects and how they are implemented.
+								
+				`,
+		],
+	},
+	{
 		name: 'Mikrocloud',
 		skills: ['Laravel', 'Nuxt.js', 'AWS'],
 		location: 'Remote - Naas, Kildare, Ireland',
 		startDate: 'July 2025',
-		endDate: 'Now',
+		endDate: 'Oct 2026',
 		link: 'https://www.mikrocloud.com/',
 		description: [
 			`
 					
 									At MikroCloud I worked as the lead developer on the Software Defined WAN platform designed to work with Mikrotik network devices. In this role I was responsible for the technical decisions and the overall architecture of the platform, as well as the implementation of new features and the maintenance of the existing codebase.
 									The platform was built using a microservices architecture using Laravel Vapor which uses AWS Lambda and API Gateway under the hood to manage the backend. The microservices themselves were built using Laravel using the SQS messaging queue to communicate between different services. The frontend was built using Nuxt.js, which fit well with my prior experience using Vue.js. The platform also runs scripts written in the RouterOS scripting language on the Mikrotik network devices.
-									Within this stack I have to use my skills for managing a web application as well as my knowledge for networking protocols such as setting up BGP routes, managing VLANs, configuring firewalls and managing IP routing tables, among other things.
+									Within this stack I had to use my skills for managing a web application as well as my knowledge for networking protocols such as setting up BGP routes, managing VLANs, configuring firewalls and managing IP routing tables, among other things.
+								
+				`,
+		],
+	},
+	{
+		name: 'WISEPIM',
+		skills: ['Next.js', 'Django'],
+		location: 'Enschede, Overijssel, Nederland',
+		startDate: 'Oct 2024',
+		endDate: 'Oct 2026',
+		link: 'https://wisepim.com/',
+		description: [
+			`
+					
+									At WISEPIM, I worked as a full stack developer on both the frontend and the backend of their PIM. WISEPIM is an AI company that improves product data. The PIM enriches catalogs so products are easier to find, search, and sell, and publishes that content to shops and marketplaces.
+									The platform was built with Next.js and Django.
+									Within this role I was responsible for the technical development of the frontend and the backend and how they were implemented.
 								
 				`,
 		],
 	},
 	{
 		name: 'Webshopimporter',
-		skills: ['Django', 'NiceGUI', 'Playwright'],
+		skills: ['Laravel', 'Docker', 'Linux'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
 		startDate: 'Sep 2024',
-		endDate: 'Now',
+		endDate: 'Oct 2026',
 		link: 'https://www.webshopimporter.com/',
 		description: [
 			`
 					
-									At Webshopimporter, I am the lead developer responsible on the ecommerce data integration platform. The platform is designed to fetch supplier data and map it into different e-commerce platforms such as Shopify, Lightspeed, WooCommerce, Magento and CCVShop. My tasks include designing and implementing new integrations, solving complex data mapping problems and updating prior integrations when the supplier change their data structure.
-									The platform was built using CodeIgniter and Laravel and we are currently working on a migration using Django. The platform is hosted using our own Linux server using Docker containers with docker compose and a MySQL database. The platform's integrations feature a wide variety of formats and protocols, including protocols such as REST, SOAP and FTP and formats such as JSON, XML and CSV.
-									Within this role I have to use my skills for analysing data from a wide variety of sources and formats. This role also requires deep knowledge of the APIs provided by the different e-commerce platforms (Shopify, Lightspeed, WooCommerce, Magento and CCVShop).
+									At Webshopimporter, I was the lead developer managing the entire application that synchronises supplier data to different e-commerce platforms. The platform uses CodeIgniter and Laravel. I also managed the hosting on a Linux server with Docker.
+									A large part of the work was complex data mapping. Supplier data arrived in many different structures, and I had to map those large datasets onto the product models of the e-commerce platforms so the catalogues stayed in sync.
+									Within this role I made the architectural decisions for the application and was responsible for how those mappings and the rest of the platform were implemented.
 								
 				`,
 		],
@@ -38,14 +72,14 @@ export const experience = [
 		skills: ['Javascript', 'Klaviyo', 'Playwright'],
 		location: 'Amsterdam, Noord-Holland, Nederland',
 		startDate: 'Jul 2024',
-		endDate: 'Now',
+		endDate: 'Oct 2026',
 		link: 'https://www.spar.nl/',
 		description: [
 			`
 					
-									At Chary Solutions, I work as a senior developer leading the technical development for internal tools and integrating Klaviyo with various content management systems that do not have standard integrations. My work focuses on building solutions for tracking and sending event data to Klaviyo, providing email marketers with the tools they needed to improve their campaigns and building internal automations which reduce time spent on menial tasks such as sorting e-mails inside of Gmail, managing Excel sheets, and more. 
-									For these integrations I use Google Tag Manager for custom tracking cookies and work with platforms like Shopify, WooCommerce, Lightspeed and CCVShop. For the internal automations I use Google's app script which allows me to build custom automations for Google Sheets, Gmail and more using basic scripts written in Javascript. 
-									Within this role I have to use my knowledge of web applications to build different tracking solutions in a wide variety of webshops depending on the data need of the e-mail marketers, as well as my knowledge of Google's app script to build internal automations that make the company's operations more efficient.
+									At Chary Solutions, I worked as a senior developer leading the technical development for internal tools and integrating Klaviyo with various content management systems that do not have standard integrations. My work focused on building solutions for tracking and sending event data to Klaviyo, providing email marketers with the tools they needed to improve their campaigns and building internal automations which reduce time spent on menial tasks such as sorting e-mails inside of Gmail, managing Excel sheets, and more. 
+									For these integrations I used Google Tag Manager for custom tracking cookies and worked with platforms like Shopify, WooCommerce, Lightspeed and CCVShop. For the internal automations I used Google's app script which allowed me to build custom automations for Google Sheets, Gmail and more using basic scripts written in Javascript. 
+									Within this role I had to use my knowledge of web applications to build different tracking solutions in a wide variety of webshops depending on the data need of the e-mail marketers, as well as my knowledge of Google's app script to build internal automations that make the company's operations more efficient.
 								
 				`,
 		],

@@ -1,33 +1,67 @@
 export const experience = [
 	{
+		name: 'Lab Digital',
+		title: 'Senior Full Stack Engineer',
+		skills: ['GraphQL', 'node.js', 'Typescript', 'Next.js', 'AWS'],
+		location: 'Utrecht, Utrecht, Nederland',
+		startDate: 'Oct 2026',
+		endDate: 'Now',
+		description: [
+			`
+				At Lab Digital, I work as a senior full stack engineer on various projects for Lab Digital's customers.
+				I use GraphQL, Node.js, TypeScript, Next.js and AWS to build these projects.
+				Within this role I am responsible for the technical development of these customer projects and how they are implemented.
+			`,
+		],
+		link: 'https://www.labdigital.nl/',
+		cv: true,
+	},
+	{
 		name: 'Mikrocloud',
 		title: 'Lead Full Stack Developer',
 		skills: ['Laravel', 'Nuxt.js', 'AWS', 'MySQL', 'Mikrotik RouterOS', 'PHP', 'Stripe', 'Docker'],
 		location: 'Remote - Naas, Kildare, Ireland',
 		startDate: 'July 2025',
-		endDate: 'Now',
+		endDate: 'Oct 2026',
 		description: [
 			`
-				At Mikrocloud, I work as the lead developer responsible for the technical decisions and infrastructure of an SD-WAN platform that helps users manage Mikrotik RouterOS devices.
-				The backend is built with Laravel on AWS Lambda via Laravel Vapor, using a microservices architecture with SQS for inter-service communication, and the frontend with Nuxt.js. I also write scripts in the RouterOS scripting language to configure routers remotely.
-				Within this role I am responsible for the technical development of the platform, its architecture and infrastructure.
+				At Mikrocloud, I worked as the lead developer responsible for the technical decisions and infrastructure of an SD-WAN platform that helps users manage Mikrotik RouterOS devices.
+				The backend was built with Laravel on AWS Lambda via Laravel Vapor, using a microservices architecture with SQS for inter-service communication, and the frontend with Nuxt.js. I also wrote scripts in the RouterOS scripting language to configure routers remotely.
+				Within this role I was responsible for the technical development of the platform, its architecture and infrastructure.
 			`,
 		],
 		link: 'https://www.mikrocloud.com/',
 		cv: true,
 	},
 	{
-		name: 'Webshopimporter',
-		title: 'Lead Full Stack Developer',
-		skills: ['PHP', 'Laravel', 'Django', 'MySQL', 'Github Actions', 'Magento', 'Shopify', 'WooCommerce'],
-		location: 'Remote - Enschede, Overijssel, Nederland',
-		startDate: 'Sep 2024',
-		endDate: 'Now',
+		name: 'WISEPIM',
+		title: 'Full Stack Developer',
+		skills: ['Next.js', 'Django'],
+		location: 'Enschede, Overijssel, Nederland',
+		startDate: 'Oct 2024',
+		endDate: 'Oct 2026',
 		description: [
 			`
-				At Webshopimporter, I am the lead developer managing the application that synchronises supplier data to different e-commerce platforms such as Shopify, Lightspeed, WooCommerce, Magento and CCVShop.
-				I collaborate on migrating the platform from the legacy CodeIgniter codebase to Django, while also building and maintaining integrations using protocols like REST, SOAP and FTP and formats like JSON, XML and CSV, even when supplier documentation is complex or incomplete.
-				Within this role I am responsible for the technical development of these integrations and how they are implemented. For this I need to thoroughly study various supplier documentation and the APIs they provide in order to integrate them into the platform.
+				At WISEPIM, I worked as a full stack developer on both the frontend and the backend of their PIM.
+				WISEPIM is an AI company that improves product data. The PIM enriches catalogs so products are easier to find, search, and sell, and publishes that content to shops and marketplaces.
+				The platform was built with Next.js and Django. Within this role I was responsible for the technical development of the frontend and the backend and how they were implemented.
+			`,
+		],
+		link: 'https://wisepim.com/',
+		cv: true,
+	},
+	{
+		name: 'Webshopimporter',
+		title: 'Lead Full Stack Developer',
+		skills: ['PHP', 'Laravel', 'MySQL', 'Docker', 'Linux'],
+		location: 'Remote - Enschede, Overijssel, Nederland',
+		startDate: 'Sep 2024',
+		endDate: 'Oct 2026',
+		description: [
+			`
+				At Webshopimporter, I was the lead developer managing the entire application that synchronises supplier data to different e-commerce platforms. The platform uses CodeIgniter and Laravel. I also managed the hosting on a Linux server with Docker.
+				A large part of the work was complex data mapping. Supplier data arrived in many different structures, and I had to map those large datasets onto the product models of the e-commerce platforms so the catalogues stayed in sync.
+				Within this role I made the architectural decisions for the application and was responsible for how those mappings and the rest of the platform were implemented.
 			`,
 		],
 		link: 'https://www.webshopimporter.com/',
@@ -39,12 +73,12 @@ export const experience = [
 		skills: ['Django', 'NiceGUI', 'Playwright', 'Pandas', 'CCVShop', 'Wordpress'],
 		location: 'Remote - Enschede, Overijssel, Nederland',
 		startDate: 'Sep 2024',
-		endDate: 'Now',
+		endDate: 'Oct 2026',
 		description: [
 			`
-				At Swiftsync, I work as a full-stack developer on various software solutions based on client requirements.
-				I use frameworks including Django, NiceGUI, Playwright and Pandas, and have built a data management dashboard in NiceGUI for CCVShop product data, a web scraping dashboard using Django and Playwright, and a product synchronisation tool between Wintree and various e-commerce platforms handling product data, stock levels, customer groups and tier pricing.
-				Within this role I am responsible for the technical development of these tools and how they are implemented.
+				At Swiftsync, I worked as a full-stack developer on various software solutions based on client requirements.
+				I used frameworks including Django, NiceGUI, Playwright and Pandas, and built a data management dashboard in NiceGUI for CCVShop product data, a web scraping dashboard using Django and Playwright, and a product synchronisation tool between Wintree and various e-commerce platforms handling product data, stock levels, customer groups and tier pricing.
+				Within this role I was responsible for the technical development of these tools and how they were implemented.
 			`,
 		],
 		link: 'https://www.swiftsync.ai/',
@@ -56,12 +90,12 @@ export const experience = [
 		skills: ['Javascript', 'Klaviyo', 'Gemini', 'Lightspeed', 'Shopify', 'WooCommerce', 'CCVShop'],
 		location: 'Amsterdam, Noord-Holland, Nederland',
 		startDate: 'Jul 2024',
-		endDate: 'Now',
+		endDate: 'Oct 2026',
 		description: [
 			`
-				At Chary Solutions, I work as a senior developer handling the technical development of marketing integrations between platforms that are not supported by Klaviyo out of the box.
-				I use Google Tag Manager for custom tracking cookies for actions on websites and use the APIs of various companies to collect the required data and integrate it into Klaviyo. I also build internal automations, scripts and tools that streamline business processes and reduce manual work for the marketing team, including integrating Gemini's API to automatically categorise data.
-				Within this role I am responsible for the technical development of these integrations and internal automations and how they are implemented.
+				At Chary Solutions, I worked as a senior developer handling the technical development of marketing integrations between platforms that are not supported by Klaviyo out of the box.
+				I used Google Tag Manager for custom tracking cookies for actions on websites and used the APIs of various companies to collect the required data and integrate it into Klaviyo. I also built internal automations, scripts and tools that streamline business processes and reduce manual work for the marketing team, including integrating Gemini's API to automatically categorise data.
+				Within this role I was responsible for the technical development of these integrations and internal automations and how they were implemented.
 			`,
 		],
 		link: 'https://www.spar.nl/',
