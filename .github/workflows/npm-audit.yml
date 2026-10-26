@@ -1,0 +1,44 @@
+name: Dependency audit
+
+on:
+  schedule:
+    # Every 2 hours. High findings are sent on the 18:00 UTC run.
+    - cron: "0 */2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  npm-audit:
+    name: npm audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Audit dependencies
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          hour=$(date -u +%H)
+
+          set +e
+          npm audit --json > "$RUNNER_TEMP/npm-audit.json"
+          audit_status=$?
+          set -e
+          if [ "$audit_status" -gt 1 ]; then
+            exit "$audit_status"
+          fi
+
+          export AUDIT_REPORT="$RUNNER_TEMP/npm-audit.json"
+          status=0
+          if [ "$hour" = "18" ]; then
+            node .github/scripts/notify-npm-audit.mjs high || status=$?
+          fi
+          node .github/scripts/notify-npm-audit.mjs critical || status=$?
+          exit "$status"
