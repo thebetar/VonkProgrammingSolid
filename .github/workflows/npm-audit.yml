@@ -2,7 +2,7 @@ name: Dependency audit
 
 on:
   schedule:
-    # Every 2 hours. High findings are sent on the 18:00 UTC run.
+    # Every 2 hours. Moderate and low findings are sent on the 18:00 UTC run.
     - cron: "0 */2 * * *"
   workflow_dispatch:
 
@@ -37,8 +37,10 @@ jobs:
 
           export AUDIT_REPORT="$RUNNER_TEMP/npm-audit.json"
           status=0
-          if [ "$hour" = "18" ]; then
-            node .github/scripts/notify-npm-audit.mjs high || status=$?
-          fi
           node .github/scripts/notify-npm-audit.mjs critical || status=$?
+          node .github/scripts/notify-npm-audit.mjs high || status=$?
+          if [ "$hour" = "18" ]; then
+            node .github/scripts/notify-npm-audit.mjs moderate || status=$?
+            node .github/scripts/notify-npm-audit.mjs low || status=$?
+          fi
           exit "$status"

@@ -3,8 +3,9 @@ import { readFileSync } from 'node:fs';
 
 function readSeverity() {
     const severity = process.argv[2];
-    if (severity !== 'high' && severity !== 'critical') {
-        console.error('Usage: notify-npm-audit.mjs <high|critical>');
+    const allowed = ['critical', 'high', 'moderate', 'low'];
+    if (!allowed.includes(severity)) {
+        console.error('Usage: notify-npm-audit.mjs <critical|high|moderate|low>');
         process.exit(1);
     }
     return severity;
