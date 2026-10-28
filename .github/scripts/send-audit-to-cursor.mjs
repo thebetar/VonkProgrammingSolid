@@ -6,10 +6,14 @@ import { pathToFileURL } from 'node:url';
 const AGENT_ID_PATTERN = /^bc-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 const CURSOR_AGENTS_URL = 'https://api.cursor.com/v1/agents';
 
-export function loadFindings(path) {
+export function loadAudit(path) {
     const stored = JSON.parse(readFileSync(path, 'utf8'));
+    const repository = stored.repository;
+    if (!repository?.repository || !repository?.url || !repository?.ref) {
+        throw new Error('Audit results are missing the repository from GitHub Actions.');
+    }
     if (!Array.isArray(stored.findings)) throw new Error('Audit results must contain a findings array.');
-    return stored.findings;
+    return { repository, findings: stored.findings };
 }
 
 export function findingKey(finding, repository) {
@@ -41,10 +45,17 @@ function describeFix(finding) {
     return 'npm audit does not report an automatic fix. Use the smallest package.json override or upgrade that clears the advisories. This repository already uses the overrides field for transitive fixes.';
 }
 
-export function buildPrompt(finding, repoUrl) {
+export function buildPrompt(finding, repository) {
     const lines = [
-        `Update ${repoUrl} so this npm audit finding is resolved. Commit only that dependency update.`,
+        `Update ${repository.url} so this npm audit finding is resolved. Commit only that dependency update.`,
         'Cursor opens the pull request when the run finishes. Do not open a pull request yourself.',
+        '',
+        `Repository: ${repository.url}`,
+        `Branch: ${repository.ref}`,
+    ];
+    if (repository.sha) lines.push(`Audited commit: ${repository.sha}`);
+    if (repository.runUrl) lines.push(`Audit run: ${repository.runUrl}`);
+    lines.push(
         '',
         `Package: ${finding.name}`,
         `Severity: ${finding.severity}`,
@@ -53,7 +64,7 @@ export function buildPrompt(finding, repoUrl) {
         describeFix(finding),
         '',
         'Advisories:',
-    ];
+    );
 
     for (const advisory of finding.advisories ?? []) {
         const title = advisory.title ?? finding.name;
@@ -80,18 +91,18 @@ export function buildPrompt(finding, repoUrl) {
     return lines.join('\n');
 }
 
-export function cursorRequest(finding, env) {
+export function cursorRequest(finding, repository, env) {
     if (!env.CURSOR_API_KEY) return { error: 'Set CURSOR_API_KEY.' };
-    if (!env.GITHUB_REPOSITORY) return { error: 'Set GITHUB_REPOSITORY.' };
+    if (!repository?.repository || !repository?.url || !repository?.ref) {
+        return { error: 'Audit results are missing the repository from GitHub Actions.' };
+    }
 
-    const server = env.GITHUB_SERVER_URL ?? 'https://github.com';
-    const repoUrl = `${server}/${env.GITHUB_REPOSITORY}`;
-    const agentId = agentIdFor(findingKey(finding, env.GITHUB_REPOSITORY));
+    const agentId = agentIdFor(findingKey(finding, repository.repository));
     const body = {
-        prompt: { text: buildPrompt(finding, repoUrl) },
+        prompt: { text: buildPrompt(finding, repository) },
         name: agentName(finding),
         agentId,
-        repos: [{ url: repoUrl, startingRef: env.GITHUB_REF_NAME || 'master' }],
+        repos: [{ url: repository.url, startingRef: repository.ref }],
         autoCreatePR: true,
     };
 
@@ -125,8 +136,8 @@ async function readError(response) {
     }
 }
 
-export async function dispatchFinding(finding, env, fetchImpl) {
-    const request = cursorRequest(finding, env);
+export async function dispatchFinding(finding, repository, env, fetchImpl) {
+    const request = cursorRequest(finding, repository, env);
     if (request.error) return { status: 'failed', detail: request.error };
 
     let response;
@@ -157,7 +168,8 @@ export async function dispatchFinding(finding, env, fetchImpl) {
     return { status: 'created', agentId: request.agentId, url };
 }
 
-export async function sendFindings(findings, env, fetchImpl, log = console) {
+export async function sendFindings(audit, env, fetchImpl, log = console) {
+    const findings = audit.findings ?? [];
     if (findings.length === 0) {
         log.log('No audit findings to send.');
         return { created: 0, duplicate: 0, failed: 0 };
@@ -167,7 +179,7 @@ export async function sendFindings(findings, env, fetchImpl, log = console) {
     let duplicate = 0;
     let failed = 0;
     for (const finding of findings) {
-        const result = await dispatchFinding(finding, env, fetchImpl);
+        const result = await dispatchFinding(finding, audit.repository, env, fetchImpl);
         if (result.status === 'created') {
             created += 1;
             log.log(`Sent ${finding.name} to Cursor: ${result.url ?? result.agentId}`);
@@ -196,7 +208,7 @@ async function main() {
         return;
     }
 
-    const result = await sendFindings(loadFindings(input), process.env, fetch);
+    const result = await sendFindings(loadAudit(input), process.env, fetch);
     process.exitCode = exitCodeFor(result);
 }
 
