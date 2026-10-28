@@ -3,7 +3,7 @@ import { mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { collectFindings, writeFindings } from './audit-dependencies.mjs';
+import { collectFindings, repositoryContext, writeFindings } from './audit-dependencies.mjs';
 import {
     agentIdFor,
     agentName,
@@ -12,7 +12,7 @@ import {
     dispatchFinding,
     exitCodeFor,
     findingKey,
-    loadFindings,
+    loadAudit,
     sendFindings,
 } from './send-audit-to-cursor.mjs';
 
@@ -50,37 +50,43 @@ const report = {
     },
 };
 
-const env = {
-    CURSOR_API_KEY: 'test-key',
+const actionsEnv = {
+    GITHUB_SERVER_URL: 'https://github.com',
     GITHUB_REPOSITORY: 'thebetar/VonkProgrammingSolid',
     GITHUB_REF_NAME: 'master',
+    GITHUB_SHA: 'abc123def456abc123def456abc123def456abcd',
+    GITHUB_RUN_ID: '42',
 };
+const cursorEnv = { CURSOR_API_KEY: 'test-key' };
 
-function storedFindings(hour) {
+function storedAudit(hour) {
     const dir = mkdtempSync(join(tmpdir(), 'audit-'));
     const path = join(dir, 'findings.json');
-    writeFindings(path, collectFindings(report, hour));
-    return loadFindings(path);
+    writeFindings(path, {
+        repository: repositoryContext(actionsEnv).context,
+        findings: collectFindings(report, hour),
+    });
+    return loadAudit(path);
 }
 
 test('uses one stable Cursor agent id per stored advisory set', () => {
-    const [lodash] = storedFindings(10);
-    const key = findingKey(lodash, env.GITHUB_REPOSITORY);
-    assert.equal(agentIdFor(key), agentIdFor(findingKey(lodash, env.GITHUB_REPOSITORY)));
+    const { repository, findings: [lodash] } = storedAudit(10);
+    const key = findingKey(lodash, repository.repository);
+    assert.equal(agentIdFor(key), agentIdFor(findingKey(lodash, repository.repository)));
     assert.match(agentIdFor(key), /^bc-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
 
     const changed = { ...lodash, advisories: [...lodash.advisories, { id: 'GHSA-333', title: 'Another' }] };
-    assert.notEqual(findingKey(changed, env.GITHUB_REPOSITORY), key);
+    assert.notEqual(findingKey(changed, repository.repository), key);
 });
 
 test('asks Cursor to open a pull request for a stored finding', () => {
-    const [lodash] = storedFindings(10);
-    const request = cursorRequest(lodash, env);
+    const { repository, findings: [lodash] } = storedAudit(10);
+    const request = cursorRequest(lodash, repository, cursorEnv);
     const body = JSON.parse(request.init.body);
 
     assert.equal(request.url, 'https://api.cursor.com/v1/agents');
     assert.equal(body.autoCreatePR, true);
-    assert.equal(body.agentId, agentIdFor(findingKey(lodash, env.GITHUB_REPOSITORY)));
+    assert.equal(body.agentId, agentIdFor(findingKey(lodash, repository.repository)));
     assert.equal(body.name, agentName(lodash));
     assert.deepEqual(body.repos, [{
         url: 'https://github.com/thebetar/VonkProgrammingSolid',
@@ -89,12 +95,14 @@ test('asks Cursor to open a pull request for a stored finding', () => {
     assert.match(body.prompt.text, /GHSA-111/);
     assert.match(body.prompt.text, /widget to 2\.0\.0/);
     assert.match(body.prompt.text, /node_modules\/lodash/);
+    assert.match(body.prompt.text, /actions\/runs\/42/);
     assert.equal(request.init.headers.authorization, `Basic ${Buffer.from('test-key:').toString('base64')}`);
     assert.equal(request.init.body.includes('test-key'), false);
+    assert.equal(JSON.stringify(body).includes('GITHUB_'), false);
 });
 
 test('sends each stored finding once', async () => {
-    const findings = storedFindings(18);
+    const audit = storedAudit(18);
     const seen = new Set();
     const fetchImpl = async (_url, init) => {
         const agentId = JSON.parse(init.body).agentId;
@@ -114,8 +122,8 @@ test('sends each stored finding once', async () => {
     };
     const log = { log() {}, error() {} };
 
-    const first = await sendFindings(findings, env, fetchImpl, log);
-    const second = await sendFindings(findings, env, fetchImpl, log);
+    const first = await sendFindings(audit, cursorEnv, fetchImpl, log);
+    const second = await sendFindings(audit, cursorEnv, fetchImpl, log);
 
     assert.deepEqual(first, { created: 2, duplicate: 0, failed: 0 });
     assert.deepEqual(second, { created: 0, duplicate: 2, failed: 0 });
@@ -125,8 +133,8 @@ test('sends each stored finding once', async () => {
 });
 
 test('treats an existing agent id as already sent', async () => {
-    const [lodash] = storedFindings(10);
-    const result = await dispatchFinding(lodash, env, async () => ({
+    const { repository, findings: [lodash] } = storedAudit(10);
+    const result = await dispatchFinding(lodash, repository, cursorEnv, async () => ({
         status: 409,
         ok: false,
         text: async () => JSON.stringify({
@@ -134,19 +142,19 @@ test('treats an existing agent id as already sent', async () => {
         }),
     }));
     assert.equal(result.status, 'duplicate');
-    assert.equal(result.agentId, agentIdFor(findingKey(lodash, env.GITHUB_REPOSITORY)));
+    assert.equal(result.agentId, agentIdFor(findingKey(lodash, repository.repository)));
 });
 
 test('keeps a failed send retryable', async () => {
-    const [lodash] = storedFindings(10);
-    const conflict = await dispatchFinding(lodash, env, async () => ({
+    const { repository, findings: [lodash] } = storedAudit(10);
+    const conflict = await dispatchFinding(lodash, repository, cursorEnv, async () => ({
         status: 409,
         ok: false,
         text: async () => JSON.stringify({ error: { code: 'agent_busy', message: 'busy' } }),
     }));
     assert.equal(conflict.status, 'failed');
 
-    const unavailable = await dispatchFinding(lodash, env, async () => ({
+    const unavailable = await dispatchFinding(lodash, repository, cursorEnv, async () => ({
         status: 500,
         ok: false,
         text: async () => 'unavailable',
@@ -155,15 +163,21 @@ test('keeps a failed send retryable', async () => {
 });
 
 test('does not call Cursor without an API key or without findings', async () => {
-    const [lodash] = storedFindings(10);
+    const { repository, findings: [lodash] } = storedAudit(10);
     let called = false;
-    const missingKey = await dispatchFinding(lodash, {}, async () => {
+    const missingKey = await dispatchFinding(lodash, repository, {}, async () => {
         called = true;
     });
     assert.equal(called, false);
     assert.deepEqual(missingKey, { status: 'failed', detail: 'Set CURSOR_API_KEY.' });
 
-    const empty = await sendFindings([], env, async () => {
+    const missingRepository = await dispatchFinding(lodash, {}, cursorEnv, async () => {
+        called = true;
+    });
+    assert.equal(called, false);
+    assert.match(missingRepository.detail, /GitHub Actions/);
+
+    const empty = await sendFindings({ repository, findings: [] }, cursorEnv, async () => {
         called = true;
     }, { log() {}, error() {} });
     assert.equal(called, false);
@@ -174,7 +188,10 @@ test('does not call Cursor without an API key or without findings', async () => 
 test('truncates long agent names and names the repository in the prompt', () => {
     const name = agentName({ severity: 'moderate', name: 'x'.repeat(200) });
     assert.equal(name.length, 100);
-    const prompt = buildPrompt(storedFindings(10)[0], 'https://github.com/thebetar/VonkProgrammingSolid');
+    const { repository, findings } = storedAudit(10);
+    const prompt = buildPrompt(findings[0], repository);
     assert.match(prompt, /https:\/\/github.com\/thebetar\/VonkProgrammingSolid/);
+    assert.match(prompt, /Branch: master/);
+    assert.match(prompt, /Audited commit: abc123def456abc123def456abc123def456abcd/);
     assert.match(prompt, /Do not open a pull request yourself/);
 });

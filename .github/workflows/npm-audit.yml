@@ -3,6 +3,7 @@ name: Dependency audit
 on:
   schedule:
     # Every 2 hours. Moderate and low findings are stored on the 18:00 UTC run.
+    # The repository URL, branch, commit, and run link come from this Actions run.
     # Each stored advisory is sent to Cursor once. Cursor opens a pull request with the fix.
     # The job fails when a new finding is sent or a send fails. Already-sent findings stay green.
     - cron: "0 */2 * * *"

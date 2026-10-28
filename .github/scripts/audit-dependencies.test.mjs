@@ -6,6 +6,7 @@ import { test } from 'node:test';
 import {
     collectFindings,
     findingsFromAuditOutput,
+    repositoryContext,
     severitiesForHour,
     writeFindings,
 } from './audit-dependencies.mjs';
@@ -80,11 +81,46 @@ test('stores moderate and low findings on the 18:00 UTC run', () => {
     assert.deepEqual(collectFindings(report, 18).map((finding) => finding.name), ['lodash', 'left-pad']);
 });
 
+const actionsEnv = {
+    GITHUB_SERVER_URL: 'https://github.com',
+    GITHUB_REPOSITORY: 'thebetar/VonkProgrammingSolid',
+    GITHUB_REF_NAME: 'master',
+    GITHUB_SHA: 'abc123def456abc123def456abc123def456abcd',
+    GITHUB_RUN_ID: '42',
+};
+
+test('reads the repository, branch, commit, and run link from GitHub Actions', () => {
+    const { context } = repositoryContext(actionsEnv);
+    assert.deepEqual(context, {
+        repository: 'thebetar/VonkProgrammingSolid',
+        url: 'https://github.com/thebetar/VonkProgrammingSolid',
+        ref: 'master',
+        sha: 'abc123def456abc123def456abc123def456abcd',
+        runUrl: 'https://github.com/thebetar/VonkProgrammingSolid/actions/runs/42',
+    });
+
+    const enterprise = repositoryContext({
+        GITHUB_SERVER_URL: 'https://github.example.com',
+        GITHUB_REPOSITORY: 'acme/app',
+        GITHUB_REF_NAME: 'release',
+    });
+    assert.equal(enterprise.context.url, 'https://github.example.com/acme/app');
+    assert.equal(enterprise.context.ref, 'release');
+    assert.equal(enterprise.context.sha, undefined);
+    assert.equal(enterprise.context.runUrl, undefined);
+
+    const missing = repositoryContext({ GITHUB_REPOSITORY: 'thebetar/VonkProgrammingSolid' });
+    assert.match(missing.error, /GITHUB_REF_NAME/);
+});
+
 test('writes the findings file the sender reads', () => {
     const dir = mkdtempSync(join(tmpdir(), 'audit-'));
     const path = join(dir, 'findings.json');
-    writeFindings(path, collectFindings(report, 18));
+    const repository = repositoryContext(actionsEnv).context;
+    writeFindings(path, { repository, findings: collectFindings(report, 18) });
     const stored = JSON.parse(readFileSync(path, 'utf8'));
+    assert.equal(stored.repository.url, 'https://github.com/thebetar/VonkProgrammingSolid');
+    assert.equal(stored.repository.ref, 'master');
     assert.equal(stored.findings.length, 2);
     assert.equal(stored.findings[1].name, 'left-pad');
 });

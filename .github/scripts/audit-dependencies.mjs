@@ -63,8 +63,25 @@ export function findingsFromAuditOutput(stdout, status, hour) {
     return { findings: collectFindings(report, hour), status: 0 };
 }
 
-export function writeFindings(path, findings) {
-    writeFileSync(path, `${JSON.stringify({ findings }, null, 2)}\n`);
+export function repositoryContext(env) {
+    const repository = env.GITHUB_REPOSITORY;
+    const server = env.GITHUB_SERVER_URL;
+    const ref = env.GITHUB_REF_NAME;
+    if (!repository || !server || !ref) {
+        return {
+            error: 'GitHub Actions did not provide GITHUB_SERVER_URL, GITHUB_REPOSITORY, and GITHUB_REF_NAME.',
+        };
+    }
+
+    const url = `${server.replace(/\/$/, '')}/${repository}`;
+    const context = { repository, url, ref };
+    if (env.GITHUB_SHA) context.sha = env.GITHUB_SHA;
+    if (env.GITHUB_RUN_ID) context.runUrl = `${url}/actions/runs/${env.GITHUB_RUN_ID}`;
+    return { context };
+}
+
+export function writeFindings(path, result) {
+    writeFileSync(path, `${JSON.stringify({ repository: result.repository, findings: result.findings }, null, 2)}\n`);
 }
 
 function runNpmAudit() {
@@ -88,6 +105,13 @@ function main() {
         return;
     }
 
+    const context = repositoryContext(process.env);
+    if (context.error) {
+        console.error(context.error);
+        process.exitCode = 1;
+        return;
+    }
+
     const audit = runNpmAudit();
     const stored = findingsFromAuditOutput(audit.stdout, audit.status, new Date().getUTCHours());
     if (stored.error) {
@@ -97,8 +121,8 @@ function main() {
         return;
     }
 
-    writeFindings(outPath, stored.findings);
-    console.log(`Stored ${stored.findings.length} audit findings.`);
+    writeFindings(outPath, { repository: context.context, findings: stored.findings });
+    console.log(`Stored ${stored.findings.length} audit findings for ${context.context.url}@${context.context.ref}.`);
 }
 
 function isDirectRun() {
