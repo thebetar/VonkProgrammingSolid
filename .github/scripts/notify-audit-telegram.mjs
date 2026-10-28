@@ -63,27 +63,38 @@ export function telegramRequest(text, env) {
 }
 
 export async function notifyTelegram(audit, env, fetchImpl, log = console) {
+    const repo = audit.repository?.repository ?? 'this repository';
+    log.log(`Telegram: ${audit.findings.length} finding(s) for ${repo}.`);
     if (audit.findings.length === 0) {
-        log.log('No audit findings to notify.');
+        log.log('Telegram: nothing to send.');
         return { status: 'empty' };
     }
 
     const text = buildMessage(audit);
+    log.log(`Telegram message (${text.length} characters):`);
     log.log(text);
     const request = telegramRequest(text, env);
-    if (request.error) return { status: 'failed', detail: request.error };
+    if (request.error) {
+        log.error(`Telegram: ${request.error}`);
+        return { status: 'failed', detail: request.error };
+    }
 
+    log.log('Telegram: sending message.');
     let response;
     try {
         response = await fetchImpl(request.url, request.init);
     } catch {
+        log.error('Telegram: request failed.');
         return { status: 'failed', detail: 'Telegram request failed.' };
     }
 
     if (!response.ok) {
         const body = (await response.text()).slice(0, 500);
-        return { status: 'failed', detail: `Telegram API ${response.status}: ${body}` };
+        const detail = `Telegram API ${response.status}: ${body}`;
+        log.error(`Telegram: ${detail}`);
+        return { status: 'failed', detail };
     }
+    log.log('Telegram: message accepted.');
     return { status: 'sent' };
 }
 
@@ -99,9 +110,11 @@ async function main() {
         return;
     }
 
-    const result = await notifyTelegram(loadAudit(input), process.env, fetch);
-    if (result.detail) console.error(result.detail);
+    console.log(`Reading audit results from ${input}.`);
+    const audit = loadAudit(input);
+    const result = await notifyTelegram(audit, process.env, fetch);
     process.exitCode = exitCodeFor(result);
+    console.log(`Telegram finished with status ${result.status}.`);
 }
 
 function isDirectRun() {
