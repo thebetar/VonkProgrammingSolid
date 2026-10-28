@@ -8,6 +8,7 @@ import {
     findingsFromAuditOutput,
     repositoryContext,
     severitiesForHour,
+    skippedPackages,
     writeFindings,
 } from './audit-dependencies.mjs';
 
@@ -123,6 +124,15 @@ test('writes the findings file the sender reads', () => {
     assert.equal(stored.repository.ref, 'master');
     assert.equal(stored.findings.length, 2);
     assert.equal(stored.findings[1].name, 'left-pad');
+});
+
+test('explains packages that are not stored', () => {
+    const skipped = skippedPackages(report, 10);
+    assert.deepEqual(skipped, [
+        { name: 'left-pad', severity: 'low', reason: 'outside this run' },
+        { name: 'widget', severity: 'high', reason: 'dependency effect' },
+    ]);
+    assert.deepEqual(findingsFromAuditOutput(JSON.stringify(report), 1, 10).skipped, skipped);
 });
 
 test('keeps an audit execution failure out of the stored results', () => {

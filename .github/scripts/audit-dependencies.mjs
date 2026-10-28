@@ -48,8 +48,22 @@ export function toFinding(pkg) {
     };
 }
 
+const ALL_SEVERITIES = ['critical', 'high', 'moderate', 'low'];
+
 export function collectFindings(report, hour) {
     return severitiesForHour(hour).flatMap((severity) => selectPackages(report, severity).map(toFinding));
+}
+
+export function skippedPackages(report, hour) {
+    const selected = new Set(severitiesForHour(hour));
+    return Object.values(report.vulnerabilities ?? {})
+        .filter((pkg) => !selected.has(pkg.severity) || advisories(pkg).length === 0)
+        .map((pkg) => ({
+            name: pkg.name,
+            severity: pkg.severity,
+            reason: advisories(pkg).length === 0 ? 'dependency effect' : 'outside this run',
+        }))
+        .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export function findingsFromAuditOutput(stdout, status, hour) {
@@ -60,7 +74,11 @@ export function findingsFromAuditOutput(stdout, status, hour) {
     } catch {
         return { error: 'npm audit did not return JSON.', status: 1 };
     }
-    return { findings: collectFindings(report, hour), status: 0 };
+    return {
+        findings: collectFindings(report, hour),
+        skipped: skippedPackages(report, hour),
+        status: 0,
+    };
 }
 
 export function repositoryContext(env) {
@@ -112,17 +130,41 @@ function main() {
         return;
     }
 
+    const hour = new Date().getUTCHours();
+    const severities = severitiesForHour(hour);
+    const waiting = ALL_SEVERITIES.filter((severity) => !severities.includes(severity));
+    const repo = context.context;
+    console.log(`Auditing ${repo.url} at ${repo.ref}.`);
+    if (repo.sha) console.log(`Commit ${repo.sha}.`);
+    if (repo.runUrl) console.log(`Workflow run ${repo.runUrl}.`);
+    console.log(`UTC hour ${String(hour).padStart(2, '0')}: storing ${severities.join(', ')}.`);
+    if (waiting.length > 0) console.log(`Leaving ${waiting.join(', ')} for the 18:00 UTC run.`);
+    console.log(`Running npm audit. Results will be written to ${outPath}.`);
+
     const audit = runNpmAudit();
-    const stored = findingsFromAuditOutput(audit.stdout, audit.status, new Date().getUTCHours());
+    console.log(`npm audit exited ${audit.status}.`);
+    if (audit.status === 1) console.log('Vulnerabilities were found. The report will still be stored.');
+    if (audit.stderr?.trim()) {
+        console.error(`npm audit stderr:\n${audit.stderr.trim().slice(0, 1000)}`);
+    }
+
+    const stored = findingsFromAuditOutput(audit.stdout, audit.status, hour);
     if (stored.error) {
-        if (audit.stderr) process.stderr.write(audit.stderr);
         console.error(stored.error);
         process.exitCode = stored.status;
         return;
     }
 
-    writeFindings(outPath, { repository: context.context, findings: stored.findings });
-    console.log(`Stored ${stored.findings.length} audit findings for ${context.context.url}@${context.context.ref}.`);
+    for (const skipped of stored.skipped) {
+        console.log(`Skip ${skipped.severity} ${skipped.name}: ${skipped.reason}.`);
+    }
+    for (const finding of stored.findings) {
+        const ids = finding.advisories.map((advisory) => advisory.id).join(', ');
+        console.log(`Store ${finding.severity} ${finding.name}: ${ids}.`);
+    }
+
+    writeFindings(outPath, { repository: repo, findings: stored.findings });
+    console.log(`Wrote ${stored.findings.length} finding(s) to ${outPath}.`);
 }
 
 function isDirectRun() {

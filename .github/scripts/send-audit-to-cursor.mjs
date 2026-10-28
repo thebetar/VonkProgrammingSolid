@@ -168,10 +168,17 @@ export async function dispatchFinding(finding, repository, env, fetchImpl) {
     return { status: 'created', agentId: request.agentId, url };
 }
 
+function findingLabel(finding) {
+    const advisories = (finding.advisories ?? []).map((advisory) => advisory.url ?? advisory.id).join(', ');
+    return `${finding.severity} ${finding.name}${advisories ? ` (${advisories})` : ''}`;
+}
+
 export async function sendFindings(audit, env, fetchImpl, log = console) {
     const findings = audit.findings ?? [];
+    const repo = audit.repository;
+    log.log(`Cursor: ${findings.length} finding(s) for ${repo?.url ?? 'unknown repository'}${repo?.ref ? `@${repo.ref}` : ''}.`);
     if (findings.length === 0) {
-        log.log('No audit findings to send.');
+        log.log('Cursor: nothing to send.');
         return { created: 0, duplicate: 0, failed: 0 };
     }
 
@@ -179,20 +186,21 @@ export async function sendFindings(audit, env, fetchImpl, log = console) {
     let duplicate = 0;
     let failed = 0;
     for (const finding of findings) {
+        log.log(`Cursor: dispatch ${findingLabel(finding)}.`);
         const result = await dispatchFinding(finding, audit.repository, env, fetchImpl);
         if (result.status === 'created') {
             created += 1;
-            log.log(`Sent ${finding.name} to Cursor: ${result.url ?? result.agentId}`);
+            log.log(`Cursor: created agent for ${finding.name}: ${result.url ?? result.agentId}.`);
         } else if (result.status === 'duplicate') {
             duplicate += 1;
-            log.log(`Already sent ${finding.name} (${result.agentId}).`);
+            log.log(`Cursor: ${finding.name} was already sent as ${result.agentId}.`);
         } else {
             failed += 1;
-            log.error(`Failed to send ${finding.name}: ${result.detail}`);
+            log.error(`Cursor: failed to send ${finding.name}: ${result.detail}`);
         }
     }
 
-    log.log(`Cursor dispatch: ${created} sent, ${duplicate} already sent, ${failed} failed.`);
+    log.log(`Cursor finished: ${created} sent, ${duplicate} already sent, ${failed} failed.`);
     return { created, duplicate, failed };
 }
 
@@ -208,8 +216,12 @@ async function main() {
         return;
     }
 
-    const result = await sendFindings(loadAudit(input), process.env, fetch);
+    console.log(`Reading audit results from ${input}.`);
+    const audit = loadAudit(input);
+    const result = await sendFindings(audit, process.env, fetch);
     process.exitCode = exitCodeFor(result);
+    if (result.created > 0) console.log('Cursor created a new agent, so this job fails.');
+    if (result.failed > 0) console.log('A Cursor send failed, so this job fails.');
 }
 
 function isDirectRun() {

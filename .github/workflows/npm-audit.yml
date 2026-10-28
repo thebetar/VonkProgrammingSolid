@@ -48,5 +48,10 @@ jobs:
       - name: Check notification and dispatch
         if: always() && steps.telegram.outcome != 'skipped'
         run: |
-          test "${{ steps.telegram.outcome }}" = "success"
-          test "${{ steps.cursor.outcome }}" = "success"
+          echo "Telegram step: ${{ steps.telegram.outcome }}"
+          echo "Cursor step: ${{ steps.cursor.outcome }}"
+          if [ "${{ steps.telegram.outcome }}" != "success" ] || [ "${{ steps.cursor.outcome }}" != "success" ]; then
+            echo "Notification or Cursor dispatch did not succeed."
+            exit 1
+          fi
+          echo "Notification and Cursor dispatch finished."
