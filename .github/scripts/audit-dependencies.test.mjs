@@ -91,7 +91,7 @@ const actionsEnv = {
 };
 
 test('reads the repository, branch, commit, and run link from GitHub Actions', () => {
-    const { context } = repositoryContext(actionsEnv);
+    const context = repositoryContext(actionsEnv);
     assert.deepEqual(context, {
         repository: 'thebetar/VonkProgrammingSolid',
         url: 'https://github.com/thebetar/VonkProgrammingSolid',
@@ -105,10 +105,10 @@ test('reads the repository, branch, commit, and run link from GitHub Actions', (
         GITHUB_REPOSITORY: 'acme/app',
         GITHUB_REF_NAME: 'release',
     });
-    assert.equal(enterprise.context.url, 'https://github.example.com/acme/app');
-    assert.equal(enterprise.context.ref, 'release');
-    assert.equal(enterprise.context.sha, undefined);
-    assert.equal(enterprise.context.runUrl, undefined);
+    assert.equal(enterprise.url, 'https://github.example.com/acme/app');
+    assert.equal(enterprise.ref, 'release');
+    assert.equal(enterprise.sha, undefined);
+    assert.equal(enterprise.runUrl, undefined);
 
     const missing = repositoryContext({ GITHUB_REPOSITORY: 'thebetar/VonkProgrammingSolid' });
     assert.match(missing.error, /GITHUB_REF_NAME/);
@@ -117,7 +117,7 @@ test('reads the repository, branch, commit, and run link from GitHub Actions', (
 test('writes the findings file the sender reads', () => {
     const dir = mkdtempSync(join(tmpdir(), 'audit-'));
     const path = join(dir, 'findings.json');
-    const repository = repositoryContext(actionsEnv).context;
+    const repository = repositoryContext(actionsEnv);
     writeFindings(path, { repository, findings: collectFindings(report, 18) });
     const stored = JSON.parse(readFileSync(path, 'utf8'));
     assert.equal(stored.repository.url, 'https://github.com/thebetar/VonkProgrammingSolid');
