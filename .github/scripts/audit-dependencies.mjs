@@ -8,9 +8,15 @@ export function advisories(pkg) {
 }
 
 export function advisoryId(via) {
-    if (via.url) return String(via.url);
-    if (via.source != null) return String(via.source);
-    if (via.title) return String(via.title);
+    if (via.url) {
+        return String(via.url);
+    }
+    if (via.source != null) {
+        return String(via.source);
+    }
+    if (via.title) {
+        return String(via.title);
+    }
     return 'unknown';
 }
 
@@ -22,7 +28,9 @@ export function selectPackages(report, severity) {
 
 export function severitiesForHour(hour) {
     const selected = ['critical', 'high'];
-    if (Number(hour) === 18) selected.push('moderate', 'low');
+    if (Number(hour) === 18) {
+        selected.push('moderate', 'low');
+    }
     return selected;
 }
 
@@ -30,10 +38,16 @@ export function toFinding(pkg) {
     const byId = new Map();
     for (const via of advisories(pkg)) {
         const id = advisoryId(via);
-        if (byId.has(id)) continue;
+        if (byId.has(id)) {
+            continue;
+        }
         const advisory = { id, title: via.title ?? via.name ?? pkg.name };
-        if (via.url) advisory.url = String(via.url);
-        if (via.range) advisory.range = via.range;
+        if (via.url) {
+            advisory.url = String(via.url);
+        }
+        if (via.range) {
+            advisory.range = via.range;
+        }
         byId.set(id, advisory);
     }
 
@@ -67,7 +81,9 @@ export function skippedPackages(report, hour) {
 }
 
 export function findingsFromAuditOutput(stdout, status, hour) {
-    if (status > 1) return { error: `npm audit failed with status ${status}.`, status };
+    if (status > 1) {
+        return { error: `npm audit failed with status ${status}.`, status };
+    }
     let report;
     try {
         report = JSON.parse(stdout);
@@ -91,8 +107,12 @@ export function repositoryContext(env) {
 
     const url = `${server.replace(/\/$/, '')}/${repository}`;
     const context = { repository, url, ref };
-    if (env.GITHUB_SHA) context.sha = env.GITHUB_SHA;
-    if (env.GITHUB_RUN_ID) context.runUrl = `${url}/actions/runs/${env.GITHUB_RUN_ID}`;
+    if (env.GITHUB_SHA) {
+        context.sha = env.GITHUB_SHA;
+    }
+    if (env.GITHUB_RUN_ID) {
+        context.runUrl = `${url}/actions/runs/${env.GITHUB_RUN_ID}`;
+    }
     return context;
 }
 
@@ -105,7 +125,9 @@ function runNpmAudit() {
         encoding: 'utf8',
         maxBuffer: 32 * 1024 * 1024,
     });
-    if (result.error) return { status: 1, stdout: '', stderr: result.error.message };
+    if (result.error) {
+        return { status: 1, stdout: '', stderr: result.error.message };
+    }
     return {
         status: result.status ?? 1,
         stdout: result.stdout ?? '',
@@ -132,8 +154,12 @@ function main() {
     const severities = severitiesForHour(hour);
     const waiting = ALL_SEVERITIES.filter((severity) => !severities.includes(severity));
     console.log(`Auditing ${repo.url} at ${repo.ref}.`);
-    if (repo.sha) console.log(`Commit ${repo.sha}.`);
-    if (repo.runUrl) console.log(`Workflow run ${repo.runUrl}.`);
+    if (repo.sha) {
+        console.log(`Commit ${repo.sha}.`);
+    }
+    if (repo.runUrl) {
+        console.log(`Workflow run ${repo.runUrl}.`);
+    }
     const later = waiting.length === 0 ? '' : `. ${waiting.join(' and ')} wait until 18:00`;
     console.log(`UTC hour ${String(hour).padStart(2, '0')}: ${severities.join(', ')}${later}.`);
 
@@ -143,7 +169,9 @@ function main() {
 
     const stored = findingsFromAuditOutput(audit.stdout, audit.status, hour);
     if (stored.error) {
-        if (audit.stderr?.trim()) console.error(audit.stderr.trim().slice(0, 1000));
+        if (audit.stderr?.trim()) {
+            console.error(audit.stderr.trim().slice(0, 1000));
+        }
         console.error(stored.error);
         process.exitCode = stored.status;
         return;
@@ -163,7 +191,9 @@ function main() {
 
 function isDirectRun() {
     const entry = process.argv[1];
-    if (!entry) return false;
+    if (!entry) {
+        return false;
+    }
     try {
         return import.meta.url === pathToFileURL(realpathSync(entry)).href;
     } catch {
@@ -171,4 +201,6 @@ function isDirectRun() {
     }
 }
 
-if (isDirectRun()) main();
+if (isDirectRun()) {
+    main();
+}
