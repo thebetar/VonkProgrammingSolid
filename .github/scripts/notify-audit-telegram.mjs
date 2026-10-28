@@ -6,7 +6,9 @@ const SEVERITIES = ['critical', 'high', 'moderate', 'low'];
 
 export function loadAudit(path) {
     const stored = JSON.parse(readFileSync(path, 'utf8'));
-    if (!Array.isArray(stored.findings)) throw new Error('Audit results must contain a findings array.');
+    if (!Array.isArray(stored.findings)) {
+        throw new Error('Audit results must contain a findings array.');
+    }
     return { repository: stored.repository ?? {}, findings: stored.findings };
 }
 
@@ -28,19 +30,25 @@ export function buildMessage(audit) {
 
     for (const severity of SEVERITIES) {
         const findings = findingsFor(audit, severity);
-        if (findings.length === 0) continue;
+        if (findings.length === 0) {
+            continue;
+        }
         lines.push(severity);
         for (const finding of findings) {
             lines.push(finding.name);
             for (const advisory of finding.advisories ?? []) {
                 lines.push(`- ${advisory.title ?? finding.name}`);
-                if (advisory.url) lines.push(`  ${advisory.url}`);
+                if (advisory.url) {
+                    lines.push(`  ${advisory.url}`);
+                }
             }
             lines.push('');
         }
     }
 
-    if (audit.repository?.runUrl) lines.push(audit.repository.runUrl);
+    if (audit.repository?.runUrl) {
+        lines.push(audit.repository.runUrl);
+    }
     return lines.join('\n').trim().slice(0, 4000);
 }
 
@@ -75,7 +83,9 @@ export async function notifyTelegram(audit, env, fetchImpl, log = console) {
     const text = buildMessage(audit);
     log.log(text);
     const request = telegramRequest(text, env);
-    if (request.error) return { status: 'failed', detail: request.error };
+    if (request.error) {
+        return { status: 'failed', detail: request.error };
+    }
 
     let response;
     try {
@@ -106,13 +116,17 @@ async function main() {
 
     console.log(`Reading ${input}.`);
     const result = await notifyTelegram(loadAudit(input), process.env, fetch);
-    if (result.detail) console.error(result.detail);
+    if (result.detail) {
+        console.error(result.detail);
+    }
     process.exitCode = exitCodeFor(result);
 }
 
 function isDirectRun() {
     const entry = process.argv[1];
-    if (!entry) return false;
+    if (!entry) {
+        return false;
+    }
     try {
         return import.meta.url === pathToFileURL(realpathSync(entry)).href;
     } catch {

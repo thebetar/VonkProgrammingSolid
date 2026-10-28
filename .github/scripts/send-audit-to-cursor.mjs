@@ -11,7 +11,9 @@ export function loadAudit(path) {
     if (!repository?.repository || !repository?.url || !repository?.ref) {
         throw new Error('Audit results are missing the repository from GitHub Actions.');
     }
-    if (!Array.isArray(stored.findings)) throw new Error('Audit results must contain a findings array.');
+    if (!Array.isArray(stored.findings)) {
+        throw new Error('Audit results must contain a findings array.');
+    }
     return { repository, findings: stored.findings };
 }
 
@@ -39,7 +41,9 @@ function describeFix(finding) {
         const major = fix.isSemVerMajor ? ' This is a semver major update.' : '';
         return `npm audit reports a fix by updating ${fix.name} to ${fix.version}.${major}`;
     }
-    if (fix === true) return 'npm audit reports a non-major fix is available.';
+    if (fix === true) {
+        return 'npm audit reports a non-major fix is available.';
+    }
     return 'npm audit does not report an automatic fix. Use the smallest package.json override or upgrade that clears the advisories. This repository already uses the overrides field for transitive fixes.';
 }
 
@@ -83,7 +87,9 @@ Requirements:
 }
 
 export function cursorRequest(finding, repository, env) {
-    if (!env.CURSOR_API_KEY) return { error: 'Set CURSOR_API_KEY.' };
+    if (!env.CURSOR_API_KEY) {
+        return { error: 'Set CURSOR_API_KEY.' };
+    }
     if (!repository?.repository || !repository?.url || !repository?.ref) {
         return { error: 'Audit results are missing the repository from GitHub Actions.' };
     }
@@ -114,9 +120,15 @@ export function cursorRequest(finding, repository, env) {
 }
 
 function errorCode(payload) {
-    if (typeof payload?.code === 'string') return payload.code;
-    if (typeof payload?.error === 'string') return payload.error;
-    if (typeof payload?.error?.code === 'string') return payload.error.code;
+    if (typeof payload?.code === 'string') {
+        return payload.code;
+    }
+    if (typeof payload?.error === 'string') {
+        return payload.error;
+    }
+    if (typeof payload?.error?.code === 'string') {
+        return payload.error.code;
+    }
     return '';
 }
 
@@ -131,7 +143,9 @@ async function readError(response) {
 
 export async function dispatchFinding(finding, repository, env, fetchImpl) {
     const request = cursorRequest(finding, repository, env);
-    if (request.error) return { status: 'failed', detail: request.error };
+    if (request.error) {
+        return { status: 'failed', detail: request.error };
+    }
 
     let response;
     try {
@@ -142,7 +156,9 @@ export async function dispatchFinding(finding, repository, env, fetchImpl) {
 
     if (response.status === 409) {
         const error = await readError(response);
-        if (error.code === 'agent_id_conflict') return { status: 'duplicate', agentId: request.agentId };
+        if (error.code === 'agent_id_conflict') {
+            return { status: 'duplicate', agentId: request.agentId };
+        }
         return { status: 'failed', agentId: request.agentId, detail: `Cursor API 409: ${error.text}` };
     }
 
@@ -171,7 +187,9 @@ export async function sendFindings(audit, env, fetchImpl, log = console) {
     const repo = audit.repository;
     const where = repo?.url ? `${repo.url}${repo.ref ? ` at ${repo.ref}` : ''}` : 'unknown repository';
     log.log(`${findings.length} finding(s) for ${where}.`);
-    if (findings.length === 0) return { created: 0, duplicate: 0, failed: 0 };
+    if (findings.length === 0) {
+        return { created: 0, duplicate: 0, failed: 0 };
+    }
 
     let created = 0;
     let duplicate = 0;
@@ -214,7 +232,9 @@ async function main() {
 
 function isDirectRun() {
     const entry = process.argv[1];
-    if (!entry) return false;
+    if (!entry) {
+        return false;
+    }
     try {
         return import.meta.url === pathToFileURL(realpathSync(entry)).href;
     } catch {
