@@ -6,41 +6,15 @@ import { pathToFileURL } from 'node:url';
 const AGENT_ID_PATTERN = /^bc-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 const CURSOR_AGENTS_URL = 'https://api.cursor.com/v1/agents';
 
-function readSeverity() {
-    const severity = process.argv[2];
-    const allowed = ['critical', 'high', 'moderate', 'low'];
-    if (!allowed.includes(severity)) {
-        console.error('Usage: dispatch-npm-audit.mjs <critical|high|moderate|low>');
-        process.exitCode = 1;
-        return '';
-    }
-    return severity;
+export function loadFindings(path) {
+    const stored = JSON.parse(readFileSync(path, 'utf8'));
+    if (!Array.isArray(stored.findings)) throw new Error('Audit results must contain a findings array.');
+    return stored.findings;
 }
 
-function loadReport() {
-    return JSON.parse(readFileSync(process.env.AUDIT_REPORT, 'utf8'));
-}
-
-export function advisories(pkg) {
-    return (pkg.via ?? []).filter((via) => via && typeof via === 'object');
-}
-
-export function advisoryId(via) {
-    if (via.url) return String(via.url);
-    if (via.source != null) return String(via.source);
-    if (via.title) return String(via.title);
-    return 'unknown';
-}
-
-export function selectPackages(report, severity) {
-    return Object.values(report.vulnerabilities ?? {})
-        .filter((pkg) => pkg.severity === severity && advisories(pkg).length > 0)
-        .sort((a, b) => a.name.localeCompare(b.name));
-}
-
-export function findingKey(pkg, repository) {
-    const ids = [...new Set(advisories(pkg).map(advisoryId))].sort();
-    return [repository, pkg.name, ...ids].join('\n');
+export function findingKey(finding, repository) {
+    const ids = [...new Set((finding.advisories ?? []).map((advisory) => advisory.id))].sort();
+    return [repository, finding.name, ...ids].join('\n');
 }
 
 export function agentIdFor(key) {
@@ -49,52 +23,47 @@ export function agentIdFor(key) {
     bytes[8] = (bytes[8] & 0x3f) | 0x80;
     const hex = Buffer.from(bytes).toString('hex');
     const agentId = `bc-${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
-    if (!AGENT_ID_PATTERN.test(agentId)) {
-        throw new Error('Generated agent id is not a Cursor agent id.');
-    }
+    if (!AGENT_ID_PATTERN.test(agentId)) throw new Error('Generated agent id is not a Cursor agent id.');
     return agentId;
 }
 
-export function agentName(pkg) {
-    return `Fix ${pkg.severity} npm audit: ${pkg.name}`.slice(0, 100);
+export function agentName(finding) {
+    return `Fix ${finding.severity} npm audit: ${finding.name}`.slice(0, 100);
 }
 
-function describeFix(pkg) {
-    const fix = pkg.fixAvailable;
+function describeFix(finding) {
+    const fix = finding.fixAvailable;
     if (fix && typeof fix === 'object' && fix.name && fix.version) {
         const major = fix.isSemVerMajor ? ' This is a semver major update.' : '';
         return `npm audit reports a fix by updating ${fix.name} to ${fix.version}.${major}`;
     }
-    if (fix === true) {
-        return 'npm audit reports a non-major fix is available.';
-    }
+    if (fix === true) return 'npm audit reports a non-major fix is available.';
     return 'npm audit does not report an automatic fix. Use the smallest package.json override or upgrade that clears the advisories. This repository already uses the overrides field for transitive fixes.';
 }
 
-export function buildPrompt(pkg, repoUrl) {
+export function buildPrompt(finding, repoUrl) {
     const lines = [
         `Update ${repoUrl} so this npm audit finding is resolved. Commit only that dependency update.`,
         'Cursor opens the pull request when the run finishes. Do not open a pull request yourself.',
         '',
-        `Package: ${pkg.name}`,
-        `Severity: ${pkg.severity}`,
-        `Vulnerable range: ${pkg.range ?? 'unknown'}`,
-        `Direct dependency: ${pkg.isDirect ? 'yes' : 'no'}`,
-        describeFix(pkg),
+        `Package: ${finding.name}`,
+        `Severity: ${finding.severity}`,
+        `Vulnerable range: ${finding.range ?? 'unknown'}`,
+        `Direct dependency: ${finding.isDirect ? 'yes' : 'no'}`,
+        describeFix(finding),
         '',
         'Advisories:',
     ];
 
-    for (const via of advisories(pkg)) {
-        const title = via.title ?? via.name ?? pkg.name;
-        lines.push(via.url ? `- ${title} (${via.url})` : `- ${title}`);
-        if (via.range) lines.push(`  range ${via.range}`);
+    for (const advisory of finding.advisories ?? []) {
+        const title = advisory.title ?? finding.name;
+        lines.push(advisory.url ? `- ${title} (${advisory.url})` : `- ${title}`);
+        if (advisory.range) lines.push(`  range ${advisory.range}`);
     }
 
-    const nodes = pkg.nodes ?? [];
-    if (nodes.length > 0) {
+    if ((finding.nodes ?? []).length > 0) {
         lines.push('', 'Installed at:');
-        for (const node of nodes) lines.push(`- ${node}`);
+        for (const node of finding.nodes) lines.push(`- ${node}`);
     }
 
     lines.push(
@@ -111,16 +80,16 @@ export function buildPrompt(pkg, repoUrl) {
     return lines.join('\n');
 }
 
-export function cursorRequest(pkg, env) {
+export function cursorRequest(finding, env) {
     if (!env.CURSOR_API_KEY) return { error: 'Set CURSOR_API_KEY.' };
     if (!env.GITHUB_REPOSITORY) return { error: 'Set GITHUB_REPOSITORY.' };
 
     const server = env.GITHUB_SERVER_URL ?? 'https://github.com';
     const repoUrl = `${server}/${env.GITHUB_REPOSITORY}`;
-    const agentId = agentIdFor(findingKey(pkg, env.GITHUB_REPOSITORY));
+    const agentId = agentIdFor(findingKey(finding, env.GITHUB_REPOSITORY));
     const body = {
-        prompt: { text: buildPrompt(pkg, repoUrl) },
-        name: agentName(pkg),
+        prompt: { text: buildPrompt(finding, repoUrl) },
+        name: agentName(finding),
         agentId,
         repos: [{ url: repoUrl, startingRef: env.GITHUB_REF_NAME || 'master' }],
         autoCreatePR: true,
@@ -156,8 +125,8 @@ async function readError(response) {
     }
 }
 
-export async function dispatchFinding(pkg, env, fetchImpl) {
-    const request = cursorRequest(pkg, env);
+export async function dispatchFinding(finding, env, fetchImpl) {
+    const request = cursorRequest(finding, env);
     if (request.error) return { status: 'failed', detail: request.error };
 
     let response;
@@ -169,19 +138,13 @@ export async function dispatchFinding(pkg, env, fetchImpl) {
 
     if (response.status === 409) {
         const error = await readError(response);
-        if (error.code === 'agent_id_conflict') {
-            return { status: 'duplicate', agentId: request.agentId };
-        }
+        if (error.code === 'agent_id_conflict') return { status: 'duplicate', agentId: request.agentId };
         return { status: 'failed', agentId: request.agentId, detail: `Cursor API 409: ${error.text}` };
     }
 
     if (!response.ok) {
         const error = await readError(response);
-        return {
-            status: 'failed',
-            agentId: request.agentId,
-            detail: `Cursor API ${response.status}: ${error.text}`,
-        };
+        return { status: 'failed', agentId: request.agentId, detail: `Cursor API ${response.status}: ${error.text}` };
     }
 
     let url;
@@ -194,27 +157,26 @@ export async function dispatchFinding(pkg, env, fetchImpl) {
     return { status: 'created', agentId: request.agentId, url };
 }
 
-export async function dispatchReport(report, severity, env, fetchImpl, log = console) {
-    const packages = selectPackages(report, severity);
-    if (packages.length === 0) {
-        log.log(`No ${severity} vulnerabilities.`);
+export async function sendFindings(findings, env, fetchImpl, log = console) {
+    if (findings.length === 0) {
+        log.log('No audit findings to send.');
         return { created: 0, duplicate: 0, failed: 0 };
     }
 
     let created = 0;
     let duplicate = 0;
     let failed = 0;
-    for (const pkg of packages) {
-        const result = await dispatchFinding(pkg, env, fetchImpl);
+    for (const finding of findings) {
+        const result = await dispatchFinding(finding, env, fetchImpl);
         if (result.status === 'created') {
             created += 1;
-            log.log(`Sent ${pkg.name} to Cursor: ${result.url ?? result.agentId}`);
+            log.log(`Sent ${finding.name} to Cursor: ${result.url ?? result.agentId}`);
         } else if (result.status === 'duplicate') {
             duplicate += 1;
-            log.log(`Already sent ${pkg.name} (${result.agentId}).`);
+            log.log(`Already sent ${finding.name} (${result.agentId}).`);
         } else {
             failed += 1;
-            log.error(`Failed to send ${pkg.name}: ${result.detail}`);
+            log.error(`Failed to send ${finding.name}: ${result.detail}`);
         }
     }
 
@@ -227,10 +189,14 @@ export function exitCodeFor(result) {
 }
 
 async function main() {
-    const severity = readSeverity();
-    if (!severity) return;
+    const input = process.argv[2];
+    if (!input) {
+        console.error('Usage: send-audit-to-cursor.mjs <audit-findings.json>');
+        process.exitCode = 1;
+        return;
+    }
 
-    const result = await dispatchReport(loadReport(), severity, process.env, fetch);
+    const result = await sendFindings(loadFindings(input), process.env, fetch);
     process.exitCode = exitCodeFor(result);
 }
 
