@@ -4,8 +4,9 @@ on:
   schedule:
     # Every 2 hours. Moderate and low findings are stored on the 18:00 UTC run.
     # The repository URL, branch, commit, and run link come from this Actions run.
+    # Telegram is notified whenever stored findings remain.
     # Each stored advisory is sent to Cursor once. Cursor opens a pull request with the fix.
-    # The job fails when a new finding is sent or a send fails. Already-sent findings stay green.
+    # The job fails when a notification or Cursor send fails, or when a new Cursor agent is created.
     - cron: "0 */2 * * *"
   workflow_dispatch:
 
@@ -24,12 +25,28 @@ jobs:
           node-version: "24"
 
       - name: Test audit scripts
-        run: node --test .github/scripts/audit-dependencies.test.mjs .github/scripts/send-audit-to-cursor.test.mjs
+        run: node --test .github/scripts/audit-dependencies.test.mjs .github/scripts/notify-audit-telegram.test.mjs .github/scripts/send-audit-to-cursor.test.mjs
 
       - name: Audit dependencies
         run: node .github/scripts/audit-dependencies.mjs "$RUNNER_TEMP/audit-findings.json"
 
+      - name: Notify Telegram
+        id: telegram
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node .github/scripts/notify-audit-telegram.mjs "$RUNNER_TEMP/audit-findings.json"
+
       - name: Send findings to Cursor
+        id: cursor
+        continue-on-error: true
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
         run: node .github/scripts/send-audit-to-cursor.mjs "$RUNNER_TEMP/audit-findings.json"
+
+      - name: Check notification and dispatch
+        if: always() && steps.telegram.outcome != 'skipped'
+        run: |
+          test "${{ steps.telegram.outcome }}" = "success"
+          test "${{ steps.cursor.outcome }}" = "success"
