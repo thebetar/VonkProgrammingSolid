@@ -3,6 +3,8 @@ name: Dependency audit
 on:
   schedule:
     # Every 2 hours. Moderate and low findings are sent on the 18:00 UTC run.
+    # Each advisory package is sent to Cursor once. Cursor opens a pull request with the fix.
+    # The job fails when a new finding is sent or a send fails. Already-sent findings stay green.
     - cron: "0 */2 * * *"
   workflow_dispatch:
 
@@ -20,10 +22,12 @@ jobs:
         with:
           node-version: "24"
 
+      - name: Test audit dispatch
+        run: node --test .github/scripts/dispatch-npm-audit.test.mjs
+
       - name: Audit dependencies
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
         run: |
           hour=$(date -u +%H)
 
@@ -37,10 +41,10 @@ jobs:
 
           export AUDIT_REPORT="$RUNNER_TEMP/npm-audit.json"
           status=0
-          node .github/scripts/notify-npm-audit.mjs critical || status=$?
-          node .github/scripts/notify-npm-audit.mjs high || status=$?
+          node .github/scripts/dispatch-npm-audit.mjs critical || status=$?
+          node .github/scripts/dispatch-npm-audit.mjs high || status=$?
           if [ "$hour" = "18" ]; then
-            node .github/scripts/notify-npm-audit.mjs moderate || status=$?
-            node .github/scripts/notify-npm-audit.mjs low || status=$?
+            node .github/scripts/dispatch-npm-audit.mjs moderate || status=$?
+            node .github/scripts/dispatch-npm-audit.mjs low || status=$?
           fi
           exit "$status"
