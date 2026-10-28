@@ -10,31 +10,34 @@ export function loadAudit(path) {
     return { repository: stored.repository ?? {}, findings: stored.findings };
 }
 
+function findingsFor(audit, severity) {
+    return audit.findings
+        .filter((finding) => finding.severity === severity)
+        .sort((a, b) => a.name.localeCompare(b.name));
+}
+
 export function buildMessage(audit) {
-    const findings = [...audit.findings].sort((a, b) => {
-        const bySeverity = SEVERITIES.indexOf(a.severity) - SEVERITIES.indexOf(b.severity);
-        if (bySeverity !== 0) return bySeverity;
-        return a.name.localeCompare(b.name);
-    });
-    const counts = SEVERITIES.map((severity) => {
-        const count = findings.filter((finding) => finding.severity === severity).length;
-        return count === 0 ? '' : `${count} ${severity}`;
-    }).filter(Boolean);
     const repo = audit.repository?.repository ?? 'this repository';
+    const counts = SEVERITIES
+        .map((severity) => {
+            const count = findingsFor(audit, severity).length;
+            return count === 0 ? '' : `${count} ${severity}`;
+        })
+        .filter(Boolean);
     const lines = [`${counts.join(', ')} vulnerabilities in ${repo}`, ''];
 
-    let severity = '';
-    for (const finding of findings) {
-        if (finding.severity !== severity) {
-            severity = finding.severity;
-            lines.push(severity);
+    for (const severity of SEVERITIES) {
+        const findings = findingsFor(audit, severity);
+        if (findings.length === 0) continue;
+        lines.push(severity);
+        for (const finding of findings) {
+            lines.push(finding.name);
+            for (const advisory of finding.advisories ?? []) {
+                lines.push(`- ${advisory.title ?? finding.name}`);
+                if (advisory.url) lines.push(`  ${advisory.url}`);
+            }
+            lines.push('');
         }
-        lines.push(finding.name);
-        for (const advisory of finding.advisories ?? []) {
-            lines.push(`- ${advisory.title ?? finding.name}`);
-            if (advisory.url) lines.push(`  ${advisory.url}`);
-        }
-        lines.push('');
     }
 
     if (audit.repository?.runUrl) lines.push(audit.repository.runUrl);
@@ -64,37 +67,28 @@ export function telegramRequest(text, env) {
 
 export async function notifyTelegram(audit, env, fetchImpl, log = console) {
     const repo = audit.repository?.repository ?? 'this repository';
-    log.log(`Telegram: ${audit.findings.length} finding(s) for ${repo}.`);
     if (audit.findings.length === 0) {
-        log.log('Telegram: nothing to send.');
+        log.log(`No findings to send for ${repo}.`);
         return { status: 'empty' };
     }
 
     const text = buildMessage(audit);
-    log.log(`Telegram message (${text.length} characters):`);
     log.log(text);
     const request = telegramRequest(text, env);
-    if (request.error) {
-        log.error(`Telegram: ${request.error}`);
-        return { status: 'failed', detail: request.error };
-    }
+    if (request.error) return { status: 'failed', detail: request.error };
 
-    log.log('Telegram: sending message.');
     let response;
     try {
         response = await fetchImpl(request.url, request.init);
     } catch {
-        log.error('Telegram: request failed.');
         return { status: 'failed', detail: 'Telegram request failed.' };
     }
 
     if (!response.ok) {
         const body = (await response.text()).slice(0, 500);
-        const detail = `Telegram API ${response.status}: ${body}`;
-        log.error(`Telegram: ${detail}`);
-        return { status: 'failed', detail };
+        return { status: 'failed', detail: `Telegram API ${response.status}: ${body}` };
     }
-    log.log('Telegram: message accepted.');
+    log.log('Telegram accepted the message.');
     return { status: 'sent' };
 }
 
@@ -110,11 +104,10 @@ async function main() {
         return;
     }
 
-    console.log(`Reading audit results from ${input}.`);
-    const audit = loadAudit(input);
-    const result = await notifyTelegram(audit, process.env, fetch);
+    console.log(`Reading ${input}.`);
+    const result = await notifyTelegram(loadAudit(input), process.env, fetch);
+    if (result.detail) console.error(result.detail);
     process.exitCode = exitCodeFor(result);
-    console.log(`Telegram finished with status ${result.status}.`);
 }
 
 function isDirectRun() {

@@ -82,20 +82,18 @@ export function findingsFromAuditOutput(stdout, status, hour) {
 }
 
 export function repositoryContext(env) {
-    const repository = env.GITHUB_REPOSITORY;
     const server = env.GITHUB_SERVER_URL;
+    const repository = env.GITHUB_REPOSITORY;
     const ref = env.GITHUB_REF_NAME;
-    if (!repository || !server || !ref) {
-        return {
-            error: 'GitHub Actions did not provide GITHUB_SERVER_URL, GITHUB_REPOSITORY, and GITHUB_REF_NAME.',
-        };
+    if (!server || !repository || !ref) {
+        return { error: 'GitHub Actions did not provide GITHUB_SERVER_URL, GITHUB_REPOSITORY, and GITHUB_REF_NAME.' };
     }
 
     const url = `${server.replace(/\/$/, '')}/${repository}`;
     const context = { repository, url, ref };
     if (env.GITHUB_SHA) context.sha = env.GITHUB_SHA;
     if (env.GITHUB_RUN_ID) context.runUrl = `${url}/actions/runs/${env.GITHUB_RUN_ID}`;
-    return { context };
+    return context;
 }
 
 export function writeFindings(path, result) {
@@ -123,9 +121,9 @@ function main() {
         return;
     }
 
-    const context = repositoryContext(process.env);
-    if (context.error) {
-        console.error(context.error);
+    const repo = repositoryContext(process.env);
+    if (repo.error) {
+        console.error(repo.error);
         process.exitCode = 1;
         return;
     }
@@ -133,23 +131,19 @@ function main() {
     const hour = new Date().getUTCHours();
     const severities = severitiesForHour(hour);
     const waiting = ALL_SEVERITIES.filter((severity) => !severities.includes(severity));
-    const repo = context.context;
     console.log(`Auditing ${repo.url} at ${repo.ref}.`);
     if (repo.sha) console.log(`Commit ${repo.sha}.`);
     if (repo.runUrl) console.log(`Workflow run ${repo.runUrl}.`);
-    console.log(`UTC hour ${String(hour).padStart(2, '0')}: storing ${severities.join(', ')}.`);
-    if (waiting.length > 0) console.log(`Leaving ${waiting.join(', ')} for the 18:00 UTC run.`);
-    console.log(`Running npm audit. Results will be written to ${outPath}.`);
+    const later = waiting.length === 0 ? '' : `. ${waiting.join(' and ')} wait until 18:00`;
+    console.log(`UTC hour ${String(hour).padStart(2, '0')}: ${severities.join(', ')}${later}.`);
 
     const audit = runNpmAudit();
-    console.log(`npm audit exited ${audit.status}.`);
-    if (audit.status === 1) console.log('Vulnerabilities were found. The report will still be stored.');
-    if (audit.stderr?.trim()) {
-        console.error(`npm audit stderr:\n${audit.stderr.trim().slice(0, 1000)}`);
-    }
+    const found = audit.status === 1 ? ' (vulnerabilities found)' : '';
+    console.log(`npm audit exited ${audit.status}${found}.`);
 
     const stored = findingsFromAuditOutput(audit.stdout, audit.status, hour);
     if (stored.error) {
+        if (audit.stderr?.trim()) console.error(audit.stderr.trim().slice(0, 1000));
         console.error(stored.error);
         process.exitCode = stored.status;
         return;

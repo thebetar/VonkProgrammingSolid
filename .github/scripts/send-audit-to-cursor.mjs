@@ -3,7 +3,6 @@ import { createHash } from 'node:crypto';
 import { readFileSync, realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
-const AGENT_ID_PATTERN = /^bc-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 const CURSOR_AGENTS_URL = 'https://api.cursor.com/v1/agents';
 
 export function loadAudit(path) {
@@ -21,14 +20,13 @@ export function findingKey(finding, repository) {
     return [repository, finding.name, ...ids].join('\n');
 }
 
+// The same finding always hashes to the same id, so Cursor rejects a second send.
 export function agentIdFor(key) {
     const bytes = Uint8Array.from(createHash('sha256').update(key).digest().subarray(0, 16));
     bytes[6] = (bytes[6] & 0x0f) | 0x50;
     bytes[8] = (bytes[8] & 0x3f) | 0x80;
     const hex = Buffer.from(bytes).toString('hex');
-    const agentId = `bc-${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
-    if (!AGENT_ID_PATTERN.test(agentId)) throw new Error('Generated agent id is not a Cursor agent id.');
-    return agentId;
+    return `bc-${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
 }
 
 export function agentName(finding) {
@@ -45,50 +43,43 @@ function describeFix(finding) {
     return 'npm audit does not report an automatic fix. Use the smallest package.json override or upgrade that clears the advisories. This repository already uses the overrides field for transitive fixes.';
 }
 
-export function buildPrompt(finding, repository) {
-    const lines = [
-        `Update ${repository.url} so this npm audit finding is resolved. Commit only that dependency update.`,
-        'Cursor opens the pull request when the run finishes. Do not open a pull request yourself.',
-        '',
-        `Repository: ${repository.url}`,
-        `Branch: ${repository.ref}`,
-    ];
-    if (repository.sha) lines.push(`Audited commit: ${repository.sha}`);
-    if (repository.runUrl) lines.push(`Audit run: ${repository.runUrl}`);
-    lines.push(
-        '',
-        `Package: ${finding.name}`,
-        `Severity: ${finding.severity}`,
-        `Vulnerable range: ${finding.range ?? 'unknown'}`,
-        `Direct dependency: ${finding.isDirect ? 'yes' : 'no'}`,
-        describeFix(finding),
-        '',
-        'Advisories:',
-    );
-
-    for (const advisory of finding.advisories ?? []) {
+function advisoryLines(finding) {
+    return (finding.advisories ?? []).map((advisory) => {
         const title = advisory.title ?? finding.name;
-        lines.push(advisory.url ? `- ${title} (${advisory.url})` : `- ${title}`);
-        if (advisory.range) lines.push(`  range ${advisory.range}`);
-    }
+        const link = advisory.url ? ` (${advisory.url})` : '';
+        const range = advisory.range ? `\n  range ${advisory.range}` : '';
+        return `- ${title}${link}${range}`;
+    }).join('\n');
+}
 
-    if ((finding.nodes ?? []).length > 0) {
-        lines.push('', 'Installed at:');
-        for (const node of finding.nodes) lines.push(`- ${node}`);
-    }
+export function buildPrompt(finding, repository) {
+    const commit = repository.sha ? `Audited commit: ${repository.sha}\n` : '';
+    const run = repository.runUrl ? `Audit run: ${repository.runUrl}\n` : '';
+    const nodes = (finding.nodes ?? []).map((node) => `- ${node}`).join('\n');
+    const installed = nodes ? `\nInstalled at:\n${nodes}` : '';
 
-    lines.push(
-        '',
-        'Requirements:',
-        '- Change only the dependency update required to clear these advisories.',
-        '- Update package.json, package-lock.json, and pnpm-lock.yaml.',
-        '- .npmrc sets min-release-age=7. Choose a fixed version that satisfies it when one exists.',
-        '- Run npm audit and confirm this package no longer reports these advisories.',
-        '- Leave unrelated files unchanged.',
-        '- If no safe fix exists, make no code changes.',
-    );
+    return `Update ${repository.url} so this npm audit finding is resolved. Commit only that dependency update.
+Cursor opens the pull request when the run finishes. Do not open a pull request yourself.
 
-    return lines.join('\n');
+Repository: ${repository.url}
+Branch: ${repository.ref}
+${commit}${run}
+Package: ${finding.name}
+Severity: ${finding.severity}
+Vulnerable range: ${finding.range ?? 'unknown'}
+Direct dependency: ${finding.isDirect ? 'yes' : 'no'}
+${describeFix(finding)}
+
+Advisories:
+${advisoryLines(finding)}${installed}
+
+Requirements:
+- Change only the dependency update required to clear these advisories.
+- Update package.json, package-lock.json, and pnpm-lock.yaml.
+- .npmrc sets min-release-age=7. Choose a fixed version that satisfies it when one exists.
+- Run npm audit and confirm this package no longer reports these advisories.
+- Leave unrelated files unchanged.
+- If no safe fix exists, make no code changes.`;
 }
 
 export function cursorRequest(finding, repository, env) {
@@ -122,17 +113,19 @@ export function cursorRequest(finding, repository, env) {
     };
 }
 
+function errorCode(payload) {
+    if (typeof payload?.code === 'string') return payload.code;
+    if (typeof payload?.error === 'string') return payload.error;
+    if (typeof payload?.error?.code === 'string') return payload.error.code;
+    return '';
+}
+
 async function readError(response) {
     const raw = await response.text();
-    const text = raw.slice(0, 500);
     try {
-        const payload = JSON.parse(raw);
-        const code = payload?.code
-            ?? (typeof payload?.error === 'string' ? payload.error : payload?.error?.code)
-            ?? '';
-        return { code: typeof code === 'string' ? code : '', text };
+        return { code: errorCode(JSON.parse(raw)), text: raw.slice(0, 500) };
     } catch {
-        return { code: '', text };
+        return { code: '', text: raw.slice(0, 500) };
     }
 }
 
@@ -176,31 +169,29 @@ function findingLabel(finding) {
 export async function sendFindings(audit, env, fetchImpl, log = console) {
     const findings = audit.findings ?? [];
     const repo = audit.repository;
-    log.log(`Cursor: ${findings.length} finding(s) for ${repo?.url ?? 'unknown repository'}${repo?.ref ? `@${repo.ref}` : ''}.`);
-    if (findings.length === 0) {
-        log.log('Cursor: nothing to send.');
-        return { created: 0, duplicate: 0, failed: 0 };
-    }
+    const where = repo?.url ? `${repo.url}${repo.ref ? ` at ${repo.ref}` : ''}` : 'unknown repository';
+    log.log(`${findings.length} finding(s) for ${where}.`);
+    if (findings.length === 0) return { created: 0, duplicate: 0, failed: 0 };
 
     let created = 0;
     let duplicate = 0;
     let failed = 0;
     for (const finding of findings) {
-        log.log(`Cursor: dispatch ${findingLabel(finding)}.`);
+        log.log(`Send ${findingLabel(finding)}.`);
         const result = await dispatchFinding(finding, audit.repository, env, fetchImpl);
         if (result.status === 'created') {
             created += 1;
-            log.log(`Cursor: created agent for ${finding.name}: ${result.url ?? result.agentId}.`);
+            log.log(`Created ${result.url ?? result.agentId}.`);
         } else if (result.status === 'duplicate') {
             duplicate += 1;
-            log.log(`Cursor: ${finding.name} was already sent as ${result.agentId}.`);
+            log.log(`Already sent as ${result.agentId}.`);
         } else {
             failed += 1;
-            log.error(`Cursor: failed to send ${finding.name}: ${result.detail}`);
+            log.error(`Failed: ${result.detail}`);
         }
     }
 
-    log.log(`Cursor finished: ${created} sent, ${duplicate} already sent, ${failed} failed.`);
+    log.log(`Cursor: ${created} sent, ${duplicate} already sent, ${failed} failed.`);
     return { created, duplicate, failed };
 }
 
@@ -216,12 +207,9 @@ async function main() {
         return;
     }
 
-    console.log(`Reading audit results from ${input}.`);
-    const audit = loadAudit(input);
-    const result = await sendFindings(audit, process.env, fetch);
+    console.log(`Reading ${input}.`);
+    const result = await sendFindings(loadAudit(input), process.env, fetch);
     process.exitCode = exitCodeFor(result);
-    if (result.created > 0) console.log('Cursor created a new agent, so this job fails.');
-    if (result.failed > 0) console.log('A Cursor send failed, so this job fails.');
 }
 
 function isDirectRun() {

@@ -57,7 +57,7 @@ function storedAudit(hour) {
     const dir = mkdtempSync(join(tmpdir(), 'audit-'));
     const path = join(dir, 'findings.json');
     writeFindings(path, {
-        repository: repositoryContext(actionsEnv).context,
+        repository: repositoryContext(actionsEnv),
         findings: collectFindings(report, hour),
     });
     return loadAudit(path);

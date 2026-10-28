@@ -2,11 +2,7 @@ name: Dependency audit
 
 on:
   schedule:
-    # Every 2 hours. Moderate and low findings are stored on the 18:00 UTC run.
-    # The repository URL, branch, commit, and run link come from this Actions run.
-    # Telegram is notified whenever stored findings remain.
-    # Each stored advisory is sent to Cursor once. Cursor opens a pull request with the fix.
-    # The job fails when a notification or Cursor send fails, or when a new Cursor agent is created.
+    # Every 2 hours. Moderate and low findings are included at 18:00 UTC.
     - cron: "0 */2 * * *"
   workflow_dispatch:
 
@@ -25,33 +21,18 @@ jobs:
           node-version: "24"
 
       - name: Test audit scripts
-        run: node --test .github/scripts/audit-dependencies.test.mjs .github/scripts/notify-audit-telegram.test.mjs .github/scripts/send-audit-to-cursor.test.mjs
+        run: node --test .github/scripts/*.test.mjs
 
       - name: Audit dependencies
         run: node .github/scripts/audit-dependencies.mjs "$RUNNER_TEMP/audit-findings.json"
 
-      - name: Notify Telegram
-        id: telegram
-        continue-on-error: true
+      - name: Notify Telegram and send to Cursor
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: node .github/scripts/notify-audit-telegram.mjs "$RUNNER_TEMP/audit-findings.json"
-
-      - name: Send findings to Cursor
-        id: cursor
-        continue-on-error: true
-        env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
-        run: node .github/scripts/send-audit-to-cursor.mjs "$RUNNER_TEMP/audit-findings.json"
-
-      - name: Check notification and dispatch
-        if: always() && steps.telegram.outcome != 'skipped'
         run: |
-          echo "Telegram step: ${{ steps.telegram.outcome }}"
-          echo "Cursor step: ${{ steps.cursor.outcome }}"
-          if [ "${{ steps.telegram.outcome }}" != "success" ] || [ "${{ steps.cursor.outcome }}" != "success" ]; then
-            echo "Notification or Cursor dispatch did not succeed."
-            exit 1
-          fi
-          echo "Notification and Cursor dispatch finished."
+          status=0
+          node .github/scripts/notify-audit-telegram.mjs "$RUNNER_TEMP/audit-findings.json" || status=$?
+          node .github/scripts/send-audit-to-cursor.mjs "$RUNNER_TEMP/audit-findings.json" || status=$?
+          exit "$status"
