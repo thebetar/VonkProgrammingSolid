@@ -2,6 +2,24 @@ import { BlogTags } from '@/data/blog-tags';
 
 export const blogs = [
 	{
+		id: 38,
+		title: 'Supercharging your AI using MCP tools 🔌',
+		description: `
+			Most of us already use AI every day, but we are often still the ones copying e-mails, user stories and notes into a chat window and writing long prompts to explain the situation. The Model Context Protocol (MCP) changes this by connecting your AI agent directly to the tools where your work lives. In this blog I explain what MCP is, how it connects your e-mail, task board and meetings to your agent, what work is left for us and what to be careful with.
+		`,
+		keywords: [
+			'ai',
+			'mcp',
+			'model context protocol',
+			'ai agents',
+			'productivity',
+			'automation',
+		],
+		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
+		date: '2026-11-11',
+		link: '/blogs/mcp-tools',
+	},
+	{
 		id: 37,
 		title: 'Opening the Black Box',
 		description: `
@@ -40,17 +58,6 @@ export const blogs = [
 		tags: [BlogTags.Development, BlogTags.Education],
 		date: '2026-04-26',
 		link: '/blogs/basic-internet-terms',
-	},
-	{
-		id: 34,
-		title: 'Agentic coding, a new layer of abstraction 🤖',
-		description: `
-				AI agents are advancing fast, while the introduction of ChatGPT was already a massive shift in how a lot of work was done, the improvements have kept coming. AI agents are doing more and more of the work and becoming impressively good at it as well. I think it is time to stop criticising using a lot of AI in your work and start thinking of ways to streamline using these agents. How to create guardrails so these agents can be used to effectively make us do more work while not generating AI slop.
-			`,
-		keywords: ['ai', 'agentic coding', 'development', 'productivity'],
-		tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
-		date: '2026-03-15',
-		link: '/blogs/agentic-coding',
 	},
 ];
 
