@@ -23,8 +23,16 @@ export const blogs = [
     tags: [BlogTags.Development, BlogTags.Innovation, BlogTags.Productivity],
     date: "2026-11-11",
     link: "/blogs/mcp-tools",
+    image: "/assets/images/blogs/mcp-tools/mcp-hub.webp",
     content: (
       <>
+        <p>
+          <img
+            src="/assets/images/blogs/mcp-tools/mcp-hub.webp"
+            alt="You talk to your AI agent, which connects to your e-mail, chat, task board, code, files and meetings using MCP"
+          />
+        </p>
+
         <p>
           I think most people reading this are already using AI in some way in
           their workflow. It helps to improve e-mails, summarise long texts,
@@ -45,6 +53,17 @@ export const blogs = [
           basically the copy and paste layer between my AI and my own tools.
           This is not needed anymore.
         </p>
+
+        <p>
+          <img
+            src="/assets/images/blogs/mcp-tools/before-after.webp"
+            alt="Before MCP you copy the e-mail and user story yourself, with MCP your agent reads them for you"
+          />
+        </p>
+
+        <blockquote>
+          <p>Before MCP you collect the context yourself, with MCP your agent does it for you</p>
+        </blockquote>
 
         <h2 id="what-is-mcp">What is MCP?</h2>
         <p>
@@ -68,6 +87,17 @@ export const blogs = [
           useful to complete your request. See it as a menu of actions that you
           hand to your assistant, where you decide what is on the menu.
         </p>
+
+        <p>
+          <img
+            src="/assets/images/blogs/mcp-tools/tool-menu.webp"
+            alt="An e-mail MCP server offering the tools read_email, search_emails, create_draft and send_email"
+          />
+        </p>
+
+        <blockquote>
+          <p>A simplified example of the tools an e-mail MCP server could offer to your agent</p>
+        </blockquote>
         <p>
           Tools like{" "}
           <a href="https://claude.com/product/claude-code" target="_blank">
@@ -171,6 +201,17 @@ export const blogs = [
           for everything that was agreed on are already waiting for you, with
           the context of the meeting attached to them.
         </p>
+
+        <p>
+          <img
+            src="/assets/images/blogs/mcp-tools/meeting-flow.webp"
+            alt="A meeting becomes a transcript and a summary, which your agent turns into tickets and a draft follow up e-mail"
+          />
+        </p>
+
+        <blockquote>
+          <p>Meeting notes that turn into work, ready for you to check</p>
+        </blockquote>
         <p>
           I have written before that{" "}
           <a href="/blogs/taking-notes" target="_self">
@@ -291,6 +332,17 @@ export const blogs = [
             </p>
           </li>
         </ul>
+
+        <p>
+          <img
+            src="/assets/images/blogs/mcp-tools/permissions.webp"
+            alt="Permissions for an e-mail connection that can create drafts but not send, and a read-only task board connection"
+          />
+        </p>
+
+        <blockquote>
+          <p>Example of fine-grained and read-only permissions for your agent</p>
+        </blockquote>
 
         <h2 id="conclusion">Conclusion</h2>
         <p>

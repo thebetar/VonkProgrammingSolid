@@ -21,7 +21,7 @@ export const blogs = [
 	},
 	{
 		id: 37,
-		title: 'Opening the Black Box',
+		title: 'Opening the Black Box 📦',
 		description: `
 			Understanding concepts like TCP, messaging queues, and encryption on a conceptual level is often enough for day-to-day work. But once you try to recreate them yourself, you quickly realise how much more ingenious these tools really are. In this blog, I share what I've learned by opening the black box and building my own versions of the fundamentals we use every day.
 		`,
