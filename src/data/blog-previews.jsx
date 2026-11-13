@@ -5,7 +5,7 @@ export const blogs = [
 		id: 38,
 		title: 'Supercharging your AI using MCP tools 🔌',
 		description: `
-			Most of us already use AI every day, but we are often still the ones copying e-mails, user stories and notes into a chat window and writing long prompts to explain the situation. The Model Context Protocol (MCP) changes this by connecting your AI agent directly to the tools where your work lives. In this blog I explain what MCP is, how it connects your e-mail, task board and meetings to your agent, what work is left for us and what to be careful with.
+			Most of us already use AI every day, but we are often still the ones copying messages, user stories and notes into a chat window and writing long prompts to explain the situation. The Model Context Protocol (MCP) changes this by connecting your AI agent directly to the tools where your work lives. In this blog I explain what MCP is, how it connects your e-mail, task board and meetings to your agent, what work is left for us and what to be careful with.
 		`,
 		keywords: [
 			'ai',

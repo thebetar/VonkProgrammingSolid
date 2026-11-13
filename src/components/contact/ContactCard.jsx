@@ -1,14 +1,11 @@
-import { createSignal, onMount } from 'solid-js';
-import { useParams } from '@solidjs/router';
+import { createSignal } from 'solid-js';
 
 import { LinkedInSvg, MailSvg } from '@/components/Icons';
 import { info } from '@/data/info';
-import { products } from '@/data/product-previews';
 
 export default function ContactCard() {
 	const questionTypes = [
 		{ value: 'General question', label: 'General question' },
-		...products.map(p => ({ value: p.id, label: p.title })),
 		{ value: 'Blogs', label: 'Blogs (about articles, writing, etc.)' },
 	];
 
@@ -21,22 +18,6 @@ export default function ContactCard() {
 	});
 	const [status, setStatus] = createSignal('');
 	const [loading, setLoading] = createSignal(false);
-
-	onMount(() => {
-		const service = useParams().service;
-
-		if (!service) {
-			return;
-		}
-
-		const match = questionTypes.find(q => q.value.toLowerCase() === service.toLowerCase());
-
-		if (!match) {
-			return;
-		}
-
-		setForm(f => ({ ...f, questionType: match.value }));
-	});
 
 	const handleChange = e => {
 		const { name, value } = e.target;
@@ -115,7 +96,7 @@ export default function ContactCard() {
 					</label>
 				</div>
 				<h1 class="text-2xl font-bold mb-2 text-zinc-900 dark:text-white md:text-start text-center">
-					Contact Us
+					Contact Me
 				</h1>
 				<label class="font-semibold text-zinc-900 dark:text-white">
 					Type of question

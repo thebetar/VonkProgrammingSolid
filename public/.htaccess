@@ -29,7 +29,11 @@ ServerSignature Off
             
             # 1. Rewrite www to non-www
             RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-            RewriteRule ^ http://%1%{REQUEST_URI} [L,R=301]
+            RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+            # Removed services pages: send old links to the homepage / contact page
+            RewriteRule ^products(/.*)?$ / [L,R=301]
+            RewriteRule ^contact/.+$ /contact [L,R=301]
 
             # 2. SERVE BROTLI (Priority)
             # Check if browser accepts br AND if the .br file exists on disk
@@ -57,6 +61,14 @@ ServerSignature Off
             RewriteRule "\.js\.gz$"  "-" [T=text/javascript;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
             RewriteRule "\.html\.gz$" "-" [T=text/html;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
             RewriteRule "\.svg\.gz$"  "-" [T=image/svg+xml;charset=UTF-8,E=no-brotli:1,E=no-gzip:1]
+
+            # 5. SPA FALLBACK
+            # Serve index.html with a 200 status for client-side routes so crawlers can index them.
+            # Real files, directories, assets and PHP scripts are left alone.
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_FILENAME} !-d
+            RewriteCond %{REQUEST_URI} !^/(assets|scripts)/
+            RewriteRule ^ /index.html [L]
       </IfModule>
 
       # ----------------------------------------------------------------------

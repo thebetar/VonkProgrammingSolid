@@ -8,7 +8,6 @@ const __dirname = path.dirname(__filename);
 const BASE_URL = 'https://vonkprogramming.nl';
 const SITEMAP_PATH = path.join(__dirname, '../public/sitemap.xml');
 const BLOGS_PATH = path.join(__dirname, '../src/data/blogs.jsx');
-const PRODUCTS_PATH = path.join(__dirname, '../src/data/products.jsx');
 
 const TODAY = new Date().toISOString().split('T')[0];
 
@@ -43,17 +42,6 @@ function extractBlogs() {
     return blogs;
 }
 
-function extractProductLinks() {
-    const content = readFile(PRODUCTS_PATH);
-    const links = [];
-    const regex = /productLink:\s*['"]([^'"]+)['"]/g;
-    let m;
-    while ((m = regex.exec(content)) !== null) {
-        links.push(m[1]);
-    }
-    return links;
-}
-
 function buildUrl({ loc, lastmod, changefreq, priority }) {
     const safe = loc.startsWith('/') ? loc : '/' + loc;
     return `    <url>
@@ -77,15 +65,6 @@ function generateSitemap() {
             lastmod: blog.dateModified,
             changefreq: 'monthly',
             priority: '0.8',
-        }));
-    }
-
-    for (const link of extractProductLinks()) {
-        entries.push(buildUrl({
-            loc: link,
-            lastmod: TODAY,
-            changefreq: 'monthly',
-            priority: '0.9',
         }));
     }
 

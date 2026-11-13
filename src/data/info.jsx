@@ -4,12 +4,13 @@ export const info = {
 	baseUrl: 'https://vonkprogramming.nl',
 	name: 'Lars Vonk',
 	jobDescription1: 'Full-Stack Engineer',
-	jobDescription2: 'Custom Software Solutions',
+	jobDescription2: 'Lab Digital',
 	about: (
 		<div>
 			With nearly a decade of professional experience, I am a developer specializing in PHP, JavaScript, and
-			Python, with a passion for C++ and Go. As a freelancer, I am dedicated to delivering high-quality software
-			and continuously expanding my skills, a journey I often document in my{' '}
+			Python, with a passion for C++ and Go. I currently work as a senior full-stack engineer at Lab Digital. I am
+			dedicated to delivering high-quality software and continuously expanding my skills, a journey I often
+			document in my{' '}
 			<a
 				class="underline dark:text-cyan-400 text-cyan-800 hover:opacity-80 transition-opacity"
 				href="/blogs"
@@ -47,8 +48,7 @@ export const info = {
 			>
 				projects
 			</a>{' '}
-			section. I am actively seeking new freelance opportunities in web development, AI, data science, and IoT.
-			Let's build something great together!
+			section.
 		</div>
 	),
 	keywords: 'developer, javascript, python, code quality, blogs',

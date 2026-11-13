@@ -5,7 +5,6 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PRODUCTS_PATH = path.join(__dirname, '../src/data/products.jsx');
 const SKILLS_PATH = path.join(__dirname, '../src/data/skills.jsx');
 const EXPERIENCE_PATH = path.join(__dirname, '../src/data/experience.jsx');
 const BLOGS_PATH = path.join(__dirname, '../src/data/blogs.jsx');
@@ -25,12 +24,36 @@ function extractData(filePath, regex, groupIndex = 2) {
     return results;
 }
 
-function generateStaticContent() {
-    // Products
-    const productTitles = extractData(PRODUCTS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
-    const productIds = extractData(PRODUCTS_PATH, /id:\s*(['"])(.*?)\1/g, 2);
-    const productDescriptions = extractData(PRODUCTS_PATH, /descriptionShort:\s*(['"])(.*?)\1/g, 2);
+// Matches a string literal in single, double or backtick quotes (no escaped quotes).
+const STRING_LITERAL = /(['"`])([\s\S]*?)\1/.source;
 
+function extractField(block, field) {
+    const match = block.match(new RegExp(`^\\s*${field}:\\s*${STRING_LITERAL}`, 'm'));
+    return match ? match[2].replace(/\s+/g, ' ').trim() : '';
+}
+
+// Each blog entry is parsed on its own so a missing or differently quoted field
+// can never shift titles, links and descriptions out of alignment.
+function extractBlogs() {
+    const content = stripLineComments(fs.readFileSync(BLOGS_PATH, 'utf8'));
+    const blocks = content.split(/^\s*id:\s*\d+,\s*$/m).slice(1);
+
+    return blocks.map(block => {
+        const blog = {
+            title: extractField(block, 'title'),
+            link: extractField(block, 'link'),
+            description: extractField(block, 'description'),
+        };
+
+        if (!blog.title || !blog.link) {
+            throw new Error(`Could not parse blog entry: ${block.slice(0, 120)}`);
+        }
+
+        return blog;
+    });
+}
+
+function generateStaticContent() {
     // Skills
     const skillTitles = extractData(SKILLS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
 
@@ -41,27 +64,14 @@ function generateStaticContent() {
     const experienceDescriptions = extractData(EXPERIENCE_PATH, /description:\s*\[\s*`([\s\S]*?)`/g, 1);
 
     // Blogs
-    const blogTitles = extractData(BLOGS_PATH, /title:\s*(['"])(.*?)\1/g, 2);
-    const blogLinks = extractData(BLOGS_PATH, /link:\s*(['"])(.*?)\1/g, 2);
-    const blogDescriptions = extractData(BLOGS_PATH, /description:\s*`([\s\S]*?)`/g, 1);
+    const blogs = extractBlogs();
 
     let html = '\n<!-- STATIC_CONTENT_START -->\n';
     html += '<div>\n';
 
-    html += '<h2>Services</h2>\n';
-    html += '<ul>\n';
-    productTitles.forEach((title, index) => {
-        const id = productIds[index];
-        const description = productDescriptions[index];
-        html += `\t<li><a href="/products/${id}">${title}</a><p>${description}</p></li>\n`;
-    });
-    html += '</ul>\n';
-
     html += '<h5>Blogs</h5>\n';
     html += '<ul>\n';
-    blogTitles.forEach((title, index) => {
-        const link = blogLinks[index];
-        const description = blogDescriptions[index] ? blogDescriptions[index].trim() : '';
+    blogs.forEach(({ title, link, description }) => {
         html += `\t<li><a href="${link}">${title}</a><p>${description}</p></li>\n`;
     });
     html += '</ul>\n';

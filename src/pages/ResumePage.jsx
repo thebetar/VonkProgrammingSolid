@@ -25,7 +25,7 @@ export default function ResumePage() {
 				title="Resume"
 				description="Resume of Lars Vonk — Full-Stack Engineer with nearly a decade of experience in JavaScript, Python, PHP, Go, AI integrations, and IoT."
 				path="/resume"
-				keywords={['resume', 'CV', 'full-stack engineer', 'freelance']}
+				keywords={['resume', 'CV', 'full-stack engineer']}
 			/>
 
 			<div class="flex flex-col items-center gap-6 py-8 px-4">

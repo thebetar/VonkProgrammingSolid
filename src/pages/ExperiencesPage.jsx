@@ -10,7 +10,7 @@ export default function ExperiencesPage() {
 				title="Experience"
 				description="Nearly a decade of professional software engineering experience across web, AI, IoT, and data — full project history of Lars Vonk."
 				path="/experience"
-				keywords={['experience', 'career', 'freelance', 'full-stack engineer', 'consulting']}
+				keywords={['experience', 'career', 'full-stack engineer']}
 			/>
 
 			<AllExperience title="Experiences" details={experience} />

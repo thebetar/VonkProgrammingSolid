@@ -7,7 +7,6 @@ import { education } from '@/data/featured-education';
 import Layout from '@/layouts/Layout';
 import SEO from '@/components/general/SEO';
 import Hero from '@/components/homepage/Hero';
-import ProductsPreview from '@/components/products/ProductsPreview';
 import BlogsPreview from '@/components/homepage/BlogsPreview';
 import SkillsPreview from '@/components/homepage/SkillsPreview';
 import ExperiencesPreview from '@/components/homepage/ExperiencesPreview';
@@ -36,7 +35,7 @@ export default function Homepage() {
 				'@id': `${info.baseUrl}/#website`,
 				url: `${info.baseUrl}/`,
 				name: 'VonkProgramming',
-				description: 'Full-Stack Engineer & Freelancer delivering custom software solutions.',
+				description: 'CV and blog of Lars Vonk, Senior Full-Stack Engineer.',
 				potentialAction: {
 					'@type': 'SearchAction',
 					target: `${info.baseUrl}/blogs?q={search_term_string}`,
@@ -48,7 +47,13 @@ export default function Homepage() {
 				'@id': `${info.baseUrl}/#person`,
 				name: info.name,
 				url: info.baseUrl,
-				jobTitle: info.jobDescription1,
+				image: `${info.baseUrl}/assets/images/profile-picture.webp`,
+				jobTitle: `Senior ${info.jobDescription1}`,
+				worksFor: {
+					'@type': 'Organization',
+					name: info.jobDescription2,
+					url: 'https://www.labdigital.nl/',
+				},
 				sameAs: [info.socialMedia.github, info.socialMedia.linkedin, info.socialMedia.stackoverflow],
 			},
 		],
@@ -57,14 +62,13 @@ export default function Homepage() {
 	const template = (
 		<>
 			<SEO
-				title="Full-Stack Engineer & Freelancer"
-				description="Lars Vonk — Full-Stack Engineer and Freelancer. Custom software in JavaScript, Python, PHP, Go, AI integrations, web tracking, monitoring, and IoT."
+				title="Full-Stack Engineer"
+				description="Lars Vonk — Senior Full-Stack Engineer at Lab Digital. CV, experience, projects and blogs on JavaScript, TypeScript, Python, GraphQL, AI and IoT."
 				path="/"
 				keywords={info.keywords}
 				jsonLd={homeJsonLd}
 			/>
 			<Hero />
-			<ProductsPreview />
 			<BlogsPreview />
 			<SkillsPreview />
 			<ExperiencesPreview title="Experience" details={experience} />

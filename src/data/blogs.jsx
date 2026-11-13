@@ -10,7 +10,7 @@ export const blogs = [
     id: 38,
     title: "Supercharging your AI using MCP tools 🔌",
     description: `
-			Most of us already use AI every day, but we are often still the ones copying e-mails, user stories and notes into a chat window and writing long prompts to explain the situation. The Model Context Protocol (MCP) changes this by connecting your AI agent directly to the tools where your work lives. In this blog I explain what MCP is, how it connects your e-mail, task board and meetings to your agent, what work is left for us and what to be careful with.
+			Most of us already use AI every day, but we are often still the ones copying messages, user stories and notes into a chat window and writing long prompts to explain the situation. The Model Context Protocol (MCP) changes this by connecting your AI agent directly to the tools where your work lives. In this blog I explain what MCP is, how it connects your e-mail, task board and meetings to your agent, what work is left for us and what to be careful with.
 		`,
     keywords: [
       "ai",
@@ -45,11 +45,11 @@ export const blogs = [
         </p>
         <p>
           The annoying part is that most of this context already existed
-          somewhere else. I would copy the e-mail I had received into the chat
-          window, find the user story on the task board that it was about and
-          copy that in as well, add some explanation of my own on top and
-          describe how I wanted the reply to sound. Then I took the output,
-          pasted it into my e-mail client and sent it. It worked, but I was
+          somewhere else. I would copy the message I had received into the AI
+          chat window, find the user story on the task board that it was about
+          and copy that in as well, add some explanation of my own on top and
+          describe how I wanted my message to sound. Then I took the output,
+          pasted it back into the conversation and sent it. It worked, but I was
           basically the copy and paste layer between my AI and my own tools.
           This is not needed anymore.
         </p>
@@ -57,7 +57,7 @@ export const blogs = [
         <p>
           <img
             src="/assets/images/blogs/mcp-tools/before-after.webp"
-            alt="Before MCP you copy the e-mail and user story yourself, with MCP your agent reads them for you"
+            alt="Before MCP you copy the message and user story yourself, with MCP your agent reads them for you"
           />
         </p>
 
@@ -159,16 +159,19 @@ export const blogs = [
         </p>
         <p>
           This also changes what a prompt looks like. Where I used to paste in
-          the e-mail and the user story and explain the whole situation around
+          the message and the user story and explain the whole situation around
           them, I can now ask something like{" "}
           <em>
-            &quot;write a reply to the last e-mail from the customer and include
-            the current status of the user story it is about&quot;
+            &quot;write a message that answers the last question from my
+            colleague and include the current status of the user story it is
+            about&quot;
           </em>
-          . My agent reads the thread, looks up the story on the board and
-          writes the reply. I still read it before it is sent of course, but
-          most of the work of writing a good prompt was collecting everything
-          around the question, and that part is now done for me.
+          . My agent has access to the chat with my colleagues, the task board
+          and the codebase, so it reads the conversation, looks up the story,
+          checks the code and writes the message. I still read it before it is
+          sent of course, but most of the work of writing a good prompt was
+          collecting everything around the question, and that part is now done
+          for me.
         </p>
         <p>
           The same goes for code. An agent can read a GitHub issue, look through
@@ -332,6 +335,18 @@ export const blogs = [
             </p>
           </li>
         </ul>
+        <p>
+          Fine-grained access deserves a bit more explanation. Every MCP server
+          has its own methods, like <code>read_email</code>,{" "}
+          <code>search_emails</code>, <code>create_draft</code> and{" "}
+          <code>send_email</code> in the example from earlier. For each of these
+          methods you can define whether your agent can just run it, has to ask
+          for your permission first or is not allowed to use it at all. On top
+          of that many services let you set the connection itself to read
+          access, read and write access or blocked. This gives you an extra
+          layer, because even if your agent wants to do something it should not
+          do the connection simply does not allow it.
+        </p>
 
         <p>
           <img
@@ -343,6 +358,59 @@ export const blogs = [
         <blockquote>
           <p>Example of fine-grained and read-only permissions for your agent</p>
         </blockquote>
+
+        <h2 id="how-common-is-this-already">How common is this already?</h2>
+        <p>
+          To see how common this way of working already is I looked up some
+          numbers:
+        </p>
+        <ul>
+          <li>
+            <p>
+              In a{" "}
+              <a href="https://stackoverflow.blog/2026/05/27/agents-on-a-leash-agentic-ai-remains-mostly-monitored-at-work" target="_blank">
+                Stack Overflow survey
+              </a>{" "}
+              from April 2026 among 1,100 developers and other professionals,
+              59% said they use AI agents at work, compared to 31% a year
+              earlier. Daily use went from 14% to 37%
+            </p>
+          </li>
+          <li>
+            <p>
+              The same survey shows that people stay careful, 63% rarely or
+              never let agents run entirely on autopilot and 60% block agents
+              from making changes that were not approved
+            </p>
+          </li>
+          <li>
+            <p>
+              According to{" "}
+              <a href="https://stacklok.com/resources/state-of-mcp-in-software-2026/" target="_blank">
+                Stacklok
+              </a>{" "}
+              nearly half of the software companies they surveyed use MCP in
+              production, with 19% already using it broadly
+            </p>
+          </li>
+          <li>
+            <p>
+              The rules are still catching up. In a{" "}
+              <a href="https://fleetdm.com/industry-news/onetrust-ai-governance-report-unapproved-agents" target="_blank">
+                OneTrust survey
+              </a>{" "}
+              among 1,200 decision-makers, 87% of the organisations encourage
+              their employees to use AI agents while only 47% say they have
+              clear governance in place
+            </p>
+          </li>
+        </ul>
+        <p>
+          So for developers agents and MCP are becoming normal quickly, but
+          giving an agent access to your messages and your task board is still
+          new for most companies. Check what the rules are at your work before
+          you connect everything.
+        </p>
 
         <h2 id="conclusion">Conclusion</h2>
         <p>
