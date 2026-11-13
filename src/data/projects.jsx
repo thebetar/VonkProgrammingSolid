@@ -1,5 +1,105 @@
 export const projects = [
 	{
+		title: 'Fyndyr',
+		description: `
+				Fyndyr is an Android app that helps you find your friends in any crowd, even without signal. Hold up a giant flashing sign, chat with your group over Bluetooth without internet or an account, and follow a compass that points straight at your friend. It is built with Ionic, React and Capacitor and is available on the Google Play Store.
+			`,
+		thumbnail: '/assets/images/projects/fyndyr-showcase.webp',
+		liveUrl: 'https://play.google.com/store/apps/details?id=nl.vonkprogramming.fyndyr',
+		language: 'typescript',
+	},
+	{
+		title: 'Nabu',
+		description: `
+				Nabu is a small CLI for sending messages to other devices on your local network. It scans the networks you choose for other peers every minute and lets you chat with them directly, without a central server or internet connection. It is written in TypeScript and runs on Bun without any runtime dependencies.
+			`,
+		thumbnail: '/assets/images/projects/nabu-local-messaging.webp',
+		githubUrl: 'https://github.com/thebetar/nabu-local-messaging',
+		language: 'typescript',
+	},
+	{
+		title: 'Abeona Proxy',
+		description: `
+				Abeona Proxy is a reverse proxy with load balancing that I wrote in TypeScript to understand how tools like Nginx route traffic. Routes are configured in JSON and can spread requests over multiple services using round robin, weighted round robin or IP hash strategies.
+			`,
+		thumbnail: '/assets/images/projects/abeona-proxy.webp',
+		githubUrl: 'https://github.com/thebetar/abeona-proxy',
+		language: 'typescript',
+	},
+	{
+		title: 'Mimir Cache',
+		description: `
+				Mimir Cache is an in-memory HTTP caching service written in Go. It sits in front of another service and returns cached responses until their time to live expires, only calling the service behind it when needed.
+			`,
+		thumbnail: '/assets/images/projects/mimir-cache.webp',
+		githubUrl: 'https://github.com/thebetar/mimir-cache',
+		language: 'go',
+	},
+	{
+		title: 'Chronos Cron',
+		description: `
+				Chronos Cron is a simple cron job runner written in TypeScript. Instead of the classic cron syntax, jobs are described in a JSON file and can run every minute, hour, day, week, month or year.
+			`,
+		thumbnail: '/assets/images/projects/chronos-cron.webp',
+		githubUrl: 'https://github.com/thebetar/chronos-cron',
+		language: 'typescript',
+	},
+	{
+		title: 'Janus Zip',
+		description: `
+				Janus Zip is a compression library I built in Go to explore how compression algorithms work. It uses Huffman coding to shrink the number of bits used for characters that occur more often.
+			`,
+		thumbnail: '/assets/images/projects/janus-zip.webp',
+		githubUrl: 'https://github.com/thebetar/janus-zip',
+		language: 'go',
+	},
+	{
+		title: 'Pheme Protocol',
+		description: `
+				Pheme Protocol is a TCP-like protocol written in Go on top of UDP. It uses a three-way handshake and ensures delivery by waiting for an acknowledgement for every packet and resending it when none arrives.
+			`,
+		thumbnail: '/assets/images/projects/pheme-protocol.webp',
+		githubUrl: 'https://github.com/thebetar/pheme-protocol',
+		language: 'go',
+	},
+	{
+		title: 'Kwik MQ',
+		description: `
+				Kwik MQ is a lightweight message queue service written in Go. It aims to be fast and flexible without requiring a lot of system resources, and can run as a single binary or with Docker.
+			`,
+		thumbnail: '/assets/images/projects/kwik-mq.webp',
+		githubUrl: 'https://github.com/thebetar/kwik-mq',
+		language: 'go',
+	},
+	{
+		title: 'SparkTracker',
+		description: `
+				SparkTracker is a lightweight and anonymous event tracking library for the web. With a single script tag it tracks page loads, button clicks, form submits and scroll depth, using a random anonymous ID instead of personal data. It also powers the analytics of this website.
+			`,
+		thumbnail: '/assets/images/projects/spark-tracker.webp',
+		githubUrl: 'https://github.com/thebetar/SparkTracker',
+		language: 'javascript',
+	},
+	{
+		title: 'GitBackup',
+		description: `
+				GitBackup is a minimal Docker Compose setup that mirrors all your GitHub repositories to a self-hosted Gitea instance. I run it on a Raspberry Pi 5 so I always have a copy of my code, even if I lose access to my GitHub account.
+			`,
+		thumbnail: '/assets/images/projects/git-backup.webp',
+		githubUrl: 'https://github.com/thebetar/GitBackup',
+		language: 'docker',
+	},
+	{
+		title: 'Spectrum Sensing',
+		description: `
+				For my master's thesis I trained an AI model that predicts the occupancy of radio frequencies, making it easier to find a frequency with little interference, for instance for Wi-Fi in a crowded apartment block.
+			`,
+		thumbnail: '/assets/images/projects/spectrum-sensing.webp',
+		githubUrl: 'https://github.com/thebetar/SpectrumSensing',
+		liveUrl: '/blogs/spectrum-sensing-cognitive-radio',
+		language: 'python',
+	},
+	{
 		title: 'Vonk Wifi Scan',
 		description: `
 				Scan each WiFi channel using promiscuous mode to find the channel where the least packets are being sent. This can be used to find the best channel for your WiFi network.
@@ -200,13 +300,6 @@ export const projects = [
 		title: 'Deet',
 		thumbnail: '/assets/images/projects/deet.webp',
 		liveUrl: 'https://play.google.com/store/apps/details?id=nl.vonkprogramming.deetcalendar',
-		language: 'javascript',
-	},
-	{
-		title: 'Fyndyr',
-		thumbnail: '/assets/images/projects/fyndyr.webp',
-		githubUrl: 'https://github.com/thebetar/Fyndyr',
-		liveUrl: 'https://play.google.com/store/apps/details?id=nl.vonkprogramming.fyndyr',
 		language: 'javascript',
 	},
 ];

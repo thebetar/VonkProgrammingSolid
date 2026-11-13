@@ -11,9 +11,9 @@ export default function ProjectsPage() {
 		<>
 			<SEO
 				title="Projects"
-				description="Personal and open-source projects by Lars Vonk — C++ tools, IoT automation, web apps, and experiments across the full stack."
+				description="Personal and open-source projects by Lars Vonk — the Fyndyr Android app, Go and TypeScript infrastructure tools, C++ experiments, IoT automation and more."
 				path="/projects"
-				keywords={['projects', 'open source', 'C++', 'IoT', 'web development', 'github']}
+				keywords={['projects', 'open source', 'Go', 'TypeScript', 'C++', 'IoT', 'Android app', 'github']}
 				jsonLd={{
 					'@context': 'https://schema.org',
 					'@type': 'CollectionPage',
