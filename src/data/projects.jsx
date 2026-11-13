@@ -94,7 +94,7 @@ export const projects = [
 		description: `
 				For my master's thesis I trained an AI model that predicts the occupancy of radio frequencies, making it easier to find a frequency with little interference, for instance for Wi-Fi in a crowded apartment block.
 			`,
-		thumbnail: '/assets/images/projects/spectrum-sensing.webp',
+		thumbnail: '/assets/images/projects/spectrum-sensing-spectrogram.webp',
 		githubUrl: 'https://github.com/thebetar/SpectrumSensing',
 		liveUrl: '/blogs/spectrum-sensing-cognitive-radio',
 		language: 'python',
