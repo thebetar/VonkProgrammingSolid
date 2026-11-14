@@ -11,7 +11,7 @@ export const projects = [
 	{
 		title: 'Turms Word Transcoder',
 		description: `
-				Turms Word Transcoder is a small word encoder and decoder that I wrote in Go to understand how word embeddings like Word2Vec work. A tiny neural network learns to predict the next word, and in doing so learns a set of numbers for every word, so that words used in the same way get similar numbers. It is trained on Etruscan and Roman religious texts in English, such as the Liber Linteus, the longest surviving Etruscan text.
+				Turms Word Transcoder is a small word encoder and decoder that I wrote in Go to understand how word embeddings like Word2Vec work. A tiny neural network learns to predict the next word, and in doing so learns a set of numbers for every word, so that words used in the same way get similar numbers. It is trained on Homer's Iliad and Odyssey, where Achilles ends up closest to Priam, Agamemnon and Patroclus.
 			`,
 		thumbnail: '/assets/images/projects/turms-word-transcoder.webp',
 		githubUrl: 'https://github.com/thebetar/turms-word-transcoder',
