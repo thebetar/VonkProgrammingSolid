@@ -9,6 +9,15 @@ export const projects = [
 		language: 'typescript',
 	},
 	{
+		title: 'Turms Word Transcoder',
+		description: `
+				Turms Word Transcoder is a simple word encoder and decoder that I wrote in Go to understand how text is turned into numbers. It splits text into words, builds a vocabulary from a corpus and translates text into word IDs and back again, replacing unknown words with a special token.
+			`,
+		thumbnail: '/assets/images/projects/turms-word-transcoder.webp',
+		githubUrl: 'https://github.com/thebetar/turms-word-transcoder',
+		language: 'go',
+	},
+	{
 		title: 'Nabu',
 		description: `
 				Nabu is a small CLI for sending messages to other devices on your local network. It scans the networks you choose for other peers every minute and lets you chat with them directly, without a central server or internet connection. It is written in TypeScript and runs on Bun without any runtime dependencies.
