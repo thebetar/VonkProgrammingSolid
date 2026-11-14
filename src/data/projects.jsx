@@ -11,7 +11,7 @@ export const projects = [
 	{
 		title: 'Turms Word Transcoder',
 		description: `
-				Turms Word Transcoder is a simple word encoder and decoder that I wrote in Go to understand how text is turned into numbers. It splits text into words, builds a vocabulary from a corpus and translates text into word IDs and back again, replacing unknown words with a special token.
+				Turms Word Transcoder is a simple word encoder and decoder that I wrote in Go to understand how text is turned into numbers. It splits text into words, builds a vocabulary from a corpus and translates text into word IDs and back again, replacing unknown words with a special token. Its example data is Etruscan: the Liber Linteus, the longest surviving Etruscan text, and the myth of the child prophet Tages.
 			`,
 		thumbnail: '/assets/images/projects/turms-word-transcoder.webp',
 		githubUrl: 'https://github.com/thebetar/turms-word-transcoder',
