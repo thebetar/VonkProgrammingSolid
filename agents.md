@@ -2,11 +2,11 @@
 
 ## Stack
 
-- **Frontend**: SolidJS 1.9, Solid Router, Solid Meta
+- **Frontend**: SolidJS 1.9, Solid Router 1.x, Solid Meta
 - **Styling**: Tailwind CSS 4 with PostCSS, dark mode via `[data-theme="dark"]`
 - **Build**: Vite 6 with gzip/brotli compression and terser minification
 - **Backend**: PHP 8.2 with PDO/MySQL, Apache (Docker)
-- **Lint**: ESLint 9 with `eslint-plugin-solid`
+- **Lint**: ESLint 10 with `eslint-plugin-solid` (`npm run lint` covers all `.jsx` components)
 - **Path alias**: `@/` → `./src`
 
 ## Architecture Rules

@@ -1,19 +1,16 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
-import viteCompression from 'vite-plugin-compression';
+import { compression } from 'vite-plugin-compression2';
 import { fileURLToPath, URL } from 'url';
 
 export default defineConfig({
   plugins: [
     solidPlugin(),
 
-    viteCompression({
-      algorithm: 'gzip',
-      ext: '.gz',
-    }),
-    viteCompression({
-      algorithm: 'brotliCompress',
-      ext: '.br',
+    compression({
+      algorithms: ['gzip', 'brotliCompress'],
+      // Skip tiny files where compression saves nothing, like the old plugin did
+      threshold: 1025,
     }),
   ],
   server: {
