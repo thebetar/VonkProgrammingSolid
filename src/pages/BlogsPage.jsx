@@ -5,7 +5,7 @@ import AllBlogs from '@/components/blogs/AllBlogs';
 
 export default function BlogsPage() {
 	const template = (
-		<div className="md:mt-4 mt-6">
+		<div class="md:mt-4 mt-6">
 			<SEO
 				title="Blogs"
 				description="Tutorials and deep-dives on full-stack development, AI, networking, IoT, code quality, and the craft of building software by Lars Vonk."

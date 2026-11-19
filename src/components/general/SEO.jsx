@@ -70,7 +70,10 @@ export default function SEO({
 			<Meta name="twitter:description" content={desc} />
 			<Meta name="twitter:image" content={imageUrl} />
 
-			{jsonLd && <script type="application/ld+json" innerHTML={JSON.stringify(jsonLd)} />}
+			{jsonLd && (
+				// eslint-disable-next-line solid/no-innerhtml -- JSON-LD is built from our own data and `<` is escaped
+				<script type="application/ld+json" innerHTML={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
+			)}
 		</>
 	);
 }

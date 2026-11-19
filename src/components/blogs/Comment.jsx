@@ -34,13 +34,13 @@ export default function Comment({ blogId, handleClose }) {
 	}
 
 	return (
-		<div className="max-w-3xl mx-auto mb-10">
-			<div className="border-t border-zinc-200 dark:border-zinc-700 pt-8">
-				<h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-6">Leave a Comment</h3>
+		<div class="max-w-3xl mx-auto mb-10">
+			<div class="border-t border-zinc-200 dark:border-zinc-700 pt-8">
+				<h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-6">Leave a Comment</h3>
 
-				<div className="space-y-4">
+				<div class="space-y-4">
 					<div>
-						<label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Name</label>
+						<label class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Name</label>
 						<input
 							type="text"
 							name="name"
@@ -52,7 +52,7 @@ export default function Comment({ blogId, handleClose }) {
 					</div>
 
 					<div>
-						<label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+						<label class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
 							Comment
 						</label>
 						<textarea

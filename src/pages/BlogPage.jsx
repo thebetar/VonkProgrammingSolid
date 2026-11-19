@@ -45,7 +45,7 @@ export default function BlogPage() {
 	const blog = blogs.find(b => b.link.replace('/blogs/', '') === blogId);
 
 	const template = (
-		<div className="md:mt-4 mt-6">
+		<div class="md:mt-4 mt-6">
 			{blog && (
 				<SEO
 					title={blog.title}

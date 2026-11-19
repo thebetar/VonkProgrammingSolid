@@ -1,3 +1,4 @@
+import { For } from 'solid-js';
 import { skills } from '@/data/skills';
 
 import Rating from '@/components/styling/Rating';

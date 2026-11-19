@@ -1,4 +1,4 @@
-import { createEffect, onCleanup, lazy } from 'solid-js';
+import { createEffect, onCleanup } from 'solid-js';
 
 import { info } from '@/data/info';
 import { experience } from '@/data/featured-experience';

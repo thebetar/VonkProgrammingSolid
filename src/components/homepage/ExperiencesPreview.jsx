@@ -1,3 +1,4 @@
+import { For } from 'solid-js';
 import ExperienceCard from '@/components/experience/ExperienceCard.jsx';
 
 export default function ExperiencesPreview({ title, details }) {

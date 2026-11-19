@@ -1,3 +1,4 @@
+import { For } from 'solid-js';
 import PageHeader from '@/components/skills/PageHeader';
 import ExperienceCard from './ExperienceCard';
 

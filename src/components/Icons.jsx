@@ -24,8 +24,8 @@ export const MailSvg = ({ width, height, color }) => (
 		stroke-linejoin="round"
 		class="feather feather-mail"
 	>
-		<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-		<polyline points="22,6 12,13 2,6"></polyline>
+		<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+		<polyline points="22,6 12,13 2,6" />
 	</svg>
 );
 
@@ -67,7 +67,7 @@ export const StackOverflowSvg = ({ width, height, color }) => (
 		role="img"
 		xmlns="http://www.w3.org/2000/svg"
 	>
-		<path d="M18.986 21.865v-6.404h2.134V24H1.844v-8.539h2.13v6.404h15.012zM6.111 19.731H16.85v-2.137H6.111v2.137zm.259-4.852l10.48 2.189.451-2.07-10.478-2.187-.453 2.068zm1.359-5.056l9.705 4.53.903-1.95-9.706-4.53-.902 1.936v.014zm2.715-4.785l8.217 6.855 1.359-1.62-8.216-6.853-1.35 1.617-.01.001zM15.751 0l-1.746 1.294 6.405 8.604 1.746-1.294L15.749 0h.002z"></path>
+		<path d="M18.986 21.865v-6.404h2.134V24H1.844v-8.539h2.13v6.404h15.012zM6.111 19.731H16.85v-2.137H6.111v2.137zm.259-4.852l10.48 2.189.451-2.07-10.478-2.187-.453 2.068zm1.359-5.056l9.705 4.53.903-1.95-9.706-4.53-.902 1.936v.014zm2.715-4.785l8.217 6.855 1.359-1.62-8.216-6.853-1.35 1.617-.01.001zM15.751 0l-1.746 1.294 6.405 8.604 1.746-1.294L15.749 0h.002z" />
 	</svg>
 );
 
@@ -83,7 +83,7 @@ export const GitHubSvg = ({ width, height, color }) => (
 		stroke-linejoin="round"
 		class="feather feather-github"
 	>
-		<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+		<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
 	</svg>
 );
 
@@ -105,7 +105,7 @@ export const NoteSvg = ({ width, height }) => (
 	</svg>
 );
 
-export const LightBulbSvg = ({ width, height, color }) => (
+export const LightBulbSvg = ({ width, height }) => (
 	<svg
 		viewBox="0 0 24 24"
 		fill="none"
@@ -135,8 +135,8 @@ export const CopySvg = ({ width, height, color }) => (
 		stroke-linecap="round"
 		stroke-linejoin="round"
 	>
-		<rect x="9" y="9" width="13" height="13" rx="2"></rect>
-		<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+		<rect x="9" y="9" width="13" height="13" rx="2" />
+		<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
 	</svg>
 );
 
@@ -152,7 +152,7 @@ export const CheckSvg = ({ width, height, color }) => (
 		stroke-linecap="round"
 		stroke-linejoin="round"
 	>
-		<path d="M20 6L9 17l-5-5"></path>
+		<path d="M20 6L9 17l-5-5" />
 	</svg>
 );
 
@@ -180,11 +180,11 @@ export const ShareSvg = ({ width, height, color }) => (
 		stroke-linecap="round"
 		stroke-linejoin="round"
 	>
-		<circle cx="18" cy="5" r="3"></circle>
-		<circle cx="6" cy="12" r="3"></circle>
-		<circle cx="18" cy="19" r="3"></circle>
-		<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-		<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+		<circle cx="18" cy="5" r="3" />
+		<circle cx="6" cy="12" r="3" />
+		<circle cx="18" cy="19" r="3" />
+		<line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+		<line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
 	</svg>
 );
 
@@ -200,10 +200,10 @@ export const DocumentSvg = ({ width, height, color }) => (
 		stroke-linecap="round"
 		stroke-linejoin="round"
 	>
-		<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-		<polyline points="14 2 14 8 20 8"></polyline>
-		<line x1="16" y1="13" x2="8" y2="13"></line>
-		<line x1="16" y1="17" x2="8" y2="17"></line>
-		<polyline points="10 9 9 9 8 9"></polyline>
+		<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+		<polyline points="14 2 14 8 20 8" />
+		<line x1="16" y1="13" x2="8" y2="13" />
+		<line x1="16" y1="17" x2="8" y2="17" />
+		<polyline points="10 9 9 9 8 9" />
 	</svg>
 );

@@ -6,7 +6,7 @@ export default function ExperienceCard({ small, item }) {
 	return (
 		<div class="md:my-16 my-8">
 			<div class="flex justify-between md:flex-row flex-col md:items-center mb-2">
-				<div className="flex gap-x-4 items-center md:justify-start justify-between">
+				<div class="flex gap-x-4 items-center md:justify-start justify-between">
 					<h3 class="text-xl font-semibold">{item.name}</h3>
 					<div class="flex gap-x-1">
 						<For each={item.skills}>

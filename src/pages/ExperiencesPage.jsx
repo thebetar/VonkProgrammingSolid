@@ -5,7 +5,7 @@ import AllExperience from '@/components/experience/AllExperience';
 
 export default function ExperiencesPage() {
 	const template = (
-		<div className="md:mt-4 mt-6">
+		<div class="md:mt-4 mt-6">
 			<SEO
 				title="Experience"
 				description="Nearly a decade of professional software engineering experience across web, AI, IoT, and data — full project history of Lars Vonk."

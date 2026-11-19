@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 
-const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const emailRegex = /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 export default function Subscribe({ handleClose }) {
 	const [email, setEmail] = createSignal('');
@@ -48,7 +48,6 @@ export default function Subscribe({ handleClose }) {
 					fill="#000000"
 					version="1.1"
 					viewBox="0 0 490 490"
-					xml:space="preserve"
 					onClick={declineSubscribe}
 				>
 					<polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490   489.292,457.678 277.331,245.004 489.292,32.337 " />
@@ -68,7 +67,7 @@ export default function Subscribe({ handleClose }) {
 						stroke-width="2"
 						stroke-linecap="round"
 						stroke-linejoin="round"
-					></path>
+					 />
 					<rect
 						x="3"
 						y="5"
@@ -78,7 +77,7 @@ export default function Subscribe({ handleClose }) {
 						stroke="currentColor"
 						stroke-width="2"
 						stroke-linecap="round"
-					></rect>
+					 />
 				</svg>
 
 				<div class="font-semibold text-xl">Subscribe</div>

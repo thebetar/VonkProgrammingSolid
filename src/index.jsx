@@ -1,5 +1,5 @@
 /* @refresh reload */
-import { lazy, onMount } from 'solid-js';
+import { lazy } from 'solid-js';
 import { render } from 'solid-js/web';
 import { Router } from '@solidjs/router';
 import { MetaProvider } from '@solidjs/meta';

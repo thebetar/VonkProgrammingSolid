@@ -2,7 +2,7 @@ import { createEffect, createSignal, For } from 'solid-js';
 
 import { info } from '@/data/info';
 
-export default function Navigation({ curPage }) {
+export default function Navigation() {
 	const [navRoutes, setNavRoutes] = createSignal([]);
 
 	createEffect(() => {

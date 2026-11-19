@@ -1,4 +1,4 @@
-import { createSignal } from 'solid-js';
+import { createSignal, For } from 'solid-js';
 
 import { LinkedInSvg, MailSvg } from '@/components/Icons';
 import { info } from '@/data/info';
@@ -107,9 +107,7 @@ export default function ContactCard() {
 						onInput={handleChange}
 						class="mt-1 w-full p-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
 					>
-						{questionTypes.map(opt => (
-							<option value={opt.value}>{opt.label}</option>
-						))}
+						<For each={questionTypes}>{opt => <option value={opt.value}>{opt.label}</option>}</For>
 					</select>
 				</label>
 				<label class="font-semibold text-zinc-900 dark:text-white">

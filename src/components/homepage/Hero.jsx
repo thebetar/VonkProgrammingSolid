@@ -30,7 +30,7 @@ export default function Hero({ short = false }) {
 			<div class="mt-4">
 				<p class="text-md mt-8">{about}</p>
 
-				<div className="mt-2 flex gap-2 lg:flex-row flex-col">
+				<div class="mt-2 flex gap-2 lg:flex-row flex-col">
 					<a
 						href="/contact"
 						class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"

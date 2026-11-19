@@ -5,7 +5,7 @@ import AllExperience from '@/components/experience/AllExperience';
 
 export default function EducationPage() {
 	const template = (
-		<div className="md:mt-4 mt-6">
+		<div class="md:mt-4 mt-6">
 			<SEO
 				title="Education"
 				description="Educational background of Lars Vonk — including a Master's in Computer Systems and Networks at the Warsaw University of Technology."
