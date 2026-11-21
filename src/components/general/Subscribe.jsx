@@ -39,13 +39,13 @@ export default function Subscribe({ handleClose }) {
 			id="subscribe-component"
 			class="w-screen h-screen px-4 fixed top-0 left-0 bg-zinc-800/70 flex justify-center items-center z-50 backdrop-blur"
 		>
-			<div class="bg-white text-black md:max-w-[420px] w-full p-4 text-center rounded-sm flex flex-col gap-y-2 relative">
+			<div class="bg-white dark:bg-zinc-900 text-black dark:text-white border border-transparent dark:border-zinc-800 md:max-w-[420px] w-full p-5 text-center rounded-lg shadow-xl flex flex-col gap-y-2 relative">
 				<svg
 					id="subscribe-decline-button"
 					class="absolute top-2 right-2 cursor-pointer hover:opacity-70 transition md:w-4 md:h-4 w-5 h-5"
 					xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
-					fill="#000000"
+					fill="currentColor"
 					version="1.1"
 					viewBox="0 0 490 490"
 					onClick={declineSubscribe}
@@ -92,7 +92,7 @@ export default function Subscribe({ handleClose }) {
 						id="subscribe-email"
 						type="email"
 						placeholder="Enter your email"
-						class="w-full px-3 py-2 border border-zinc-800 rounded-sm focus:outline-none focus:border-zinc-600"
+						class="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 bg-transparent rounded-md focus:outline-none focus:border-zinc-500"
 						value={email()}
 						onInput={e => setEmail(e.currentTarget.value)}
 					/>
@@ -106,7 +106,7 @@ export default function Subscribe({ handleClose }) {
 
 				<button
 					id="subscribe-button"
-					class="px-6 py-2 rounded-sm bg-zinc-800 hover:bg-zinc-600 transition text-white w-full text-center"
+					class="px-6 py-2 rounded-md bg-zinc-800 hover:bg-zinc-600 dark:bg-zinc-700 dark:hover:bg-zinc-600 transition text-white w-full cursor-pointer text-center"
 					onClick={subscribe}
 				>
 					Subscribe

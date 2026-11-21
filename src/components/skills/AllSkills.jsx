@@ -30,7 +30,7 @@ export default function AllSkills() {
 									{item => (
 										<a
 											href={item.link}
-											class="md:my-4 my-1 flex md:flex-row flex-col gap-1 justify-between items-center dark:border-zinc-300 border-zinc-600 border md:p-4 px-2 py-3 dark:text-white text-black no-underline md:rounded rounded-lg dark:hover:bg-zinc-900 hover:bg-zinc-200 transition"
+											class="md:my-4 my-1 flex md:flex-row flex-col gap-1 justify-between items-center border border-zinc-200 dark:border-zinc-800 hover:border-cyan-300 dark:hover:border-cyan-800 md:p-4 px-2 py-3 dark:text-white text-black no-underline rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition"
 											aria-label={`Go to ${item.title} skill page`}
 										>
 											<div class="flex md:gap-2 gap-1 md:flex-row flex-col items-center">

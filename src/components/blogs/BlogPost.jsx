@@ -145,7 +145,6 @@ export default function BlogPost({ id, title, date, tags, keywords, content }) {
 							<span
 								class={[
 									'text-xs',
-									'dark:text-dark',
 									'text-white',
 									'capitalize',
 									'px-2',

@@ -3,7 +3,7 @@ import { GitHubSvg, LinkedInSvg, MailSvg, StackOverflowSvg } from '@/components/
 
 export default function Footer() {
 	return (
-		<footer class="container flex sm:flex-row flex-col justify-between items-center mb-8 sm:mb-4">
+		<footer class="container flex sm:flex-row flex-col justify-between items-center mt-16 mb-8 sm:mb-4 border-t border-zinc-200 dark:border-zinc-800">
 			<p class="text-right my-8">
 				Developed by <strong>VonkProgramming</strong>
 			</p>

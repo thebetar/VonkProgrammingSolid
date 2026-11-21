@@ -78,7 +78,7 @@ export default function ProjectCard({ language, githubUrl, liveUrl, thumbnail, t
 				<h3 class="mr-2 md:text-xl text-base">{title}</h3>
 
 				{!small && description && (
-					<p class="sm:max-h-0 max-h-56 overflow-y-hidden group-hover:max-h-56 transition-all duratio-300 md:text-sm text-xs mt-1">
+					<p class="sm:max-h-0 max-h-56 overflow-y-hidden group-hover:max-h-56 transition-all duration-300 md:text-sm text-xs mt-1">
 						{description}
 					</p>
 				)}

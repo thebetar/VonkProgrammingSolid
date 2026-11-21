@@ -56,7 +56,9 @@
 - Conditional classes via ternary inside the array: `condition ? 'class' : ''`.
 - Mobile-first responsive design with `md:`, `lg:` prefixes.
 - Dark mode with `dark:` prefix (resolved via `data-theme` attribute).
-- Custom theme colors: `dark` (#111111), `light` (#FFFFFF), `blue` (#33d2ff).
+- Custom theme colors live in the `@theme` block in `src/index.css` (Tailwind 4 has no `tailwind.config.js`): `dark` (#111111), `light` (#FFFFFF), `blue` (#33d2ff), `gray` (#C4C4C4).
+- Accent color is cyan (`cyan-700`/`cyan-800` in light, `cyan-400`/`cyan-600` in dark). Neutral borders are `zinc-200` / `dark:zinc-800`.
+- Dynamically built class names (e.g. `bg-${color}-700`) must be listed in an `@source inline(...)` rule in `src/index.css`.
 
 ### Icons
 

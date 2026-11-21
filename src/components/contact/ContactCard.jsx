@@ -64,19 +64,19 @@ export default function ContactCard() {
 
 				<div class="flex flex-col gap-4 w-full text-sm">
 					<div class="flex items-center gap-3">
-						<MailSvg width={22} height={22} color="#2563eb" />
+						<MailSvg width={22} height={22} color="#0e7490" />
 						<a
 							href={info.socialMedia.email}
-							class="text-zinc-900 dark:text-white underline break-all hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+							class="text-zinc-900 dark:text-white underline break-all hover:text-cyan-700 dark:hover:text-cyan-400 transition-colors"
 						>
 							info@vonkprogramming.nl
 						</a>
 					</div>
 					<div class="flex items-center gap-3">
-						<LinkedInSvg width={22} height={22} color="#2563eb" />
+						<LinkedInSvg width={22} height={22} color="#0e7490" />
 						<a
 							href={info.socialMedia.linkedin}
-							class="text-zinc-900 dark:text-white underline break-all hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+							class="text-zinc-900 dark:text-white underline break-all hover:text-cyan-700 dark:hover:text-cyan-400 transition-colors"
 						>
 							Lars Vonk
 						</a>
@@ -105,7 +105,7 @@ export default function ContactCard() {
 						name="questionType"
 						value={form().questionType}
 						onInput={handleChange}
-						class="mt-1 w-full p-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+						class="mt-1 w-full p-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
 					>
 						<For each={questionTypes}>{opt => <option value={opt.value}>{opt.label}</option>}</For>
 					</select>
@@ -117,7 +117,7 @@ export default function ContactCard() {
 						name="name"
 						value={form().name}
 						onInput={handleChange}
-						class="mt-1 w-full p-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-zinc-400 dark:placeholder-zinc-500"
+						class="mt-1 w-full p-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 placeholder-zinc-400 dark:placeholder-zinc-500"
 						placeholder="Your name"
 					/>
 				</label>
@@ -129,7 +129,7 @@ export default function ContactCard() {
 						name="email"
 						value={form().email}
 						onInput={handleChange}
-						class="mt-1 w-full p-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-zinc-400 dark:placeholder-zinc-500"
+						class="mt-1 w-full p-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 placeholder-zinc-400 dark:placeholder-zinc-500"
 						placeholder="you@email.com"
 					/>
 				</label>
@@ -141,7 +141,7 @@ export default function ContactCard() {
 						value={form().message}
 						onInput={handleChange}
 						rows={5}
-						class="mt-1 w-full p-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-zinc-400 dark:placeholder-zinc-500"
+						class="mt-1 w-full p-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 placeholder-zinc-400 dark:placeholder-zinc-500"
 						placeholder="Type your message..."
 					/>
 				</label>
@@ -149,7 +149,7 @@ export default function ContactCard() {
 					type="submit"
 					disabled={loading()}
 					class={
-						'bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-400 text-white font-semibold py-2 rounded-lg shadow transition-colors disabled:opacity-60 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-400' +
+						'bg-cyan-700 hover:bg-cyan-800 dark:hover:bg-cyan-600 text-white font-semibold py-2 rounded-lg shadow transition-colors disabled:opacity-60 mt-2 focus:outline-none focus:ring-2 focus:ring-cyan-500' +
 						(loading() ? ' cursor-not-allowed' : ' cursor-pointer')
 					}
 				>

@@ -2,6 +2,21 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+@theme {
+	--color-dark: #111111;
+	--color-light: #ffffff;
+	--color-blue: #33d2ff;
+	--color-gray: #c4c4c4;
+	--color-dark-gray: #1a1a1a;
+
+	--font-sans:
+		system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+		'Helvetica Neue', sans-serif;
+}
+
+/* blog tag colors are built dynamically (`bg-${color}-700`), so generate them explicitly */
+@source inline('bg-{green,indigo,purple,red,orange,cyan,pink,teal,yellow}-700');
+
 /* ========== tailwind custom styles ========== */
 .container {
 	max-width: 1112px;
@@ -29,6 +44,16 @@
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 	animation: rainbow 3s linear infinite;
+}
+
+@keyframes gradient {
+	0%,
+	100% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
 }
 
 @keyframes rainbow {
@@ -63,10 +88,25 @@ h6 {
 .footer-icons {
 	display: flex;
 	align-items: center;
-	border: 1px solid #4a4a4a; /* dark */
+	border: 1px solid var(--color-zinc-200);
 	padding: 1rem;
 	border-radius: 0.5rem;
 	justify-content: center;
+	transition:
+		background-color 0.2s,
+		border-color 0.2s;
+}
+
+.footer-icons:hover {
+	background-color: var(--color-zinc-100);
+}
+
+[data-theme='dark'] .footer-icons {
+	border-color: var(--color-zinc-800);
+}
+
+[data-theme='dark'] .footer-icons:hover {
+	background-color: var(--color-zinc-800);
 }
 
 .blog-post h2 {
@@ -84,7 +124,7 @@ h6 {
 }
 
 .blog-post a {
-	color: #005f78 !important;
+	color: var(--color-cyan-800) !important;
 	transition: opacity 0.2s !important;
 	text-decoration: underline !important;
 }
@@ -160,7 +200,7 @@ h6 {
 }
 
 [data-theme='dark'] .blog-post a {
-	color: #00d4f4 !important;
+	color: var(--color-cyan-400) !important;
 }
 
 [data-theme='light'] .blog-post code {

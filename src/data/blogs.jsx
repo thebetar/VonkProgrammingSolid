@@ -2065,7 +2065,7 @@ export const blogs = [
 
         <button
           onClick={() => (window.location.href = "/contact")}
-          class="block mt-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors mx-auto w-fit cursor-pointer"
+          class="block mt-4 bg-cyan-700 hover:bg-cyan-800 dark:bg-cyan-700 dark:hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors mx-auto w-fit cursor-pointer"
         >
           Contact to get started
         </button>

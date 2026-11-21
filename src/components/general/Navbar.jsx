@@ -46,7 +46,7 @@ export default function Navbar() {
 	return (
 		<header class="container flex items-center justify-between h-20 sm:h-[123px]">
 			<a
-				class="text-2xl dark:text-white font-semibold dark:font-semibold font-outfit"
+				class="text-2xl dark:text-white font-semibold"
 				href="/"
 				aria-label="Logo home link"
 			>

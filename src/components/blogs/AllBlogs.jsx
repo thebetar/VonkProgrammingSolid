@@ -43,7 +43,6 @@ export default function AllBlogs() {
 													'py-1',
 													'rounded-md',
 													'font-semibold',
-													'bg-opacity-70',
 													`bg-${getTagColor(tag)}-700`,
 												].join(' ')}
 											>

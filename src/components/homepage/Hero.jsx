@@ -8,7 +8,7 @@ export default function Hero({ short = false }) {
 		<section id="hero" class={short ? 'md:block hidden' : ''}>
 			<p class="dark:text-white md:mt-28 mt-16">Hey, I’m</p>
 
-			<header class="lg:text-6xl lg:my-8 my-4 text-4xl main-heading font-semibold" aria-label={name}>
+			<header class="w-fit lg:text-6xl lg:my-8 my-4 text-4xl main-heading font-semibold" aria-label={name}>
 				{name}
 			</header>
 

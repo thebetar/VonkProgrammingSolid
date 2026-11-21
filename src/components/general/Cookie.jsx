@@ -14,13 +14,13 @@ export default function () {
 			id="cookie-component"
 			class="w-screen h-screen px-4 fixed top-0 left-0 bg-zinc-800/70 flex justify-center items-center z-50 backdrop-blur"
 		>
-			<div class="bg-white text-black md:max-w-[420px] w-full p-4 text-center rounded-sm flex flex-col gap-y-2 relative">
+			<div class="bg-white dark:bg-zinc-900 text-black dark:text-white border border-transparent dark:border-zinc-800 md:max-w-[420px] w-full p-5 text-center rounded-lg shadow-xl flex flex-col gap-y-2 relative">
 				<svg
 					id="cookie-decline"
 					class="absolute top-2 right-2 cursor-pointer hover:opacity-70 transition"
 					xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
-					fill="#000000"
+					fill="currentColor"
 					height="16px"
 					width="16px"
 					version="1.1"
@@ -59,7 +59,7 @@ export default function () {
 
 				<button
 					id="cookie-accept"
-					class="px-6 py-2 rounded-sm bg-zinc-800 hover:bg-zinc-600 transition text-white w-full"
+					class="px-6 py-2 rounded-md bg-zinc-800 hover:bg-zinc-600 dark:bg-zinc-700 dark:hover:bg-zinc-600 transition text-white w-full cursor-pointer"
 					onClick={acceptCookie}
 				>
 					Accept

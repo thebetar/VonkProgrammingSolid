@@ -11,7 +11,7 @@ export default function SkillsPreview() {
 			<div class="w-full mt-6 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-4 md:gap-x-8 gap-x-2">
 				<For each={skills.filter(skill => skill.featured)}>
 					{item => (
-						<div class="md:my-4 my-1 flex md:flex-row flex-col gap-1 justify-between items-center dark:border-zinc-300 border-zinc-600 border md:p-4 px-2 py-3 dark:text-white text-black no-underline md:rounded rounded-lg dark:hover:bg-zinc-900 hover:bg-zinc-200 transition">
+						<div class="md:my-4 my-1 flex md:flex-row flex-col gap-1 justify-between items-center border border-zinc-200 dark:border-zinc-800 hover:border-cyan-300 dark:hover:border-cyan-800 md:p-4 px-2 py-3 dark:text-white text-black no-underline rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition">
 							<div class="flex md:gap-2 gap-1 md:flex-row flex-col items-center">
 								<div class="md:w-10 md:h-10 w-6 h-6 rounded-full bg-zinc-300 dark:bg-zinc-100 flex justify-center items-center">
 									<img
