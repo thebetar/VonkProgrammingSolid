@@ -1,5 +1,3 @@
-import { createEffect, onCleanup } from 'solid-js';
-
 import { info } from '@/data/info';
 import { experience } from '@/data/featured-experience';
 import { education } from '@/data/featured-education';
@@ -12,21 +10,7 @@ import SkillsPreview from '@/components/homepage/SkillsPreview';
 import ExperiencesPreview from '@/components/homepage/ExperiencesPreview';
 import ProjectsPreview from '@/components/homepage/ProjectsPreview';
 
-let scrollListener;
-
 export default function Homepage() {
-	createEffect(() => {
-		scrollListener = () => {
-			if (window.location.hash) {
-				history.replaceState(null, null, ' ');
-			}
-		};
-	});
-
-	onCleanup(() => {
-		window.removeEventListener('scroll', scrollListener);
-	});
-
 	const homeJsonLd = {
 		'@context': 'https://schema.org',
 		'@graph': [

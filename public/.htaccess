@@ -19,7 +19,7 @@ ServerSignature Off
       # Security Headers
       Header unset Server
       Header unset X-Powered-By
-      Header set Content-Security-Policy "default-src 'self' 'unsafe-inline'; img-src * data:; style-src 'self' 'unsafe-inline' data:; style-src-elem 'self' 'unsafe-inline' data:; font-src 'self' data:; script-src-elem 'self' 'unsafe-inline' www.googletagmanager.com cdn.jsdelivr.net; connect-src 'self' https://api.ipify.org qcginwkfkawkktlmdiwa.supabase.co;"
+      Header set Content-Security-Policy "default-src 'self' 'unsafe-inline'; img-src * data:; style-src 'self' 'unsafe-inline' data:; style-src-elem 'self' 'unsafe-inline' data:; font-src 'self' data:; script-src-elem 'self' 'unsafe-inline' cdn.jsdelivr.net; connect-src 'self' https://api.ipify.org qcginwkfkawkktlmdiwa.supabase.co;"
 
       # ----------------------------------------------------------------------
       # | Compression / Pre-compressed files serving                          |
@@ -87,10 +87,18 @@ ServerSignature Off
             Header append Vary Accept-Encoding
       </FilesMatch>
 
-      # Long Cache (1 Year) for immutable assets (images, fonts, bundles)
+      # Static files that keep the same name when they change (images, icons, video,
+      # PDFs, fonts): cache for a week and revalidate in the background, so a
+      # replaced logo or photo reaches returning visitors within days, not a year
+      <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|ico|ttf|woff2?|svg|svg\.gz|svg\.br|mp4|webm|pdf|js|js\.gz|js\.br|css|css\.gz|css\.br)$">
+            Header set Cache-Control "public, max-age=604800, stale-while-revalidate=86400"
+      </FilesMatch>
+
+      # Vite's bundles have a content hash in their name (index-2-bpxk1L.js), so a new
+      # version is a new URL: cache those for a year. Must come after the rule above.
       # Added .br and .gz extensions here so the cache applies to the compressed versions too
-      <FilesMatch "\.(jpg|jpeg|png|webp|ttf|svg|svg\.gz|svg\.br|js|js\.gz|js\.br|css|css\.gz|css\.br)$">
-            Header append Cache-Control "public, max-age=31536000, immutable"
+      <FilesMatch "-[A-Za-z0-9_-]{8}\.(js|css)(\.gz|\.br)?$">
+            Header set Cache-Control "public, max-age=31536000, immutable"
       </FilesMatch>
 
       # Short Cache / No Cache for HTML (Entry points)

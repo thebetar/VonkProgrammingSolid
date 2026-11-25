@@ -26,10 +26,8 @@ export default [
 	},
 	{
 		ignores: [
-			'tailwind.config.js',
 			'vite.config.js',
 			'postcss.config.js',
-			'public/googletagmanager.js',
 			'dist/**/*',
 			'scripts/*.js'
 		],
