@@ -33,7 +33,7 @@ export default function Hero({ short = false }) {
 				<div class="mt-2 flex gap-2 lg:flex-row flex-col">
 					<a
 						href="/contact"
-						class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 dark:bg-zinc-800 bg-zinc-300 dark:hover:bg-zinc-800/80 hover:bg-zinc-400/60"
+						class="px-3 py-2 lg:w-fit w-full rounded-md transition-colors flex items-center justify-center gap-x-2 bg-cyan-700 hover:bg-cyan-800 dark:hover:bg-cyan-600 text-white font-semibold"
 						aria-label="Send an email"
 					>
 						<MailSvg width={16} height={16} />

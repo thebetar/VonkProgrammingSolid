@@ -41,7 +41,7 @@ export default function Layout({ slot }) {
 	}
 
 	return (
-		<div class="md:pb-0 pb-12">
+		<div class="md:pb-0 pb-16">
 			<Navbar />
 
 			<main class="container">

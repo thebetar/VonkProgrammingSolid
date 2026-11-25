@@ -64,7 +64,9 @@ export default function ContactCard() {
 
 				<div class="flex flex-col gap-4 w-full text-sm">
 					<div class="flex items-center gap-3">
-						<MailSvg width={22} height={22} color="#0e7490" />
+						<span class="flex text-cyan-700 dark:text-cyan-400">
+							<MailSvg width={22} height={22} />
+						</span>
 						<a
 							href={info.socialMedia.email}
 							class="text-zinc-900 dark:text-white underline break-all hover:text-cyan-700 dark:hover:text-cyan-400 transition-colors"
@@ -73,7 +75,9 @@ export default function ContactCard() {
 						</a>
 					</div>
 					<div class="flex items-center gap-3">
-						<LinkedInSvg width={22} height={22} color="#0e7490" />
+						<span class="flex text-cyan-700 dark:text-cyan-400">
+							<LinkedInSvg width={22} height={22} />
+						</span>
 						<a
 							href={info.socialMedia.linkedin}
 							class="text-zinc-900 dark:text-white underline break-all hover:text-cyan-700 dark:hover:text-cyan-400 transition-colors"

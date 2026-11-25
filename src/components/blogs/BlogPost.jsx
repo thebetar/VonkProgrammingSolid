@@ -121,7 +121,7 @@ export default function BlogPost({ id, title, date, tags, keywords, content }) {
 					<div>|</div>
 
 					<div class="flex items-center gap-2">
-						<span class="text-sm">👁️ {viewCount()} views</span>
+						<span class="text-sm">👁️ {viewCount()} {viewCount() === 1 ? 'view' : 'views'}</span>
 					</div>
 
 					<div>|</div>
@@ -135,7 +135,7 @@ export default function BlogPost({ id, title, date, tags, keywords, content }) {
 							})
 						}
 					>
-						<span class="text-sm">🗨️ {comments().length} comments</span>
+						<span class="text-sm">🗨️ {comments().length} {comments().length === 1 ? 'comment' : 'comments'}</span>
 					</div>
 				</div>
 
