@@ -5,11 +5,12 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-blog-pages.mjs",
     "serve": "vite preview",
     "lint": "eslint .",
     "generate-sitemap": "node scripts/generate-sitemap.mjs",
-    "generate-static-content": "node scripts/generate-static-content.mjs"
+    "generate-static-content": "node scripts/generate-static-content.mjs",
+    "generate-blog-pages": "node scripts/generate-blog-pages.mjs"
   },
   "license": "MIT",
   "devDependencies": {
