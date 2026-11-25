@@ -65,7 +65,7 @@ export const info = {
 			id: 'hero',
 			url: '/',
 			title: 'Home',
-			mobile: false,
+			mobile: true,
 			icon: (
 				<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class={iconStyle}>
 					<path

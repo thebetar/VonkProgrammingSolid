@@ -10,7 +10,7 @@ export default function Blog() {
 
 	return (
 		<section id="blogs" class="flex items-start justify-between flex-col sm:flex-row dark:text-white">
-			<h2 class="w-[15rem] sm:mt-16 mt-24 uppercase sm:text-2xl text-3xl font-semibold">Blog</h2>
+			<h2 class="w-[15rem] mt-16 uppercase text-2xl font-semibold">Blog</h2>
 
 			<div class="w-full">
 				<For each={blogs.slice(0, 4)}>
