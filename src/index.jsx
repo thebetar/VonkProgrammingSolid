@@ -5,6 +5,7 @@ import { Router } from '@solidjs/router';
 import { MetaProvider } from '@solidjs/meta';
 
 import '@/index.css';
+import { hasCookieConsent, loadTracker } from '@/utils/tracker';
 
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -15,6 +16,10 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 	throw new Error(
 		'Root element not found. Did you forget to add it to your index.html? Or maybe the id attribute got misspelled?',
 	);
+}
+
+if (hasCookieConsent()) {
+	loadTracker();
 }
 
 // Clear the root element to remove fallback content
