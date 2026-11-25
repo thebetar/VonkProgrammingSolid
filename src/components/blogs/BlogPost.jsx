@@ -1,10 +1,21 @@
-import { createEffect, createSignal, For } from 'solid-js';
+import { createEffect, createSignal, For, Show } from 'solid-js';
 
 import Share from '@/components/blogs/Share';
 import Comment from '@/components/blogs/Comment';
-import { getTagColor } from '@/data/blogs';
+import { getTagColor } from '@/data/blog-tags';
 
-export default function BlogPost({ id, title, date, tags, keywords, content }) {
+// Each post's content is its own chunk, so a post only downloads its own text
+const contentLoaders = Object.fromEntries(
+	Object.entries(import.meta.glob('@/data/blog-content/*.jsx')).map(([file, load]) => [
+		file.split('/').pop().replace('.jsx', ''),
+		load,
+	]),
+);
+
+export default function BlogPost({ id, title, date, tags, keywords, link }) {
+	const [content, setContent] = createSignal(null);
+	contentLoaders[link.split('/').pop()]?.().then(module => setContent(() => module.content));
+
 	const [viewCount, setViewCount] = createSignal(1);
 	const [comments, setComments] = createSignal([]);
 
@@ -160,7 +171,9 @@ export default function BlogPost({ id, title, date, tags, keywords, content }) {
 					</For>
 				</div>
 			</div>
-			<div class="blog-post max-w-3xl mx-auto mt-1 mb-10">{content}</div>
+			<div class="blog-post max-w-3xl mx-auto mt-1 mb-10" classList={{ 'min-h-screen': !content() }}>
+				<Show when={content()}>{content()()}</Show>
+			</div>
 			{showComment() ? (
 				<Comment
 					blogId={id}
