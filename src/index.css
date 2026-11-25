@@ -192,7 +192,8 @@ h6 {
 	}
 }
 
-.blog-post img {
+.blog-post img,
+.blog-post video {
 	margin-top: 16px !important;
 	margin-left: auto !important;
 	margin-right: auto !important;

@@ -30,6 +30,9 @@ export const blogs = [
           <img
             src="/assets/images/blogs/mcp-tools/mcp-hub.webp"
             alt="You talk to your AI agent, which connects to your e-mail, chat, task board, code, files and meetings using MCP"
+            width="1600"
+            height="900"
+            fetchpriority="high"
           />
         </p>
 
@@ -58,6 +61,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/mcp-tools/before-after.webp"
             alt="Before MCP you copy the message and user story yourself, with MCP your agent reads them for you"
+            width="1600"
+            height="800"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -92,6 +99,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/mcp-tools/tool-menu.webp"
             alt="An e-mail MCP server offering the tools read_email, search_emails, create_draft and send_email"
+            width="1600"
+            height="960"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -209,6 +220,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/mcp-tools/meeting-flow.webp"
             alt="A meeting becomes a transcript and a summary, which your agent turns into tickets and a draft follow up e-mail"
+            width="1600"
+            height="560"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -352,6 +367,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/mcp-tools/permissions.webp"
             alt="Permissions for an e-mail connection that can create drafts but not send, and a read-only task board connection"
+            width="1600"
+            height="800"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -469,6 +488,9 @@ export const blogs = [
           <img
             src="/assets/images/blogs/black-box/open-black-box.webp"
             alt="Opening the Black Box"
+            width="1408"
+            height="768"
+            fetchpriority="high"
           />
         </p>
 
@@ -576,6 +598,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/black-box/vonk-utils-github.webp"
             alt="Vonk Utils on GitHub"
+            width="938"
+            height="753"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -613,6 +639,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/black-box/top10-languages-over-time.webp"
             alt="Top programming languages on GitHub over time"
+            width="1361"
+            height="981"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -655,6 +685,9 @@ export const blogs = [
           <img
             src="/assets/images/blogs/password-policy/secure.webp"
             alt="Secure"
+            width="1600"
+            height="1068"
+            fetchpriority="high"
           />
         </p>
         <p>
@@ -695,6 +728,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/password-policy/password-generator.webp"
             alt="Password generator"
+            width="664"
+            height="716"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -743,6 +780,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/password-policy/proton-pass.webp"
             alt="Password manager"
+            width="1399"
+            height="1174"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -850,6 +891,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/password-policy/secure.webp"
             alt="Secure"
+            width="1600"
+            height="1068"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -939,6 +984,8 @@ export const blogs = [
           <img
             src="/assets/images/blogs/basic-internet-terms/network-diagram.webp"
             alt="Network diagram"
+            width="931"
+            height="595"
           />
         </p>
 
@@ -1013,6 +1060,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/basic-internet-terms/ip-address.webp"
             alt="IP address with bits shown"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -1042,6 +1093,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/basic-internet-terms/goudengids.webp"
             alt="Goudengids"
+            width="1024"
+            height="768"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>Old phonebook from the Netherlands</blockquote>
@@ -1087,6 +1142,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/basic-internet-terms/caeser-cipher.webp"
             alt="Caesar Cipher Illustration"
+            width="1280"
+            height="852"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -1129,6 +1188,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/basic-internet-terms/vpn-diagram.webp"
             alt="VPN illustration"
+            width="1600"
+            height="2080"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -1243,6 +1306,8 @@ export const blogs = [
           <img
             src="/assets/images/blogs/agentic-coding/agents-md.png"
             alt="Agents.md illustration"
+            width="1122"
+            height="518"
           />
         </p>
 
@@ -1274,6 +1339,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/agentic-coding/unit-testing.png"
             alt="Unit testing illustration"
+            width="1600"
+            height="421"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -1353,6 +1422,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/agentic-coding/side-projects.webp"
             alt="Github public side projects"
+            width="854"
+            height="863"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -1440,6 +1513,8 @@ export const blogs = [
           <img
             src="/assets/images/blogs/european-cloud/nos-article.webp"
             alt="Dutch NOS article about European Cloud"
+            width="947"
+            height="826"
           />
         </p>
 
@@ -1506,6 +1581,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/european-cloud/big-three.webp"
             alt="The big three cloud providers"
+            width="929"
+            height="523"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -1618,6 +1697,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/european-cloud/european-providers.webp"
             alt="European cloud providers"
+            width="1000"
+            height="276"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -1747,6 +1830,8 @@ export const blogs = [
             src="/assets/images/blogs/ai-unit-tests/clean-code.webp"
             alt="Clean Code book cover"
             class="max-w-sm"
+            width="1600"
+            height="2120"
           />
         </p>
         <blockquote>
@@ -1901,6 +1986,8 @@ export const blogs = [
           <img
             src="/assets/images/products/monitoring.webp"
             alt="Uptime Kuma monitoring dashboard"
+            width="1024"
+            height="641"
           />
         </p>
         <blockquote>
@@ -1928,6 +2015,10 @@ export const blogs = [
           <img
             src="/assets/images/products/tracking-report.webp"
             alt="Matomo analytics dashboard"
+            width="780"
+            height="1043"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -1952,6 +2043,10 @@ export const blogs = [
           <img
             src="/assets/images/products/n8n.webp"
             alt="n8n workflow automation dashboard"
+            width="1600"
+            height="1202"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -1978,6 +2073,10 @@ export const blogs = [
           <img
             src="/assets/images/products/gitea.webp"
             alt="Gitea backup dashboard showing repository backups"
+            width="1600"
+            height="813"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -2028,6 +2127,10 @@ export const blogs = [
           <img
             src="/assets/images/products/portainer.webp"
             alt="Portainer dashboard showing container orchestration"
+            width="1600"
+            height="866"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -2142,6 +2245,8 @@ export const blogs = [
             src="/assets/images/blogs/spectrum-sensing/wifi-scan.webp"
             alt="Wi-Fi spectrum scan from residential apartment"
             class="max-w-md"
+            width="951"
+            height="1500"
           />
         </p>
         <blockquote>
@@ -2172,6 +2277,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/spectrum-sensing/spectrum-example.webp"
             alt="Diagram showing transmission over Wi-Fi channel 7, 8, 9 and 10 centering around 8"
+            width="610"
+            height="470"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -2227,6 +2336,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/spectrum-sensing/model-result.webp"
             alt="Image showing model classification result based on data points"
+            width="1286"
+            height="564"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -2319,6 +2432,8 @@ export const blogs = [
             src="/assets/images/blogs/ai-thoughts/intro.webp"
             alt="AI growth"
             class="max-w-md"
+            width="1536"
+            height="1024"
           />
         </div>
 
@@ -2375,6 +2490,10 @@ export const blogs = [
         <img
           src="/assets/images/blogs/ai-thoughts/ai-translate.webp"
           alt="AI translation"
+          width="1592"
+          height="1077"
+          loading="lazy"
+          decoding="async"
         />
 
         <h2 id="the-cons">The cons</h2>
@@ -2419,6 +2538,10 @@ export const blogs = [
         <img
           src="/assets/images/blogs/ai-thoughts/unitree-robot.webp"
           alt="Unitree robot"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
         />
 
         <p>
@@ -2443,9 +2566,15 @@ export const blogs = [
           foreseeable future.
         </p>
 
-        <img
-          src="/assets/images/blogs/ai-thoughts/gemini-google-sheets.gif"
-          alt="Gemini Google Sheets"
+        <video
+          src="/assets/images/blogs/ai-thoughts/gemini-google-sheets.mp4"
+          aria-label="Gemini Google Sheets"
+          width="1386"
+          height="910"
+          autoplay
+          muted
+          loop
+          playsinline
         />
 
         <h2 id="conclusion">Conclusion</h2>
@@ -2555,6 +2684,8 @@ export const blogs = [
           <img
             src="https://cdn.nos.nl/image/2023/02/03/939664/1024x576a.jpg"
             alt="Big Tech"
+            width="1024"
+            height="576"
           />
         </p>
 
@@ -2604,6 +2735,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/taking-control/raspberry-pi-zero.webp"
             alt="Raspberry Pi Zero 2W"
+            width="1500"
+            height="1000"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -2658,6 +2793,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/taking-control/n8n-example.png"
             alt="N8N workflow example"
+            width="1167"
+            height="414"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -2917,6 +3056,10 @@ export const blogs = [
         <img
           src="/assets/images/blogs/taking-control/terminal.png"
           alt="Terminal"
+          width="545"
+          height="27"
+          loading="lazy"
+          decoding="async"
         />
 
         <blockquote>
@@ -3053,6 +3196,10 @@ export const blogs = [
           <img
             src="/assets/images/blogs/taking-control/n8n-website.png"
             alt="n8n website"
+            width="1600"
+            height="798"
+            loading="lazy"
+            decoding="async"
           />
         </p>
 
@@ -3176,6 +3323,8 @@ export const blogs = [
           <img
             src="https://www.mathsisfun.com/algebra/images/matrix-multiply-a.svg"
             alt="Matrix multiplication step 2"
+            width="360"
+            height="123"
           />
         </p>
         <blockquote>
@@ -3190,6 +3339,10 @@ export const blogs = [
           <img
             src="https://www.mathsisfun.com/algebra/images/matrix-multiply-b.svg"
             alt="Matrix multiplication step 2"
+            width="360"
+            height="103"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -3217,6 +3370,10 @@ export const blogs = [
             src="/assets/images/blogs/matrices/linear-transform.png"
             alt="Linear transformation example"
             class="max-w-md"
+            width="1360"
+            height="1360"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -3434,6 +3591,8 @@ export const blogs = [
             src="/assets/images/blogs/iot-hobby/aliexpress-order.png"
             alt="Aliexpress order"
             aria-label="Aliexpress order"
+            width="353"
+            height="662"
           />
         </p>
         <blockquote>Figure 1: Aliexpress order</blockquote>
@@ -3485,6 +3644,10 @@ export const blogs = [
             src="/assets/images/blogs/iot-hobby/led-circuit.png"
             alt="LED wiring"
             aria-label="LED wiring"
+            width="1093"
+            height="307"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>Figure 2: LED wiring</blockquote>
@@ -3503,6 +3666,10 @@ export const blogs = [
             src="/assets/images/blogs/iot-hobby/led-code.png"
             alt="LED code"
             aria-label="LED code"
+            width="421"
+            height="229"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>Figure 3: LED code</blockquote>
@@ -3535,6 +3702,10 @@ export const blogs = [
             src="/assets/images/blogs/iot-hobby/full-circuit.png"
             alt="Full circuit with LED and DHT sensor"
             aria-label="Full circuit with LED and DHT sensor"
+            width="914"
+            height="318"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>Figure 4: Full circuit with LED and DHT sensor</blockquote>
@@ -3594,6 +3765,10 @@ export const blogs = [
             src="/assets/images/blogs/iot-hobby/full-code.png"
             alt="Full code with DHT sensor and LED"
             aria-label="Full code with DHT sensor and LED"
+            width="559"
+            height="512"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>Figure 5: Full code with DHT sensor and LED</blockquote>
@@ -3619,6 +3794,10 @@ export const blogs = [
             src="/assets/images/blogs/iot-hobby/final-project.webp"
             alt="Final project with LED and DHT sensor"
             aria-label="Final project with LED and DHT sensor"
+            width="1000"
+            height="750"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>Figure 6: Final project with LED and DHT sensor</blockquote>
@@ -3639,6 +3818,10 @@ export const blogs = [
             src="/assets/images/blogs/iot-hobby/dashboard.webp"
             alt="Dashboard with all kinds of sensors"
             aria-label="Dashboard with all kinds of sensors"
+            width="1000"
+            height="733"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>Figure 7: Dashboard with all kinds of sensors</blockquote>
@@ -3730,6 +3913,8 @@ export const blogs = [
           <img
             src="https://news.microsoft.com/wp-content/uploads/prod/sites/58/2021/10/Wondows-11-Start.jpg"
             alt="Wondows-11-Start.jpg|700"
+            width="2100"
+            height="1181"
           />
         </p>
         <blockquote>
@@ -3760,6 +3945,10 @@ export const blogs = [
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Ubuntu_25.04_Plucky_Puffin_Desktop_English.png"
             alt="Ubuntu_25.04_Plucky_Puffin_Desktop_English.png|700"
+            width="1920"
+            height="1080"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -3819,6 +4008,10 @@ export const blogs = [
           <img
             src="https://regolith-desktop.com/images/v-tour/regolith-empty.png"
             alt="regolith-empty.png|700"
+            width="1280"
+            height="768"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -3845,6 +4038,10 @@ export const blogs = [
           <img
             src="https://512pixels.net/wp-content/uploads/2020/11/Big-Sur-About-This-Mac-scaled-1.jpg"
             alt="Big-Sur-About-This-Mac-scaled-1.jpg|700"
+            width="2560"
+            height="1600"
+            loading="lazy"
+            decoding="async"
           />
         </p>
         <blockquote>
@@ -4292,6 +4489,8 @@ export const blogs = [
           <img
             src="/assets/images/blogs/neural-networks/simple_neural_network.jpg"
             alt="Simple Neural Network"
+            width="791"
+            height="388"
           />
         </p>
         <h2 id="-what-can-be-done-">
