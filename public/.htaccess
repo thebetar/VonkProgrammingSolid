@@ -35,6 +35,13 @@ ServerSignature Off
             RewriteRule ^products(/.*)?$ / [L,R=301]
             RewriteRule ^contact/.+$ /contact [L,R=301]
 
+            # Blog posts get a pre-rendered copy of index.html with the post's own title,
+            # description and image (scripts/generate-blog-pages.mjs), so link previews on
+            # LinkedIn, Slack and X show the post instead of the homepage. Posts without
+            # a generated page fall through to the SPA fallback below.
+            RewriteCond %{DOCUMENT_ROOT}/blog-pages/$1.html -f
+            RewriteRule ^blogs/([a-z0-9-]+)/?$ /blog-pages/$1.html [L]
+
             # 2. SERVE BROTLI (Priority)
             # Check if browser accepts br AND if the .br file exists on disk
             RewriteCond "%{HTTP:Accept-encoding}" "br"
